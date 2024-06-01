@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding:0;
+}
+main {
+    margin: 0 5%;
+    padding-top: 2.5%;
+}
+.resource-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5%;
+}
+
+.topics-container {
+    padding-top: 1.5%;
+    padding-left: 2.5%;
+    display: flex
+}
+.topics-container > .topic{
+    flex-basis: 15%;
+    border: 1px solid black;
+}
+.topics-container > .topic > img {
+    width: 100%;
+}
+a:focus,a:active{
+    box-shadow: 0 0 13px 13px lightseagreen;
+}
+.hide {
+    display: none;
+}

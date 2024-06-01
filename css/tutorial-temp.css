@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0 ;
+    padding: 0;
+    
+}
+body {
+    margin: 0 .5%;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+header > .tutorial{
+    display: flex;
+    flex-direction: column;
+}
+header > .tutorial >img {
+    max-height: 100px;
+}
+nav:active,nav:focus,
+main>aside:active,main>aside:focus{
+    box-shadow: 0 0 4px 5px lightseagreen;
+}
+
+#targetDiv:active,#targetDiv:focus{
+    /* border-left: 2px solid lightseagreen; */
+    box-shadow:0 0 0 12px solid lightseagreen;
+}
+nav{
+    border-bottom: 1px solid black;
+}
+main {
+    display: flex;
+    
+}
+main > aside {
+    flex-basis: 15%;
+    min-width: 15vmax;
+    border-right: 1px solid black;
+    height: 100vh;
+}
+ul.sections {
+    margin-top: 5%;
+    margin-left: 5%;
+    list-style: none
+}
+ul.sections a {
+    text-decoration: none;
+}
+ul.sections > li > ul {
+    margin-top: 2.5%;
+    margin-left: 5%;
+    list-style-type: none;
+}
+ul.sections > li > ul > li{
+    margin: 2.5% 0 ;
+    /* margin-left: 5%; */
+    list-style-type: none;
+}
+#targetDiv{
+    width: 100%;
+    margin: 0;
+    padding:0
+}
+.hide {
+    display: none;
+}
