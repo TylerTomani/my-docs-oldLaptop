@@ -6,23 +6,31 @@ main {
     margin: 0 5%;
     padding-top: 2.5%;
 }
+main h2 {
+    margin: 1% 0;
+}
 .resource-container {
     display: flex;
     flex-direction: column;
-    padding-top: 2.5%;
+    padding-top: 1.5%;
 }
 
 .topics-container {
+    margin-top: 1.5%;
     padding-top: 1.5%;
     padding-left: 2.5%;
-    display: flex
+    display: flex;
+    gap: 1rem;
 }
 .topics-container > .topic{
     flex-basis: 15%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
 .topics-container > .topic > img {
     width: 100%;
+    align-self: flex-end;
 }
 a:focus,a:active{
     box-shadow: 0 0 13px 13px lightseagreen;
@@ -30,3 +38,4 @@ a:focus,a:active{
 .hide {
     display: none;
 }
+

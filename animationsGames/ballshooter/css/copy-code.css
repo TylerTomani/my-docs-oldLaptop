@@ -1,0 +1,22 @@
+.code-container {
+    /* overflow: scroll */
+}
+.code-container > .copy-code{
+    /* overflow: scroll */
+}
+.copy-code {
+    font-size: .9rem;
+}
+.copied {
+    border: 4px solid whitesmoke;
+    transform: scale(1.06);
+    transition: all .95s;
+}
+.decopied {
+    border: none;
+    box-shadow: none;
+    /* background-color: black; */
+    transform: scale(1.0);
+    transition: all .33s;
+    transition: all 1.5s;
+}

@@ -1,0 +1,83 @@
+<h1>02-01-startScrapy (part 4 29:00mins)</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                Aftering installing and creating, Create a <strong><q>Spider</q></strong>,
+                change into the <strong>spiders</strong> directory 
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+cd bookscraper/bookscraper/spider
+                </pre>
+            </div>
+        </div>
+        <div class="step-img">
+            <img src="/scrapy/01-scrapy-freeCodeCamp/sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step-col">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <p>
+                Make a spider, go to this site to scrape, 
+                <br>
+                <a target="_blank" class="gr" href="https://books.toscrape.com/">https://books.toscrape.com/</a>
+                Use the <code class="m">genspider</code> command followed by <code class="dc">&lt;name></code> followed by <code class="gr">&lturl></code>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+scrapy <span class="m">genspider</span> <span class="dc">bookspider</span> <span class="gr">https://books.toscrape.com/</span>
+                </pre>
+            </div>
+            <p> 
+                The spider will be created in the <code>spiders</code> directory
+            </p>
+        </div>
+        <div class="img-2-container">
+            <div class="step-img">
+                <img src="/scrapy/01-scrapy-freeCodeCamp/sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-02.png">
+            </div>
+            <div class="step-img">
+                <img
+                    src="/scrapy/01-scrapy-freeCodeCamp/sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-02b.png">
+            </div>
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                &emsp;The <code>allowed_domains</code> [] list will allow us to crawl, while limiting the amount of urls to connect to.
+                This restricts the crawling to the allowed_domains websites only.
+            </p>
+            <p>
+                &emsp;The <code>start_urls</code> is obviously the starting  urls.
+            </p>
+        </div>
+        <div class="step-img">
+            <img src="/scrapy/01-scrapy-freeCodeCamp/sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-03.png">
+        </div>
+    </div>
+    <!-- 01-04 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>04</h4>
+            <p>
+                The <code class="m">response</code> in the <code class="gr">parse</code> method will be returned from the 
+                <code>fetch</code> command seen in next lesson
+            </p>
+        </div>
+        <div class="step-img">
+            <img src="/scrapy/01-scrapy-freeCodeCamp/sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-04.png">
+        </div>
+    </div>
+</div>
+<footer>
+    <button tabindex="1" id="nxtLesson">next lesson</button>
+</footer>
+

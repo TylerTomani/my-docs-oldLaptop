@@ -1,0 +1,86 @@
+* {
+    margin: 0; padding: 0;
+}
+body > header {
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 2.5% !important;    
+    /* padding: .5% 4.5%; */
+    /* gap: 15%; */
+}
+header > #homelink,
+header > #pageLogoLinks{
+    /* flex-basis: 30%; */
+    /* border: 1px solid black; */
+}
+body>header>#pageTitle {
+    /* border: 1px solid blue; */
+    flex-basis: 60%;
+    align-items: flex-start;
+}
+body>header>#pageLogoLinks {
+    display: flex;
+    flex-direction: column;
+}
+body > header>#pageLogoLinks>img {max-height: 90px;}
+header a {text-wrap: nowrap;}
+
+body>header>#pageTitle>h1 {
+    font-size: 1.75rem;
+    align-self: flex-start;
+    border: 1px soli red;
+}
+body>header>#pageTitle>h2 {
+    font-size: .5rem;
+    align-self: flex-start;
+    border: 1px soli red;
+}
+
+body>header> #pagelogolinks>img {
+    flex-basis: 5%;
+    max-width: 200px;
+    align-self: flex-end;
+    max-height: 124px;
+    max-height: 70px;
+    margin-top: 2.5%;
+}
+#mainHomeLink:active,#mainHomeLink:focus{box-shadow: 0px 0px 10px 5px orange;}
+#homelink:active,
+#homelink:focus {
+    box-shadow: 2px 0 8px 6px orange;
+}
+@media screen and (max-width: 680px){
+    body > header > .home-link > #homeLink {
+        font-size: .7rem;
+        white-space: nowrap
+    }
+    body > header > .title-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* padding-left: 5%; */
+        align-items: center;
+    }
+    body > header > .title-container > h1{
+        font-size: .5rem !important;
+        padding-left: 5%;
+        align-self:  flex-start;
+        /* display: none; */
+    }
+    body > header > .title-container > h2 {
+        width: 80%;
+        white-space: wrap
+    }
+    body > header > #pageLogoLinks > img {
+        max-height: 60px !important;
+        /* display: none; */
+    }
+}
+@media screen and (max-width: 680px) {
+    body > header >.title-container > h1,
+    body > header >.title-container > h2{
+        display: none;
+    }
+}

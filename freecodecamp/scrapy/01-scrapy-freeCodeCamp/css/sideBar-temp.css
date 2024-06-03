@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 96% !important;
+}
+:root {
+    --asideMaxWith:25vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+.nav-main{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+    padding: .25%;
+    padding-left;: .25%
+}
+.main-container {
+    display: flex;
+    /* margin: 0 .75%; */
+    height: 100vh;
+}
+.main-container> .aside-main {
+    border: 2px dashed black;
+    /* width: var(--asideMaxWith); */
+    position: sticky;
+    top: 0;
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+    padding-top: .85%;
+    padding-left: .5%;
+
+}
+.aside-main > section {
+    margin-bottom: 7.5%;
+}
+.aside-main > section > a.dropSection{
+    text-decoration: none;
+}
+.aside-main > section > ul {
+    margin-left: 5%;
+    list-style: none;
+    
+}
+
+.aside-main > section > ul li{
+    white-space: wrap;
+}
+.aside-main > section > ul > li{
+    margin: 2.5% 0;
+}
+.aside-main > section > ul > li > a{
+    text-decoration: none;
+
+}
+.aside-main > section > ul > li > ul{
+    margin-left: 15%;
+    text-wrap: nowrap;
+    list-style: square
+}
+
+
+
+
+.main-container>.target-div-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#navMain:active,
+#navMain:focus,
+#asideMain:focus,
+#targetDivContainer:active    {box-shadow: 2px 0 8px 6px orange;}
+
+.rbshadow:focus                {box-shadow: 2px 0 8px 6px red !important;}
+#mainTargetDivContainer:focus {
+    box-shadow: 2px 1px 8px 6px orange;
+    position: relative;
+    z-index: 1;
+}
+.hide { display: none !important;}
+.show {display: inline-block;}
+.hide-aside {
+    width: 0 !important;
+    opacity: 0;
+    transition: width 350ms;
+}
+.show-aside {
+    width: var(--asideMaxWith);
+    opacity: 1;
+    transition: all 500ms;
+}
+@media screen and (max-width:1000px) {
+    .aside-main {
+        width: 25vmax !important;
+        min-width: 22vmax !important;
+        font-size: 1.2rem;
+    }
+    .aside-main section  {
+        padding-top: 2.5%;
+        margin: 2.5%{};
+        font-size: 120% !important;
+    }
+    .aside-main section ul{
+        /* font-size: 12.5rem !important; */
+    
+    }
+}

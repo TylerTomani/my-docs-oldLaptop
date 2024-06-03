@@ -1,0 +1,32 @@
+.m { color:magenta}
+.b { color:blue}
+.lsb { color: lightskyblue}
+.l { color: lime}
+.lg { color: lightgreen}
+.mg { color: mediumspringgreen}
+.msg { color: mediumseagreen}
+/* .r { color: red} */
+.r { 
+    color: rgb(238, 73, 73);
+    text-shadow: #FC0 1px 0 10px;
+}
+.sal{color: salmon;}
+.white {color: white;}
+.y {
+    color: #c0d375;
+    text-shadow: 2px 2px 39px whitesmoke;
+    font-weight: 900;
+}
+.dy {
+    color: #c0d375 !important;
+    text-shadow: 2px 2px 39px whitesmoke;
+    font-weight: 900;
+}
+.dy-txt {
+    color: #e8e03f !important;
+    text-shadow: 2px 2px 9px black;
+    font-weight: 900;
+
+}
+.wbs1{box-shadow: 0 0 2px 2px white;}
+

@@ -3,7 +3,7 @@
     padding:0;
 }
 main {
-    /* margin: 0 5%; */
+    margin: 0 5%;
     padding-top: 2.5%;
 }
 .resource-container {
@@ -18,6 +18,11 @@ main {
     display: flex
 }
 .tutorials-container > .tutorial{
+    flex-basis: 25%;
+    border: 1px solid black;
+}
+.tutorials-container > .tutorial >h3{
+    font-size: 1rem;
     flex-basis: 15%;
     border: 1px solid black;
 }
