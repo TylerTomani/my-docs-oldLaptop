@@ -287,8 +287,8 @@ function handleFocus(e){
     if(sectionsFocused){
         if (letter === 'p') {
             let h4a = sectionsArr[iSection].querySelector('h4 > a')
-            console.log(h4a)
-            console.log(iSection)
+            
+            
             h4a.focus()
             sections[iSection].querySelector('h4').focus();
             iSection = (iSection + 1) % sections.length;

@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 96% !important;
 }
 :root {
     --asideMaxWith:25vw;
@@ -20,7 +19,7 @@ main {
     border-top: 1px solid blue;
     border-bottom: 1px solid blue;
     padding: .25%;
-    padding-left;: .25%
+    padding-left: .25%;
 }
 .main-container {
     display: flex;
@@ -41,6 +40,7 @@ main {
 }
 .aside-main > section {
     margin-bottom: 7.5%;
+    font-size: 1rem !important;
 }
 .aside-main > section > a.dropSection{
     text-decoration: none;
@@ -100,18 +100,18 @@ main {
     transition: all 500ms;
 }
 @media screen and (max-width:1000px) {
+    
     .aside-main {
         width: 25vmax !important;
         min-width: 22vmax !important;
-        font-size: 1.2rem;
     }
     .aside-main section  {
         padding-top: 2.5%;
-        margin: 2.5%{};
-        font-size: 120% !important;
+        margin: 2.5%;
+        /* font-size: 2rem !important; */
     }
     .aside-main section ul{
-        /* font-size: 12.5rem !important; */
+        /* font-size: 2rem !important; */
     
     }
 }

@@ -14,7 +14,7 @@ const lessons = document.querySelectorAll('.sub-section > li > a')
 const lessonsArr = Array.from(lessons)
 const links = document.querySelectorAll('.sections a')
 // FALSE when working TRUE when deployed
-let sectionsFocused = false
+let sectionsFocused = true
 let iSection = 0
 // true when working false when deployed
 let lessonsFocused = true
@@ -148,7 +148,8 @@ function handleFocus(e){
                 el.focus()
             }
         })
-        if (letter === 's') {
+        if (letter === 's' && sectionContainer) {
+
             sectionContainer.querySelector('.section').focus();
         }
     }
@@ -197,7 +198,10 @@ addEventListener('keydown', e => {
             sectionsFocused = true
             targetDivFocus =false
             iSection =0
-            currentLesson.focus()
+            if(currentLesson){
+
+                currentLesson.focus()
+            }
             break
         case 'h':
             homelink.focus()

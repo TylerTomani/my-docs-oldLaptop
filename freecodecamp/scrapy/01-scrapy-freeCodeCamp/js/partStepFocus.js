@@ -37,7 +37,7 @@ export function partStepsEventListeners(){
             let section = getSection(currentLessonEl.parentElement);
             let lessons = section.querySelectorAll('ul > li a');
             lessons.forEach((el, i, arr) => {
-                if (currentLessonEl === el) {
+                if (currentLessonEl === el ) {
                     if (i >= arr.length - 1) {
                         currentIndex = 0;
                     } else {
@@ -546,12 +546,13 @@ export function partStepsEventListeners(){
         let num = parseInt(letter)
         const nxtLessonBtn = document.getElementById('#nxtLesson')    
         let h4sArray = [...h4s]
-        if(num > h4sArray.length){
-            // nxtLessonBtn.focus()
-            if(nxtBtn){
-                nxtBtn.focus()
-            }
-        }
+        // if(secfo)
+        // if(num > h4sArray.length && mainTargetDivContainer){
+        //     // nxtLessonBtn.focus()
+        //     if(nxtBtn){
+        //         nxtBtn.focus()
+        //     }
+        // }
         if(letter == 'e' && nxtBtn){
             console.log(nxtLessonBtn)
             nxtBtn.focus()
