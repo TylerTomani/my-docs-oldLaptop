@@ -85,20 +85,7 @@ function removeAllTabIndex(){
         el.setAttribute('tabindex','-1')
     })
 }
-// The playing variable is asscoiated with img size so it is placed in here
 
-function denlargeAllImages(){
-    allVideos.forEach(el => {
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
-        }
-    })
-    allImages.forEach(el => {
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
-        }
-    })
-}
 // Numpad focus to invidiual steps
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -112,34 +99,32 @@ addEventListener('keydown', e => {
                 stepTxtxArr[intLetter - 1].focus()
             }
         } else {
-            return 
+            // return 
+            
+            if(letter == 'e'){
+                nxtLesson.focus()
+            }        
         }
-        if(letter == 'e'){
-            nxtLesson.focus()
-        }        
     }
     
 });
 
 function handleVideo(e){
-    console.log(e.target)
-
     let key = e.keyCode    
     const step = getStep(e.target.parentElement)
     const vid = step.querySelector('.step-vid > video')
     if(vid){
         playing = !playing
-        console.log(key)
-        if(playing){
-            vid.play() 
-        } else {
-            vid.pause()
-        }
-        console.log(key)
         switch(key){
             case 32:
                 e.preventDefault()
-                playing = !playing
+                if(playing){
+                    vid.play() 
+                    vid.style.border = "2px solid blue"
+                } else {
+                    vid.pause()
+                    vid.style.border = "1px dotted red"
+                }
                 break;
             case 37:
                 if(vid.currentTime > 0){
@@ -152,15 +137,39 @@ function handleVideo(e){
             case 39:
                 vid.currentTime = vid.currentTime + 2
                 if(vid.currentTime >= vid.duration){
-                    vid.style.border = '4px solid red'
                     playing = false
+                    vid.style.border = '14px solid red'
                     vid.pause()
                 } 
                 break
             default:
-                }    
+        }    
+        console.log(playing)
+        if(playing){
+            vid.play() 
+            vid.style.border = "2px solid blue"
+        } else {
+            vid.pause()
+            vid.style.border = "1px dotted red"
         }
+        
     }
+}
+// The playing variable is asscoiated with img size so it is placed in here
+
+function denlargeAllImages(){
+    allVideos.forEach(el => {
+        if(el.classList.contains('enlarge')){
+            el.classList.remove('enlarge')
+            playing = false
+        }
+    })
+    allImages.forEach(el => {
+        if(el.classList.contains('enlarge')){
+            el.classList.remove('enlarge')
+        }
+    })
+}
 }
 
 

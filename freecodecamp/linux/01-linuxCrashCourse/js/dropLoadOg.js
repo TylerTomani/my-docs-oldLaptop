@@ -1,28 +1,181 @@
-import { attachLessonScript } from "./lesson-temp.js"
-const homelink = document.getElementById('homeLink')
-const tutorialLink = document.getElementById('tutorialLink')
-const aside = document.querySelector('main aside')
-const nav = document.querySelector('nav')
-const targetDiv = document.querySelector('#targetDiv')
+import { aside } from "./main-letterFocus.js"
+import { targetDiv } from "./main-letterFocus.js"
+import { stepTxtListeners } from "./lesson-temp.js"
+const titleSectionEl = document.getElementById('section-title') 
+const titleLessonEl = document.getElementById('lesson-title') 
+const lessons = document.querySelectorAll('.sub-section > li > a')
 const sections = document.querySelectorAll('.section')
 const subSections = document.querySelectorAll('.sub-section')
+const linksSections = document.querySelectorAll('.section-container a')
 const sectionsArr = Array.from(sections)
-const lessons = document.querySelectorAll('.sub-section > li > a')
-const lessonsArr = Array.from(lessons)
-const links = document.querySelectorAll('.sections a')
-let sectionsFocused = true
-let iSection = 0
-let lessonsFocused = true
-let linkClicked = false
+let lastLink
+let currentLessons = []
 let targetDivFocus = false
-export let currentLesson 
-/* these are all links which load lessons or sections
-  we might have to reload the variables when links are loaded into 
-  targetDiv with loadContent */
-// These varialbes handle target div lesson elements
+let focusedSections = true
+let focusedLessons = false
+let iSection = 0
+let iLesson = 0
+let clickedSection = false
+let clickedLesson = false
+function hideSubSections(){
+    subSections.forEach(el => {
+        if(!el.classList.contains('show')){
+            el.classList.add('hide')
+        }
+    })
+}
+hideSubSections()
+sections.forEach(el => {
+    el.addEventListener('click',e => {
+        e.preventDefault()
+        e.stopPropagation()
+        toggleLessons(e)
+        if(!clickedSection){
+        }
+    })
+    el.addEventListener('focus', e =>{
+        focusedSections = true
+        focusedLessons = false
+        targetDivFocus = false
+    })
+    el.addEventListener('focusout', e =>{
+        clickedSection = false
+    })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        lastLink = e.target
+        if(key === 13 ){
+            const sectionContainer = getSectionContainer(e.target)
+            const subSection = sectionContainer.querySelector('.sub-section')
+            // toggleLessons(e)
+            // let hidden = true ? subSection.classList.contains('hide') : false
+            // if(clickedSection   ){
+            //     titleSectionEl.innerText = e.target.innerText
+            // }
+            // clickedSection = !clickedSection
+        }
+        
+    })
+})
+lessons.forEach(el => {
+    el.addEventListener('focus', e => {
+        focusedSections = false
+        focusedLessons = true
+        clickedLesson = false
+    })
+    el.addEventListener('keydown', e => {
+        const sectionContainer = getSectionContainer(e.target.parentElement)
+        const lessons = sectionContainer.querySelectorAll('.sub-section > li > a')
+        currentLessons = Array.from(lessons)
+        let key = e.keyCode
+        lastLink = e.target
+        if(key === 13 ){
+            if(clickedLesson){
+                titleLessonEl.innerHTML = `&rarr; ${e.target.innerText}`
+                targetDiv.focus()
+            }
+        }
+        clickedLesson = !clickedLesson
+    })  
+})
+function getSectionContainer(parent){
+    if(parent.classList.contains('section-container')){
+        return parent
+    } else if (parent.parentElement){
+        return getSectionContainer(parent.parentElement)
+    } else {
+        return null
+    }
+}   
+function toggleLessons(e){
+    const sectionContainer = getSectionContainer(e.target)
+    const subSection = sectionContainer.querySelector('.sub-section')
+    hideSubSections()
 
-////////////////////////////////////////////////////////////////////////////////
-// I still don't get this code but the after this is do
+    console.log(subSection)
+    if(!subSection.classList.contains('hide')){
+        subSection.classList.add('hide')   
+    } else  {
+        subSection.classList.remove('hide')
+    }
+}
+linksSections.forEach(el => {    
+    el.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const href = e.target.href
+        loadContent(href)
+    })
+    
+    el.addEventListener('focus', () => {
+        lastLink = ''
+        clickedLesson = false
+        clickedSection =false
+        console.log()
+    })
+    if(el.hasAttribute('autofocus')){
+        loadContent(el.href)
+        
+    }
+})
+aside.addEventListener('focusin', () => {
+    if(lastLink){   
+        lastLink.focus()
+    }
+    targetDivFocus = false
+})
+targetDiv.addEventListener('focus', () => {
+    targetDivFocus = true
+})
+
+
+addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(focusedSections && !targetDivFocus){
+        if(letter == 's'){
+            sections[iSection].focus();
+            iSection = (iSection + 1) % sections.length;
+            if(iSection >= sectionsArr.length){
+                iSection =0
+            }
+        }    
+        if(!isNaN(letter)){
+            let intLetter = parseInt(letter)
+            if(intLetter >= 0){
+                sectionsArr[intLetter - 1].focus()
+            } else {
+                sectionsArr[0].focus()
+            }
+        }
+    } else if(focusedLessons && !targetDivFocus){
+        if(letter == 's'){
+            e.preventDefault()
+            let sectionContainer = getSectionContainer(e.target.parentElement)
+            if(sectionContainer){
+                let section = sectionContainer.querySelector('.section')
+                section.focus()            
+            }
+        }
+        if(!isNaN(letter)){
+            let intLetter = parseInt(letter)
+            if(intLetter <= currentLessons.length){
+                currentLessons[intLetter - 1].focus()
+            }
+        }
+    } 
+    if(targetDivFocus){
+        if(letter == 's'){lastLink.focus()}
+        if(letter == 'a'){aside.focus()            }
+    }
+    if(letter == 'a'){
+        if(aside.classList.contains('hide')){
+            aside.classList.remove('hide')
+        }   
+    }  
+})
+targetDiv.addEventListener('focusin', e => {
+    targetDivFocus = true
+})
 async function loadContent(url) {
     try {
         const response = await fetch(url);
@@ -45,184 +198,8 @@ function injectScripts(container) {
         document.head.appendChild(newScript).parentNode.removeChild(newScript);
         /* This is key, attach the lesson script when inject html from lessons I don't get how the above
         code works before the variables, get a tutor to explain this */
-        attachLessonScript()
+        // attachStepNumFocus()
+        // handleImagesVideos()
+        stepTxtListeners()
     });
 }
-//////////////////////////////////////////////////////////////////////////////////
-function toggleSubSection(e){
-    e.preventDefault()
-    const sectionContainer = getSectionContainer(e.target.parentElement)
-    const subSection = sectionContainer.querySelector('.sub-section')
-    if(subSection.classList.contains('show')){
-        subSection.classList.remove('show')
-        subSection.classList.add('hide')
-    } else if(subSection.classList.contains('hide')) {
-        hideSubSections()
-        subSection.classList.remove('hide')
-    } else {
-        subSection.classList.add('hide')
-    }
-}
-function hideSubSections(){
-    subSections.forEach(el => {
-        if(!el.classList.contains('show')){
-            el.classList.add('hide')
-        } else if(el.classList.contains('hide') && el.classList.contains('show')){
-            el.classList.add('hide')
-            el.classList.add('show')
-        }
-    })
-}
-hideSubSections()
-// focus sections
-sections.forEach(el => {
-    el.addEventListener('focus', () => {
-        sectionsFocused = true;
-        lessonsFocused = false;
-        targetDivFocus = false
-        linkClicked = false
-    });
-    el.addEventListener('click', toggleSubSection)
-});
-
-lessons.forEach(el => {
-    el.addEventListener('focus', () => {
-        sectionsFocused = false;
-        lessonsFocused = true;
-        targetDivFocus = false
-        linkClicked = false
-    });
-});
-targetDiv.addEventListener('focusin', () =>{
-    targetDivFocus =true
-    sectionsFocused =false
-    lessonsFocused=false
-})
-
-links.forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault()
-        loadContent(e.target.href)
-        if(linkClicked){
-            targetDiv.focus()
-        }
-        currentLesson = e.target
-        linkClicked = true
-    })
-    if(link.hasAttribute('autofocus')){
-        loadContent(link.href)
-        currentLesson = link
-        linkClicked = true
-    }
-})
-
-function handleFocus(e){
-    let letter = e.key.toLowerCase()
-    let intLetter = parseInt(letter)
-    scrollTo(0,0)
-    if(sectionsFocused){
-        if (letter === 's') {
-            
-            sections[iSection].focus();
-            iSection = (iSection + 1) % sections.length;
-            if(iSection >= sectionsArr.length){
-                iSection =0
-            }
-        } else if (!isNaN(intLetter)) {
-            sections.forEach(el => {
-                if (el.innerText.slice(-1) == intLetter) el.focus();
-            });
-        }
-    }
-
-    if(lessonsFocused){
-        const sectionContainer = getSectionContainer(e.target.parentElement);
-
-        // const subSection = sectionContainer.querySelector('.sub-section');
-        // const currentLessons = subSection.querySelectorAll('li > a');
-        // 
-        lessons.forEach(el => {
-            if(intLetter == el.innerText[0]){
-                el.focus()
-            }
-        })
-        if (letter === 's') {
-            sectionContainer.querySelector('.section').focus();
-        }
-    }
-    if(targetDivFocus){
-        
-        lessonsFocused = false
-        sectionsFocused = false
-    }
-}
-function getSectionContainer(parent){
-    if(parent.classList.contains('section-container')){
-        return parent
-    } else if(parent.parentElement){
-        return getSectionContainer(parent.parentElement)
-    }else{
-        return null
-    }
-}
-
-[aside,nav,targetDiv].forEach( el => {
-    el.addEventListener('focus', ()=>{scrollTo(0,0)});
-})
-nav.addEventListener('click', e => {
-    if(!aside.classList.contains('hide')){
-        aside.classList.add('hide')
-    } else {
-        aside.classList.remove('hide')
-    }
-})
-nav.addEventListener('keydown', e => {
-    let key = e.keyCode
-    if(key == 13){
-        if(!aside.classList.contains('hide')){
-            aside.classList.add('hide')
-        } else {
-            aside.classList.remove('hide')
-        }
-    }
-})
-addEventListener('keydown', e => {
-    let letter = e.key.toLowerCase()
-    switch(letter){
-        case 'h':
-            homelink.focus()
-            break
-        case 't':
-            tutorialLink.focus()
-            break
-        case 'm':
-            targetDiv.focus()
-            break
-        case 'n':
-            nav.focus()
-            sectionsFocused = true
-            targetDivFocus =false
-            iSection =0
-            break
-        case 'a':
-            aside.focus()
-            sectionsFocused = true
-            targetDivFocus =false
-            iSection =0
-            currentLesson.focus()
-            break
-        default:
-        
-        handleFocus(e)
-    }
-    if(letter == 'a'){
-        if(aside.classList.contains('hide')){
-            aside.classList.remove('hide')
-        }
-    }
-})
-
-
-
-
-

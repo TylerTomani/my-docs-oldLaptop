@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    padding-bottom: 5%;
+}
 .step {
     display: flex;
 }
@@ -13,6 +16,7 @@
 .step > .step-txt{
     display: flex;
     flex-direction: column;
+    padding-bottom: 5%;
 }
 .step > .step-txt> p{
     padding-top: 2.5%;
@@ -29,9 +33,10 @@
 .step > .step-vid > video{
     width: 80%;
     min-height: 150px;
+    max-height: 250px;
 }
 .step > .step-vid > video{
-    border: 2px solid blue;
+    border : 2px solid blue;
 }
 .step-txt:active,.step-txt:focus{
     box-shadow: 0 0 3px 3px lightseagreen;
@@ -43,8 +48,32 @@
     /* margin-right: 0%; */
     right: 50%;
 }
+.code-container {
+    border: 1px solid black;
+    width: 90%;
+    /* justify-self: center; */
+    align-self: center;
+    
+}
+.copy-code {
+    padding-left:2.5%;
+    padding-top:1.5%;
+}
+.copy-code:active,.copy-code:focus{
+    box-shadow: 0 0 6px 6px lightseagreen;
+}
 
 .b{color: blue;}
 .r{color:red}
 .m{color:magenta}
+.gr{color:goldenrod}
+.lsg{color:lightseagreen}
 .g{color:green}
+
+#nxtLesson{
+    margin-left: 2.5%;
+    padding: .5% 1.5%
+}
+#nxtLesson:active,#nxtLesson:focus{
+    box-shadow: 0 0 5px 5px lightseagreen;
+}
