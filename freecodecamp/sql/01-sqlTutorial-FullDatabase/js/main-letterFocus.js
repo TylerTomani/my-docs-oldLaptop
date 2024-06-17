@@ -1,6 +1,8 @@
 const backlink = document.getElementById('backlink')
 const homelink = document.getElementById('homelink')
+const tutoriallink = document.getElementById('tutorialLink')
 const regexCmds = document.getElementById('regexCmds')
+const linuxCmds = document.getElementById('linuxCmds')
 export const nav = document.querySelector('nav')
 export const aside = document.querySelector('aside')
 export const targetDiv = document.querySelector('#targetDiv')
@@ -41,6 +43,12 @@ addEventListener('keydown', e => {
             break
         case 'm':
             targetDiv.focus()
+            break
+        case 'l':
+            linuxCmds.focus()
+            break
+        case 't':
+            tutoriallink.focus()
             break
         case 'n':
             nav.focus()

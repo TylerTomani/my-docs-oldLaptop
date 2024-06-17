@@ -1,6 +1,7 @@
 import { aside } from "./main-letterFocus.js"
 import { targetDiv } from "./main-letterFocus.js"
 import { stepTxtListeners } from "./lesson-temp.js"
+import { addCopyCodes } from "./copy-code.js"
 const titleSectionEl = document.getElementById('section-title') 
 const titleLessonEl = document.getElementById('lesson-title') 
 const lessons = document.querySelectorAll('.sub-section > li > a')
@@ -10,28 +11,36 @@ const linksSections = document.querySelectorAll('.section-container a')
 const sectionsArr = Array.from(sections)
 export let lastLink
 let currentLessons = []
+let currentLessonNum
+let switchLesson = false
+
 let targetDivFocus = false
+/**
+    Switch sections to true, and lessons to false when not working on lessons  */ 
 let focusedSections = true
 let focusedLessons = false
 let iSection = 0
 let iLesson = 0
 let clickedSection = false
 let clickedLesson = false
+subSections.forEach(el => {
+    if(!el.classList.contains('show')){
+        el.classList.add('hide')
+    }
+})
 function hideSubSections(){
     subSections.forEach(el => {
-        if(!el.classList.contains('show')){
+        if(el.classList.contains('show')){
+            el.classList.remove('show')
             el.classList.add('hide')
-        }
+        } else el.classList.add('hide')
     })
 }
-hideSubSections()
 sections.forEach(el => {
     el.addEventListener('click',e => {
         e.preventDefault()
         e.stopPropagation()
         toggleLessons(e)
-        if(!clickedSection){
-        }
     })
     el.addEventListener('focus', e =>{
         focusedSections = true
@@ -90,12 +99,12 @@ export function getSectionContainer(parent){
 function toggleLessons(e){
     const sectionContainer = getSectionContainer(e.target)
     const subSection = sectionContainer.querySelector('.sub-section')
-    hideSubSections()
-
+    
     console.log(subSection)
     if(!subSection.classList.contains('hide')){
         subSection.classList.add('hide')   
     } else  {
+        hideSubSections()
         subSection.classList.remove('hide')
     }
 }
@@ -157,9 +166,30 @@ addEventListener('keydown', e => {
         }
         if(!isNaN(letter)){
             let intLetter = parseInt(letter)
+            console.log(intLetter)
+
+            /** The following code is not scalable yet 
+             *  
+             *  It doesn't work past number 19, 
+             * unable to get from 2, to 12, to 20 with 
+             * the number 2
+            */
             if(intLetter <= currentLessons.length){
-                currentLessons[intLetter - 1].focus()
+                
+                if(intLetter == currentLessonNum && currentLessons[currentLessonNum + 9]){
+                    if(!switchLesson){
+                        currentLessons[currentLessonNum + 9].focus()
+                    } else {
+                        currentLessons[currentLessonNum - 1].focus()
+                    }
+                    switchLesson = !switchLesson
+                } else {
+                    currentLessons[intLetter - 1].focus()
+                }
+
             }
+            currentLessonNum = intLetter
+            
         }
     } 
     if(targetDivFocus){
@@ -197,8 +227,8 @@ function injectScripts(container) {
         document.head.appendChild(newScript).parentNode.removeChild(newScript);
         /* This is key, attach the lesson script when inject html from lessons I don't get how the above
         code works before the variables, get a tutor to explain this */
-        // attachStepNumFocus()
-        // handleImagesVideos()
+        
         stepTxtListeners()
+        addCopyCodes()
     });
 }
