@@ -11,7 +11,12 @@ const linksSections = document.querySelectorAll('.section-container a')
 const sectionsArr = Array.from(sections)
 export let lastLink
 let currentLessons = []
+let currentLessonNum
+let switchLesson = false
+
 let targetDivFocus = false
+/**
+    Switch sections to true, and lessons to false when not working on lessons  */ 
 let focusedSections = true
 let focusedLessons = false
 let iSection = 0
@@ -161,9 +166,30 @@ addEventListener('keydown', e => {
         }
         if(!isNaN(letter)){
             let intLetter = parseInt(letter)
+            console.log(intLetter)
+
+            /** The following code is not scalable yet 
+             *  
+             *  It doesn't work past number 19, 
+             * unable to get from 2, to 12, to 20 with 
+             * the number 2
+            */
             if(intLetter <= currentLessons.length){
-                currentLessons[intLetter - 1].focus()
+                
+                if(intLetter == currentLessonNum && currentLessons[currentLessonNum + 9]){
+                    if(!switchLesson){
+                        currentLessons[currentLessonNum + 9].focus()
+                    } else {
+                        currentLessons[currentLessonNum - 1].focus()
+                    }
+                    switchLesson = !switchLesson
+                } else {
+                    currentLessons[intLetter - 1].focus()
+                }
+
             }
+            currentLessonNum = intLetter
+            
         }
     } 
     if(targetDivFocus){
