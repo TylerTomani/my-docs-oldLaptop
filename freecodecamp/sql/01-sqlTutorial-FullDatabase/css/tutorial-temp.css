@@ -22,7 +22,7 @@ aside {
     min-width: 15%;
     border-right: 1px solid black;
     padding-top: 1%;
-    padding-left: 1.5%;
+    padding-left: .5%;
 }
 aside:active,aside:focus,
 main:active,main:focus,
@@ -32,11 +32,16 @@ nav:active,nav:focus{
 .section-container{
     margin-bottom: 5%;
 }
+.section {
+    text-decoration: underline;
+    font-size: .9rem;
+}
 .sub-section {
     margin-left: 5%;
 }
-.section {
-    text-decoration: underline;
+.sub-section > li {
+    margin: 2.5% 0 ;
+    font-size: .8rem
 }
 ul {
     list-style:none;
@@ -45,14 +50,15 @@ ul {
 ul > li {
     white-space: none;
     text-wrap: none;
-    margin: 5% 0;
+    margin: 1% 0;
+    font-size: 90%;
 }
 ul a {
     text-decoration: none;
     
 }
 ul > li > ul {
-    margin-left: 5%;
+    margin-left: 2.5%;
 }
 ul > li > ul > li > ul{
     /* list-style-type: square; */
@@ -61,13 +67,13 @@ ul > li > ul > li > ul{
     gap: 5%;
 }
 ul > li > ul > li {
-    margin: 0 1%;
+    /* margin: 0 1%; */
     /* white-space: ; */
     width: 100%;
     text-wrap: wrap;
 }
 li > code {
-    background-color: lightgrey;
+    background-color: whitesmoke;
 
 }
 #targetDiv{
@@ -75,4 +81,47 @@ li > code {
 }
 .hide {
     display: none;
+}
+
+@media screen and (max-width: 900px){
+    .section-container {
+        font-size: 75% !important;
+    }
+        .sub-section>ul>li {
+            margin: 2% 0;
+        }
+}
+@media screen and (max-width: 800px){
+    .section-container {
+        font-size: 65% !important;
+    }
+    .section {
+        margin-left: 0;
+        font-size: 120%;
+    }
+    
+    .sub-section {
+        margin-left: 3.33%;
+        margin-top: 5%;
+        font-size: 80%;
+    }
+    .sub-section > li {
+        margin: 2% 0;
+    }
+    .sub-section > li > ul > li{
+        font-size: 80%;
+    }
+}
+@media screen and (max-width: 500px){
+    .section-container {
+        font-size: 60% !important;
+    }
+    .section {
+        margin-left: 0;
+    }
+    .sub-section {
+        margin-left: 2%;
+        font-size: 5%;
+        white-space: none
+    }
 }

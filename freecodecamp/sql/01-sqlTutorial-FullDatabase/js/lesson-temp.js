@@ -35,6 +35,19 @@ allStepTxtPAs.forEach(el =>{
     el.addEventListener('focus', () =>{
         denlargeAllImages()
     })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        console.log(key)
+        if(key === 13){
+            e.preventDefault()
+            open(e.target.href)
+        }
+    })
+    el.addEventListener('click', e => {
+            e.preventDefault()
+            open(e.target.href)
+        
+    })
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
@@ -80,7 +93,7 @@ function toggleImgSize(e){
     
 }
 function getStep(parent){
-    if(parent.classList.contains('step')){
+    if(parent.classList.contains('step') || parent.classList.contains('step-col') ){
         return parent
     } else if (parent.parentElement){
         return getStep(parent.parentElement)
@@ -147,6 +160,7 @@ function handleVideoKeydown(e){
                 playing = !playing
                 break;
             case 37:
+                e.preventDefault()
                 if(vid.currentTime > 0){
                     vid.currentTime = vid.currentTime - 1
                 }
@@ -155,6 +169,7 @@ function handleVideoKeydown(e){
                 }
                 break
             case 39:
+                e.preventDefault()
                 vid.currentTime = vid.currentTime + 2
                 if(vid.currentTime >= vid.duration ){
                     // playing = false

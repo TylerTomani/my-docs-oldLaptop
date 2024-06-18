@@ -130,11 +130,13 @@ linksSections.forEach(el => {
 aside.addEventListener('focusin', () => {
     if(lastLink){   
         lastLink.focus()
+        scrollX(0)
     }
     targetDivFocus = false
 })
 targetDiv.addEventListener('focus', () => {
     targetDivFocus = true
+    scrollTo(0,0)
 })
 
 sectionsArr.forEach((el,i,arr) => {

@@ -38,16 +38,88 @@
             <ul class="sections">
                 <!-- section1 -->
                 <li class="section-container">
-                    <a tabindex="1" class="section" href="sections/01-installDownload/installDownload.html">Section 1
-                    TBD</a>
+                    <a tabindex="1" class="section" href="sections/01-introInstall/introInstall.html">Section 1
+                    - Intro / Install</a>
+                    <ul class="sub-section ">
+                        <li><a tabindex="1" href="sections/01-introInstall/01-installWindows/01-installWindows.html">1. install Windows
+                             <br><span class="r">do later</span>
+                        </a></li>
+                        <li><a tabindex="1" href="sections/01-introInstall/02-installMac-pt1/02-installMac-pt1.html">2. install MAC part1</a></li>
+                        <li><a tabindex="1" href="sections/01-introInstall/03-installMac-pt2/03-installMac-pt2.html">3. install MAC part2
+                            <br>create database
+                        </a></li>
+                        <li><a tabindex="1" href="sections/01-introInstall/04-installPopSq-pt1/04-installPopSq-pt1.html">4. install popSql part1</a></li>
+                        <li><a  tabindex="1" href="sections/01-introInstall/05-installPopSql-pt2/05-installPopSql-pt2.html">5. install popSql part2</a></li>
+                        <li><a  tabindex="1" href="#">6. SQL Intro
+                            <span class="r">go back and do after</span>
+                        </a></li>
+                    </ul>
+                </li>
+                <!-- section2-->
+                <li class="section-container">
+                    <a tabindex="1" class="section" href="sections/02-popSql/popSql.html">Section 2
+                        - popSQL
+                    <br>CREATE / ALTER TABLE</a>
                     <ul class="sub-section  ">
-                        <li><a tabindex="1" href="https://www.youtube.com/watch?v=ODA3rWfmzg8">I might need this tutorial to dowload mySQL</a></li>
-                        <li><a  tabindex="1" href="sections/01-installDownload/01-downloadUbuntu/01-downloadUbuntu.html">1. Download Ubuntu</a></li>
-                        <li><a tabindex="1" href="sections/01-installDownload/02-installSetUpVm/02-installSetUpVm.html">2. Install/Setup Virtual Machine</a></li>
-                        <li><a tabindex="1" href="sections/01-installDownload/03-installSetUpVm-part2/03-installSetUpVm-part2.html">3. Install/Setup Virtual Machine <br> part 2</a></li>
-                        <li><a tabindex="1" href="sections/01-installDownload/04-installSetUpVmISO-part3/04-installSetUpVmISO-part3.html">4. Install/Setup Virtual Machine<br> (ISO) part 3</a></li>
-                        <li><a tabindex="1" href="sections/01-installDownload/05-startVm/05-startVm.html">5. Start Vm</a></li>
-                        <li><a  tabindex="1" href="sections/01-installDownload/06-startVm-part2/06-startVm-part2.html">6. Start Vm <br> part 2</a></li>
+                        <li><a tabindex="1" href="sections/02-popSql/01-variables/01-variables.html">1. variable SQL</a></li>
+                        <li><a tabindex="1" href="sections/02-popSql/02-checkServerCreateTable/02-checkServerCreateTable.html">2. check server, 
+                            <br>create table</a></li>
+                            <li><a tabindex="1" href="sections/02-popSql/03-createTable/03-createTable.html">3. Create Table</a>
+                                <ul>
+                                    <li><code>CREATE TABLE</code></li>
+                                    <li><code>DESCRIBE student</code></li>
+                                    <li><code>DROP TABLE student</code></li>
+                                </ul>
+                            </li>
+                        <li><a tabindex="1" href="sections/02-popSql/04-primaryKey/04-primaryKey.html">4. Primary Key</a></li>
+                        <li><a tabindex="1" href="sections/02-popSql/05-alterTable/05-alterTable.html">5. Alter Table</a>
+                            <ul>
+                                <li>ALTER TABLE students ADD</li>
+                                <li>ALTER TABLE students DROP COLUMN</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- section3-->
+                <li class="section-container">
+                    <a tabindex="1" class="section" href="sections/03-popSql-insert/popSql-insert.html">Section 3
+                        INSERT INTO</a>
+                    <ul class="sub-section   ">
+                        <li><a tabindex="1" href="sections/03-popSql-insert/01-insertInto/01-insertInto.html">1. Insert Into</a>
+                            <ul>
+                                <li><code>INSERT INTO student VALUES()</code></li>
+                                <li><code>SELECT * student</code></li>
+                            </ul>
+                        </li>
+                        <li><a tabindex="1" href="sections/03-popSql-insert/02-insertNolValue/02-insertNolValue.html">2. Insert NULL Value</a>
+                        </li>
+                        <li><a tabindex="1" href="sections/03-popSql-insert/03-tableColumnConstrains/03-tableColumnConstrains.html">3. Table Column Constrains</a>
+                            <ul>
+                                <li><code class="r">NOT NULL</code></li>
+                                <li><code class="m">UNIQUE</code></li>
+                            </ul>
+                        </li>
+                        <li><a tabindex="1" href="sections/03-popSql-insert/04-columnDefaultVal/04-columnDefaultVal.html">4. Column Default Value</a>
+                            <ul>
+                                <li><code>major VARCHAR(20) <span class="gr">DEFAULT 'undecided'</span></code></li>
+                            </ul>
+                        </li>
+                        <li><a  tabindex="1" href="sections/03-popSql-insert/05-incrementPrimaryKey/05-incrementPrimaryKey.html">5. Increment Primary Key</a>
+                            <ul>
+                                <li><code class="lsg">AUTO_INCREMENT</code></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <!-- section3-->
+                <li class="section-container">
+                    <a tabindex="1" class="section" href="sections/04-updateDeleteRows/updateDeleteRows.html">Section 4
+                        UPDATE / DELETE rows</a>
+                    <ul class="sub-section  show">
+                        <li><a tabindex="1" href="sections/03-popSql-insert/01-insertInto/01-insertInto.html">1. Insert Into</a>
+                            
+                        </li>
                     </ul>
                 </li>
             </ul>
