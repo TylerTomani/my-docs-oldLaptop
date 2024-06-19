@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-02-while</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">05-02 while loops</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Import the class <code>datetime</code> for these examples
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Make a while loop that prints a message while waiting, 
+                then when the while loop is done print the current seconds
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code r smcode">
+from datetime import date time
+wait_until = datetime.now().second + 2
+
+while datetime.now().second != wait_until:
+print("waiting")
+print(f'We are at {wait_until} seconds')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+
+        </div>
+        
+    </div>
+    <h3><code class="mo mdtxt">pass</code></h3>
+    <div class="fcol">
+        <div tabindex="1" class="fi">
+            <p>
+                <span class="r">The above will not work</span> it will print <code>waiting</code>
+                indefintly
+            </p>
+            <p >
+                To fix use a <code class="mo mdsmtxt">pass</code> statement
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+from datetime import datetime
+wait_unitl = datetime.now().second + 2
+while datetime.now().second != wait_unitl:
+    <span class="mo">pass</span>
+print(f'We are at {wait_unitl} seconds')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+        
+    </div>
+    <h3><code class="mo mdtxt">break</code></h3>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+from datetime import datetime
+wait_until = datetime.now().second + 2
+while True:
+    if datetime.now().second == wait_unitl:
+        print(f'We are at {wait_unitl} seconds')
+        break
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/03.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                The <code class="mo mdsmtxt">break</code> only breaks out of the first 
+                while loop it encounters, in this example it is the <code>while True</code>
+                statement.
+            </p>
+        </div>
+    </div>
+    <h3><code class="mo mdtxt">continue</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code class="mo mdsmtxt">continue</code> will skip any lines of code that follows it 
+                inside of the while loop.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+from datetime import date time
+wait_unitl = datetime.now().second + 2
+while datetime.now().second != wait_unitl:
+    <span class="mo">continue</span>
+    print("waiting")
+print(f'We are at {wait_unitl} seconds')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This isn't the best way to use <code class="mo mdsmtxt">continue</code>
+                statement. It's best used for <code class="mdsmtxt">if</code> statement 
+                when condition are not met
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+from datetime import datetime
+wait_until = datetime.now().second + 2
+while True:
+    if datetime.now().second &lt; wait_unitl:
+        continue
+    break
+print(f'We are at {wait_unitl} seconds')
+                </pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+</body>
+</html>

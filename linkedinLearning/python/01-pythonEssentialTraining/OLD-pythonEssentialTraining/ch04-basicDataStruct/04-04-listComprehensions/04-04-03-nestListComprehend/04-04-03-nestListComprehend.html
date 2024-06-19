@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-04-03-nestListComprehend</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-04-03- Nested List Comprehension</h2>
+    <!--Step 00 myString.split('.') -->
+    <div class="fcol">
+        <div class="fi col">
+            <p> <span class="r">I have no ideal how</span> <code class="br1">sentence</code> works!!
+                It was never declared anywhere but somehow this works
+            </p>
+        </div>
+        <div class="code-container asc">
+            <pre tabindex="1" class="copy-code smcode ">
+myStr = My name is Buster Mayfield. I live in Texas'
+def removeDot(word):
+    return word.replace('.','')
+
+[[removeDot(word) for word in <span class="br2">sentence</span> .split()] for <span class="br2">sentence</span> in myStr.split('.')]</pre>
+        </div>
+        
+        <div class="fi ase">
+            <img class="mid-md-img" src="images/00.png">
+        </div>
+    </div>
+    <div class="fi">
+        <p>
+            Where does <code class="br1">sentence</code> come from??
+        </p>
+    </div>
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

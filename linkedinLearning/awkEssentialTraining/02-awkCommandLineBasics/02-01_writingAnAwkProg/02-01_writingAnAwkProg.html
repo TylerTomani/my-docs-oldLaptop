@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-awkCommandLineBasics</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css//colors.css">
+    <!-- <script src="../../js/video.js" defer></script> -->
+    <!-- <style> img{width: 100%;}</style> -->
+    <script src="../../js/topPage.js" defer></script>
+</head>
+<body>
+    <!-- <a tabindex="1" href="../index.html">home</a> -->
+    <h2 tabindex="1" class="lesson-header">02-01_Writing an Awk program</h2>
+    <!-- <sub style="color:red;"> Go back and replace images with code that we can copy and paste</sub> -->
+    
+    <!-- Basic Awk syntax -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                The basic syntax works as follows
+            </p>
+            <ul>
+                <li>awk</li>
+                <li>the program within&nbsp;'{&nbsp;}'</li>
+                <li>text file to run awk on</li>
+            </ul>
+        </div>
+        <div class="flex-item">
+            <!-- <sub style="color:red">replace these with code</sub> -->
+            <!-- <img style="border: 2px solid red" tabindex="1" src="images/01-awkBasicSyntax.png"> -->
+            <img  tabindex="1" src="images/01-awkBasicSyntax.png">
+        </div>
+    </div>
+    
+    <!-- Records and Fields -->
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item ">
+            <p>
+                &emsp;AWK, is best suited to work with txt.files. 
+                Each line of a text file is a <q class="r">record</q>.
+                Every record has a series of <q class="b">fields</q>. The fields
+                are seperated by the <q class="v">seperator</q> By default, the seperator is blank space 
+                between each field.
+                
+            </p>
+        </div>
+        <div class="flex-item">
+            <img tabindex="1" src="images/02-recordFieldsSeperate.png">
+        </div>    
+    </div>
+    
+    <!-- Field numbering -->
+    <div tabindex="1" class="m-0 p-0">
+        <p>
+            &emsp;Each field in a record is numbered numerically from left to right.
+            They can be accessed in the program using $1, $2, etc ...
+        </p>
+    </div>
+
+    <!-- awk switch first last name explain -->
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <p>
+                &emsp;The following awk program switches the position of last
+                name <span class="code">$2</span> with the position 
+                of the first name <span class="code">$1</span>, seperated by a space. A comma by itself between the fields make the output seperator a space
+            </p>
+        </div>
+        <div class="flex-item">
+            <!-- <code class="code">
+                awk '{print $2, $1}' names.txt
+            </code> -->
+            <img tabindex="1" src="images/03-firstLastSwitch.png">
+        </div>
+    </div>
+    <hr>
+    <hr>
+    <!-- Problem with awk Program -->
+    <div tabindex="1" class=" m-0 p-0">
+        <p class="problem">
+            This is very frustrating, the code from the video only changes the first line.
+            <span class="r">The reason is, there are too many spaces in between the fields, the default seperator 
+                must be a single space
+            </span>
+        </p>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-item">
+            <!-- <h3>names.txt</h3>
+            <code>
+                first-name: last-name:
+                <br> Tony&emsp;&emsp;&emsp;&emsp;&emsp;Bobedos
+                <br> Rachel&emsp;&emsp;&emsp;McCallan
+                <br> John&emsp;&emsp;&emsp;&emsp;&emsp;Trevino
+                <br> Sara&emsp;&emsp;&emsp;&emsp;&emsp;Everly
+                <br> Betty&emsp;&emsp;&emsp;&emsp;Carmichael
+    
+            </code> -->
+            <img tabindex="1" src="images/04-names.png">
+        </div>
+        <div class="flex-item ">
+            <!-- <h3>awk output</h3>
+            <code>
+                last-name: first-name:
+                <br> Bobedos Tony
+                <br> McCallan Rachel
+                <br> Trevino John
+                <br> Everly Sara
+                <br> Carmichael Betty
+            </code> -->
+            <img tabindex="1" src="images/05-awkNamesProblem.png">
+        </div>
+    </div>
+    <div tabindex="1" class=" m-0 p-0">
+        <p class="problem">
+            The program should change every name but it is only working with the first line, as seen in the red box
+        </p>
+    </div>
+    <hr>
+    <hr>
+    <!-- awk command prompt -->
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <p>
+                &emsp;To use awk without a text file, type in awk followed by the command, 
+                <br>this will open the command prompt. This command will print out the first 2
+                fields of the record/line. Notice how there is no space in the output
+            </p>
+        </div>
+        <div class="flex-item">
+            <video autoplay muted loop tabindex="1" src="videos/01-basicAwkFields.mp4"></video>
+        </div>
+        
+    </div>
+
+    <!-- Create space in the ouput -->
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <p>
+                &emsp;To create a space between the fields in the output, add a <span class="code">,</span> between the 
+                field placeholders <span class="code">$1</span> and <span class="code">$2</span>
+            </p>
+        </div>
+        <div class="flex-item">
+            <!-- <code class="code">
+                $ awk '{print $1 "..." $2}'
+                <br> one two three
+                <br>one...two
+            </code> -->
+            <img tabindex="1" src="images/06-unoDos.png">
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

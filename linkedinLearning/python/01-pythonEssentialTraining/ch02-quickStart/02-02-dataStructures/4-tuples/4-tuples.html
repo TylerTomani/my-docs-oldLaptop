@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-02-4_tuples</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-02-4- Tuples</h2>
+    <div class="fcol ac">
+        <div class="fi">
+            <p>
+                Tuples use <code>( )</code> parenthesis and are simiilar to list; they have a length <code
+                    class="mdcode"><span class="v">len</span>()</code> <strong>but</strong>, 
+                    they can <strong>not</strong> be altered or changed.
+    
+            </p>
+        </div>
+    </div>
+    <!-- my_tuple = (1,2,3)
+        print(len(my_tuple)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_tuple = (1,2,3)
+print(len(my_tuple))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/13.png">
+        </div>
+    </div>
+    <!-- print((1,2) == (2,1)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Order also matters with tuples
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print((1,2) == (2,1))
+                </code>
+            </div>
+            <div class="fi asc">
+                <p>
+                    It will return <code class="b mdcode">False</code>
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/14.png">
+        </div>
+    </div>
+    <h3><code>append()</code></h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                A major difference between tuples and list is that
+                you can <strong>not</strong> append or add things to tuples
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Use the <code><span class="o">append</span>()</code> method to
+                    a list
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_list = [[1,2,3],[False,True],4,5]
+print(my_list)
+my_list.<span class="o">append</span>(6)
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/15-appendList.png">
+        </div>
+    
+    </div>
+    <!-- my_tuple.append(4) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Notice how <code><span class="r">append</span>()</code> does not work on
+                    tuples. You will receive a <code>Attribute Error</code>
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_tuple = (1,2,3)
+my_tuple.<span class="r">append</span>(4)
+print(my_tuple)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/16-tupleAppendError.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

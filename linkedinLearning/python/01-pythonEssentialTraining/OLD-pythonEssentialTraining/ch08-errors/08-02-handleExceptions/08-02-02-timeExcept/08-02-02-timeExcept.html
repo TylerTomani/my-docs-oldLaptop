@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02-02-timeExcept</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-02-01 <code>time</code> class with exceptions</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We use the <code class="lsg">time</code> class to check how long the function takes to run.
+                The <code class="lsg">time</code>.<code class="o">sleep(0.5)</code> function delays the try,except and <code
+                    class="v">finnaly</code>
+                blocks from running
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode ">
+import <span class="lsg">time</span>
+
+def causeError():
+    start = time.time()
+    time.<span class="o">sleep(0.5)</span>
+    try:
+        1/0
+    except Exception:
+        print('error')
+    finally:
+        print(f'took <span class="v">{time.time() - start}</span> seconds')
+
+
+causeError()    </pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="left-img mid-img" src="images/01.png">
+        </div>
+        
+    </div>
+    
+             
+</body>
+</html>

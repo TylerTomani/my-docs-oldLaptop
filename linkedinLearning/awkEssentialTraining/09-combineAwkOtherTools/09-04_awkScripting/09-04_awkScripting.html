@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-04_awkScripting</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../../08-funcsAndArrays/css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">09-04- awk scripting</h2>
+    </header>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;Below demonstrates how to make a html list with the bowler's office example and 
+                how to store the process in a script for future use
+            </p>
+            <p>
+                Here is the file we are working with
+            </p>
+        </div>
+    </div>
+    <div class="flex-col">
+        <h3>officers.txt</h3>
+        <div class="flex-item">
+            <pre tabindex="1" class="copy-code">
+office	first_name	last_name	company_name	address	city	county	state	zip	phone1	phone2	email	web
+President 	Annabelle	Boord	Corn Popper	523 Marquette Ave	Concord	Middlesex	MA	01742	978-697-6263	978-289-7717	annabelle.boord@cox.net	http://www.cornpopper.com
+Vice President	Stephaine	Vinning	Birite Foodservice Distr	3717 Hamann Industrial Pky	San Francisco	San Francisco	CA	94104	415-767-6596	415-712-9530	stephaine@cox.net	http://www.biritefoodservicedistr.com
+Secretary	Nelida	Sawchuk	Anchorage Museum Of Hist & Art	3 State Route 35 S	Paramus	Bergen	NJ	07652	201-971-1638	201-247-8925	nelida@gmail.com	http://www.anchoragemuseumofhistart.com
+Treasurer	Marguerita	Hiatt	Haber, George D Md	82 N Highway 67	Oakley	Contra Costa	CA	94561	925-634-7158	925-541-8521	marguerita.hiatt@gmail.com	http://www.habergeorgedmd.com
+Member at Large	Carmela	Cookey	Royal Pontiac Olds Inc	9 Murfreesboro Rd	Chicago	Cook	IL	60623	773-494-4195	773-297-9391	ccookey@cookey.org	http://www.royalpontiacoldsinc.com
+
+            </pre>
+        </div> 
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                name the the file <code>makeoffices</code>
+            </p>
+        </div>
+        <div class="flex-item">
+            <code>$ vim makeofficers</code>       
+         </div>
+    </div>
+    
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                Here is the script, rememver the <code class="md-txt">$1</code> at the end is for the input file
+                which in our case will be
+            </p>
+            <p>
+                <span class="r">When done</span> Remember to make script executable
+            </p>
+            <code>$ chmod +x makeofficers</code>
+            <p>
+                To run the script do this
+            </p>
+            <code>$ ./makeofficers officers.txt</code>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="copy-code">
+#!/bin/bash
+
+awk -Ft 'BEGIN{
+    print "&lt;h1> Contact Us &lt;/h1>";
+    print "&lt;ul>";
+}
+NR > 1 { # skip first record which is header
+    print "&lt;li>";
+    print $1,$2,$3 ": "; #office first-name last-name
+    print "&lt;a href=\"mailto:" $12 "\">" $12 "&lt;/a>"; #email
+    print "&lt;/li>";
+}
+END {
+    print "&lt;/ul>";
+} $1 > officers.html
+            </pre>
+        </div>
+        
+    </div>
+    <div tabindex="1"  class="flex-container">
+        <div class="flex-item">
+            <code>$ ./makeoffices officers.txt
+                <br>cat officers.html
+                </code>
+<pre class="code">
+&lt;h1>&lt;/h1>
+&lt;ul>
+&lt;li>
+President  Annabelle Boord: 
+&lt;a href="mailto:annabelle.boord@cox.net">annabelle.boord@cox.net&lt;/a>
+&lt;/li>
+&lt;li>
+Vice President Stephaine Vinning: 
+&lt;a href="mailto:stephaine@cox.net">stephaine@cox.net&lt;/a>
+&lt;/li>
+&lt;li>
+Secretary Nelida Sawchuk: 
+&lt;a href="mailto:nelida@gmail.com">nelida@gmail.com&lt;/a>
+&lt;/li>
+&lt;li>
+Treasurer Marguerita Hiatt: 
+&lt;a href="mailto:marguerita.hiatt@gmail.com">marguerita.hiatt@gmail.com&lt;/a>
+&lt;/li>
+&lt;li>
+Member at Large Carmela Cookey: 
+&lt;a href="mailto:ccookey@cookey.org">ccookey@cookey.org&lt;/a>
+&lt;/li>
+&lt;/ul>
+</pre>
+            
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <h1></h1>
+            <ul>
+                <li>
+                    President Annabelle Boord:
+                    <a href="mailto:annabelle.boord@cox.net">annabelle.boord@cox.net</a>
+                </li>
+                <li>
+                    Vice President Stephaine Vinning:
+                    <a href="mailto:stephaine@cox.net">stephaine@cox.net</a>
+                </li>
+                <li>
+                    Secretary Nelida Sawchuk:
+                    <a href="mailto:nelida@gmail.com">nelida@gmail.com</a>
+                </li>
+                <li>
+                    Treasurer Marguerita Hiatt:
+                    <a href="mailto:marguerita.hiatt@gmail.com">marguerita.hiatt@gmail.com</a>
+                </li>
+                <li>
+                    Member at Large Carmela Cookey:
+                    <a href="mailto:ccookey@cookey.org">ccookey@cookey.org</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    
+
+</body>
+</html>

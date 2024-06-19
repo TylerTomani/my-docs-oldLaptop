@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01-lists</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2>04-01-lists</h2>
+    <!-- <li> [:] slice   -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+    
+                <li class="mdsmtxt"><code>[:]</code> slice - increment</li>
+            </ul>
+        </div>
+    </div>
+    <!-- [:] slice -->
+    <div class="flex-container justify-end">
+        <!-- myList = [1,2,3,4,5]
+        myList[2:4] -->
+        <div class="flex-container ">
+            <div class="flex-item flex">
+                <div class="code-container align-self-center  ">
+                    <pre tabindex="1" class="copy-code ">
+myList = [1,2,3,4,5]
+myList[2:4]</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item">
+                <img class="mdsm-img" src="images/01-sliceList.png">
+            </div>
+        </div>
+        <!-- myList = [1,2,3,4,5]
+        myList[::2] -->
+        <div class="flex-container justify-end">
+            <div class="flex-container ">
+                <div class="flex-item flex">
+                    <div class="code-container align-self-center  ">
+                        <pre tabindex="1" class="copy-code ">
+myList = [1,2,3,4,5]
+myList[::2]</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-item">
+                <img class="mdsm-img" src="images/02-incrementList.png">
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- <li> range() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item  flex-col ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>range()</code> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <img class="right-img" src="04-01-02-range/images/01-printRange.png">
+        </div>
+        <div class="flex-item flex-col">
+            <img class="right-img" src="04-01-02-range/images/01-rangeToList.png">
+            <ul>
+                <li class="mdsmtxt"> <code>[::-1]</code> slice - decrement</li>
+            </ul>
+            <div class="flex-item flex-col">
+                <div class="code-container align-self-center">
+                    <code tabindex="1" class="copy-code">
+myList = list(range(20))
+<br>myList[::-5]</code>
+                </div>
+            </div>
+            <div class="flex-item">
+                <img class="right-img" src="04-01-03-sliceDown/images/02-decrementSlice.png">
+            </div>
+        </div>
+        
+        
+    
+    </div>
+        
+        
+    </body>
+    </html>

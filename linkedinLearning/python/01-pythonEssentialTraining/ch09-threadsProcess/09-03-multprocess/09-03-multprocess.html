@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-03-multprocess</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2>09-03-multprocess</h2>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+from <spa class="lsg">multiprocessing</spa> import <span class="o">Procces</span>
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <p>
+                Running multi procceses is similar to threading, We use the module
+                <code class="o">Process</code> from <code class="lsg">multiprocessing</code>.
+                <strong class="r">But</strong> there is a problem, if the process is in the same file
+                this will <strong>not</strong> work.
+            </p>
+        </div> 
+    </div>
+
+        <div class="fcol">
+            <div class="fi">
+                <p>
+                    To fix this we can import a third-party module with <code>pip</code> called
+                    <code class="v">multiprocess</code>
+                </p>
+                <p>
+                    <span class="r">If </span> <code>pip</code> <span class="r">doesn't work</span>, type
+                    <code class="r">pip3</code>
+                </p>
+            </div>
+        
+        </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code">
+pip3 install multiprocess
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can replace the code from the previous lesson with <code class="v">Process</code>
+                instead, but the results will not show, because processes don't share memory
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+from multiprocess import Process
+import time
+
+def longSquare(n,results):
+    time.sleep(0.5)
+    results[n] = n**2
+results = {}
+
+p1 = <span class="v">Process</span>(target=longSquare,args=(1,results))
+p2 = Process(target=longSquare,args=(2,results))
+p1.start()
+p2.start()
+p1.join()
+p2.join()
+print(results)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            We could print the result but the two processes will display right next to each other
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+from multiprocess import process
+import time
+def longSquare(n,results):
+    time.sleep(0.5)
+    print(n**2)
+p1 = Process(target=longSquare, args=(1,results))
+p2 = Process(target=longSquare, args=(2,results))
+p1.start()
+p2.start()
+p1.join()
+p2.join()</pre>
+            </div>   
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+        
+
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can do more work to fix this but I don't quite understand how it works , like the previous lesson with threading,
+                but here is the code below
+            </p>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="desize-img med-img" src="images/04.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+    
+
+    
+    
+    
+    
+
+</body>
+</html>

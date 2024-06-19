@@ -1,0 +1,14 @@
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.flex-container {
+    display: flex;
+    width: 100%;
+}
+.flex-container > .flex-item {
+    display: flex;
+}
+.flex-item >img {
+    width: 95%;
+}
+img{width: 100%;}

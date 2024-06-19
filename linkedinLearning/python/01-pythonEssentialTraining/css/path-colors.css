@@ -1,0 +1,77 @@
+.error {
+    border: 4px solid red !important;
+}
+.important {
+    color:red;
+    font-weight: 600;
+}
+/* Code Colors */
+.black-code {
+    background-color: black;
+    color: white
+}
+.rlinethru {
+    text-decoration: line-through 2px dashed red;
+}
+
+
+/* Colors */
+.o,.r,.v{font-weight: 700;}
+
+.black {color: black}
+.b {color: blue}
+.dg {color: olivedrab}
+.g {color: lime}
+.gr {color: goldenrod;}
+.lb {color: mediumturquoise;}
+.lsg {color: darkcyan;}
+.o {color: orange;}
+.mo {color: mediumorchid;}
+.r {color: red;}
+.v {color: magenta;}
+
+
+/* Borders */
+
+/* Blue Background Highlight */
+.bhlight {background-color: lightblue;}
+/* border pixel color style % */
+/* blue */
+.bb1 {border: 1px blue solid;}
+.bb2 {border: 2px blue solid;}
+/* red */
+.br1 {border: 1px red solid;}
+.br2 {border: 2px red solid;}
+.br3 {border: 3px red solid;}
+.br4 {border: 4px red solid;}
+
+/* violet = magenta */
+.bv1 {border: 1px magenta solid;}
+.bv2 {border: 2px magenta solid;}
+.bo2 {border: 2px solid orange;}
+
+.br1dash {border: 1px red dashed;}
+.br2dash {border: 2px red dashed;}
+.br3dash {border: 3px red dashed;}
+
+/* Underlines */
+
+/* color underline pixel style color */
+/* blue */
+.bunder3 {text-decoration: underline 3px solid royalblue;}
+/* green */
+.gunder3 {text-decoration: underline 3px solid green;}
+/* red */
+.runder3 {text-decoration: underline 3px solid red;}
+.runder2 {text-decoration: underline 2px solid red;}
+
+.mounder3 {text-decoration: underline 3px solid mediumorchid;}
+.ounder2 {text-decoration: underline 2px solid orange;}
+.punder3 {text-decoration: underline 3px solid purple;}
+.vunder1 {text-decoration: underline 3px solid magenta;}
+
+/* specific items */
+.vsblue {
+    color:rgb(66, 156, 212);
+    font-weight: 600;
+}

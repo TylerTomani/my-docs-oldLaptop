@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02_useAssociativeArrays</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">08-02- Using Asscoiative Arrays</h2>
+    </header>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                An an array subscript can be any number or strings
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code tabindex="1" class="copy-pre-code">
+               $ echo "one two three" | awk '{a["first"]=$1; a["second"]=$2; a["third"]=$3;
+               print a["third"], a["second"], a["first"]}'
+            </code>
+            <code>
+                <br>
+                three two one
+            </code>
+
+        </div>
+    </div>
+    <div  class="flex-col align-center">
+        <div class="flex-item">
+            <p>
+                &emsp;When you use a string as a subscript, the array is called an <q>asscociative array</q>.
+                The down side is you can <strong>not</strong> iterate over the elements numerically from
+                1 to END.
+            </p>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;To do so you must use a <code>for in </code> statement,
+                but the order is not gauranteed.
+                <br>
+                <code class="v">for(index in array)</code>
+            </p>
+        </div>
+        
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                This example will print the above example's array. It prints the name of the index and the value within.
+                I switched the words "one two three" with '1 2 3'. The order is not correct
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ <span tabindex="1" class="copy-pre-code">echo "1 2 3" | 
+                awk '{a["first"]=$1; a["second"]=$2; a["third"]=$3; for(i in a){print i , a[i]} }'</span>
+            </code>
+            <code>
+<br>                second 2
+<br>                first 1
+<br>                third 3
+
+            </code>
+        </div>
+        
+    </div>
+    <hr>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;This example is more usefule. The first for loop steps through 
+                the fields on each line and coverts them to lowercase,Then,
+            </p>
+            <p>
+                Increments the element of the words array whose subscript is That word,
+                ... confusing
+            </p>
+        </div>
+        <div class="flex-item code">
+            <pre tabindex="1" class="copy-pre-code">
+{
+    for(i = 1; i &lt;=NF; i++){
+            words[tolower($i)]++;
+    }
+}
+            </pre>
+        </div>
+        
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Then in the end block, it steps throught all the defined subscripts of the words array,
+                which prints the word <code>i</code> and the number of times that word was found <code>words[i]</code>
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre tabindex="1" class="copy-pre-code">
+END {
+    for(i in words){
+        print i , words[i];
+    }
+}
+            </pre>
+        </div>
+        
+    </div>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;The order of the ouput is not garunteed but we can use the sort command to order it alphabetically
+            </p>
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <pre tabindex="1" class="copy-code">
+{
+    for(i = 1; i &lt;=NF; i++){
+        words[tolower($i)]++;
+    }
+} 
+END {
+    for(i in words){
+        print i , words[i];
+    }
+}
+                
+            </pre>
+        </div>
+        <div tabindex="1" class="flex-item">
+            <code>$ awk -f wordusuage.awk dukeofyork.txt</code>
+            <pre>
+again 1
+and 4
+down 4
+duke 1
+grand 1
+had 1
+half-way 1
+he 3
+hill 1
+marched 2
+men 1
+neither 1
+nor 1
+of 2
+old 1
+only 1
+ten 1
+the 3
+them 2
+they 6
+thousand 1
+to 1
+top 1
+up 5
+were 6
+when 3
+york 1
+
+            </pre>
+        </div>
+        
+    </div>
+    <div  class="flex-col">
+        <div tabindex="1" class="flex-item">
+            <p>
+                &emsp;To order numerically in <code>sort</code> use the <code class="v">-n</code> flag which 
+                stands for <q> numerical</q> but we must use <code class="v">-k 2</code> to indicate to sort the 
+                second field as the key which is the number.
+            </p>
+            <p>
+                &emsp;To reverse it use the <code>-rn</code> flag which stands for <q>reverse numerical</q>
+            </p>
+        </div>
+        <div tabindex="1" class="flex-item">
+<code>$ awk -f wordusuage.awk dukeofyork.txt | sort <span class="v">-n -k2</span></code>
+            <pre>
+again 1
+duke 1
+grand 1
+had 1
+half-way 1
+hill 1
+men 1
+neither 1
+nor 1
+old 1
+only 1
+ten 1
+thousand 1
+to 1
+top 1
+york 1
+marched 2
+of 2
+them 2
+he 3
+the 3
+when 3
+and 4
+down 4
+up 5
+they 6
+were 6
+
+            </pre>
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-05-01-dictComprehend</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-05-01-dictComprehend</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                The following converts a list of tuples into a dictionary with key value pairs
+            </p>
+        </div>
+    </div>
+    <!-- animalsDict = {item[0]: item[1] for item in animaList} -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode no-img">
+animalsList = [('a', 'aardvark'),('b','bear'),('c','cat'),('d','dog')]
+animalsDict = {item[0]: item[1] for item in animalsList}
+animalsDict</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="mid-md-img" src="images/01.png">
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                A cleaner way to write the same code is by doing the following,
+                <span class="r">Be sure the <span class="v">items</span> between</span> <code class="p">for</code> and <code class="p">in</code>
+                match the number of items in the iterable list.
+            </p>
+        </div>
+    </div>
+    <!-- animalsDict = {key: value for item in animaList} -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+animalsList = [('a': 'aardvark'),('b':'bear'),('c':'cat'),('d':'dog')]
+animalsDict = {key: value for <span class="v">key</span>,<span class="v">value</span> in animaList}
+animalsDict
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="mid-md-img" src="images/02.png">
+        </div>
+    </div>
+
+    
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

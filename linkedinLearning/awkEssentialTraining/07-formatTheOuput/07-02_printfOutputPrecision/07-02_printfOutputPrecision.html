@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-02_printfOutputPrecision</title>
+    <script src="../../js//focuss.js" defer></script>
+    <link rel="stylesheet" href="../../css/newlesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <!-- copy code and Styles -->
+    <script src="../../js/copycode.js" defer></script>
+    <link rel="stylesheet" href="../../css/copycodeStyles.css">
+    <!-- console script and Styles -->
+    <link rel="stylesheet" href="../consoleUnit07/consoleUnit07Styles.css">
+    <script src="../consoleUnit07/consoleUnit07.js" defer></script>
+</head>
+<body>
+    <header class="m-b-1 ">
+        <h2 tabindex="1" class="">07-02-Formatting output with width and  precision specifiers <code>printf()</code> </h2>
+    </header>
+    <div  class="textfile-container row-reverse">
+        <div class="textfile-container-item flex-col align-self-center ">
+            <p>
+                &emsp;The spacing between fields is not even. We can change that using <code>printf</code>
+                specifiers and width
+            </p>
+            <p>
+                &emsp;The <span class="code md-code o">width specifier</span> goes between the <span class="code v lg-code">%</span> and <span class="code db md-code">letter</span> for the placeholder
+            </p>
+        </div>
+        <div tabindex="1" class="textfile-container-item example-txt-file md-txt" >
+            <h3>TSV awk ouput</h3>
+            <code  class="">
+            <br>Art&nbsp;Venere&emsp;art@venere.org&emsp;256
+                <br>Lenna&nbsp;Paprocki&emsp;lpaprocki@hotmail.com&emsp;259
+                <br>Donette&nbsp;Foller&emsp;donette.foller@cox.net&emsp;282
+                <br>Simona&nbsp;Morasca&emsp;simona@morasca.com&emsp;139
+                <br>Dominque&nbsp;Dickerson&emsp;dominque.dickerson@dickerson.org&emsp;167
+                <br>Leota&nbsp;Dilliard&emsp;leota@hotmail.com&emsp;253
+                <br>Sage&nbsp;Wieser&emsp;sage_wieser@cox.net&emsp;155
+                <br>Kris&nbsp;Cho&emsp;kris@gmail.com&emsp;210
+                <br>Minna&nbsp;Amigon&emsp;minna_amigon@yahoo.com&emsp;95
+                <br>Abel&nbsp;Maclead&emsp;amaclead@gmail.com&emsp;225
+                <br>Kiley&nbsp;Caldarera&emsp;kiley.caldarera@aol.com&emsp;172
+                <br>Graciela&nbsp;Ruta&emsp;gruta@cox.net&emsp;202
+                <br>Josephine&nbsp;Darakjy&emsp;josephine_darakjy@darakjy.org&emsp;178
+                <br>Cammy&nbsp;Albares&emsp;calbares@gmail.com&emsp;290
+                <br>Mattie&nbsp;Poquette&emsp;mattie@aol.com&emsp;283
+                <br>Meaghan&nbsp;Garufi&emsp;meaghan@hotmail.com&emsp;227
+                <br>Gladys&nbsp;Rim&emsp;gladys.rim@rim.org&emsp;243
+                <br>Yuki&nbsp;Whobrey&emsp;yuki_whobrey@aol.com&emsp;128
+                <br>Fletcher&nbsp;Flosi&emsp;fletcher.flosi@yahoo.com&emsp;22
+            </code>
+        </div>
+        
+    </div>
+    <h3>Change width</h3>
+    <div  class="textfile-container lg-txt m-t-1">
+        <div class="flex-item flex-col ">
+            <p class="m-b-1">
+                &emsp;If the width specifier is positive it will right justified
+            </p>
+            <code tabindex="1" class="code-color p-1 p-l-1 md-code copy-pre-code m-1 justify-self-start">
+awk -F , '{printf("<span class="v">%</span><span class="o">20</span><span class="w">s</span>\t%30s\t%3d\n",$1,$2,$3)}'</code>
+        </div>
+        <div tabindex="1" class="flex-item awk-txt-result  xx-sm-code">
+
+            <pre>
+              Art Venere                                    art@venere.org	256
+       Lenna Paprocki	                      lpaprocki@hotmail.com	        259
+          Donette Foller	                       donette.foller@cox.net	282
+      Simona Morasca	                       simona@morasca.com	        139
+Dominque Dickerson	     dominque.dickerson@dickerson.org	167
+           Leota Dilliard	                            leota@hotmail.com	253
+            Sage Wieser	                         sage_wieser@cox.net    	155
+                  Kris Cho	                                 kris@gmail.com	210
+          Minna Amigon	                 minna_amigon@yahoo.com	95
+           Abel Maclead	                         amaclead@gmail.com	225
+        Kiley Caldarera	                     kiley.caldarera@aol.com	172
+           Graciela Ruta          	                   gruta@cox.net	202
+    Josephine Darakjy	           josephine_darakjy@darakjy.org	178
+        Cammy Albares	                           calbares@gmail.com	290
+        Mattie Poquette	                                 mattie@aol.com	283
+        Meaghan Garufi	                      meaghan@hotmail.com	227</pre>
+
+        </div>
+        
+    </div>
+    <hr>
+    
+    <div class="textfile-container lg-txt m-t-1">
+        <div class="flex-item flex-col ">
+            <p class="m-b-1">
+                If the width specifier is negative it will left justified
+            </p>
+            <code tabindex="1" class="code-color p-1 p-l-1 md-code copy-pre-code m-1 justify-self-start">
+                awk -F , '{printf("%-20s\t%-30s\t%-3\d\n",$1,$2,$3)}'
+            </code>
+        </div>
+        <div tabindex="1" class="flex-item awk-txt-result  xx-sm-code">
+            <pre>
+Art Venere          	art@venere.org                	256
+Lenna Paprocki      	lpaprocki@hotmail.com         	259
+Donette Foller      	donette.foller@cox.net        	282
+Simona Morasca      	simona@morasca.com            	139
+Dominque Dickerson  	dominque.dickerson@dickerson.org	167
+Leota Dilliard      	leota@hotmail.com             	253
+Sage Wieser         	sage_wieser@cox.net           	155
+Kris Cho            	kris@gmail.com                	210
+Minna Amigon        	minna_amigon@yahoo.com        	95 
+Abel Maclead        	amaclead@gmail.com            	225
+Kiley Caldarera     	kiley.caldarera@aol.com       	172
+Graciela Ruta       	gruta@cox.net                 	202
+Josephine Darakjy   	josephine_darakjy@darakjy.org 	178
+Cammy Albares       	calbares@gmail.com            	290
+Mattie Poquette     	mattie@aol.com                	283
+Meaghan Garufi      	meaghan@hotmail.com           	227
+Gladys Rim          	gladys.rim@rim.org            	243
+Yuki Whobrey        	yuki_whobrey@aol.com          	128
+Fletcher Flosi      	fletcher.flosi@yahoo.com      	221
+
+
+            </pre>
+        </div>
+        
+    </div>
+    <hr>
+    <h3>Change precision</h3>
+    <div class="textfile-container lg-txt m-t-1">
+        <div class="flex-item flex-col ">
+            <p class="m-b-1">
+                &emsp;The above printf has an integer <spand class="code db md-code" >%d</spand> placeholder.
+                Change this to <span class="code db md-code">%f</span>. 
+            </p>
+            <p>
+                &emsp;Now we can adjust the precision. The <span class="v">number</span> after the <span class="code v md-code">.</span>
+                limits the decimal to that place. The number <span class="o">before</span> the decimal is the entire width.
+            </p>
+            <p>
+                &emsp;<span class="o">6</span><span class="v">.</span><span class="db">2</span> will have 6 numbers all together 
+                and 2 digits after the decimal.
+            </p>
+
+            <code tabindex="1" class="code-color p-1 p-l-1 md-code copy-pre-code m-1 justify-self-start">
+                awk -F , '{printf("%-20s\t %-32s\t %<span class="o">6</span>.<span class="v">2</span>    f\n",$1,$2,$3)}'
+            </code>
+        </div>
+        <div tabindex="1" class="flex-item  ">
+            <pre>
+Art Venere          	 art@venere.org                  	  256.62
+Lenna Paprocki      	 lpaprocki@hotmail.com           	  259.69
+Donette Foller      	 donette.foller@cox.net          	  282.33
+Simona Morasca      	 simona@morasca.com              	  139.52
+Dominque Dickerson  	 dominque.dickerson@dickerson.org	  167.05
+Leota Dilliard      	 leota@hotmail.com               	  253.65
+Sage Wieser         	 sage_wieser@cox.net             	  155.56
+Kris Cho            	 kris@gmail.com                  	  210.79
+Minna Amigon        	 minna_amigon@yahoo.com          	  95.48
+Abel Maclead        	 amaclead@gmail.com              	  225.77
+Kiley Caldarera     	 kiley.caldarera@aol.com         	  172.96
+Graciela Ruta       	 gruta@cox.net                   	  202.68
+Josephine Darakjy   	 josephine_darakjy@darakjy.org   	  178.88
+Cammy Albares       	 calbares@gmail.com              	  290.45
+Mattie Poquette     	 mattie@aol.com                  	  283.24
+Meaghan Garufi      	 meaghan@hotmail.com             	  227.14
+Gladys Rim          	 gladys.rim@rim.org              	  243.46
+Yuki Whobrey        	 yuki_whobrey@aol.com            	  128.32
+Fletcher Flosi      	 fletcher.flosi@yahoo.com        	  221.39
+
+            </pre>
+        </div>
+        
+    </div>
+    
+
+    
+    
+    
+</body>
+</html>

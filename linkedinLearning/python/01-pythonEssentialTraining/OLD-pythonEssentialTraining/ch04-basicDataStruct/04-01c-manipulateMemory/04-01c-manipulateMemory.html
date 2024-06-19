@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01c-manipulateMemory</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-01c- Manipulate Elements in Memory</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;If we assign a list to another variable, it does <strong>
+                    not make a copy in memory
+                </strong>
+            </p>
+        </div>
+    </div>
+    <!-- a = [1,2,3,4]
+    b = a
+    a.append(5)
+    b -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+a = [1,2,3,4]
+b = a
+a.append(5)
+b</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-appendOg.png">
+        </div>
+        
+    </div>    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Appending to <code class="lgcode">a</code> will change <code class="lgcode">b</code>
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code class="lgcode v">copy()</code> will make an exact copy stored elsewhere in memory.
+            </p>
+        </div>
+    </div>
+    <!-- a = [1,2,3,4]
+    b = a.copy()
+    a.append(5)
+    b -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+a = [1,2,3,4]
+b = a.<span class="v">copy</span>()
+a.append(5)
+b</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-copy.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

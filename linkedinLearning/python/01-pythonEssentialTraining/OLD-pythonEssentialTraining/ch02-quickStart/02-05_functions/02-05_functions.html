@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-05_functions</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-05_functions</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;Functions are defined with the <code class="b mdcode">def</code> key word 
+                before whatever name we give to the function.
+            </p>
+            <p>
+                &emsp;after the name of the function we place () parenthesis where we can enter 
+                variables and values to be used in the function.
+            </p>
+            <p>
+                &emsp;Like if statements and loops, the block of code must be indented on the following line 
+                after the <code class="mdsmtxt">:</code>
+            </p>
+        </div>        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    We can return values from functions with a <code class="v mdcode">return</code> statement.
+                </p>
+            </div>
+            
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+<span class="b">def</span> myFunction(value):
+    <span class="v">return</span>
+                </pre>
+            </div>
+        </div>        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Invoke the function by typing the name somewhere in the program with <code>()</code>                    
+                    parenthesis after the name
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def sayHey(string):
+    return string * 3
+
+sayHey('hey')
+                </pre>
+            </div>
+            <div class="fi">
+                <p tabindex="1" >
+                    Notice how this doesn't do anything if we run the script. We want the
+                    word 'hey' three times, but the <code class="mdcode">sayHey()</code> function
+                    is <strong> only </strong> returning the value, with no where to go.
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-functionNoRun.png">
+        </div>
+        
+    </div>
+
+    <div class="fcol mt1">
+        <div class="fi">
+            <p>
+                
+            </p>
+        </div>
+    </div>
+    <h3>There are two ways to retrieve the value from the <code class="mdcode">sayHey</code> function.</h3>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    <span class="br2dash">Invoke the function inside of a variable</span> , then print the variable.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def sayHey(string):
+    return string * 3
+<span class="br2dash">heys = sayHey('hey')</span>
+print(heys)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-functionToVar.png">
+        </div>
+    </div>
+    <h3>Or</h3>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Or you can Invoke the <code class="mdcode">sayHey()</code> function as a value for the
+                    <code class="mdcode">print()</code> function
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def sayHey(string):
+    return string * 3
+
+print(sayHey('hey '))</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-functionInPrint.png">
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Functions allow us to manipulate variables and structures
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2,3]
+def addToList(value):
+    my_list.append(value)
+addToList('koala')
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/00-appendFunction.png">
+        </div>
+    
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Many times functions perform task without returning anything.
+                For instance the <code class="mdcode">print()</code> function
+            </p>
+            <p>
+                We can see this by attmepting to print out the <code>print()</code>
+                function within <code class="mdcode">print()</code>
+            </p>
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(print('hello'))
+                </code>
+            </div>
+            <div class="fi">
+                <p>
+                    It prints out <code class="mdcode">hello</code> but below this 
+                    you see <code class="mdcode v">None</code>, If a program doesn't return 
+                    any type of value, it returns the special <code class="mdcode v">None</code>.
+                    Which is like <i>undefined in Javascript</i>.
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-none.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                When a function is working but doesn't return anything it will return <code class="mdcode v">
+                    None
+                </code>. 
+            </p>
+        </div>
+        <div class="fc">
+            <div class="fi fcol jc">
+                <div class="fi">
+                    <p>
+                        <code class="mdcode ">None</code> even has its own <code class="mdcode lsg">type</code>
+                    </p>
+                </div>
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print(type(None))
+                    </code>
+                </div>
+            </div>
+            <div class="fi">
+                <img class="" src="images/05-noneType.png">
+            </div>
+            
+        </div>
+        
+        <div class="fi">
+            <p>
+                It will become more apparent why this is usefule later
+            </p>
+        </div>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

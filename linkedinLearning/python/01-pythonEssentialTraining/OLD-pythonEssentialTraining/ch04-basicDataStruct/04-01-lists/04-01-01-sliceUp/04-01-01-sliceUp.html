@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01-01-slice</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">04-01-01-slice <code>[:]</code>slice</h2>
+    <h3><code>[:]</code> slice list </h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Increment your way though list with <code class="mdcode">[::]</code>
+            </p>
+        </div>
+    </div>
+    
+    <!-- myList = [1,2,3,4,5]
+    myList[2:4] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4,5]
+myList[2:4]</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-sliceList2.png">
+        </div>
+    </div>
+    <!-- slice in steps -->
+    <!-- myList = [1,2,3,4,5]
+    myList[0:5:2] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Slice in increments of <span class="v">third</span> argument.
+            </p>
+            <code class="mdcode">[0:5:<span class="v lgcode">2</span>]</code>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4,5]
+myList[0:5:<span class="v lgcode">2</span>]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-sliceStep.png">
+        </div>
+    </div>
+    <!-- [::] -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                <code class="mdcode">[::]</code> is a shortcut to slice whole list
+            </p>
+        </div>
+    </div>
+    <!-- myList = [1,2,3,4,5,6,7,8]
+    myList[::3] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4,5,6,7,8]
+myList[::3]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-shortHandSlice.png">
+        </div>
+    </div>
+    <!-- myList = [1,2,3,4,5,6,7,8,9,10]
+    myList[::4] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Increment throught whole list
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4,5,6,7,8,9,10]
+myList[::4]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-incrementShortHand.png">
+        </div>
+    </div>
+    
+    
+
+    
+    
+</body>
+</html>

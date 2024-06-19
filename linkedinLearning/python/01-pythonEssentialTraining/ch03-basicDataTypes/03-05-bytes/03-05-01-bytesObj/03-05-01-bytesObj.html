@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-05-01-bytesObj</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-05-01- <code>bytes</code> object</h2>
+    <!-- bytes(2)
+    bytes(4) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Type <code class="lsg">bytes</code> followed by how many.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+bytes(2)
+bytes(4)</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-terminalBytes.png">
+        </div>
+    </div>
+    <!-- print(bytes(2))
+    print(bytes(4)) -->
+    <div class="fc">
+        <div class="fi fcol ac">
+            <div class="code-container  inline-block">
+                <pre tabindex="1" class="copy-code ">
+print(bytes(2))
+print(bytes(4))</pre>
+            </div> 
+        </div>
+        <div class="fi asc">
+            <img class="mid-img" src="images/02-vsCodeBytes.png">
+        </div>
+    </div>
+    <!-- They both display 2 bytes -->
+    <div class="fcol">
+        <div class="fi ">
+            <div tabindex="1" class="asc justify-self center lone-p fcol mdsmtxt mtb1">
+                <p>
+                    &emsp;They both display 2 bytes and 4 bytes in
+                    <a tabindex="1" target="_blank" class="math-link" href="../../../xtra-math-tutorials/01-base10.html">
+                        hexicdeimal</a>
+                </p>
+                <p>
+                    The <code>bytes</code> object creates a new bytes object. The size if the number
+                    provided to it.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- a2 = bytes(2)
+    print(a2) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p tabindex="1" class="copy-code">
+                    The bode <code class="bv1">b'</code> indicates if a variable is a bytes object
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+a2 = bytes(2)
+print(a2)</pre>
+            </div>
+               
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-b.png">
+        </div> 
+    </div>
+    <hr>
+    <!-- bytes are great for working... -->
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                <code>bytes</code> objects are great for working with symbols and emojis
+            </p>
+        </div>
+    </div>
+    <!-- Insert the symbol or emoji...  -->
+    <div class="fc">
+        <div tabindex="1"  class="fi fcol">
+            <p>
+                &emsp;Insert the symbol or emoji for the first arguement, enter what type
+                it is as the second argument.
+            </p>
+            <p>
+                Emojis are <code>utf-8</code>
+            </p>
+        </div>
+    </div>
+    <!-- bytes('😎','utf-8') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bytes('😎','utf-8')
+                </code>
+                <p>
+                    In terminal this will display its bytes in hexadecimal.
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-utf8.png">        
+        </div>
+    </div>
+    <!-- To convert from hexadecimal -->
+    <div class="fcol">
+        <div tabindex="1" class="fi">
+            <p>
+                To convert from hexadecimal, pass the bytes object to <code class="v">decode</code>,
+                with what type to decode from as an arguement
+            </p>
+        </div>
+    </div>
+    <!-- sunglasses = bytes('😎','utf-8')
+    sunglasses.decode('utf-8') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Assign the bytes object to a variable and perform <code>.<span class="v">decode</span>()</code> on 
+                that variable
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+sunglasses = bytes('😎','utf-8')
+sunglasses.<span class="v">decode</span>('utf-8')</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-decode.png">
+        </div>
+    </div>
+    <hr>
+    <h3><code>bytes</code> data are immutable</h3>
+    <!-- Just like tuples, ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Just like tuples, <code>bytes</code> objects are immutable. To mutate and 
+                change <code>bytes</code> varaibles, use 
+                <code class="lsg">bytearray</code>.
+            </p>
+        </div>
+    </div>
+    <!-- sunglasses = bytearray('😎','utf-8')
+    print(sunglasses) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+sunglasses = bytearray('😎','utf-8')
+print(sunglasses)</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-bytearray.png">
+        </div>
+        
+    </div>
+    <!-- Now we can see that the varaible -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p tabindex="1" class="copy-code">
+                    Now we can see that the varaible is a <code class="lsg">bytearray</code>
+                    and not a <code>byte</code> object
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-bytearrayObj.png">
+        </div>
+    </div>
+    <!-- Now that the sunglasses...  -->
+    <div class="fcol">
+        <div class="fi">
+            <p> 
+                Now that the <code>sunglasases</code> varaible is a <code>bytesarray</code> object we can  
+                mutate it.
+            </p>
+        </div>
+    </div>
+    <!-- We can index a... -->
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                &emsp;We can index a <code>bytearray</code> like a string or list. Each hexadecimal 
+                is an index. <code>sunglasses[<span class="v">3</span>]</code> is <code>b'\xf0\x9f\x98\<span class="bv2">x82</span> </code>
+            </p>
+        </div>
+    </div>
+    <!-- sunglasses[3] = int('82',16) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Assign <code>sunglasses[3]</code> a value by casting a number 
+                with <code>int()</code> class with base 16.
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+sunglasses[3] = int('82',16)
+                </code>
+            </div>
+        </div>
+        <div class="fi asc">
+            <img class="" src="images/08-changeByte.png">
+        </div>
+        
+    </div>
+<!-- sunglasses[3] = int('82',16)
+sunglasses.decode('utf-8') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Decode it to see the change.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+sunglasses[3] = int('82',16)
+sunglasses.decode('utf-8')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/09-decodeChangeByte.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

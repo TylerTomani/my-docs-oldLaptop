@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02-04-customDecorators</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-02-04 Custom Decorators</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                It's best practice to create a function to handle errors and use it 
+                as a <span class="v">decorator</span>. You must place the <code class="b">excepts</code> 
+                into a inner function, this one is called 
+                <code class="dg">wrapper</code>. we used <code class="v">@staticmethod</code> decorator 
+                in chapter 7-02 static and instance (go back and fix that lesson)
+            </p>
+        </div>
+    </div>
+
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def handleExceptions(func)
+    def <span class="dg">wrapper</span>():
+        try:
+            func()
+        except TypeError:
+            print('type error')
+        except ZeroDivisionError:
+            print('zero division error')
+        except Exception:
+            print('error')
+    return wrapper
+<span class="v">@handleExceptions</span></pre>
+            </div>    
+        </div>
+        <div tabindex="1" class="fi flex ase ">
+            <p>
+                &emsp;To use the <code>handleExceptions()</code> function as a <span class="v">decorator</span> type
+                <code class="v">@</code> followed by the name of the function <code class="v">@handleExceptions</code>
+            </p>
+            <p>
+                The function <code class="b">causeError</code> below the decorator will be passed into the <code class="v">@handleExceptions</code>
+                function as the argument (<code class="o">func</code> )
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def handleExceptions(<span class="o">func</span>):
+    def wrapper():
+        try:
+            func()
+        except TypeError:
+            print('type error')
+        except ZeroDivisionError:
+            print('zero division error')
+        except Exception:
+            print('error')
+    return wrapper
+
+
+<span class="v">@handleExceptions</span>
+def <span class="b">causeError()</span>:
+    return 1/0
+                
+
+
+causeError()
+</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+    
+       
+</body>
+</html>

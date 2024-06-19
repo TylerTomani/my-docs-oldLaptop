@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-logicOperators</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">02-03-logicalOperators</h2>
+    <div class="fc">
+        <div class="fi fcol ">
+            <div class="fi justify-start bb1">
+                <p>
+                    There are three Logical operators
+                </p>
+            </div>
+            <div class="fi asc mt5">
+                <ul>
+                    <li><code class="b mdsmtxt">and</code></li>
+                    <li><code class="b mdsmtxt">or</code></li>
+                    <li><code class="b mdsmtxt">not</code></li>
+                </ul>
+            </div>
+        </div>
+        <div class="fi fcol jc">
+            <h3><code class="b mdsmtxt">and</code></h3>
+            <div class="fi align-self-start">
+                <p>
+                    &emsp;Both sides must evaluate to <code class="b mdcode">True</code>
+                    in order to produce a <code class="b mdcode">True</code> result.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(True and True)
+                </code>
+            </div>
+            <div class="fi">
+                <img class="md-img" src="images/01-True.png">
+            </div>
+            <div class="code-container asc fcol">
+                <p class="r">I have to fix this image</p>
+                <code tabindex="1" class="copy-code">
+                    print(True and False)
+                </code>
+            </div>
+            <div class="fi">
+                <img class="md-img" src="images/02-False.png">
+            </div>
+        
+        
+        
+        </div>
+    
+    </div>    
+    <hr>
+    <div class=" fcol jc">
+        <h4 class="r">Problem with <code class="b mdcode">and</code></h4>
+        <div class="fi">
+            <p class="r">
+                It seems that <code class="b">and</code> will only return <code class="mdcode b">True</code> or <code class="mdcode b">False</code> if the values being compared
+            are either <code class="mdcode b">True</code> or <code class="mdcode b">False</code>
+        </p>
+        </div>        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    &emsp;This can be seen when comparing to variables with the same value.
+                    <span class="r">Only the last value is returned</span>
+                </p>
+            </div>   
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+dog1 = 'Skippy'
+dog2 = 'Skippy'
+print(dog1 <span class="b smcode">and</span> dog2)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="big-img" src="images/03-Skippy.png">
+        </div>
+        
+    </div>
+    
+
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+dog1 = 'Skippy'
+dog2 = 'Rooster'
+print(dog1 <span class="b smcode">and</span> dog2)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="big-img" src="images/04-Rooster.png">
+        </div> 
+    </div>
+    <h3><code class="b mdsmtxt">or</code></h3>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    This evalutes to <code class="b mdcode">True</code>
+                    if either condition is <code class="b mdcode">True</code>.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(True <code class="b mdcode">or</code> True)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/05-orTrue.png">
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    The only time it evalutes to <code class="b mdcode">False</code>
+                    is if both conditions are false.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(False <code class="b mdcode">or</code> False)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/06-orFalse.png">
+        </div>
+        
+    </div>
+    
+    <h3><code class="b mdsmtxt">not</code></h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The <code class="b mdcode">not</code> operator only acts on one value and simply flips the boolean.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(<span class="b mdcode">not</span> True)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/07-notTrue.png">
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(<span class="b mdcode">not</span> False)
+                </code>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/08-notFalse.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+    
+</body>
+</html>

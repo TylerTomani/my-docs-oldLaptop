@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-05-01-dictComprehend</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-05-01-dictComprehend</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can extract the key value pairs into a list of tuples useing the 
+                <code>.<span class="o">items</span>()</code> method on a dicitonary.
+            </p>
+        </div>
+    </div>
+    <!-- animalsDict.item() -->
+    <div class="flex-col">
+        <div class="flex-item">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+animalsList = [('a', 'aardvark'),('b','bear'),('c','cat'),('d','dog')]
+animalsDict = {key: value for key,value in animalsList}
+animalsDict.<span class="o">items</span>()</pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                <code>.<span class="o">items</span></code> returns a <code class="v">dict_items</code> object
+            </p>
+        </div>
+        <div class="flex-item">
+            <img class="mid-md-img" src="images/01.png">
+        </div>
+    </div>
+    
+
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This returns a <code>dict_items</code> object containing a list of tuples consisting of the key values 
+                pairs.
+            </p>
+            <p>
+                We can take the <code>dict_items</code> object and covert that into a list with a the <code>list()</code> object.
+                This will return the dictionary object back into it's original list.
+            </p>
+        </div>
+    </div>
+    
+    <div class="flex-col">
+        <div class="flex-item">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+list(animalsDict.items())
+                </pre>
+            </div>     
+        </div>
+        <div class="flex-item">
+            <img class="mid-md-img no-enlarge" src="images/02.png">
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can return a list of dictionary items form the list of tuples, adding attributes in the process
+            </p>
+        </div>
+    </div>
+    
+    <div class="flex-col">
+        <div class="flex-item">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+[{'letter': key , 'name': value} for key,value in animalsDict.<span class="o">items</span>()]
+                </pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="nothing " src="images/03.png">
+        </div>
+    </div>
+
+    
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

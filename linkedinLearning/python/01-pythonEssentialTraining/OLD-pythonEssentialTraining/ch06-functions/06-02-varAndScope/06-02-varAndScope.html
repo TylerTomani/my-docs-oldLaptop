@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-02-varAndScope</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">06-02-Variables and Scope</h2>
+    <h3><code>locals()</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Python has a built-in functions <code>locals()</code> that will return 
+                the local variables within a scope into a dictionary.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def performOperation(num1,num2,operator = 'sum'):
+    print(locals())
+
+performOperation(1,2,operator = 'multiply')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/01.png">
+        </div> 
+    </div>
+    <h3><code>globals()</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                The <code>globals()</code> function will print out the global variables, by default
+                python has many global variables
+            </p>
+        </div>
+    </div>
+    <div class="flex-col">
+        <div class="fi">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code no-img">
+globals()
+                </code>
+            </div>   
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="md-img" src="images/02.png">
+        </div>
+    </div>
+    <h3>mixing global and local</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                If we define a gobal varaible <code class="b">varA</code>
+                globally, then use another <code class="v">varA</code> as a parameter 
+                to a different scope, the two will be different
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+message = 'A message'
+<span class="b">varA = 8</span>
+def function1(varA,varB):
+    print(message)
+    <span class="v">print(varA)</span>
+    print(locals())
+
+def function2(varC,varD):
+    print(message)
+    <span class="b">print(varA)</span>
+    print(locals())
+
+function1(1,2)
+function2(5,6)</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/03.png">
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>

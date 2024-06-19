@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-03_parseExcelCommasNewLines</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../../08-funcsAndArrays/css/08-lessonStyles.css">
+</head>
+<body>
+    <header> 
+        <h2 class="lesson-header">09-03- Parse Excel CSV Files: commas and new lines</h2>
+    </header>
+    <div class="flex-col flex align-center">
+        <div class="flex-item m-t-2">
+            <p>
+                The previous lesson is confusing, we managed to get rid of the extra quotes.
+                Excel also puts quotes around commas.
+            </p>
+        </div>
+        <div class="flex-item m-t-2">
+            <p>
+                Below shows step by step how awk handles input from an excel CSV file.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="flex-container m-t-2">
+        <div class="flex-item flex justify-center align-center">
+            <p tabindex="1">
+                The excel file is displayed here
+            </p>
+        </div>
+        <div class="flex-item" >
+            <img class="sm-img" src="images/01-excelFile.png">
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div  class="flex-item flex justify-center align-center">
+            <p tabindex="1">
+                &emsp;Save it as a original MS-DOS CSV file, NOT deliminted or macontosh,
+                Excel now has format that avoid the problems discussed in the tutorial,
+                But this pages shows how to deal with MS-DOS for practice purposes
+            </p>
+        </div>
+        <div class="flex-item">
+            <img class="md-img"  src="images/02-MsDosCSV.png">
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item m-t-2">
+            <p tabindex="1" >
+                If we cat the file we will see that <code>,</code> commas are placed between
+                each cell
+            </p>
+        </div>
+        <div class="flex-item">
+            <code>
+                $ cat excel.csv
+               <br> 1,2,3
+               <br> one,two,three
+               <br> one one,two two,three three
+               <br> """one""","""two""","""three"""
+               <br> "one,one","two,two","three,three"
+               <br> one,two,three
+               <br> "one
+               <br> one","two
+               <br> two","three
+               <br> three"
+            </code>
+        </div> 
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item flex justify-center align-center">
+            <p>
+                Commas are a big problem when it comes to delimiting excel files because each cell is seperated 
+                with commas in awk. To remdedy the comma problem, save the original excel file in <q>tab</q>
+            </p>
+        </div>
+        <div class="flex-item">
+            <img tabindex="1" src="images/03-tabDelimit.png">
+        </div> 
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                If we <code>cat</code> the tab seperated <code>excel.txt</code> files, we can see the 
+                cells are seperated by tabs and the same issue with the quotes appears
+            </p>
+        </div>
+        <div class="flex-item">
+            <pre class="code">
+1	2	3
+one	two	three  
+one one	two two	three three
+"""one"""	"""two"""	"""three"""
+"one,one"	"two,two"	"three,three"
+one	two	three
+"one
+one"	"two
+two"	"three
+three"
+            </pre>
+        </div>
+        
+    </div>
+    
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p tabindex="1">
+                To deal with the quotes use the same script from the bottom of the previous lesson 
+                but change the <code>FS</code> value to <code class="lg-txt">FS="\t"</code> and 
+                change the input file from <code class="md-txt">exel.csv</code> to <code class="md-txt">excel.txt</code>.
+            </p>
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item flex-col">
+            <h3>excel.awk</h3>
+            <pre class="code ">
+<span tabindex="1" class="copy-code">
+BEGIN{RS="\r"}
+{
+    for(i=1; i &lt;=3; i++){
+        gsub("^\"|\"$","",$i);
+        gsub("\"\"","\"",$i);
+    }
+    print "!" $1 "!" $2 "!" $3 "!";
+
+}
+</span>
+            </pre>
+        </div>
+        
+    </div>
+    <div class="flex-col m-tb-1">
+        <div class="flex-item ">
+            <p tabindex="1">
+                <span class="r"> &emsp;Now I'm havin a problem with the <code class="md-txt"><span
+                            class="b-2-red">!</span></code>
+                    delimiter appearing on a new line.</span> And a extra quote <code class="md-txt"><span
+                        class="b-2-v">"</span></code> appearing
+                before the one
+            </p>
+        </div>
+    </div>
+    <div tabindex="1"  class="flex-container">
+        <div class="flex-item flex-col">
+            <code>$ <span tabindex="1" class="copy-code">awk -Ft -f excel.awk excel.txt</span></code>
+            <pre class="code">
+!1!2!3!
+<span class="b-2-red">!</span>
+one!two!three!
+<span class="b-2-red">!</span>
+one one!two two!three three!
+<span class="b-2-red">!</span>
+<span class="b-2-v">"</span>"one"!"two"!"three"!
+<span class="b-2-red">!</span>
+"one,one!two,two!three,three!
+<span class="b-2-red">!</span>
+one!two!three!
+<span class="b-2-red">!</span>
+"one
+one!two
+two!three
+three!</pre>
+        </div>
+        <div class="flex-item">
+            <img src="images/01-excelFile.png">
+        </div>
+    </div>
+    
+    <hr>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p tabindex="1">
+                Everythin seems to be very messy and quite different from the tutorial
+                but below is an attempt at solving the issue of new lines within a cell.
+                Excel will place <q></q> around a new line within a cell
+            </p>
+        </div>
+    </div>
+
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;Add a while loop at the top of the awk script stating that if the 
+                last field <code class="md-txt">NF</code> is a quote " <code class="md-txt"><span class="b-2-v">/^"</span></code> and ends with something that 
+                is not a quote <code class="md-txt"><span class="b-2-v">.*[^"]</span></code>, call <code class="md-txt">getline</code>
+                and concatenate it with the current line <code class="md-txt">$0</code>
+            </p>
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <pre class="code">
+<span tabindex="1" class="copy-code">BEGIN{RS="\r"}
+{
+    while($NF ~ <span class="b-2-v">/^".*[^"]$/</span> ){
+        getline x;
+        $0 = $0 "\n" x;
+    }
+    for (i=1; i &lt;=3 ; i++){
+        gsub("^\"|\"$", "",$i);
+        gsub("\"\"","\"", $i);
+    }
+    print "!" $1 "!" $2 "!" $3 "!";
+}
+</span>
+            </pre>
+        </div>
+        <div class="flex-item">
+            <code>
+!1!2!3!
+<br> !
+<br> one!two!three!
+<br> !
+<br> one one!two two!three three!
+<br> !
+<br> ""one"!"two"!"three"!
+<br> !
+<br> "one,one!two,two!three,three!
+<br> !
+<br> one!two!three!
+<br> !
+<br> "one
+<br> one!two
+<br> two!three
+<br> three!
+
+            </code>
+        </div>
+        
+    </div>
+    <div class="flex-co">
+        <p class="r">
+            Unsuprised I don't think this did anything
+        </p>
+    </div>
+
+    
+
+    
+    
+    
+    
+</body>
+</html>

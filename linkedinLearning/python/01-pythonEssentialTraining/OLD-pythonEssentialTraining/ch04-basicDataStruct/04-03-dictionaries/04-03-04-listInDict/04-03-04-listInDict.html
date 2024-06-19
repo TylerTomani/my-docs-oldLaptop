@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-03-04-listInDict</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-03-04 <code>list</code> in <code>dict</code></h2>
+    <!-- animals = { ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                It is common to see list <code>[]</code> as values in dictionaries
+            </p>
+        </div>
+        <div class="code-container align-self-center">
+            <pre tabindex="1" class="copy-code no-img">
+animals = {
+    'a': ['aardvark','antelop'],
+    'b': ['bear'],
+}</pre>
+        </div>       
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can add to a list as a value in a dict with <code>append()</code>
+            </p>
+        </div>
+    </div>
+    <!-- animals['b'].append('bison') -->
+    <div class="fcol">
+            <div class="code-container align-self-center">
+                <code tabindex="1" class="copy-code no-img">
+animals['b'].append('bison')
+                </code>
+            </div>
+            <div class="fi">
+                <img class="no-enlarge  " src="images/01-appendToListIndict.png">
+            </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can assign a new key with a new list
+            </p>
+        </div>
+    </div>
+    <!-- animals['c'] = ['cat']; -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <code tabindex="1" class="copy-code no-img">
+                    animals['c'] = ['cat'];
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="no-enlarge" src="images/02-appendNewKeyList.png">
+        </div>
+    </div>
+    <hr>
+    <!-- Overwrite existing c -->
+    <div class="fcol">
+        <div class="fi ">
+            If there was a key already called c with a list. Doing the above would 
+            overwrite the old value
+        </div>
+        <div class="code-container align-self-center">
+            <pre tabindex="1" class="copy-code no-img">
+animals = {
+    'a': ['aardvark','antelope'],
+    'b': ['bear','bison'],
+    'c': ['caribou']
+}</pre>
+        </div>
+    </div>
+    <!-- animals['c'] = 'cat' Overwrites caribou -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+animals['c'] = 'cat'
+animals</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="mid-img enlarge-img" src="images/03-catOverwriteCaribou.png">
+        </div>
+    </div>
+    <!-- Use an if -->
+    <div class="fcol mtb2">
+        <div class="fi ">
+            <p>
+                Use an <code>if</code> statement to check if key exists to avoid 
+                overwriting any values. The following will make a key <code>'c'</code>
+                with a empty list <code>[]</code> as a value if <code>'c'</code>
+                does <strong>not</strong> exist.
+            </p>
+            <p class="mt1">
+                Otherwise it will just append <code>'cat'</code> to the key <code>'c'</code>
+                if it exist
+            </p>
+        </div>
+    </div>
+    <!-- if 'c' not in animals: -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+if 'c' not in animals:
+    animals['c'] = []
+
+animals['c'].append('cat')
+animals</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="mid-img enlarge-img" src="images/04-catAdded.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                To avoide using an if statement to perform the same functions.
+                Use <code>defualtdict</code>... see next lesson
+            </p>
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+
+</body>
+</html>

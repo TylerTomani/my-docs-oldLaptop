@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-challengeFactorials</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-challengeFactorials</h2>
+    
+    <div class="fc">
+        <div class="fi fcol">
+            <h3>Simple way</h3>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def factorial(n):
+    if type(n) is not int:
+        return None
+    if n &lt; 0:
+        return None
+    if n == 0: 
+        return 1
+
+    i = 0
+    f = 1
+    while i &lt; n:
+        i =  i + 1
+        f = f * i
+    return f
+
+factorial(4)
+                </pre>
+            </div>
+        </div>
+        <div class="fi fcol">
+            <h3>Recursion</h3>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def factorial(num):
+    if type(num) is not int:
+        return None
+    if num &lt; 0:
+        return None
+    if num == 0:
+        return 1
+
+    return num * factorial(num - 1)
+print(factorial(5))
+                </pre>
+            </div>
+            
+        </div>
+    </div>
+    
+    <footer tabindex="1"></footer>
+</body>
+</html>

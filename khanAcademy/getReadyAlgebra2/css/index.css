@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+aside {
+    border: 1px solid black;
+    width: 15%;
+}
+aside {
+    display: flex;
+    flex-direction: column;
+}
+.unit {
+    margin: 2.5%;
+}
+.unit > li a > h2{
+    font-size: 1.1rem;
+    
+}
+.unit > ul > li{
+    margin-left: 7.5%;
+}
+.unit > li > ul > li{
+    margin-left: 10.5%;
+}
+main {
+    display: flex;
+}
+.hide {
+    display: none
+}
+#show {
+    display: inline-block;
+}

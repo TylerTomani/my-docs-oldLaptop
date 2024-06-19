@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-06-classObjects</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-06_classes and Objects</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;Class names are capitilized by convention to distinguish themselves
+                from varialbes and functions.
+            </p>
+            <p>
+                Define a class with the keyword <code class="b mdcode">class</code> followed by the 
+                name of class.
+            </p>
+        </div>
+        <!-- class Dog: -->
+        <div class="code-container ">
+            <code tabindex="1" class="copy-code no-img inline-block">
+                <span class="b">class</span> Dog:
+            </code>
+        </div>
+        <div id="backToSelf" class="fi">
+            &emsp;We use a special function called <code class="y mdcode">__init__</code> to 
+            intialize the functions and attributes of the class. This function is invoked
+            when a new instance of a class is initialized into a variable. <a tabindex="1" href="#initialize">
+                click here</a> to see what that means
+        </div>
+        <!-- class Dog:
+            def __intit__() -->
+        <div class="code-container ">
+            <pre tabindex="1" class="copy-code no-img">
+class Dog:
+    def <span class="gr">__init__</span>()</pre>
+        </div> 
+        <div class="fi">
+            <p>
+                The first argument for the <code class="mdcode">__intit__</code> function 
+                should be labeld <code class="mdcode lb">self</code>. <code class="mdcode">self</code>
+                referes to the class <q>itself</q> which will make sense in a moment.
+            </p>
+        </div>
+        <!-- class Dog:
+            def __intit__(self) -->
+        <div class="code-container ">
+            <pre tabindex="1" class="copy-code no-img">
+class Dog:
+    def __intit__(<span class="lb">self</span>)</pre>
+        </div>
+        <div class="fi">
+            <p>
+                &emsp;We assign variables available only within the scope of the class
+                by using <code class="mdcode lb">self</code>.
+            </p>
+        </div>
+        <!-- class Dog:
+                def __intit__(self):
+                    self.name -->
+        <div class="code-container">
+            <pre tabindex="1" class="copy-code no-img">
+class Dog:
+    def __inti__(<span class="lb">self</span>):
+        <span class="lb">self</span>.name = 'Rover'</pre>
+        </div>
+       <div class="fi">
+            <div class="fi">
+                <p>
+                    &emsp;When defining functions within the class we pass in <code class="mdcode lb">self</code>
+                    as an argument. 
+                </p>
+                <p>
+                    &emsp;This allows the function to use the variables from within the class.
+                </p>
+            </div>
+       </div>
+       <!-- full class -->
+       <div class="code-container">
+        <pre tabindex="1" class="copy-code no-img">
+class Dog:
+    def __init__(self):
+        self.name = 'Rover'
+        self.legs = "4"
+    def speak(self):
+        print(self.name + " has " + self.legs + " legs")</pre>
+       </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <a tabindex="1" href="#backToSelf"  id="initialize"><h3>initialize class into a variable</h3></a>
+            <div class="fi">
+                <p>
+                    Assigne the class with <code class="mdcode">()</code> parenthesis to a variable
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    my_dog = Dog()
+                </code>
+            </div>
+            <div class="fi">
+                <p>
+                    Then use <code class="mdcode">.</code> dot notation to invoke class names and functions 
+                    from the initilized variable containin an instance of the class <code class="mdcode">Dog</code>.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+print(my_dog.name)
+my_dog.speak()</pre>
+            </div>
+        </div>        
+        <div class="fi">
+            <img class="md-img" src="images/01-class.png">
+        </div>
+    </div>
+    <h3><code class="lb">self</code></h3>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    The reason why the <code class="mdcode">my_dog.speak()</code> function
+                    works with no argument, ss because the <code class="mdcode lsg">self</code>
+                    argument in the class defintion refers to the instance of the variable. 
+                </p>
+                <p>
+                    In this case that instance is <code class="mdcode">my_dog</code>
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="tab-img" src="images/02-selfInFunction.png">
+        </div>
+        
+    </div>
+    
+    <hr>
+    <div class="fcol">
+        <div tabindex="1" class="fi">
+            <p> <span class="r">*Important note,</span>
+                Notice how <code class="mdcode">self.legs</code> is a string not a number
+            </p>
+            <p>
+                <span class="r">Remember</span>
+                you can't add numbers to strings in python, See Chapter 2 - 3_2_Arithmetic with Strings
+                Operators.
+            </p>
+            <p>
+                we'll figure out how to do this later
+            </p>
+        </div>
+    </div>
+    <div class="fcol asc">
+        <div class="code-container asc">
+            <pre tabindex="1" class="copy-code no-img">
+class Dog:
+    def __init__(self):
+        self.name = 'Rover'
+        self.legs = "4"
+    def speak(self):
+        print(self.name + " has " + self.legs + " legs")
+my_dog = Dog()
+print(my_dog.name)
+my_dog.speak()</pre>
+        </div>
+        
+    </div>
+    
+    
+    
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

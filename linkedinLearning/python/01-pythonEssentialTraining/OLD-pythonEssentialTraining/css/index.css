@@ -1,0 +1,14 @@
+.chapter > a > h2 {
+    font-size: .95rem;
+}
+.chapter > ul > li a{   
+    color: black;
+}
+.chapter > ul > li > ul > li {
+    margin-left: 10%;
+}
+.project-color {
+    color: orange !important;
+    font-size: 1.05rem;
+    font-weight: 600;
+}

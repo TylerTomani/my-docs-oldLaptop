@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-multiLine</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-04-4 Multi line format</h2>
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                &emsp;You can not put \n new lines in strings without <code>'''</code>
+                triple quotes
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code br1">
+str = 'this should
+go multiple 
+lines'</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-noNewLines.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Use <code>'''</code> triple quotes to insert <code>\n</code> new lines
+                into strings
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex justify-center align-center">
+            <div class="code-container  inline-block">
+                <pre tabindex="1" class="copy-code">
+str = '''this should
+go multiple
+lines'''
+print(str)</pre>
+            </div>    
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-multiLines.png">
+        </div>
+    
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp; If you do this in the terminal it will 
+                display <code class="v">...</code> and wait for
+                input for each new line
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                It stopes once <code>'''</code> triple quotes are entered again
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+'''this should
+go multiple
+lines'''</pre>
+            </div>    
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-terminalMultiLines.png">
+        </div>
+        
+    </div>
+
+    <div class="fc br1">
+        <div class="fi fcol">
+            <div class="fi">
+                <p tabindex="1" class="copy-code">
+                    Notice that when you do it this way the <code class="bv2">\n</code>
+                    characters are displayed in the output instead.
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-terminalMultiLinesNew.png">
+        </div>
+        
+    </div>
+    <div class="fc br1">
+        <div class="fi fcol">
+            <p tabindex="1">
+                storing in a variable then typing that variable will also display 
+                those characters
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+str = '''this should
+go multiple 
+lines'''
+str</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-strNewLineSymbol.png">
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol">
+            <p tabindex="1">
+                To dislay the multiple lines, place <code>'''</code>
+                tripled quoted string into variable then 
+                <code><span class="br2">print</span>(variable)</code>
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+str = '''this should
+go multiple 
+lines'''
+print</pre>
+            </div>       
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-printStr.png">
+        </div>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+    
+</body>
+</html>

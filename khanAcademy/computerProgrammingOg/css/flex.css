@@ -1,0 +1,45 @@
+.main-flex-container {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+/* .main-flex-item {
+    flex-basis: 45%;
+} */
+.unit-container {
+    flex-basis: 25%;
+}
+.unit-container > ul {
+    margin-left: 2.5%;
+}
+.unit-container > ul > li{
+    margin-left: 4%;
+}
+.unit-container > ul > li > ul > li{
+    margin-left: 4.5%;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-item {
+    flex-basis: 45%;
+}
+canvas {
+    border: 1px solid #000;
+    width: 100%;
+}
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1050px){
+    .flex-container {
+        display: block;
+    }
+}
+@media screen and (max-width: 700px){
+    .main-flex-container {
+        display: block;
+    }
+}

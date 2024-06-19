@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-01-01-errorsExcept</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-01-02 Try/Except</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                These errors are classes and we can catch them using a
+                Try Except statement
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <p>
+                <code class="r">e</code> will be the instance of the error class that was raised                </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+try: 
+    1/0
+except Exception as <span class="r">e</span>:
+    print(type(e))
+                </pre>
+            </div>
+                
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            Here you can see that e is an instance of a <code>ZeroDivisionError</code>. This 
+            means that erros have attribues that can be changed and returned.
+        </div>
+    </div>
+    
+    <footer tabindex="1"></footer>
+
+</body>
+</html>

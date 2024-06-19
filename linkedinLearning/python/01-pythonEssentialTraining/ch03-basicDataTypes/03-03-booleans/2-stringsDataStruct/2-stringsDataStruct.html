@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bool(strings and list)</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">03-03-2 <code class="mdcode">strings and data structs</code></h2>
+    <h3 tabindex="1">Strings</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                The string <code>'True'</code> will return true in <code>bool()</code>
+            </p>
+        </div>
+    </div>
+    <!-- bool('True') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool('True')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-boolTrue.png">
+        </div>
+        
+    </div>
+    <!-- As will the string... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                As will the string <code>'False'</code>
+            </p>
+        </div>
+    </div>
+    <!-- bool('False') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool('False')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-boolFalse.png">
+        </div>
+        
+    </div>
+    <!-- Only an empty ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <strong>Only</strong>
+                an empty string will return false
+            </p>
+        </div>
+    </div>
+    <!-- bool('') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool('')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-boolEmptyStr.png">
+        </div>
+        
+    </div>
+    <!-- Even if there is a space...  -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Even if there is a space, it will return true. <strong>Only</strong>
+                empty strings return <code>false</code>
+            </p>
+        </div>
+    </div>
+    <!-- bool(' ') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool('<span class="br2">&nbsp;</span>')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-boolSpaceStr.png">
+        </div>
+        
+    </div>
+    <h3 tabindex="1">List</h3>
+    <!-- The same principles apply -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                The same principles apply to data structures;
+            </p>
+            <ul class="asc">
+                <li>list</li>
+                <li>sets</li>
+                <li>tuples</li>
+                <li>dictionaries</li>
+            </ul>
+            <p>
+                <code>bool()</code> will return them as <code>True</code> if they contain values, 
+                and <code>False</code> if they contain nothing
+            </p>
+        </div>
+    </div>
+    <!-- bool([]) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+            bool([])                
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-boolEmptyList.png">
+        </div>
+        
+    </div>
+    <!-- bool([1,2]) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool([1,2])
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-boolList.png">
+        </div> 
+    </div>
+    <h3>The <code>None</code> value you functions</h3>
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                &emsp;<span class="r">Remember</span>, the <code>None</code> keyword is returned 
+                from any function with no return value. <span class="r">Review</span> Chapter 2 5.Functions
+            </p>
+            <p>
+                This none value returns <code>False</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    bool(None)
+                </code>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-none.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

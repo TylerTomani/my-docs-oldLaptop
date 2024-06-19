@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballshooter</title>
+    <link rel="stylesheet" href="css/ballshooter.css">
+    <link rel="stylesheet" href="css/copy-code.css">
+    <script type="module" src="js/copy-code.js" defer></script>
+    <script type="module" src="js/letterFocus.js" defer></script>
+    <script type="module" src="js/inject-pre.js" defer></script>
+    <!-- <script type="module" src="js/inject-script.js" defer></script> -->
+    <!-- <script type="module" src="game-js/scripts.js" defer></script> -->
+    <!-- game scripts -->
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homelink" tabindex="1" href="../chrisCourses.html">&larr;home</a>
+        </div>
+        <div class="page-title">
+            <div class="titles">
+                <h2>Press "C" for canvas
+                    <br>press, "cmd" and "S" for scripts to
+                    <br>move script
+                </h2>
+                <h1>js-game-template</h1>
+            </div>
+            <div class="page-description">
+            </div>  
+        </div>
+        <div class="page-logo">
+            <a id="tutorialLink" tabindex="1" target="_blank" href="https://www.youtube.com/watch?v=eI9idPTT0c4&t=1s">tutorial</a>
+            <img
+                src="data:image/jpeg;base64,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">
+        </div>
+    </header>
+    <main>
+        <canvas id="canvas"></canvas>
+        <div class="scripts-container">
+            <div class="btns-container">
+                <button tabindex="1" id="prevBtn"> previous</button>
+                <button tabindex="1"  id="nxtBtn"> next </button>
+            </div>
+            <div id="scriptFullCode" class="script show">
+                <h3>Full Code</h3>
+                <div class="code-container asc">
+                    <pre tabindex="1" class="copy-code">
+const canvas = document.querySelector('canvas')
+const c = canvas.getContext('2d')
+c.clearRect(0,0,canvas.width,canvas.height)
+canvas.style.border = '10px solid green'
+
+let velocity = 5
+const keys = {
+    a:{
+        pressed: false
+    },
+    w:{
+        pressed: false
+    },
+    d:{
+        pressed: false
+    },
+    s:{
+        pressed: false
+    },
+}
+class Player{
+    constructor(x,y,radius,color,velocity){
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+        this.velocity = velocity
+    }
+    draw(){
+        
+        c.beginPath()
+        c.arc(this.x,this.y,this.radius,0, Math.PI * 2, false)
+        c.fillStyle = this.color
+        c.fill()
+        c.closePath()
+    }
+    update(){
+        this.draw()
+        this.x += this.velocity.x
+        this.y += this.velocity.y
+    }
+}
+const player = new Player(canvas.width * .2, canvas.height * .5, 19, 'green',
+                        {x:0,y:0})
+player.draw()
+function animate(){
+    requestAnimationFrame(animate)
+    c.clearRect(0,0,canvas.width,canvas.height)
+    player.update()
+    if(keys.a.pressed && player.x > player.radius){
+        player.velocity.x =  velocity * -1
+    } else if (keys.d.pressed && player.x < canvas.width ){
+        player.velocity.x = velocity  
+    } else if (keys.w.pressed && player.y > 0){
+        player.velocity.y = velocity * -1  
+    } else if (keys.s.pressed && player.y < canvas.height){
+        player.velocity.y = velocity  
+    } else {
+        player.velocity.x = 0
+        player.velocity.y = 0
+    }
+}
+animate()
+c.beginPath()
+c.arc(canvas.width * .2, canvas.height * .9, 19, 0, Math.PI * 2, false)
+c.fillStyle = 'blue'
+c.fill()
+c.closePath()
+
+
+addEventListener('keydown',  e => {
+    let letter = e.key.toLowerCase()
+    switch(letter){
+        case 'a':
+            keys.a.pressed = true
+            break
+        case 'w':
+            keys.w.pressed = true
+            break
+        case 'd':
+            keys.d.pressed = true
+            break
+        case 's':
+            keys.s.pressed = true
+            break
+    }
+    
+});
+addEventListener('keyup',  e => {
+    let letter = e.key.toLowerCase()
+    switch(letter){
+        case 'a':
+            keys.a.pressed = false
+            break
+        case 'w':
+            keys.w.pressed = false
+            break
+        case 'd':
+            keys.d.pressed = false
+            break
+        case 's':
+            keys.s.pressed = false
+            break
+    }
+    
+});
+                    </pre>
+                </div>
+            </div>
+            <!-- part1 - draw Player -->
+            <div id="script01" class="script " >
+                <h3>part1 - draw Player</h3>
+                <div class="code-container ">
+                    <pre tabindex="1" class="copy-code">
+const canvas = document.querySelector('canvas')
+const c = canvas.getContext('2d')
+canvas.style.border = '10px solid magenta'
+<pre tabindex="1" class="copy-code">
+class Player{
+    constructor(x,y,radius,color){
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+    }
+    draw(){
+        c.beginPath()
+        c.arc(this.x,this.y,this.radius,0, Math.PI * 2, false)
+        c.fillStyle = this.color
+        c.fill()
+        c.closePath()
+    }
+    update(){
+        this.draw()
+    }
+}
+const player = new Player(canvas.width * .5, canvas.height * .5, 19, 'magenta',
+                {x:0,y:0})
+function animate(){
+    requestAnimationFrame(animate)
+    c.clearRect(0,0,canvas.width,canvas.height)
+    player.update()
+}
+animate()</pre>
+                    </pre>
+                </div>
+            </div>
+            <!-- part2 Player Movement -->
+            <div id="script02" class="script ">
+                <h3>part2 - Player Movement</h3>
+                <div class="code-container ">
+                    <pre tabindex="1" class="copy-code">
+const canvas = document.querySelector('canvas')
+    const c = canvas.getContext('2d')
+    
+    c.clearRect(0,0,canvas.width,canvas.height)
+    canvas.style.border = '10px solid blue'
+    
+    let velocity = 5
+    console.log('part01')    
+    const keys = {
+        a:{
+            pressed: false
+        },
+        w:{
+            pressed: false
+        },
+        d:{
+            pressed: false
+        },
+        s:{
+            pressed: false
+        },
+    }
+<pre tabindex="1" class="copy-code">
+    class Player{
+        constructor(x,y,radius,color,velocity){
+            this.x = x
+            this.y = y
+            this.radius = radius
+            this.color = color
+            this.velocity = velocity
+        }
+        draw(){
+            c.beginPath()
+            c.arc(this.x,this.y,this.radius,0, Math.PI * 2, false)
+            c.fillStyle = this.color
+            c.fill()
+            c.closePath()
+        }
+        update(){
+            this.draw()
+            this.x += this.velocity.x
+            this.y += this.velocity.y
+
+        }
+    }
+    const player = new Player(canvas.width * .2, canvas.height * .5, 19, 'green',
+                            {x:0,y:0})
+    player.draw()
+    function animate(){
+        requestAnimationFrame(animate)
+        c.clearRect(0,0,canvas.width,canvas.height)
+        player.update()
+        if(keys.a.pressed && player.x > player.radius){
+            player.velocity.x =  velocity * -1
+        } else if (keys.d.pressed && player.x < canvas.width ){
+            player.velocity.x = velocity  
+        } else if (keys.w.pressed && player.y > 0){
+            player.velocity.y = velocity * -1  
+        } else if (keys.s.pressed && player.y < canvas.height){
+            player.velocity.y = velocity  
+        } else {
+            player.velocity.x = 0
+            player.velocity.y = 0
+        }
+    }
+    animate()    
+    addEventListener('keydown',  e => {
+        let letter = e.key.toLowerCase()
+        switch(letter){
+            case 'a':
+                keys.a.pressed = true
+                break
+            case 'w':
+                keys.w.pressed = true
+                break
+            case 'd':
+                keys.d.pressed = true
+                break
+            case 's':
+                keys.s.pressed = true
+                break
+        }
+        
+    });
+    addEventListener('keyup',  e => {
+        let letter = e.key.toLowerCase()
+        switch(letter){
+            case 'a':
+                keys.a.pressed = false
+                break
+            case 'w':
+                keys.w.pressed = false
+                break
+            case 'd':
+                keys.d.pressed = false
+                break
+            case 's':
+                keys.s.pressed = false
+                break
+        }
+        
+    });
+</pre>    
+</pre>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer tabindex="1"></footer>
+</body>
+</html>

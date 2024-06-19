@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-decimal</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-02-2_<code class="mdcode">decimal()</code> class</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;Floating point numbers have what's called a <i>floating point error</i>
+            </p>
+        </div>
+        <div class="fcol">
+            <div class="fc">
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print(1.2 - 1.0)
+                    </code>
+                </div>
+                
+                <div class="fi ">
+                    <img class="md-img" src="images/01-floatError.png">
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;The simpliest soulution is to use <code>round()</code>
+                <br><span class="r">See chapter 3.1 ints and float 3.round class()</span>
+            </p>
+        </div>
+        <div class="fcol">
+            <div class="fc">
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print(round(1.2 - 1.0, 2))
+                    </code>
+                </div>
+                
+                <div class="fi ">
+                    <img class="md-img" src="images/01b-roundFloat.png">
+                </div>
+            </div>
+            
+        </div>        
+    </div>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Import the <code class="mo">Decimal</code> class with the the <code class="lsg" >decimal</code> module by 
+                putting this line of code at the top of your script
+            </p>
+        </div>
+        <div class="code-container asc">
+            <code tabindex="1" class="copy-code no-img">
+                from <span class="lsg">decimal</span> import <span class="mo">Decimal</span> , getcontext
+            </code>
+        </div>
+        <div class="fi">
+            <p>
+                This will import both the <code class="mo">Decimal</code> and <code>getcontext</code> class from 
+                <span class="lsg">decimal</span>
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Now print out the contents of <code>getcontext()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+from decial import Decimal , getcontext
+print(getcontext())</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/02-getcontext.png">
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div tabindex="1" class="fi fcol">
+            <p>
+                &emsp;It will print out all the attributes of <code>getcontext</code>
+                which are the global settings that get applied to the usuage of the 
+                decimal class.
+            </p>
+            <p>
+                We can change any setting we want using <code class="mdtxt">.</code>
+                dot notation
+            </p>
+        </div>
+    </div>
+
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+from decimal import Decimal , getcontext
+print(getcontext())
+getcontext().prec=4
+print(getcontext())</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/03-getcontext-prec.png">
+        </div>
+    </div>
+
+    <div class="fc">
+        <div tabindex="1" class="fi flex ac">
+            <p>
+                Notice how the  precision attribute <code>prec</code> has changed 
+                from 28 to 4
+            </p>
+        </div>
+        <div tabindex="1" class="fi">
+            <img class="" src="images/04-prec.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can do math by instantiating numbers into the decimal class
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+from decimal import Decimal , getcontext
+getcontext().prec=4
+print(Decimal(1) / Decimal(3))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/05-decimalMath.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                As you can see the precision of the decimal is limited to 4 digits.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <hr>
+    <p class="r">This part doesnt make complete sense</p>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p>
+                    Entering a float like 3.14 to the <code>Decimal</code> class
+                    will not reduce the precision to 4
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+from decimal import Decimal, getcontext
+getcontext().prec=4
+Decimal(3.14)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/06-piDecimal.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol">
+            <p class="r">
+                I guess to fix this just pass it in as a string?
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    Decimal('3.14')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-strPi.png">
+        </div>
+        
+        
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

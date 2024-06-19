@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-csvDictReader</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-2-2- <code>csv.DictReader</code></h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;As seen in the previous lesson, we can skip the header using the <code>
+                    <span class="db">next</span>()</code> function within <code>with open(...)</code>,
+                Or by casting into a list with <code>list(csv.reader(f, delimiter='\t')</code>.
+            </p>
+        </div>
+    </div>
+    <div class="fc mt1">
+        <div class="fi asc">
+            <p tabindex="1">
+                &emsp;But the <code>csv.<span class="v">DictReader</span></code> allows us to turn the items 
+                of the header row into values for keys within a dictionary. Look at the original file 
+                then the code below and see how the header items are now keys for each column.
+            </p>
+        </div>
+        <div class="fi  flex">
+            <img tabindex="1" class="right-img med-img" src="images/../../1-reading/images/01.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = csv.<span class="v">DictReader</span>(f, delimiter='\t')
+    for row in reader:
+        print(row)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Go to the next lesson to see how to best filter this list of dictionaries.
+            </p>
+        </div>
+    </div>
+    <footer tabindex="1"></footer>    
+</body>
+</html>

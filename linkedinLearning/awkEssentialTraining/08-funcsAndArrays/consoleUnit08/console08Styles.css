@@ -1,0 +1,66 @@
+.console-container {
+    display: flex;
+    border: 1px solid lime;
+    border-radius: 4px;
+}
+.console-container > .console-container-item {
+    flex-basis: 50%;
+    border: 1px solid black;
+}
+
+.console{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+.console > .console-cmdline-input{
+    /* background-color: blue; */
+    width: 100%;
+    display: flex;
+    /* align-items: center; */
+    padding: 1rem
+}
+#currentInput {
+    color:white;
+    font-size: 2rem;
+}
+.console > .console-cmdline-input > textarea{
+    background-color: black;
+    font-size: 1rem;
+    padding-left: 1%;
+    color: lime;
+    font-family: monospace;
+}
+.console > .console-script-input > h4 {
+    background-color: lime;
+    font-family: monospace;
+}
+.console > .console-script-input > textarea{
+    background-color: black;
+    width: 100%;
+    font-size: 1rem;
+    padding-left: 1%;
+    color: lime;
+    font-family: monospace;
+}
+.cmd-line-txt {
+    display: inline-block;
+    line-height: 1.3;
+    background: black;
+    font-size: 1rem   ;
+    color:lime;
+    font-family: monospace;
+}
+.run-btn {
+    width: 10%;
+    margin-top: .5rem;
+    align-self: flex-end;
+}
+.run-btn:active,.run-btn:focus,.run-btn:hover {
+    border: 3px solid white;    
+}
+
+
+.hide {
+    display: none;
+}

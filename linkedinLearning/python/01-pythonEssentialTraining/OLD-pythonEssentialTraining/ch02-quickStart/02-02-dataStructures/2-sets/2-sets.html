@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-dataStructures-1-list</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="mt2 lgcode">02-02-2_Sets</h2>
+    <!-- my_set = { } -->
+    <div class="fcol align-center">
+        <div class="fi">
+            <p>
+                &emsp;Sets are almost indentical to list <strong>except</strong>
+                each element has to be unique.
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                We define a set with { } curley brackets
+            </p>
+        </div>
+        <div class="code-container align-self-center">
+            <code tabindex="1" class="copy-code no-img">
+                my_set = { }
+            </code>
+        </div>
+    </div>
+    <!-- my_set = {1,2,3,4} -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Assign values to a set just like a list, but  with {} brackets instead of [] square one.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_set = {1,2,3,4}
+print(my_set)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-set.png">
+        </div>
+    </div>
+    <!-- my_set = {1,2,3,4}
+        print(type(my_set)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    We can use the <span class="lsg">type</span>() function to see that it is a set
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_set = {1,2,3,4}
+print(<span class="lsg">type</span>(my_set))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-typeSet.png">
+        </div>
+    </div>
+    <!-- my_set = {1,2,3,4}
+        print(len(my_set)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    As well as the <code class="v">len()</code> function
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_set = {1,2,3,4}
+print(<span class="v">len</span>(my_set))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/08-lenSet.png">
+        </div>
+    </div>
+    <!-- my_set = {1,1,2,2}
+        print(len(my_set)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    If we fill a set with mutiple same values,
+                    the <code><span class="v">len</span>()</code> function
+                    will only return the number of unique values.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_set = {1,1,2,2}
+print(<span class="v">len</span>(my_set))</pre>
+            </div>
+            <div class="fi">
+                <p>
+                    Since sets can only contain unique values, the value
+                    return from <code><span class="v">len</span>()</code>
+                    is 2 and <strong>not</strong>
+                    4.
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/09-lenUnique.png">
+        </div>
+    
+    </div>
+    <!-- my_set = {1,1,2,2}
+        print(my_set) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    And if we <code>print()</code> my set, it will
+                    only display the unique values
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_set = {1,1,2,2}
+print(my_set)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/10-printSet.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

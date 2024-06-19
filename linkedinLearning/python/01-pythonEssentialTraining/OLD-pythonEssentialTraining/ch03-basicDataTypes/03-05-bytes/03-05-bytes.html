@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-05-bytes</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">03-05-bytes</h2>
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+    
+                <li class="mdsmtxt"><code>bytes</code> object </li>
+                <li class="mdsmtxt"><code>decode</code> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                return bytes in hexadecimal.
+            </p>
+            <div class="code-container align-self-center">
+                <code tabindex="1" class="copy-code">
+                    bytes('😎','utf-8')
+                </code>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="03-05-01-bytesObj/images/04-utf8.png">
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                Use <code>decode()</code> to convert hexadecimal to different type
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+sunglasses = bytes('😎','utf-8')
+sunglasses.<span class="v">decode</span>('utf-8')</pre>
+            </div>
+        </div>
+        <div class="flex-item align-self-center justify-self-center">
+            <img class="right-img" src="03-05-01-bytesObj/images/05-decode.png">
+        </div>
+    </div>
+    <!-- bytearray -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                Change bytes with <code>bytearray</code> obj. Casting a number
+                with <code>int()</code> class with base 16.
+            </p>
+        
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+sunglasses[3] = int('82',16)
+sunglasses.decode('utf-8')</pre>
+            </div>
+    
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="03-05-01-bytesObj/images/09-decodeChangeByte.png">
+        </div>
+    
+    </div>
+    
+</body>
+</html>

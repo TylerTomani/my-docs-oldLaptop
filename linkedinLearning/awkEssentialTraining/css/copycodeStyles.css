@@ -1,0 +1,28 @@
+.textCpyAnimation {
+    border: "20px solid black";
+    transform: scale(1.02); 
+
+}
+.removeTextCpyAnimation {
+    border: "0px solid black";
+    transform: scale(1);
+    /* transition: transform 1s; */
+}
+.copy-pre-code {
+    
+    /* display: inline-block; */
+    align-self: center;   
+}
+
+.copy-pre-code {
+    /* background: #60D4C8; */
+    /* transition: all 900ms; */
+    /* font-size: 1rem; */
+}
+.textCpyAnimation {
+    /* border: "2px solid black";
+    transform: scale(1.01); */
+    /* transform: scale(1.25); */
+    /* font-size: 2rem; */
+    /* transition: all 600ms ; */
+}

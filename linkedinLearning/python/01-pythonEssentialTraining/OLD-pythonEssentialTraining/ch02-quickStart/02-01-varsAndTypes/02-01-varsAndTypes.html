@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-01-varsAndTypes</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-01-varsAndTypes</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;This lesson uses the jupyter browser application, to demonstrate
+                variables and types, <span class="r">Not a fan</span> of jupyter.
+            </p>
+            <p>
+                &emsp;If you wish to use it, go to <i>Chapter 1 - Gearing up for Python
+                2. Installing Python, pip, Jupyter Notebook &rarr; use Jupyter Notebook.</i>
+                but I will be typing each example with code you can copy
+                and paste into a script in any editor and run.
+            </p>
+        </div>
+    </div>
+    <!-- x = 5 -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container align-self-center">
+                <pre autofocus tabindex="1" class="copy-code">
+x = 5
+print(x)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img " src="images/01-ex1.png">
+        </div>
+        
+
+    </div>
+    <!-- variable names -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    &emsp;Start variable names with lower case letters
+                </p>
+                <p>
+                    This variable named <code>name</code> is assigned the string <code>'Ryan'</code>.
+                    Each character of the string is given its own place in the computer's memory
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+name = 'Ryan'
+print(name)</pre>
+            </div>  
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-ex2.png">
+        </div>
+    </div>
+    <!-- type -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    To find the type of a variable use the function <code>type()</code>
+                    with the variable as the argument
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+x = 5
+name = 'Ryan'
+print(type(x))
+print(type(name))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-ex3.png">
+        </div>
+    </div>
+    <p class="r">I have to Fix these images</p>
+    <!-- Integers vs Floats -->
+    <div class="fc br2">
+        <div class="fi fcol jc">
+            <h3>Integers</h3>
+            <div class="fi">
+                <div class="code-container align-self-center">
+                    <code tabindex="1" class="copy-code">
+                        print(type(1))
+                    </code>
+                </div>
+            </div>
+            
+            <div class="fi">
+                <img class="left-img" src="images/04-ex4Int.png">
+            </div>
+        </div>
+        <div class="fi fcol jc">
+            <h3>floats</h3>
+            <div class="fi">
+                <div class="code-container align-self-center">
+                    <code tabindex="1" class="copy-code">
+                        print(type(3.1))
+                    </code>
+                </div>
+            </div>
+            
+            <div class="fi">
+                <img class="md-img" src="images/05-ex5float.png">
+            </div>
+        </div>
+    </div>
+    Complex numbers
+    <div class="fc">
+        <div class="fi fcol jc">
+            <h3>Complex Numbers</h3>
+            <div class="fi">
+                <p>
+                    &emsp;Imaginary numbers are the square roots of negative numbers,
+                    and are usually represented by the letter <code class="mdsmtxt">i</code>. BUT, in python
+                    they use <code class="mdsmtxt">j</code> which is common in engineering.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+print(type(2j))
+print(1j * 1j)</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-ex6Complex.png">
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <h3>Strings</h3>
+            <div class="fi">
+                <p>
+                    You can use '' single quotes or <q></q> double quotes for strings. Nowadays
+                    it's standarad practice to use '' single quotes. You can use the <code class="smtxt">+</code>
+                    operator to concatenate strings together.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+print('String1' + 'String1')
+print('1 ' + '1')
+                </pre>
+            </div>
+            <div class="fi">
+                <p>
+                    If you add two numbers written as strings, it will concatenate them and not
+                    add them.
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-ex7StringPlusString.png">
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    If you attempt to add a number written as a string with a number,
+                    you will receive a TypeError.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <code tabindex="1" class="copy-code r">
+                    print('1' + 1)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/08-ex8TypeError.png">
+        </div>
+    </div>
+    <div tabindex="1" class="fcol">
+        <h3>Booleans</h3>
+        <div class="fi">
+            <p>
+                In python booleans are written with a capital <code>True</code> and capital <code>False</code>
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                The use of booleans will become apparent later in the course
+            </p>
+        </div> 
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

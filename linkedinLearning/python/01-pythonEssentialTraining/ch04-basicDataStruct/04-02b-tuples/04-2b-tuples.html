@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-2b-tuples</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-02-tuples</h2>
+    <!-- myTuple[1] = 'pineapple' -->
+    <div class="flex-container">
+        <div class="flex-item ">
+            <p>
+                Tuples can <strong>not</strong> be changed.
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code r">
+myTuple = ('apple','banana','orange')
+myTuple[1] = 'pineapple'</pre>
+            </div>
+            
+        </div>
+        <div class="flex-item align-self-end">
+            <img class="right-img" src="images/01-tupleAssingError.png">
+        </div>
+        
+    </div>
+    <!-- myTuple[1] -->
+    <div class="flex-container">
+        <div class="flex-item ">
+            <p>
+                <strong>But</strong> they can be indexed
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myTuple = ('apple','banana','orange')
+myTuple[1]</pre>
+            </div>     
+        </div>
+        <div class="flex-item align-self-end">
+            <img class="right-img" src="images/02-tupleIndex.png">
+        </div>
+        
+    </div>
+    <div class="flex-col">
+        <div class="flex-item ">
+            <p>
+                Tuple's size is set to a limit. This is why python uses them by defualt
+            </p>
+        </div>
+        <div class="flex-item">
+            <p>
+                <span class="v">returning</span> values, seperated by commas, from a function;
+                returns them as a tuple by default.
+            </p>
+        </div>
+    </div>
+    <!-- return 1,2,3 -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+def returnSomeValues():
+return 1,2,3
+returnSomeValues()</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="images/03-returnTuple.png">
+        </div>
+    </div>
+    <div class="flex-col">
+        <div tabindex="1" class="flex-item ">
+            <p>
+                you can include the <code>()</code> parenthesis if you want to, but 
+                unless another data structure is typed in <code class="mo">return</code>
+                a tuple will return by default
+            </p>
+        </div>
+    </div>
+    <!-- return [1,2,3] -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+def returnSet():
+    return [1,2,3]
+
+returnSet()
+</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="images/04-returnSet.png">
+        </div>    
+    </div>
+    <!-- return (1,2,3) -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+def returnTuple():
+    return (1,2,3)
+
+returnTuple()</pre>
+            </div>     
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="images/05-returnTuple.png">
+        </div>
+    </div>
+    <!-- myTuple = 1,2,3 -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                You can also declare tuples as variables withouth the <code>()</code> 
+                parenthesis.
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myTuple = 1,2,3
+myTuple</pre>
+            </div>     
+        </div>
+        <div class="flex-item align-self-end">
+            <img class="right-img" src="images/06-myTuple.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

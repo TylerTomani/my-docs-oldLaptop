@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-03_robotFace</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas></canvas>
+    <div>
+        <p tabindex="">
+            When drawing shapes make sure the shapes are in the propers order.
+        </p>
+        <p>
+            In this example if the <code>// face</code>
+            <code>rect</code> is drawn after the <code>// mouth rect()</code>, the mouth will not display.
+        </p>
+        <span class="r">This isn't working, it might not matter when not using the khan canvas interface</span>
+        <br>
+        <button id="switch-order">switch order</button>
+        <br>
+        <code id="code">
+    //Face
+   <br>ctx.rect(faceX,faceY,faceWidth,faceHeight) 
+   <br>
+   <br>//Eyes
+   <br>ctx.rect(eyeLeftX, eyeLeftY, eyeWidth, eyeHeight) 
+   <br>ctx.rect(eyeLeftX + (faceWidth * .45), eyeLeftY, eyeWidth, eyeHeight) 
+   <br>
+   <br>//Mouth
+   <br>ctx.rect(eyeLeftX + (faceWidth * .125), eyeLeftY + (faceHeight * .45), eyeWidth + (faceWidth * .2), eyeHeight) 
+                
+            </span>
+        </code>
+    </div>
+    
+</body>
+</html>

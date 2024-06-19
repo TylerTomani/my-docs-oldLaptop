@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-challenge</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">Challenge - Change CSV file to tab seperated file</h2>
+    </header>
+    <p>
+        &emsp;Change this file to be tab seperated after each comma
+    </p>
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <sub>nameemailavg.csv</sub>
+            <pre>
+    Art Venere,art@venere.org,256.62394383
+    Lenna Paprocki,lpaprocki@hotmail.com,259.688783099
+    Donette Foller,donette.foller@cox.net,282.32979844
+    Simona Morasca,simona@morasca.com,139.51911647
+    Dominque Dickerson,dominque.dickerson@dickerson.org,167.045197551
+    Leota Dilliard,leota@hotmail.com,253.646335223
+    Sage Wieser,sage_wieser@cox.net,155.55576823
+    Kris Cho,kris@gmail.com,210.794277775
+    Minna Amigon,minna_amigon@yahoo.com,95.47955397
+    Abel Maclead,amaclead@gmail.com,225.774477397
+    Kiley Caldarera,kiley.caldarera@aol.com,172.957628871
+    Graciela Ruta,gruta@cox.net,202.68364784
+    Josephine Darakjy,josephine_darakjy@darakjy.org,178.877840188
+    Cammy Albares,calbares@gmail.com,290.446513401
+    Mattie Poquette,mattie@aol.com,283.23995223
+    Meaghan Garufi,meaghan@hotmail.com,227.142916195
+    Gladys Rim,gladys.rim@rim.org,243.459635712
+    Yuki Whobrey,yuki_whobrey@aol.com,128.321717297
+    Fletcher Flosi,fletcher.flosi@yahoo.com,221.394141603
+            </pre>
+        </div>
+
+    </div>
+            <div class="flex-item">
+                <h2>Solution</h2>
+                <code tabindex="1" class="code sm-code">$ awk 'BEGIN{FS=",";OFS="\t"} {print $1,$2,$3}' nameemailavg.csv <br>
+                    <br>Art Venere&emsp;art@venere.org&emsp;256.62394383
+                    <br>Lenna Paprocki&emsp;lpaprocki@hotmail.com&emsp;259.688783099
+                    <br>Donette Foller&emsp;donette.foller@cox.net&emsp;282.32979844
+                    <br>Simona Morasca&emsp;simona@morasca.com&emsp;139.51911647
+                    <br>Dominque Dickerson&emsp;dominque.dickerson@dickerson.org&emsp;167.045197551
+                    <br>Leota Dilliard&emsp;leota@hotmail.com&emsp;253.646335223
+                    <br>Sage Wieser&emsp;sage_wieser@cox.net&emsp;155.55576823
+                    <br>Kris Cho&emsp;kris@gmail.com&emsp;210.794277775
+                    <br>Minna Amigon&emsp;minna_amigon@yahoo.com&emsp;95.47955397
+                    <br>Abel Maclead&emsp;amaclead@gmail.com&emsp;225.774477397
+                    <br>Kiley Caldarera&emsp;kiley.caldarera@aol.com&emsp;172.957628871
+                    <br>Graciela Ruta&emsp;gruta@cox.net&emsp;202.68364784
+                    <br>Josephine Darakjy&emsp;josephine_darakjy@darakjy.org&emsp;178.877840188
+                    <br>Cammy Albares&emsp;calbares@gmail.com&emsp;290.446513401
+                    <br>Mattie Poquette&emsp;mattie@aol.com&emsp;283.23995223
+                    <br>Meaghan Garufi&emsp;meaghan@hotmail.com&emsp;227.142916195
+                    <br>Gladys Rim&emsp;gladys.rim@rim.org&emsp;243.459635712
+                    <br>Yuki Whobrey&emsp;yuki_whobrey@aol.com&emsp;128.321717297
+                    <br>Fletcher Flosi&emsp;fletcher.flosi@yahoo.com&emsp;221.394141603
+
+                </code>
+            </div>
+    <h2>Alternative ways to do this</h2>
+    <p tabindex="1">
+        <code >$ awk -F,</code>
+    </p>
+    <p>
+        This indicates that the field seperater is a comma, in the incoming file
+    </p>
+    <p tabindex="1">
+        <code>$ awk -F, '{print $1 "\t" $2 "\t" $3 "\t"}'</code>
+    </p>
+    <hr>
+    <p>
+        I added html code with this script
+    </p>
+    <code class="code">
+        awk '{FS=",' ; OFS="&emsp;"} {print "&lt;br>" $1 , $2 , $3 }' nameemailavg.csv
+    </code>
+
+
+</body>
+</html>

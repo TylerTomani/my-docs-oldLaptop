@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-03-functionsAsVariables</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">06-03-Functions as Variables</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                In python a function is represented as an object
+            </p>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>
+                <code tabindex="1" class="copy-code">import this</code>
+                will print out the mission statement of python
+            </p>
+        </div>
+        <div class="flex-item">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+text = '''The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!'''
+                </pre>
+            </div>     
+        </div>
+    </div>
+    <hr>
+    <div tabindex="1" class="fcol">
+        <div class="fi ">
+            <p>
+                Below are different functions that we can place into a dictonaries
+            </p>
+        </div>
+    </div>
+    <hr>
+    <a tabindex="1" href="#"id="focusID"></a>
+    <div class="fc">
+        <div class="fi flex ac">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode no-img">
+def lowercase(text):
+    return text.lower()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode no-img">
+def removePunctuation(text):
+    punctuations = ['.', '-', ',', '*']
+    for punctuation in punctuations:
+        text = text.replace(punctuations,'')
+    return text</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode no-img">
+def removeNewLines(text):
+    text = text.replace('\n','')
+    return text</pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol br1">
+        <div class="fi ">
+            <p class="r">I don't yet get how the two functions below work</p>
+        </div>
+    </div>
+    
+    <div class="fcol br2">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+def removeShortWords(text):
+    return ' '.join([word for word in text.split() if len(word) > 3])</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+def removeLongWords(text):
+    return ' '.join([word for word in text.split() if len(word) &lt; 6])</pre>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div tabindex="1" class="fcol">
+        <div class="fi ">
+            <p>
+                We can put each function into a list, and place them in a order that we wish to perform 
+                them on the text. (poorly worded by see below to understand)
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode no-img">
+processingFunctions = [ removePunctuations, removeNewLines, removeLongWords]
+
+for func in processingFunctions:
+    text = func(text)
+print(text)</pre>
+            </div> 
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/01.png">
+        </div>
+        
+    </div>
+    
+<footer tabindex="1"></footer>    
+    
+</body>
+</html>

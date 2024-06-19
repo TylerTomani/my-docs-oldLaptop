@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-03_mathFunctions</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">08-03-Math Functions</h2>
+    </header>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <ul>
+                <li>-<code>int(x)</code> - returns the integer part of its argument
+                    <ul>
+                        <li><code>int(3.9)</code> returns 3</li>
+                    </ul>
+                </li>
+                <li>-<code>rand()</code> returns random floating point value b/w 0 and 1
+                    <ul>
+                        <li><code>int(rand() * 6) + 1</code> - returns number b/w 1 and 6</li>
+                    </ul>
+                </li>
+                <li>- <code>srand([x])</code> seeds <code>rand()</code> with the value of x.
+                    <ul>
+                        <li>if x ommited it returns the current date and time</li>
+                    </ul>
+                </li>
+                <li>- <code>sqrt()</code> returns the square root of the argument</li>
+            </ul>
+        </div>
+        <div class="flex-item flex-col">
+            <ul>
+                <li>- <code>sin(x)</code> returns sine of the arugment (value in radians)</li>
+                <li>- <code>cos(x)</code> returns cosine of the arugment (value in radians)</li>
+                <li>- <code>atan2(y,x)</code> returns the arctangent of  y / x</li>
+            </ul>
+            <p>
+                If you need the value of pi, use <code>atan2(0,-1)</code>
+            </p>
+            <ul>
+                <li>- <code>log(x)</code> returns the natural log of x</li>
+                <li>- <code>exp(x)</code> returns the expodential of x ( e ^ x)</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

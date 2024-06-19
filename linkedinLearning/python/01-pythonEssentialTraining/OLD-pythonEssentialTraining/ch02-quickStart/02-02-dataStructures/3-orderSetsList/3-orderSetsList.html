@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-orderSetsList</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="mt2 lgcode">02-02-3_Order of elements (Sets vs List)</h2>
+        <h3>Order of Elements in List vs Sets</h3>
+        <div class="fcol align-center">
+            <div class="fi">
+                <p>
+                    The order of the elements in a <strong>list</strong> is very <strong>important</strong>
+                </p>
+            </div>
+            <div class="fi">
+                <p>
+                    The order of the elements in <strong>sets</strong> does <strong>not</strong> matter.
+                </p>
+            </div>
+        </div>
+        <!-- print([1,2] == [2,1]) -->
+        <div class="fc">
+            <div class="fi fcol jc">
+                <div class="fi">
+                    <p>
+                        If we compare two list with the same values in a different order,
+                    </p>
+                </div>
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print([1,2] == [2,1])
+                    </code>
+                </div>
+                <div class="fi asc">
+                    <p>
+                        It will return <code class="b mdcode">False</code>
+                    </p>
+                </div>
+            </div>
+            <div class="fi">
+                <img class="" src="images/11-compareList.png">
+            </div>
+        </div>
+        <!-- print({1,2} == {2,1}) -->
+        <div class="fc">
+            <div class="fi fcol jc">
+                <div class="fi">
+                    <p>
+                        If we compare to sets with values in a different order
+                    </p>
+                </div>
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print({1,2} == {2,1})
+                    </code>
+                </div>
+                <div class="fi asc">
+                    <p>
+                        It will be <code class="b mdcode">True</code>
+                    </p>
+                </div>
+            </div>
+            <div class="fi">
+                <img class="" src="images/12-compareSets.png">
+            </div>
+        </div>
+        <footer tabindex="1"></footer>
+    
+</body>
+</html>

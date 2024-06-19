@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-02-charClassesQuantifiers</title>
+
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/focus.js"></script>
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">05-02-charClassesQuantifiers</h2>
+    </header>
+    <p>Adding a ^ character before a class or quantier does the opposite </p>
+    <!-- [] Character Class -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col">
+            <h2 class="txt-start">[] Character Class</h2>
+            <p>Matches a single character within the []</p>
+            <p ><span class="lg-txt">/a[xyz]b/</span> matches:</p>
+            <ul>
+                <li>
+                    <ul class="no-list-type">
+                        <li><q>axb</q></li>
+                        <li><q>ayb</q></li>
+                        <li><q>azb</q></li>
+                    </ul>
+
+        </div>
+        <div class="flex-item">
+            <p>/a[xyz]b/ <strong>does not</strong> match <q>axyzb</q></p>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <ul class="sm-txt">
+            
+                <li>/a[<strong>a-z</strong>]c/ matches any lowercase character a-z</li>
+                <li>/a[<strong>A-Z</strong>]c/ matches any uppercase character a-z</li>
+                <li>/a[<strong>a-zA-Z</strong>]c/ matches any lower or uppercase character a-z</li>
+                <li>/a[<strong>0-9</strong>]/ any digit 1-9</li>
+            </ul>
+        </div>
+        <div class="flex-item align-self-start ">
+            <ul class="sm-txt ">            
+                <li>/a[<strong>^</strong>0-9]/ would search for anything NOT a number</li>
+                <li>/a[<strong>^</strong>a-z]c/ would search for anything NOT lowercase
+                    "aBc"
+                    
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <hr>
+    <!-- * matches zero or more repeats -->
+    
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item flex-col">
+            <h2 class="align-center">* matches zero or more repeats</h2>
+            <p>Matches 0 or more occurances of the previous item</p>
+            <ul>
+                <li>/ab*c/ matches <q>abbc</q></li>
+                <li>/ab*c/ matches <q>abbbbbbc</q></li>
+                <li>/ab*c/ matches <q>ac</q></li>
+            </ul>
+        </div>
+        <div tabindex="1" class="flex-item">
+            
+            <h2>+ matches one or more occurances of previous item</h2>
+            <ul>
+                <li>/ab+c/ matches <q>abc</q></li>
+                <li>/ab+c/ matches <q>abbbbc</q></li>
+                <li>/ab+c/ <strong>does not</strong> match <q>ac</q></li>
+            </ul>
+            <h2 class="align-self-start m-top">? matches ZERO or ONE occurance</h2>
+            <ul>
+                <li>/ab?c/ matches <q>ac</q></li>
+                <li>/ab?c/ matches <q>abc</q></li>
+                <li>/ab?c/ <strong>does not</strong> match <q>abbc</q></li>
+            </ul>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <h2 class="txt-start">{n} Specify an exact number of repeats</h2>
+            <ul>
+                <li>/ab{2}c/ matches <q>abbc</q></li>
+            </ul>
+            <h2 class="txt-start">{n,} means whatever n is or more</h2>
+            <ul>
+                <li>/ab{2,}c matches <q>abbc</q> or <q>abbbc</q> etc</li>
+            </ul>
+            <h2>{n,m} min max repeates</h2>
+            <ul>
+                <li>/ab{2,4}c/ matches <q>abbc</q>, <q>abbbc</q> <q>abbbc</q></li>
+            </ul>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;An item is usually one character but can be a string of characters
+            </p>
+            <ul>
+                <li>/ab+c/ matches one or more <q>abbc</q></li>
+                <li>/(ab)+c matches <q>abababababc</q></li>
+            </ul>
+
+        </div>
+    </div>
+    <h2>Greediness - HTML example</h2>
+
+    <h3>Matching an html tag</h3>
+    
+    <div tabindex="1" class="flex-col m-1">
+        <p>
+            &emsp;The following line will match the entire tag becuase regex quantifiers are <q>Greedy</q>
+            <br>This means it will extend to the last closing <span class="code sm-code bv">></span> tag.
+        </p>
+        <p class=" lg-txt m-1 align-self-center"><span class="code sm-code">/&lt;.+>/</span> will match the entire line <span class="code sm-code">&lt;i>italic tag&lt;/i<span class="bv">></span></span></p>
+
+        <p>
+            If you only want it to match the opening tag:
+        </p>
+        <p class=" lg-txt m-1 align-self-center"><span class="code sm-code">/&lt;[^>]+>/
+
+        </span> will match only  <span class="code sm-code">&lt;i></span></span></p>
+        
+        <p>/&lt;[^>]+>/ will match the opening &lt; then any amount of anything that is NOT a closing >,
+            <br>then the closing tag >
+        </p>
+    </div>
+    
+    <footer tabindex="1"></footer>
+</body>
+</html>

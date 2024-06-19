@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-02_parseExcelCSVlineEndQuote</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../../08-funcsAndArrays/css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">09-02- Parsing Excel CSV files: line endings and quoting</h2>
+    </header>
+    <div class="flex-col m-tb-1 flex align-center">
+        <p tabindex="1">
+            <span class="r">Important Note</span>, The tutorial explains how to deal with excel files saved as
+            <q>Comma Seperated Values (.csv) </q>. You can see that excel has different .csv formats, Those formats do
+            not have the same problems discussed in this lesson
+        </p>
+    </div>
+    <hr>
+
+    <div class="flex-col flex align-center m-tb-1">
+        <p tabindex="1">
+            &emsp;awk cannot understand Microsoft's Excel's binary xls or xlsx file's format.
+            If you save an excel file as a CSV, it add characters between the delimiters
+        </p>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex align-center justify-center">
+            <p tabindex="1">This is the excel file we are working with</p>
+        </div>
+        <div class="flex-item">
+            <img class="sm-img" src="images/01-excelFile.png">
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item flex justify-center align-center">
+            <p tabindex="1">
+                Save it as the <q>Comma Seperated Values (.csv) </q> format which we discussed at the top of this lesson.
+            </p>
+        </div>
+        <div class="flex-item">
+            <img  class="md-img" src="images/02-CommaSeperateValues.png">
+        </div>
+    </div>
+    <a href="#"id="focus"></a>    
+    <div class="flex-col flex justify-center align-center">
+        <p tabindex="1">
+            The first thing to know is no matter what .csv format you use, Excel will place extra quotes around quotes,commas and new lines.
+        </p>
+        <p tabindex="1">
+            If you <code>cat</code> the excel file, commas will be placed between each cell But,
+            you will see extra quotes around <span class="md-txt b-2-v p-s-1">"</span> quotes,
+            <span class="md-txt b-2-v p-s-1">,</span> commas, and <span class="md-txt b-2-v p-s-1">\n</span> new lines
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>$ cat excel.csv
+<br> 1,2,3
+<br> one,two,three
+<br> one one,two two,three three
+<br> <span class="b-2-v">"</span><span class="b-2-v">"</span>"one"<span class="b-2-v">"</span><span class="b-2-v">"</span>,<span class="b-2-v">"</span><span class="b-2-v">"</span>"two"<span class="b-2-v">"</span><span class="b-2-v">"</span>,<span class="b-2-v">"</span><span class="b-2-v">"</span>"three"<span class="b-2-v">"</span><span class="b-2-v">"</span>
+<br> <span class="b-2-v">"</span>one,one<span class="b-2-v">"</span>,<span class="b-2-v">"</span>two,two<span class="b-2-v">"</span>,<span class="b-2-v">"</span>three,three<span class="b-2-v">"</span>
+<br> one,two,three
+<br> <span class="b-2-v">"</span>one
+<br> one<span class="b-2-v">"</span>,<span class="b-2-v">"</span>two
+<br> two<span class="b-2-v">"</span>,<span class="b-2-v">"</span>three
+<br> three<span class="b-2-v">"</span>
+
+                </code>
+        </div>    
+        <div class="flex-item">
+            <img class="excel-img" src="images/01-excelFile.png">
+        </div>
+        
+    </div>
+    <div class="flex-col m-tb-1">
+        <p tabindex="1">
+            Below shows what happens when we try to delimit each field with !. I'm showing each field in step
+            next to the original file
+        </p>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <code>$ <span tabindex="1" class="copy-code">awk -F, '{print "!" $1 "!"}' excel.csv</span>
+<br>!1!
+<br>!one!
+<br>!one one!
+<br>!"""one"""!
+<br>!"one!
+<br>!one!
+<br>!"one!
+<br>!one"!
+<br>!two"!
+<br>!three"!
+
+            </code>
+        </div>
+        <div class="flex-item">
+            <img class="sm-img" src="images/01-excelFile.png">
+        </div>
+    </div>
+    <div  class="flex-container m-t-2">
+        <div class="flex-item">
+            <code>$ <span tabindex="1" class="copy-code">awk -F, '{print "!" $1 "!" $2 "!"}' excel.csv</span>
+<br>!1!2!
+<br>!one!two!
+<br>!one one!two two!
+<br>!"""one"""!"""two"""!
+<br>!"one!one"!
+<br>!one!two!
+<br>!"one!!
+<br>!one"!"two!
+<br>!two"!"three!
+<br>!three"!!
+
+            </code>
+        </div>
+        <div class="flex-item">
+            <img class="sm-img" src="images/01-excelFile.png">
+        </div>
+    </div>
+    <div class="flex-col b-2-red">
+        <div class="flex-item">
+            <p>
+                <span class="r">Important NOTE</span>, when I use the $3 third field in awk, last <code class="lg-txt">!</code>
+                does not appear on a new line but if I <code>pbcopy the output</code> the last <code class="lg-txt">appears</code>
+                on a new line when pasted
+            </p>
+        </div>
+
+        <div  class="flex-container m-t-2">
+            <div class="flex-item">
+                <code>$ <span tabindex="1" class="copy-code">awk -F, '{print "!" $1 "!" $2 "!" $3 "!" }' excel.csv</span>
+    <br>!1!2!3
+    <br>!one!two!three
+    <br>!one one!two two!three three
+    <br>!"""one"""!"""two"""!"""three"""
+    <br>!"one!one"!"two!
+    <br>!one!two!three
+    <br>!"one!!!
+    <br>!one"!"two!!
+    <br>!two"!"three!!
+    <br>!three"!!!
+                </code>
+            </div>
+            <div class="flex-item">
+                <code>$ <span tabindex="1" class="copy-code">awk -F, '{print "!" $1 "!" $2 "!" $3 "!" }' excel.csv | pbcopy</span>
+    <br>!1!2!3
+    <br>!
+    <br>!one!two!three
+    <br>!
+    <br>!one one!two two!three three
+    <br>!
+    <br>!"""one"""!"""two"""!"""three"""
+    <br>!
+    <br>!"one!one"!"two!
+    <br>!one!two!three
+    <br>!
+    <br>!"one!!!
+    <br>!one"!"two!!
+    <br>!two"!"three!!
+    <br>!three"!!!
+                </code>
+            </div>
+        </div>
+    </div>    
+    <hr>
+    
+
+    <div tabindex="1" class="flex-container b-2-red">
+        <div class="flex-item flex align-center">
+            <p class="r ">
+                The tutorial says that excel always adds MSdos line endings notated with ^m,
+                But, This does not seem to be the case anymore. But, As you can see below, the
+                the output of the awk program messes up each line,
+            </p>
+        </div>
+        <div class="flex-item">
+            <img src="images/03-msDOSLineEnd.png">
+        </div>
+    </div>
+
+    <div tabindex="1"  class="flex-container b-2-red">
+        <div class="flex-item flex-col">
+            <p class="r">
+                &emsp;The tutorial also states to remedy the MSdos problem, specify 
+                <code>FS=","</code> and <code>RS="\r"</code>.
+            </p>
+            <p>
+                &emsp;To deal with out double quote problem we will have to use
+                <code>gsub()</code> twice. First, Use the regex expression <code><span class="v md-txt">^\"</span></code> for quote at 
+                the beggining of the field and <code><span class="v md-txt">\"$</span></code> for quote at the end of the field.
+                Second, replace the two <code><span class="v md-txt">\"\"</span> </code> with <code><span class="v md-txt">\"</span></code> one ".
+            </p>
+            
+        </div>
+        <div class="flex-item">
+            <pre class="code">
+$ cat excel.awk
+<span tabindex="1" class="copy-code">BEGIN{RS="\r"}
+{
+    for(i=1 ; i&lt;=3; i++){
+        gsub("<span class="v">^\"|\"$</span>", "", $i);
+        gsub("\"\"","\"",$i);
+    }
+    print "!" $1 "!" $2 "!" $3 "!";
+}
+</span>
+            </pre>
+        </div> 
+    </div>
+    <div tabindex="1"  class="flex-container">
+        <div class="flex-item">
+            <p>If we run the code on the excel.csv file, the quotes will be the same as the file
+                But, we still have the issue of the last <code>!</code> point appearing on the following line.
+            </p>
+        </div>
+        <div class="flex-item">
+<code>$ awk -F, -f excel.awk excel.csv</code>
+            <pre class="code">
+!﻿1!2!3!
+<span class="b-2-red">!</span>
+one!two  !three  !
+<span class="b-2-red">!</span>
+"one!one!two two!
+<span class="b-2-red">!</span>
+""one"!"two"!"three"!
+<span class="b-2-red">!</span>
+"one!one!two.two!
+<span class="b-2-red">!</span>
+one!two!three!
+<span class="b-2-red">!</span>
+one!two!three!
+            </pre>
+        </div>
+    
+    </div>
+    
+    
+    
+</body>
+</html>

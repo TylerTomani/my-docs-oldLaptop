@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-01_moreVariables</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <script src="../../../js-shapes/shapeLibrary.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas id=""></canvas>
+    <div class="flex-container">
+        <div class="flex-item">
+            <code>
+                function drawWinston(<input tabindex="1" class="v" type="number" 
+                min="0" max="1075"value="150" step="50" id="xPos"> ,y){
+                <br>&emsp;let faceWidth = 125;
+                <br>&emsp;let eyeWidth = 25;
+                <br>&emsp;let eyeX = <span class="v">x</span> - 40;
+                <br>&emsp;let eyeY = y - 25;
+                <br>&emsp;c.beginPath();
+                <br>&emsp;c.fillStyle = "yellow"
+                <br>&emsp;// Face
+                <br>&emsp;c.ellipse( <span class="v">x</span>, y, faceWidth, faceWidth, Math.PI / 4, 0 , 2 * Math.PI)
+                <br>&emsp;c.fill();
+                <br>&emsp;c.closePath();
+                <br>&emsp;// Eyes
+                <br>&emsp;c.beginPath();
+                <br>&emsp;c.fillStyle = "whitesmoke"
+                <br>&emsp;c.ellipse(eyeX, eyeY, eyeWidth, eyeWidth, Math.PI / 4, 0 , 2 * Math.PI )
+                <br>&emsp;c.fill();
+                <br>&emsp;c.stroke()
+                <br>&emsp;c.closePath();
+                <br>&emsp;c.beginPath();
+                <br>&emsp;c.fillStyle = "whitesmoke"
+                <br>&emsp;c.ellipse(eyeX + 120, eyeY, eyeWidth, eyeWidth, Math.PI / 4, 0 , 2 * Math.PI )
+                <br>&emsp;c.fill();
+                <br>&emsp;c.stroke()
+                <br>&emsp;c.closePath();
+                <br>
+                // Mouth
+                <br> c.beginPath();
+                <br> c.fillStyle = "coral"
+                <br> c.ellipse(<span tabindex="1" class="r">x</span>  , y + 70, eyeWidth, eyeWidth + 10, Math.PI / 4, 0 , 2 * Math.PI )
+                <br> c.fill();
+                <br> c.stroke()
+                <br> c.closePath();
+                }
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;We can move ALL of shapes based on an anchor position. If we assign a 
+                <code>variable</code> to winston's x co-ordinate, we can base the rest of the shapes
+                of that variable.
+            </p>
+            <p class="r">
+                check the code, when I add a value to x for the mouth, the mouth dissapears if I change x
+            </p>
+        </div>
+        
+    </div>
+    
+</body>
+</html>

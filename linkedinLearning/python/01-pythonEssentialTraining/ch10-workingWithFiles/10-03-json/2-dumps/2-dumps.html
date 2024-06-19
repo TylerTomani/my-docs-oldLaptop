@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-dumps</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-3-2 <code>json.dumps()</code></h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                <code>json.<span class="v">dumps</span></code> converts a python dictionary to a json string.
+            </p>
+        </div>
+    </div>
+    <!-- json.dumps -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json 
+from json import JSONDecodeError
+
+pythonDict = {'a':'apple','b':'bear','c':'cat'}
+jsonStr = json.<span class="v">dumps</span>(pythonDict)
+print(jsonStr)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We usually don't have to worry about errors occuring when dumping a dictionary to a json string, but
+                when values of keys are classes, we get a <code class="r">TypeError</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json
+from json import JSONDecodeError
+
+class Animal:
+    def __init__(self,name):
+        self.name = name
+
+pythonDict = {'a':Animal('ardvark'),'b':Animal('bear'),'c':Animal('cat')}
+jsonStr = json.dumps(pythonDict)                </pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <img tabindex="1" class="left-img" src="images/02.png">
+        </div>
+        <div class="fi fcol">
+            <p tabindex="1">
+                If we scroll to the bottom of the error we will see that 
+            </p>
+            <img class="right-img" src="images/03.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The json module does not know how to handle the Animal class, I don't quite understand
+                but we have to to import the <code class="o">JSONEncoder</code> and extend the 
+                <code class="o">JSONEncoder</code> and do the following
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                Overwrite the default method from JSONEncoder, the <code class="v">o</code>
+                is the object, (in this case the Animal class), that needs to be decoded. Then pass the 
+                AnimalEncoder as the second arguement <code class="b">cls</code> in <code>dumps</code>
+            </p>
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json
+from json import JSONDecodeError,JSONEncoder
+
+class Animal:
+    def __init__(self,name):
+        self.name = name
+class AnimalEncoder(JSONEncoder):
+    def default(self,o):
+        if type(o) == Animal:
+            return o.name
+        return super().default(o)
+pythonDict = {'a':Animal('ardvark'),'b':Animal('bear'),'c':Animal('cat')}
+jsonStr = json.dumps(pythonDict, cls=AnimalEncoder)
+print(jsonStr)
+                </pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="left-img" src="images/04.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+    
+    
+</body>
+</html>

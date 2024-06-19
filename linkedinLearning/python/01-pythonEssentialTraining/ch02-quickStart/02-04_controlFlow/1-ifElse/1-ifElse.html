@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-ifElse</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">02-04-1_if/Else</h2>
+    <!-- if -->
+    <div class="fcol">
+        <div class="fi fcol ">
+            <h3 class="justify-self-start">The <code class="mdcode mo lgcode">if</code> statement</h3>
+            <div class="fc">
+                <div class="fi fcol jc">
+                    <div class="code-container asc">
+                        <pre tabindex="1" class="copy-code bb1">
+a = True
+<span class="br2dash"><span class="v">if</span> a</span>:
+    print('a is true')</pre>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="md-img" src="images/01-if.png">
+                </div>
+                
+            </div>
+            
+            
+            <div class="fi fcol">
+                <p>
+                    <code class="mdcode ml5 br2dash"><span class="mo">if</span> a</code>
+                    is the same as saying <strong><q>if true</q></strong>.
+                </p>
+            </div>
+            <div class="fi fcol">
+                <p>
+                    &emsp;If the condition of the <span class="mo mdcode">if</span> is true, 
+                    the code on the following line will execute but <strong>only</strong>
+                    if it is indented. 
+                </p>
+                <p>
+                    &emsp;The block is the indented line of code on the next line following the <span class="mdcode">:</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- else -->
+    <div class="fcol">
+        <h3 class="justify-self-start">The <code class="mdcode mo lgcode">else</code> statement</h3>
+        <div class="fc">
+            <div class="fi fcol jc">
+                <div class="code-container asc">
+                    <pre tabindex="1" class="copy-code bb1">
+a = 1
+b = 2
+if a == b:
+    print('true')
+<span class="v">else</span>:
+    print('false')</pre>
+                </div>
+            </div>
+            <div class="fi">
+                <img class="md-img" src="images/02.png">
+            </div>
+            
+        </div>
+        
+        <div class="fi">
+            <p>
+                The code after an <span class="v mdcode">else</span> statement runs 
+                if the original <span class="mdcode">if</span> statement is not ture.
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can nest if statments within if statment with
+                proper indentation.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            
+            <div class="fi">
+                Notice how the last <code class="mdcode">if c:</code> statement
+                does <strong>not</strong> execute because the previous
+                <code class="mdcode">if b:</code> statement is False which exits the
+                original if statement
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+a = True
+b = False
+c = True
+if a:
+    print('a is true')
+    if b:
+        print('a and b are true')
+        if c:
+            print('all true')
+else:
+    print('nothing is true')
+print('but all okay')</pre>
+            </div>
+            <div class="fi">
+                <p>Once a condition is met or not met, the program moves on to the code 
+                    after the if or if / else statement, seen with 
+                </p>
+                <p>
+                    <code tabindex="1" class="copy-code smcode">
+                        print("but all okay")
+                    </code>
+                    print statement
+                </p>  
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/03-bFalse.png">
+        </div>
+    </div>
+    <!-- c = True -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    If we change <code class="mdcode">b</code> to <code class="mdcode">True</code>, all the if statement's
+                    indented blocks of code will execute
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+a = True
+b = True
+c = True
+if a:
+    print('a is true')
+    if b:
+        print('a and b are true')
+        if c:
+            print('all true')
+else:
+    print('nothing is true')
+print('but all okay')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/04-bTrue.png">
+        </div>
+        
+    </div>
+
+    <!-- a = false -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    If we change <code class="mdcode">a</code> to <code class="mdcode">False</code>, the else statement is executed
+                    along with the proceeding print statement 'but all okay'.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+a = False
+b = True
+c = True
+if a:
+    print('a is true')
+    if b:
+        print('a and b are true')
+        if c:
+            print('all true')
+else:
+    print('nothing is true')
+print('but all okay')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/05-allOkay.png">
+        </div> 
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02-05-raiseExeception</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-02-05- raise execeptions</h2>
+    <div class="fc">
+        <div class="fi flex asc">
+            <p>
+                &emsp;We can re-use exceptions on multiple functions.
+                Use the <code class="v">@handleExceptions</code> decorator from the 
+                previos lesson to raise exceptions
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc  inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+def <span class="b">handleExceptions</span>(func):
+    def wrapper():
+        try:
+            func()
+        except TypeError:
+            print('type error')
+        except ZeroDivisionError:
+            print('zero division')
+        <span class="o">except</span> <span class="lsg">Exception</span>:
+            print('error')
+    return wrapper
+
+</pre>
+            </div>
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                <code class="o">raise</code> allows use to call specifically the
+                <code class="o">except</code> <code class="lsg">Exception</code>
+                within the <code class="b">handleExceptions</code> function
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex asc">
+            <div class="code-container ">
+                <pre tabindex="1" class="copy-code">
+<span class="v">@handleExceptions</span>
+def raiseError():
+    <span class="dg">raise</span> <span class="lsg">Exception</span>()
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <h3>Pass arguments into decorators</h3>
+    <div class="fc">
+        <div class="fi flex asc">
+            <div class="code-container asc">
+                <p tabindex="1" class=" copy-code">
+                    If we try to add variables within the <code>raiseError()</code> function to
+                    work with, we'll get a type error
+                </p>
+                
+            </div>
+        </div>    
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We must pass arguments into the <code><span class="b">wrapper</span>()</code> function 
+                within the <code>handleExceptions()</code> function by using <code class="o">*args</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def handleExceptions(func):
+    def wrapper(<span class="o">*args</span>):
+        try:
+            func(<span class="o">*args</span>)
+        except TypeError:
+            print('type error')
+        except ZeroDivisionError:
+            print('zero division')
+        except Exception:
+            print('error')
+    return wrapper
+
+
+@handleExceptions
+def raiseError(n):
+    if n == 0:
+        raise Exception()
+    print(n)
+
+
+raiseError(1)
+
+raiseError(0)
+
+                </pre>
+            </div>    
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+        
+    </div>
+    
+    
+    <footer tabindex="1"></footer>
+    
+    <!-- @handleExceptions
+    def raiseError(n):
+    if n == 0:
+    raise Exception()
+    print(n)
+    
+    
+    raiseError(<span class="o">2</span>) -->
+</body>
+</html>

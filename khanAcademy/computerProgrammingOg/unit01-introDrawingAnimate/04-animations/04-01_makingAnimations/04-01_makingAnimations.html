@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01_makingAnimations</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <script src="../../../js/shapeLibrary.js" defer></script>
+    <script src="script.js" defer> </script>
+
+</head>
+<body>
+    <canvas></canvas>
+    <div class="flex-container">
+        <div class="flex-item">
+            <pre>
+let x = 0
+let forward = true
+let animateCar = function(delay){
+    const intervalObj = setInterval(() => {
+       if(forward && x < 900){
+        c.clearRect(0,0,canvas.width,canvas.height)
+        x++;
+        drawCar(x,200)
+       } else if (x >= 500){
+        forward = false;
+       }
+       
+       if(!forward){
+        c.clearRect(0,0,canvas.width,canvas.height)
+        x--;
+        drawCar(x,200);
+       } 
+        if( x <= 0){
+            forward = true
+            c.clearRect(0,0,canvas.width,canvas.height)
+             x++;
+            drawCar(x,200)
+       }
+       
+    }, delay);
+    console.log(forward)
+    console.log(x)
+}
+
+function animate(){
+    window.requestAnimationFrame(animate);
+    /*The function below is from the Async chapter in app academy, */
+    animateCar(220);
+}
+animate();
+            </pre>
+        </div>
+        <div class="flex-item">
+            <p>
+                &emsp;    The logic for this seems to complicated, In order to get the car to move back
+                and forth, I had to use multiple sequential if statements.
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-03-for</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">05-03-for</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Typical example of a for loop
+            </p>
+        </div>
+    </div>
+    <!-- for item in myList -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class=" copy-code">
+myList = [1,2,3,4,5]
+for item in myList:
+    print(item)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img desize-img" src="images/01.png">
+        </div>
+        
+        
+    </div>
+    <!-- pass -->
+    <h3><code class="mdtxt mo">pass</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                If we want to place a <i>stub</i> or place holder in a for loop 
+                and come back later to fill it in, use <code class="mo mdsmtxt">pass</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+animalLookup = {
+    'a': ['aardvark','antelop'],
+    'b': ['bear'],
+    'c': ['cat'],
+    'd': ['dog']
+}
+for letter, animals in animalLookup.items():
+    <span class="mo">pass</span>
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <p>
+                This will no do anything 
+            </p>
+        </div>
+    </div>
+    <!-- continue -->
+    <h3><code class="mo mdtxt">continue</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;Use the continue method to skip a block of code. Great way of using exit clause first.
+            </p>
+            <p>
+                &emsp;This example skips any list containing more than one animal and prints only the first animal in the list.
+            </p>
+        </div>
+    </div>
+    <!-- print len(animals) < 1 -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+animalDict = {
+'a': ['aardvark','antelope'],
+'b': ['bear'],
+'c': ['cat'],
+'d': ['dog']
+}
+for letter,animals in animalDict.items():
+    if len(animals) > 1:
+        <span class="mo">continue</span>
+    print(f'only one animal : {animals}')
+
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <!-- break -->
+    <h3><code class="mo mdtxt">break</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can <code class="mdsmtxt">break</code> to exit out of a loop if we find what we are looking for.
+                So in this example, the loop will print any list with more that one item then <span class="mo">break</span>
+            </p>
+        </div>
+    </div>
+    <!-- print len(animals) > 1 -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode ">
+animalDict = {
+    'a': ['aardvark','antelop'],
+    'b': ['bear'],
+    'c': ['cat'],
+    'd': ['dog']
+}
+for letter,animals in animalDict.items():
+    if len(animals) > 1:
+        print(f'found {len(animals)} animals: {animals}')
+        <span class="mo">break</span>
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img med-img" src="images/03.png">
+        </div> 
+    </div>
+    <!-- Finding prime with ** .5 square root  -->
+    <h3 tabindex="1"><code class="mo mdtxt">for/else</code> prime numbers</h3>
+    <div class="fcol">
+        <div class="fi">
+            <p class="r">
+                I don't quiet get this yet, but it seems very usefule for finding prime numbers
+            </p>
+        </div>
+        <div class="fi">
+            <p class="">
+                Notice how the the <span class="mo">else</span> statement is lined up with the for 
+                statement and not the if.
+            </p>
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+for number in range(2,50):
+    for factor in range(2, int(number**0.5) + 1):
+        if number % factor == 0:
+            break
+    else:
+        print(f'{number} is prime')</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/04.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

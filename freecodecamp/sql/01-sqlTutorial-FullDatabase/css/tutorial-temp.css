@@ -125,3 +125,7 @@ li > code {
         white-space: none
     }
 }
+
+.smtxt {font-size: 50% !important};
+
+.xsize1 {font-size: 120% !important};

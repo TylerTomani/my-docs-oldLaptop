@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-01-anatomyOfClasses</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-01- The anatomy of Classes</h2>
+    <div class="fc">
+        <div class="fi">
+            <p tabindex="1" class="copy-code">
+                Instance attributes are named so because any new instance of the class
+                made automatically has these attributes.
+            </p>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01-instance.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can see this by creating new variables and instantiating them with the <code>Dog</code> class.
+            </p>
+        </div>
+    </div>
+
+    <div class="fc">
+        <div class="fi flex ">
+            <div class="code-container inline-block ass">
+                <pre tabindex="1" class="copy-code smcode">
+class Dog:
+    def __init__(self,name):
+        self.name = name
+        self.legs = 4
+    def speak(self):
+        print(self.name + 'says Bark')
+myDog = Dog('Rover')
+print(myDog.name)
+print(myDog.legs)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img med-img" src="images/02.png">
+        </div> 
+    </div>
+    <!-- instance attribue cannot be changed -->
+    <div class="fc">
+        <div  class="fi flex ase">
+            <div class="fi">
+                <p tabindex="1" class="copy-code">
+                    <span class="r">These <i class="v">instance attributes</i> are hardcoded</span>
+                    So, we can not see them or change them on the <code>Dog</code> class itself
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img " src="images/03.png">
+        </div>
+    </div>
+    <!-- static attributes -->
+    <h3 class="o mt2 mdtxt">Static attributes</h3>
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                &emsp;To see and change the <code class="v">instance attribute</code> we must make it an 
+                attribute within the class itself. These attributes are refered to as <code class="o">static attributes</code>
+                <br>
+                &emsp;Do this by assigning the <code class="o">legs</code> variable outside of the <code>__init__</code> function. 
+                Each instance of the class still retains the value of legs but now, we can call <code class="b">Dog.legs</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex ase jc">
+            <div class="code-container ase inline-block" >
+                <pre tabindex="1" class="copy-code ">
+class Dog:
+    <span class="o">legs</span> = 4
+    def __init__(self,name):
+        self.name = name
+myDog = Dog('Rover')
+print(myDog.name)
+print(myDog.legs)
+print(<span class="b">Dog.legs</span>)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp; <span class="o">static attributes</span> are unchanging with each instance. These 
+                are meant to be assiged to constant values, but <span class="r">Be Careful</span> because 
+                you can change them.
+            </p>
+            <p>
+                &emsp;If we reassign <code>Dog.legs</code> to <code>3</code> and create a new instance, you will 
+                see the <span class="o">static</span> legs <span class="o">attribute</span> has been changed
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex ac jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+Dog.legs = 3
+newDog = Dog('Scruffy')
+print(newDog.name)
+print(newDog.legs)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div> 
+    </div>
+    
+    <h3>getterMethods</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                It's good practice? to use a <i>getter</i> method to use static variables? I don't know what she is talking about.
+            </p>
+            <p>
+                But here is the example.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex ac jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code ">
+class Dog:
+    _legs = 4
+    def __init__(self,name):
+        self.name = name
+    def <span class="v">getLegs</span>(<span class="r">self</span>):
+        return self._legs
+
+doggy = Dog('Rooster')
+print(doggy.name)
+print(doggy.<span class="v">getLegs</span>())
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/06.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol">
+        <div tabindex="1" class="fi">
+            <p>
+                <span class="r">Remember</span> we don't really need to use <code class="r">self</code> in <code>getLegs(self)</code>
+                because self is calling on the instance of the class itself. So we can get rid of 
+                <code class="r">self</code> and replace it with <code class="b">Dog</code> <span class="r">BUT</span>
+                <span class="r">This will cause an error</span>
+            </p>
+        </div>
+    </div>
+    <div class="fc br2">
+        <div class="fi flex ">
+            <div class="code-container ase jsc inline-block">
+                <pre tabindex="1" class="copy-code smcode br2">
+class Dog:
+    _legs = 4
+    def __init__(self,name):
+        self.name = name
+    def getLegs():
+        return <span class="b">Dog</span>._legs
+doggy = Dog('Rooster')
+print(doggy.name)
+print(doggy.getLegs())
+                </pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/07.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                I guess using a <q><code>get</code></q> method is best practice, but now we can change 
+                the <q class="v">instance</q> attribute and not change the <q class="o">static</q> attribute 
+                of the class
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+class Dog:
+    _legs = 4
+    def __init__(self,name):
+        self.name = name
+    def getLegs(self):
+        return self._legs
+    def speak(self):
+        return self.name + 'says Bark'
+myDog = Dog('Rover')
+myDog._legs = 3
+print(Dog._legs)
+print(myDog.name)
+print(myDog._legs)
+print(myDog.getLegs())
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/08.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

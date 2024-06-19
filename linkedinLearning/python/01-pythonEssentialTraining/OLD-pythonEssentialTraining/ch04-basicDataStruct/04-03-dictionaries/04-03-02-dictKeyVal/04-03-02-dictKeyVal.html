@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-03-02-dictKeyVal</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-03-02 <code>dict_keys()</code> & <code>dict_values()</code></h2>
+    <div class="fc">
+        <div class="fi align-center">
+            <div tabindex="1" class="fcol copy-code">
+                <div class="fi ">
+                    <p>
+                        The <code class="v">dict_keys</code> and <code class="v">dict_values</code> object are
+                        <strong>immutable</strong>, but appendable.
+                    </p>
+                </div>
+                <div class="fi mt1">
+                    <p>
+                        To change a dict key or value change the underlying dictionary.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-dictValkey.png">
+        </div>
+        
+        
+        
+    </div>    
+    <!-- convert dict to list -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                You can convert <code class="o">dict_keys</code> and <code class="o">dict_values</code>
+                into list <code>[]</code>
+            </p>
+        </div>
+    </div>
+    <!-- list(animals.keys()) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+animals = {
+    'a': 'aardvark',
+    'b': 'bear',
+    'c': 'cat',
+    'd': 'dog'
+}
+list(animals.<span class="o">keys</span>())
+</pre>
+            </div>
+    
+        </div>
+        <div class="fi asc">
+            <img class="" src="images/02-listAnimalsKeys.png">
+        </div>
+        
+    </div>
+    <!-- list(animals.values()) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    list(animals.<span class="o">values</span>())
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-listAnialsValues.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

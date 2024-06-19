@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-01_textPart1</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas></canvas>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>
+                The bottom left corner of text is the position 0,0. This is different than shapes which have 0,0
+                in their top left
+            </p>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item">
+
+        </div>
+        <div class="flex-item flex-col">
+            <code><span class="b">x</span> = <span id="x-co" class=" lg-code">0</span></code> 
+
+            <code><span class="o">y</span> = <span id="y-co" lg-code">0</span></code>  
+        </div>
+    </div>
+    <hr>
+    <div class="flex-container">
+        <div class="flex-item">
+            <pre>
+const canvas = document.querySelector("canvas")
+const c = canvas.getContext('2d')
+canvas.width = innerWidth
+canvas.height = innerHeight / 4
+
+const xVal = document.getElementById("x-co")
+const yVal = document.getElementById("y-co")
+
+let x = 20;
+let y = 200;
+let position = {}
+
+function mousePosition(e){
+    let bound = canvas.getBoundingClientRect();
+    x = e.clientX;
+    y = e.clientY
+    position.x = x;
+    position.y = y;
+    xVal.innerText = x
+    yVal.innerText = y
+}
+canvas.addEventListener("mousedown", e => {
+    canvas.addEventListener("mousemove", mousePosition)
+})
+canvas.addEventListener("mouseup", e => {
+    canvas.removeEventListener("mousemove",mousePosition)
+})
+            </pre>
+        </div>
+        <div class="flex-item">
+            <pre>
+                function textBox (str,x,y){
+                    c.beginPath();
+                    c.font = "48px serif"
+                    c.fillText(str,x,y)
+                }
+                function animate(){
+                    window.requestAnimationFrame(animate);
+                    c.clearRect(0,0,canvas.width,canvas.height)
+                    textBox("Yo",x,y)
+                }
+                animate();
+            </pre>
+        </div>
+    </div>
+</body>
+</html>

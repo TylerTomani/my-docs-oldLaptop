@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-01_formatOutPrintf</title>
+    <link rel="stylesheet" href="../../css/newlesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <!-- copy code and Styles -->
+    <script src="../../js/copycode.js" defer></script>
+    <link rel="stylesheet" href="../../css/copycodeStyles.css">
+    <!-- console script and Styles -->
+    <link rel="stylesheet" href="../consoleUnit07/consoleUnit07Styles.css">
+    <script src="../consoleUnit07/consoleUnit07.js" defer></script>
+    
+
+
+</head>
+<body>
+    <header>
+        <h2  tabindex="1">07-01- Format the output using <code>printf()</code></h2>
+    </header>
+    <!-- Txt file examples -->
+    <div  class="example-txt-file-container ">
+        <div tabindex="1" class="example-txt-file">
+            <h3>CSV input file</h3>
+            <code class="xx-sm-code">
+                <br>Art Venere,art@venere.org,256.62394383
+                <br>Lenna Paprocki,lpaprocki@hotmail.com,259.688783099
+                <br>Donette Foller,donette.foller@cox.net,282.32979844
+                <br>Simona Morasca,simona@morasca.com,139.51911647
+                <br>Dominque Dickerson,dominque.dickerson@dickerson.org,167.045197551
+                <br>Leota Dilliard,leota@hotmail.com,253.646335223
+                <br>Sage Wieser,sage_wieser@cox.net,155.55576823
+                <br>Kris Cho,kris@gmail.com,210.794277775
+                <br>Minna Amigon,minna_amigon@yahoo.com,95.47955397
+                <br>Abel Maclead,amaclead@gmail.com,225.774477397
+                <br>Kiley Caldarera,kiley.caldarera@aol.com,172.957628871
+                <br>Graciela Ruta,gruta@cox.net,202.68364784
+                <br>Josephine Darakjy,josephine_darakjy@darakjy.org,178.877840188
+                <br>Cammy Albares,calbares@gmail.com,290.446513401
+                <br>Mattie Poquette,mattie@aol.com,283.23995223
+                <br>Meaghan Garufi,meaghan@hotmail.com,227.142916195
+                <br>Gladys Rim,gladys.rim@rim.org,243.459635712
+                <br>Yuki Whobrey,yuki_whobrey@aol.com,128.321717297
+                <br>Fletcher Flosi,fletcher.flosi@yahoo.com,221.394141603
+        
+            </code>
+        </div>
+        <div tabindex="1" class=" example-txt-file">
+            <h3>TSV awk ouput</h3>
+            <code class="xx-sm-code">
+                <br>Art&nbsp;Venere&emsp;art@venere.org&emsp;256
+                <br>Lenna&nbsp;Paprocki&emsp;lpaprocki@hotmail.com&emsp;259
+                <br>Donette&nbsp;Foller&emsp;donette.foller@cox.net&emsp;282
+                <br>Simona&nbsp;Morasca&emsp;simona@morasca.com&emsp;139
+                <br>Dominque&nbsp;Dickerson&emsp;dominque.dickerson@dickerson.org&emsp;167
+                <br>Leota&nbsp;Dilliard&emsp;leota@hotmail.com&emsp;253
+                <br>Sage&nbsp;Wieser&emsp;sage_wieser@cox.net&emsp;155
+                <br>Kris&nbsp;Cho&emsp;kris@gmail.com&emsp;210
+                <br>Minna&nbsp;Amigon&emsp;minna_amigon@yahoo.com&emsp;95
+                <br>Abel&nbsp;Maclead&emsp;amaclead@gmail.com&emsp;225
+                <br>Kiley&nbsp;Caldarera&emsp;kiley.caldarera@aol.com&emsp;172
+                <br>Graciela&nbsp;Ruta&emsp;gruta@cox.net&emsp;202
+                <br>Josephine&nbsp;Darakjy&emsp;josephine_darakjy@darakjy.org&emsp;178
+                <br>Cammy&nbsp;Albares&emsp;calbares@gmail.com&emsp;290
+                <br>Mattie&nbsp;Poquette&emsp;mattie@aol.com&emsp;283
+                <br>Meaghan&nbsp;Garufi&emsp;meaghan@hotmail.com&emsp;227
+                <br>Gladys&nbsp;Rim&emsp;gladys.rim@rim.org&emsp;243
+                <br>Yuki&nbsp;Whobrey&emsp;yuki_whobrey@aol.com&emsp;128
+                <br>Fletcher&nbsp;Flosi&emsp;fletcher.flosi@yahoo.com&emsp;22                
+            </code>
+        </div>
+        
+    </div>
+
+    <div class="flex-col m-1 md-txt">
+        <div class="flex-item ">
+            <p>
+                &emsp;The following code shows how to use <code>printf()</code>
+                to reformat the above csv "Comma Seperated "input file to the
+                above tsv "Tab Seperated" awk output file.
+            </p>    
+        </div>
+        <div class="flex-item ">
+            <p class="m-1">
+                &emsp;This example only changes the format without specifying the space between
+                fields, (see next lesson for that)
+            </p>
+        </div>
+    </div>
+
+    <hr>
+<div  class="flex-container m-t-1">
+    
+    
+    <div tabindex="1" class="flex-container md-txt">
+        
+        <div class="flex-item align-self-start">
+            <p>
+                &emsp;*Important note, <code>printf()</code> does <strong>NOT</strong>
+                automatically add a new line <span class="code sm-code"><span class="v">\n</span></span> to the end of the output. AND, it does
+                <strong>NOT</strong> use <code>OFS</code> or <code>ORS</code>
+            </p>
+        </div>
+        <div class="flex-item align-self-center">
+            <p>
+                Notice how <span class="code sm-code">$3</span> field three has only two digits.
+                <span class="code sm-code"><span class="o">\d</span></span> cuts the decimals and
+                converts it into an integer.
+            </p>
+        </div>
+        
+        
+        
+    </div>
+    
+    <!-- Copy example text to clipboard here -->
+    <div class="flex-item flex-col justify-center align-center wrap copy-pre-tag-container">
+        <pre tabindex="1" id="example1" class="copy-pre-code pre-code sm-code">
+ awk -F , '{printf("%s\t%s\t<span class="o">%d</span><span class="v">\n</span>",$1,$2,$3)}'</pre>
+    </div>
+</div>
+
+    <div class=" console-container m-1">
+        <div class="console-input console-container-item flex-col">
+            <textarea tabindex="1" name="input3" id="input3" cols="30" rows="2" 
+            placeholder="awk -F , '{printf(&quot;&#37;s\t&#37;s\t&#37;d\n&quot;,$1,$2,$3)}'"></textarea>
+        </div>
+        <button tabindex="1" class="run-btn">Run</button>
+    
+        
+    </div>
+    
+
+    <audio id="sound">
+        <source src="../consoleUnit07/correct.mp3" type="audio/mpeg">
+    </audio>
+    
+</body>
+</html>

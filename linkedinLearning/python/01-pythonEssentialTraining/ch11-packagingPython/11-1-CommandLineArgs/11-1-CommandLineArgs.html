@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-1-CommandLineArgs</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">11-1- Command-Line Arguments</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can pass in arguments into a script throught the command line by using 
+                the <code class="v">ArgumentParser</code> class from the <code class="o">argparse</code> module
+            </p>
+        </div>
+    </div>
+    <!-- from argparse -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+from argparse import ArgumentParser</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The <code class="v">ArgumentParser</code> class creates an object which allows you 
+                to track each of the arguements typed in the command line. First create an instance of the class
+                then use the <code class="o">add_argument</code>method to create an argument
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+from argparse import <span class="v">ArgumentParser</span>
+
+parser = ArgumentParser()
+
+parser.<span class="o">add_argument</span>('--output','-o')
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The above values <code>'--output','o'</code> allow the user to use either argument, the goal here
+                for this arugment is to allow the user to input a name for the output file in the command line.
+                for example <code>newFile.txt</code>.
+            </p>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                To get <code class="v">newFile.txt</code> we must use the <code class="o">parse_args()</code> method 
+                and assign it to a variable. If we print the variable we will see that <code class="v">newFile.txt</code> 
+                is now available in the program.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+
+parser.add_arguments('--output','-o')
+
+args = parser.parse_args()
+
+print(args)
+                </pre>
+            </div>     
+        </div>
+        <div class="fi flex ac">
+            <img class="right-img" src="images/03.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <p>
+                The above code will output all arguments available in the program, but we 
+                can specify the specific argument with dot notation on <code class="v">args</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex ac jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code ">
+print(<span class="v">args</span>.output)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                To make the <code>--output</code> required add the <code class="b">required</code> argument and set it to 
+                <code>True</code>. We can also supply help text with the <code class="b">help</code> argument to tell 
+                the user that the argument is required. By default if you supply the script with the arugment <span class="v">-h</span>
+                it will display the message
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+parser.add_arguments('--output','-o',<span class="b">required</span>=True, <span class="b">help</span>='ouput file name required')
+args = parser.parse_args()
+print(args)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/05.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                To close the lesson add another argument for input then use <code class="dg">with</code> to write to the 
+                <code>newFile.txt</code> output file.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+parser.add_arguments('--output','-o',required=True,help='outfile name required')
+parser.add_argument('--input','-i',required=True,help='add text to file')
+
+args = parser.parse_args()
+
+with open(args.output, 'w') as f:
+    f.write(args.input)
+print(f'The file: "{args.output}" has the following text \n"{args.input}')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/06.png">
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    
+    
+    <footer tabindex="1"></footer>
+</body>
+</html>

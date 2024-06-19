@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-challengeASCIIart</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-challenge Encoding ASCII art</h2>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def encodeString(strVal):
+    encodeStr = []
+    prevChar = strVal[0]
+    count = 0
+    for char in strVal:
+        if char != prevChar:
+            encodeStr.append((prevChar, count))
+            count = 0
+        prevChar = char
+        count = count + 1
+    encodeStr.append((prevChar,count))
+    return encodeStr
+
+ecode = encodeString('AAABBBBCC')
+print(ecode)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01-encode.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def decodeString(encodeString):
+    decodeStr = ''
+    for item in encodeString:
+        decodeStr = decodeStr + item[0] * item[1]
+    return decodeStr
+
+dcode = decodeString(ecode)
+print(dcode)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02-decode.png">
+        </div>
+        
+    </div>
+    
+    
+
+    
+</body>
+</html>

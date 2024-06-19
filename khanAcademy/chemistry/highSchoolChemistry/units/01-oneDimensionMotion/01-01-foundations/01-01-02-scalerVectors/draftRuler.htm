@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruler on Canvas</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="50"></canvas>
+    <script>
+        // Get the canvas element
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Define the length of the ruler (in centimeters) and the width of each centimeter
+        var rulerLength = 10; // 10 centimeters
+        var cmWidth = 10; // 10 pixels represent 1 centimeter
+
+        // Draw the ruler
+        for (var cm = 0; cm <= rulerLength; cm++) {
+            var x = cm * cmWidth; // Calculate x-coordinate for the current centimeter mark
+
+            // Draw a vertical line for each centimeter mark
+            ctx.beginPath();
+            ctx.moveTo(x, 0); // Start point of the line
+            ctx.lineTo(x, 10); // End point of the line (height of the marks)
+            ctx.strokeStyle = 'black'; // Line color
+            ctx.stroke(); // Draw the line
+
+            // Draw the text label for each centimeter mark
+            ctx.fillStyle = 'black'; // Text color
+            ctx.font = '10px Arial'; // Font size and family
+            ctx.fillText(cm, x - 5, 25); // Draw the text centered below the mark
+        }
+    </script>
+</body>
+
+</html>

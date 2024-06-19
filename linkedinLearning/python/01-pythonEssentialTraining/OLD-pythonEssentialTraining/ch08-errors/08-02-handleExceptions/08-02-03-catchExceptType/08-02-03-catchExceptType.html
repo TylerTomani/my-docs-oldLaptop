@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02-03-catchExceptType</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-02-03 Catch exceptions by type</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Catching <code class="lsg">Exception</code> with <code class="v">except</code>
+                catches any Error.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code ">
+def causeError():
+    try:
+        1/0
+    <span class="v">except</span> <span class="lsg">Exception</span>:
+        print('error')
+
+causeError()</pre>
+            </div>            
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/01.png">
+        </div>
+        
+    </div>
+    
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                But we can specify what type of Exception to catch, for example
+                <code class="o">ZeroDivisionError</code>
+            </p>
+        </div>
+    </div>
+
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def causeError():
+    try:
+        1/0
+    except <span class="o">ZeroDivisionError</span>:
+        print('a zero division error ')
+    except Exception:
+        print('error')
+
+causeError()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/02.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can <i>chain</i> different exceptions together, but the order <strong>matters</strong>.
+                If we place the basic <code class="lsg">Exception</code> first, it won't catch the 
+                <code class="o">TypeError</code> which is it is
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def causeError():
+    try:
+        <span class="o">1 + 'a'</span>
+    except <span class="lsg">Exception</span>:
+        print('error')
+    except ZeroDivisionError:
+        print('zero division error')
+    except <span class="o">TypeError</span>:
+        print('type error')
+    
+
+causeError()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/03.png">
+        </div>
+        
+    </div>
+
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Place the most important Errors first, 
+            </p>
+        </div>
+    </div>
+
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def causeError():
+    try: 
+        return <span class="o">1 + 'a'</span>
+    except <span class="o">TypeError</span>:
+        print('type error')
+    except ZeroDivisionError:
+        print('zero division error')
+    except <span class="lsg">Exception</span>:
+        print('error')
+
+
+causeError()</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/04.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+    
+
+             
+</body>
+</html>

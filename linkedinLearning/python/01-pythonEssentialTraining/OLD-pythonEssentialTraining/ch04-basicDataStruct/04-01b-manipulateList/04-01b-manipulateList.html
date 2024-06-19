@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01b-modifyList</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-01b-Modify List</h2>
+    <!-- append() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item align-self-start  ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>append()</code></li>
+                
+            </ul>
+        </div>
+    </div>
+    <!-- myList.append(5) -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4]
+myList.append(5)
+myList</pre>
+            </div>
+            
+        </div>
+        <div class="flex-item">
+            <img class="right-img mid-img" src="images/01-append.png">
+        </div>
+        
+    </div>
+    <!-- insert() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item align-self-start  ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>insert()</code></li>
+    
+            </ul>
+            <p class="smtxt">
+                <code class="mdcode">insert(</code>(position, value <code>)</code>
+            </p>
+        </div>
+        <p>
+        </p>
+    </div>
+    <!-- myList.insert(2,'new value') -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4]
+myList.insert(2,'new value')
+myList</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img mid-img" src="images/02-insert.png">
+        </div>
+        
+    </div>
+    <!-- remove() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item align-self-start  ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>remove()</code></li>
+    
+            </ul>
+            <p class="smtxt">
+                <code class="mdcode">remove(</code>(<span class="r">'value'</span><code>)</code>
+                <strong>not</strong> the index.
+            </p>
+        </div>
+        <p>
+        </p>
+    </div>
+    <!-- myList.remove('new value') -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,'new value',4]
+myList.remove('new value')
+myList</pre>
+            </div>
+            
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="images/03-remove.png">
+        </div>
+        
+    </div>
+    <!-- pop() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item align-self-start  ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>pop()</code></li>
+    
+            </ul>
+            <p class="smtxt">
+                <code class="mdcode">pop(</code>(<span class="r">'value'</span><code>)</code>
+                <strong>not</strong> the index.
+            </p>
+        </div>
+        <p>
+        </p>
+    </div>
+    <!-- myList.pop() -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4]
+myList.pop()</pre>
+            </div>   
+        </div>
+        <div class="flex-item">
+            <img class="right-img mid-img" src="images/04-pop.png">
+        </div>
+        
+    </div>
+    <!--while len(myList):  pop() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item align-self-start  ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>while len(myList):
+                    <br>&emsp;&emsp;pop()</code></li>
+    
+            </ul>
+            <p class="smtxt">
+                extracts the last element everytime.
+            </p>
+        </div>
+        <p>
+        </p>
+    </div>
+    <!-- myList.pop() -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4]
+while len(myList):
+    myList.pop()</pre>
+            </div>   
+        </div>
+        <div class="flex-item">
+            <img class="right-img mid-img" src="images/05-whilePop.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

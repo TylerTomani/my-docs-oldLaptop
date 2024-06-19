@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-02-specifyFieldRecordSeperateVar</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/flexcode.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">03-02-Specify field and record seperators with variables</h2>
+    </header>
+    <!-- ###################### FS Variable ###################### -->
+    <h3>FS - field variable</h3>
+    <div tabindex="1" class="flex-col">
+        <div class="flex-item vert-start">
+            <p>
+                &emsp;You can specify a seperator in an individual statment within an awk program. Each statement is 
+                 seperated by a <span class="code w">;</span> with inthe curley braces
+                <span class="code">{ }</span>. To define the field seperator this way, use the awk built-in
+                <span class="code">FS</span> variable.
+                
+                <br> The value you assign to it must be enclosed in a string
+                <br>
+            </p>
+        </div>
+        <code style="min-width: 400px;width: 50%; display:inline-block;" class="lg-code ">'{FS=","<span class="w">;</span>print $0}'</code>
+        
+    </div>
+    <!-- $ awk '{FS=","; print $2}' -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;In this example,
+                <br> <code class="">$ awk '{FS=","<span class="w">;</span> print $2}'</code>
+                 the field seperator <code class="code-sm">,</code> will not affect the first
+                line/record because awk divides the input into records and fields BEFORE calling
+                each action.
+            </p>
+            <p>
+                &emsp;awk performs the first statement <span class="code">FS=","</span> before the
+                <span class=" code w">;</span>, then peforms <code>print</code> after.
+                It does this all in one step, so the field seperator is not done being initiated unitl after
+                the whole program runs.
+            </p>
+            
+        </div>
+        <div class="flex-item code-containers full-code ">
+            <code class="code ">
+                $ awk '{FS=","<span class="w">;</span> print $2'}' <br>
+                one,two,three <br>
+                <br>
+                four,five,six <br>
+                five
+                
+            </code>
+        </div>
+    </div>
+
+    <div tabindex="1" class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;So awk will use the default white space seperator upon input,
+                Then,
+                <br>&emsp; assign the FS field seperator after the first line of input is read
+            </p>
+        </div>
+        
+    </div>
+    <!-- awk 'BEGIN{FS=","} {print $2}'' -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;To get the <span class="code">FS</span> variable to affect the first line of the input,
+                We must use the special pattern <span class="code">BEGIN</span>, and enclose each statment within curley braces 
+                <span class="code"   >{ } { }</span>
+            </p>
+        </div>
+        <div class="flex-item code ">
+            <code>
+                $ awk 'BEGIN{FS=","} {print $2}'  <br>
+                one,two,three <br>
+                two <br>
+                four,five,six <br>
+                five
+            </code>
+        </div>
+    </div>
+    
+    <hr>
+    <!-- ###################### RS Variable ###################### -->
+    <h2 >RS - Record seperator</h2>
+    <div class="flex-col">
+        <div tabindex="1" class=" text-top flex-item">
+            <p>
+                &emsp;By default, each record is every line of input, but this varies
+                on each operating system. On some systems the default RS is a carriage return, new line, or both.
+                We can change the record seperator by using the <code>RS</code> variable.
+                <br>
+                &emsp;In this is example there is one line of text. We can change the <code>FS</code> and <code>RS</code> to seperate each 
+                 record by a <code>!</code>
+                 and each field by a <code>,</code>
+            </p>
+        </div>
+        <div tabindex="1" class="code code-80">
+            <code class="">
+                $ awk 'BEGIN<span class="under">{RS="!"} {FS=","}</span> {print $2}' <br>
+                one,two,three,for!five,six!seven,eight,nine,!ten <br>
+                <br>
+                six <br>
+                eight
+            </code>
+        </div>
+        
+        
+    </div>
+    <!-- $ awk 'BEGIN{RS="!" ; FS=","} {print $2)' -->
+    <div tabindex="1" class="flex-col m-top">
+        <div class="flex-item">
+            <p>Notice how <span class="code">BEGIN</span> does not work. We must use a <span class="code w">;</span>
+                to seperate the <span class="code">RS</span> and <span class="code">FS</span> variables
+            </p>
+        </div>
+        
+    </div>
+    <div tabindex="1" class="flex-container flex-45-code-50">
+        
+        <div class="flex-item code code-80">
+            <code class="">
+                $ awk 'BEGIN{RS="!" <span class="w">;</span> FS=","} {print $2}' <br>
+                one,two,three,for!five,six!seven,eight,nine,!ten <br>
+                two <br>
+                six <br>
+                eight
+            </code>
+        </div>
+    </div>
+    
+        
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                We can also pass a file containing the text at the end
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEING{RS="!" ; FS=","} {print $2}' oneline.txt
+            </code>
+        </div>
+        
+        
+    </div>
+        
+    <!-- Useful trick -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item text-top" >
+            <p>
+                &emsp;A useful trick for seperating records as any amount of white space
+                is setting <code>RS</code> an empty string <code>" "</code>
+                This is great for addresses, we use and empty string <code>RS</code>
+                along with a <code>FS</code> of <code>"\n"</code>
+                The <code>RS=""</code> represents a Blank Line
+            </p>
+
+        </div>
+        <div class="flex-item">
+            <pre>
+          John Doe
+          123 Burnberry Dr
+          Trenton, NJ 12345
+      
+          Betty Sue
+          456 Acre Lane
+          Dino, AZ 87543
+      
+          Jack Tarea
+          2 Blank St
+          Canton, OH 25432
+      
+          Jennifor Ablatha
+          87 Tiffiny Lane
+          Jeffereson, TX 34563
+            </pre>
+        </div>            
+    </div>
+    <div tabindex="1" class="flex-container">
+        <p>
+            This puts the names, addresses and city states and zips all on one line
+        </p>
+            <code class="code full-code sm-code">
+                <span class="bv" style="border-top: none;"> $ awk 'BEGIN{RS="" ; FS="\n"} {name=$1;address=$2;citystatezip=$3;print
+                <br> name ", " address ", " citystatezip}' addresses.txt </span><br>
+                John Doe, 123 Burnberry Dr,Trenton, NJ 12345 <br>
+                Betty Sue, 456 Acre Lane,Dino, AZ 87543 <br>
+                Jack Tarea, 2 Blank St,Canton, OH 25432 <br>
+                Jennifor Ablatha, 87 Tiffiny Lane,Jeffereson, TX 34563 <br>
+            </code>            
+    </div>
+    <div class="text-c">
+        
+    </div>
+    <hr>
+    <!-- ###################### OFS and ORS Variable ###################### -->
+    <h2>Changing the default ouput OFS and ORS variables</h2>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;By default, the <code>,</code> is the placeholder for the field seperator in the print statement. 
+                Without the comma, there will be no space between the fields.
+                The record seperator by default is whatever comes after print and is 
+                seperated by a new line.
+            </p>
+            <p>
+                &emsp;The output seperaters are defined by the variables <code>OFS</code> and <code>ORS</code>.
+            
+            </p>
+            <!-- <p>If you have a name file written as first name last name</p> -->
+        </div>
+        <div class="flex-item">
+            <code class="code full-code">
+    firstName lastName
+    <br> Charlie Watts
+    <br> Joe Fraizer
+    <br> Dino Dinosaur
+    <br> Freddie Prince
+    <br> Lucy Carmichael
+    <br> Henry Barthalameu
+    <br> Joe Dezario
+    <br> Heather Scalanzo
+            </code>
+        </div>
+    </div>
+        
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;If you want to change the ouput to include a , and a space. Define the OFS and ORS as so.
+                The <code class="bv-sm">,</span></code> between the print $2 and $1, Indicates you are using the OFS, <br>
+                usually by default it would be a space, but we have specified it as <code>OFS=", "</code>
+            </p>
+        </div>
+        
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{OFS=", ";ORS="\n"} {print $2, $1}' names.txt <br>
+                lastName, firstName <br>
+                Watts, Charlie <br>
+                Fraizer, Joe <br>
+                Dinosaur, Dino <br>
+                Prince, Freddie <br>
+                Carmichael, Lucy <br>
+                Barthalameu, Henry <br>
+                Dezario, Joe <br>
+                Scalanzo, Heather <br>
+            
+            </code>
+
+        </div>
+                
+    </div>
+    
+    
+
+    
+
+    <footer tabindex="1"></footer>
+
+</body>
+</html>

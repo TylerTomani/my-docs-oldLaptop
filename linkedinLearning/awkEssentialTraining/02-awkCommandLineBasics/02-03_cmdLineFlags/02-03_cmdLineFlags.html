@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-03-cmdLineFlags</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <!-- <link rel="stylesheet" href="../../css/lesson2.css"> -->
+    <!-- <script src="../../js/imgOpen.js" defer></script>
+    <script src="../../js/videospeed.js" defer></script> -->
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">02-03-cmdLineFlags</h2>
+        <h2>awk flags</h2>
+        <p>
+            The following is a list of flags that awks accepts
+        </p>
+    </header>
+    <hr>
+    <!--###########    -f   Flag ###########-->
+    <h3 tabindex="1"> <code>-f</code> file flag</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item text-top">
+            <p>
+                <code>awk -f</code> - "file" flag, indicates the following argument is a file that
+                contains an awk program. We can place an awk command in a file, and pass the file 
+                to awk with <code> awk -f file</code>
+            </p>
+        </div>
+        <div class="flex-item">
+            <img  src="images/swap.png">
+        </div>
+    </div>
+
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;Put the file containing the script after the <code>-f</code> flag. Then 
+                pass a text file after the awk script file file.  
+                <br><code class="sm-code">$ awk -f swap animals.txt</code>
+                <br>&emsp; This example performs the same as if we were to type <br>
+                <code class="sm-code">awk&nbsp;'{print&nbsp;$2,&nbsp;$1}'&nbsp;animals.txt</code>
+            </p>
+            <div tabindex="1" class="flex-item m-top">
+                <code class="code">
+                    $ awk -f swap animals.txt <br>
+                    dog little <br>
+                    cat bit <br>
+                    moose medium
+                </code>
+            </div>
+            
+        </div>
+        <div class="flex-item text-top">
+            <img src="images/animals.png">
+        </div>
+    </div>
+    <hr>
+
+    <!--###########    -F   Flag ###########-->
+    <h3 tabindex="1"> <code>-F</code>  Field seperator </h3>
+    <div class="flex-container">
+        <div class="flex-item text-top">
+            <p tabindex="1">
+                <code>awk -F</code> - <q>Field seperator</q>
+                <br>
+                &emsp;By default, fields are seperated by white space. So,
+                <br>  <code class="line-through">awk&nbsp;'{print&nbsp;$2}'&nbsp;one,two,three</code>
+                <br> wouldn't work.
+                <br>&emsp; Use <code>-F , </code> to specify the field seperator as a comma
+            </p>
+            <div class="flex-item m-top">
+                <code class="code">awk -F , '{print $2}'
+                    <br>one,two,three
+                    <br>two
+                </code>
+            </div>
+            
+        </div>
+        <div class=" flex-item">
+            <p class="important">You can NOT just type text as an argument, you must  <br> enter text into the stdin of the terminal, hit enter <br> for the prompt </p>
+            <video src="videos/01-hitEnter.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+    <hr>
+
+    <!--###########    -F t   Flag ###########-->
+    <h3 tabindex="1"><code>-F t </code> declare tab as seperator</h3>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                 &nbsp;In most versions of awk, you can simply type <span class="code">t</span>
+                 to set the field seperator as a tabbed space.
+            </p>
+        </div>
+        <div class="flex-item m-top">
+            <code class="code">
+                $ awk -F t '{print $3}' <br>
+                one &emsp; two &emsp; three
+                <br> three
+            </code>
+        </div>
+    </div>
+    <hr>
+    <!--###########    -v   Flag awk variables ###########-->
+    <h3 tabindex="1"><code>-v</code> awk variables</h3>
+    
+    <div class="flex-container">
+        <div class="flex-item text-top">
+            <p tabindex="1">
+                <code>awk -v</code> - specifies an awk variable,
+                Hard to understand at first. This inserts a variable after the first field
+            </p>
+            <p>
+                <span class="code">hi</span> is a variable containing <span class="code">HELLO</span>
+                and is outputted after the first field indicated by <span class="code">$1</span>
+            </p>
+        </div>
+        <div class="flex-item">
+            <video src="videos/02-awk-v.mp4" autoplay loop muted></video>
+        </div>
+
+    </div>
+    <hr>
+    <div tabindex="1" class="flex-col m-center">
+        
+            <p>
+                &emsp;awk can accept multiple files to perform an action on
+            </p>        
+    
+            <code class="code">
+                $ awk '{print $0}' names.txt ex2.txt
+                <br> first-name last-name
+                <br> Tony Bobedos
+                <br> Rachel McCallan
+                <br> John Trevino
+                <br> Sara Everly
+                <br> Betty Carmichael
+                <br> This file contains lines of text.
+                <br> Each line of text is differnt.
+                <br> If this text is up, Then this
+                <br> text is down.
+                <br> Awk is a great program.
+                <br> Life is better when Learning new things.
+            </code>
+    </div>
+    <!--###########   | pipe into awk ###########-->
+    <h2>Useful applications of awk</h2>
+    <h3><code>|</code> pipe into awk</h3>
+    <div tabindex="1" class="flex-col">
+        <p>
+            &emsp;It is very useful to pipe commands into awk to find certain fields
+        </p>
+        <code class="code">
+            $ uptime | awk '{print NF $0}'
+            <br> 11 1:51 up 14 mins, 2 users, load averages: 2.67 3.23 2.76
+        </code>
+        <code class="code">
+            $ uptime | awk '{print $6};
+            <br>users,
+        </code>        
+    </div>
+    <!--###########   send output of awk to elsewhere ###########-->
+    <h3>send output of awk to elsewhere</h3>
+    <div tabindex="1" class="flex-col">
+        <p>
+            &emsp;Send output with <code>></code> or <code>|</code>
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code class="code sm-code">
+$ awk '{print $2}' names2.txt > lastname.txt
+<br>            last-name
+<br>            Bobedos
+<br>            McCallan
+<br>            Trevino
+<br>            Everly
+<br>            Carmichael
+            </code>
+        </div>
+        <div class="flex-item ">
+            <code class="code sm-code">
+
+                $ awk '{print NF , $0}' ex2.txt | sort -n
+                <br>            3 text is down.
+                <br>            5 Awk is a great program.
+                <br>            6 This file contains lines of text.
+                <br>            6 Each line of text is differnt.
+                <br>            7 If this text is up, Then this
+                <br>            7 Life is better when Learning new things.
+                
+            </code>
+        </div>
+            
+    </div>
+    
+    
+
+
+</body>
+</html>

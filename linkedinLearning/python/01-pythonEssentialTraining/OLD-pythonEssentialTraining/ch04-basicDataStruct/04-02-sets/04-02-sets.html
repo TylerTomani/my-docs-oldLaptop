@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02-tuplesSets</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-02-sets</h2>
+    <p class="r"><code>sets {}</code> can <strong>not</strong> contains duplicates</p>
+    <!-- set() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>set()</code> </li>
+            </ul>
+        </div>
+    </div>
+    <!-- mySet = set(['a','b','c']) -->
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = set(['a','b','c'])
+mySet</pre>
+            </div>
+        </div>
+        <div class="flex-item align-self-center">
+            <img class="right-img" src="04-02-01-sets/images/01-listToSet.png">
+        </div>
+        
+    </div>
+    <!-- myList = list(set()) -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>list(set([]))</code> - removes duplicates </li>
+            </ul>
+        </div>
+    </div>    
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = ['a','b','b','c']
+myList = list(set((myList)
+myList</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="04-02-02-listSetDuplicates/images/01-listSetRemoveDuplicate.png">
+        </div>
+    </div>
+    <!-- mySet.add() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>mySet.add()</code> - add to <code>set()</code> </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = {1,2,3}
+mySet.add(4)
+mySet</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="04-02-03-add/images/01-add.png">
+        </div>
+    </div>
+    <!-- mySet.pop() -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>mySet.pop()</code> - order <strong>not</strong>
+                guarenteed</li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = {'a','b','c','d'}
+while(len(mySet)):
+print(mySet.pop())</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="04-02-04-setOperations/images/03-noOrderPop.png">
+        </div>
+    </div>
+    <!-- mySet.discard('b') -->
+    <div class="list-flex-container">
+        <div class="list-flex-item ">
+            <ul class="square">
+                <li class="mdsmtxt"><code>mySet.discard()</code> The argument
+                in discard <strong>must</strong> be the <strong>value</strong></li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = {'a','b','c','d'}
+mySet.discard('b')
+mySet</pre>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img class="right-img" src="04-02-05-discard/images/01-discard.png">
+        </div>
+    
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

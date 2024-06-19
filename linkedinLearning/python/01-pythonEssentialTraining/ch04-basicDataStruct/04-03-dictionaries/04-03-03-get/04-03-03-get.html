@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-03-03-get</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-03-03 <code>get()</code> when key not in</h2>
+    <!-- KeyError -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Indexing a key that doesn't exist causes a <code class="r">KeyError</code>.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+animals = {
+    'a': 'aardvark',
+    'b': 'bear',
+    'c': 'cat',
+    'd': 'dog'
+}
+animals['e']</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-keyError.png">
+        </div>
+    </div>
+    <!-- get() -->
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                <code>.<span class="v">get()</span></code> will check if the key (first parameter) is in the dict.
+                The second parameter returns if it is <strong>not</strong>
+                there.
+            </p>
+        </div>
+    </div>
+    <!-- animals.get('e','e is not there') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+animals.<span class="v">get</span>('e','e is not there')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-getEnotThere.png">
+        </div>
+    </div>
+
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                If the key is there <code>get()</code> will return the value.
+            </p>
+        </div>
+    </div>
+    <!-- animals.get('e','e is not there') -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+animals.get('a','a is not there')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-getAisThere.png">
+        </div>
+        
+    </div>
+
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                If we print out the return of <code>get()</code> if the key 
+                is <strong>not</strong> present in the dict.
+                <code>None</code> is returned
+            </p>
+        </div>
+    </div>
+    <!-- print(animals.get('e')) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+print(animals.get('e'))
+                </code>
+            </div>        
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-getReturnNone.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

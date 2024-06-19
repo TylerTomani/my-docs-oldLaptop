@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    border: 2px solid black;
+}
+
+.cntrl-box-container{
+    /* border: 2px solid blue; */
+    border-radius: 20px;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+}
+.cntrl-box {
+    border: 1px solid blue;
+    position:sticky;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ruler-display{
+
+}
+canvas:active,canvas:focus,
+.page-cntrl-box:active,.page-cntrl-box:focus{
+    box-shadow: 0 0 2px 2px orange;
+}
+.equation {
+    display: flex;
+    align-items: center;
+}
+.equation input {
+    width: 40%;
+}
+.equation > .left > .denominator,
+.equation > .right >.denominator,
+.equation > .left > .numerator,
+.equation > .right >.numerator{
+    display: flex;
+}
+.sign{
+    margin: 0 1%;
+}

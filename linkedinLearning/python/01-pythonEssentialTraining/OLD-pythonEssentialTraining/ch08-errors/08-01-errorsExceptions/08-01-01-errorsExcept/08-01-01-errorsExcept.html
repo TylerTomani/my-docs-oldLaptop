@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-01-01-errorsExcept</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-01-01 Errors and Exceptions stack trace</h2>
+    <div class="fc">
+        <div class="fi">
+            <div class="fi">
+                <p tabindex="1" class="copy-code">
+                    The type of error that occurs appears along with the line number.
+                    Here a <code>ZeroDivisionError</code> occurs at line 1
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div> 
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <div class="fi">
+                <p tabindex="1" class="copy-code smcode">
+                    If we place 1/0 into a function we can see python return the stack trace,
+                    which shows where the error occurs throughout the program
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+        
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <div class="fi">
+                <p tabindex="1" class="copy-code smcode">
+                    placing the function into another function will add to the stack trace.
+                    This allows us to trace the error where it first occurs in the program
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+        
+    </div>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02-04-setOperations</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-02-04- <code>set</code> Operations</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Membership Operators work on sets
+                
+            </p>
+        </div>
+        <div class="fi">
+            <sub><a href="#" onclick="this.stopPropogation()"><span class="r">Review Chapter 2-3-Operators 5.Membershipt Operators
+                        2.Sets</span></a>
+                <span style="font-size: .7rem;">Make this a link to lesson</span> </sub>
+        </div>
+    </div>
+    <!-- 'a' in mySet -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+mySet = {'a','b','c'}
+a in mySet</pre>
+            </div>  
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-aInSet.png">
+        </div>
+    </div>
+    <!-- 'z' not in mySet -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+mySet = {'a','b','c'}
+'z' not in mySet</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-zNotIntSet.png">
+        </div>
+        
+    </div>
+    <h3 tabindex="1" class="mdsmtxt"><code>.len()</code></h3>
+    len(mysSet)
+    <!-- len(mysSet) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                <code>.len()</code> works on sets
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+mySet = {'one','two','three'}
+len(mysSet)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01a-len.png">
+        </div>
+        
+    </div>
+    <h3 tabindex="1" class="mdsmtxt"><code>.pop()</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code>pop()</code> will also work. <span class="r">**Important</span> note that 
+                the order is not guaranteed <strong>And</strong> pop removes items from the set, causing 
+                the set to become empty.
+            </p>
+        </div>
+    </div>
+    <!-- mySet.pop() -->
+
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+mySet = {'a','b','c','d'}
+while(len(mySet)):
+    print(mySet.pop())</pre>
+            </div>        
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-noOrderPop.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="mid-img" src="images/04.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-01_returnValues</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <script src="../../../js/characters.js" defer></script>
+    <script src="script.js" defer></script>
+</head> 
+<body>
+    <canvas id=""></canvas>
+    <div class="flex-container">
+        <p>&emsp;The reuturn value from a function can be placed into a varaible, and used
+            elsewhere.
+        </p>
+    </div>
+    <hr>
+    <pre>
+const canvas = document.querySelector("canvas");
+const c = canvas.getContext('2d');
+canvas.width = innerWidth;
+canvas.height = innerHeight / 4;
+let x = canvas.width * .05
+let y = canvas.height * .8
+let faceWidth = 40;
+<span class="v">function</span> weeksOld(years){
+    <span class="r">return</span> (years * 365) / 7;
+}
+
+
+function animate(){
+    window.requestAnimationFrame(animate);
+    c.clearRect(0,0,canvas.width,canvas.height)
+    c.fillStyle = 'black'
+    c.font = "18px Arial"
+    c.fillText("Winston is:",x - canvas.width * .04, y - canvas.height * .7)
+    c.fillText(<span class="v">weeksOld</span>(2).toFixed(2) + " weeks old", x - faceWidth / 2 , y - canvas.height * .4);
+    c.font = "16px Arial"
+    winston(x,y,40);
+
+    c.fillStyle = 'black'
+    c.fillText(<span class="v">weeksOld</span>(4).toFixed(0) + " weeks old", x + (canvas.width * .2) - (faceWidth / 2) ,
+                y - canvas.height * .55);
+    c.font = "16px Arial"
+    winston(x + (canvas.width * .2),y - canvas.height * .05,60);
+    
+    c.fillStyle = 'black'
+    c.fillText(<span class="v">weeksOld</span>(8).toFixed(0) + " weeks old", x + (canvas.width * .4) - (faceWidth / 2) ,
+                y - canvas.height * .7);
+    c.font = "16px Arial"
+    winston(x + (canvas.width * .45),y - canvas.height * .2,80);
+}
+animate();
+    </pre>
+    
+</body>
+</html>

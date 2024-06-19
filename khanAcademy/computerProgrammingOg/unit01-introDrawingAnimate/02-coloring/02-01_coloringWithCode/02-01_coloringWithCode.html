@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-01_coloringWithCode</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+
+    <!-- shape library in home folder -->
+    <script src="../../../js/shapeLibrary.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas></canvas>    
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;The default color for outlines is <q>black</q> and the default color for filling in shapes is
+                <q>white</q>.
+            </p>
+            <p>
+                To change the background color of the canvas, change the value of,
+            </p>
+            <code class="m-l-2"> c.style.background = 
+                rgb(<input tabindex="1" class="input" type="number" id="r" name="r" value="200" step="25">,
+                    <input tabindex="1" class="input" type="number" id="g" name="g" value="200" step="25">,
+                    <input tabindex="1" class="input" type="number" id="b" name="b" value="200" step="25">)
+            </code>
+        </div>
+        <div class="flex-item">
+            <p>
+                Colors can be adjusted with:
+                <ul>
+                    <li>color names ex: 'blue' , 'green' , 'yellow' etc...</li>
+                    <li>hex <code>#0022ab</code></li>
+                    <li>rgb(100,100,100,.4)</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <hr>
+    <p>
+        &emsp;To change the color of individual shapes add <code class="v">fillStyle =</code> function before each shape function,
+        and <code class="b">fill()</code> after
+    </p>
+    <code class=""> 
+        //face
+        <br>
+        c.<span class="v">fillStyle</span> = 
+        <select tabindex="1" name="faceColor" id="faceColorID">
+            <option value="white">white</option>
+            <option value="yellow">yellow</option>
+            <option value="limegreen">limegreen</option>
+            <option value="coral">coral</option>
+        </select>
+        <br>c.ellipse(x, y, faceWidth, faceHeight, Math.PI / 4, 0, 2 * Math.PI)
+        <br>c.<span class="b">fill()</span>
+        <br> c.stroke()
+        <br> c.closePath()
+        <br>
+        <br>
+        //Eyes
+        <br>
+         c.<span class="v">fillStyle</span> = 
+            <select tabindex="1" name="eyeColor" id="eyeColorID">
+                <option value="white">white</option>
+                <option value="black">black</option>
+                <option value="orange">orange</option>
+                <option value="coral">coral</option>
+            </select>
+            <br>c.ellipse(x, y, faceWidth, faceHeight, Math.PI / 4, 0, 2 * Math.PI)
+            <br>c.<span class="b">fill()</span>
+            <br> c.stroke()
+            <br> c.closePath()
+    </code>
+    <p tabindex="1" class="note">
+        &emsp;*When making multiple ellipses, Remember to <code>closePath()</code> after each <code>ellipse</code>
+    </p>
+    
+    
+
+</body>
+</html>

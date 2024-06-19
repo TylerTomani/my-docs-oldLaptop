@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-floats</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">03-01-4- floats</h2>
+    <!-- prints(1.2 - 1.0) -->
+    <div class="fc">
+        <div class="fi fcol ">
+            <div class="fi">
+                When workng with floats, results will return
+                many decimal places
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    prints(1.2 - 1.0)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01.png">
+        </div>
+    </div>
+    <!-- prints(14 / 3) -->
+    <div class="fc">
+        <div class="fi fcol ">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    prints(14 / 3)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-divide.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The decimal places reach the maximum computer memory 
+                allocated to numbers and round at the end.
+            </p>
+        </div>
+    </div>
+    <!-- print(round(1.2 - 2)) -->
+    <div class="fc">
+        <div class="fi fcol js">
+            <div class="fi">
+                <p>
+                    You can use the round function to fix this
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                  print(round(1.2 - 1.0))  
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-round.png">
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi fcol justify-center">
+            <div class="fi">
+                <p>
+                    Add a second argument to <code class="mdcode">round()</code> to indicate
+                    what decimal to round to.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(round(1.2 - 1.0 , 2))
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-roundTo.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

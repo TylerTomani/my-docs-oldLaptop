@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-02-staticInstanceMethods</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-02- Static and instance methods</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This code can be applied towards the challenges.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+import math
+class TerminalScribe:
+    def __init__(self, canvas):
+        self.canvas = canvas
+        self.trail = '.'
+        self.mark = '*'
+        self.framerate = 0.05
+        self.pos = [0,0]
+        
+        self.direction = [0,1]
+
+    def setPosition(self, pos):
+        self.pos = pos
+    
+    def setDegrees(self, degrees):
+        radians = (degrees/180) * math.pi 
+        self.direction = [math.sin(radians), -math.cos(radians)]
+
+    def up(self):
+        self.direction = [0,-1]
+        self.forward(1)
+
+    def down(self):
+        self.direction = [0,1]
+        self.forward(1)
+
+    def right(self):
+        self.direction = [1,0]
+        self.forward(1)
+    
+    def left(self):
+        self.direction = [-1,0]
+        self.forward(1)
+                </pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Add an orientation class to help guide position and direction
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+<span class="r">import math</span>
+class Orientation:
+    def __inti__(self, x_pos, y_pos, degrees):
+        self.x_pos = x_pos
+        self.y_pos = y_pos 
+        <span class="b">self.x_dir</span>,<span class="v">self.y_dir</span> = self.<span class="o">getUnitVectorFromDegrees</span>(degrees)
+    def <span class="o">getUnitVectorFromDegrees</span>(self,degrees):
+        radians = (degrees/180) * <span class="r">math</span>.pi
+        return math.sin(radians), -math.cos(radians)
+
+    def getNextPos(self):
+        return self.x_pos + self.x_dir , self.y_pos + self.y_dir
+myOrientation = Orientation(5,5,75)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <p class="r">This actually works, maybe there is hope for me after all, and I don't need 
+                to sell my kidney and other organs
+            </p>
+            <img tabindex="1" class="left-img mid-img" src="images/01-challengeOrient.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p >
+               <span class="r">This is the tricky bit</span>, Notice how <span class="o">getUnitVectorFromDegrees</span>
+               does <strong>not</strong> use self within itself. if we try to remove self, it will not work. This is 
+               similar to the Dog class from the previous lesson.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+        
+    self.x_dir, self.y_dir = <span class="line-through">self</span>.<span class="o">getUnitVectorFromDegrees</span>
+def <span class="o">getUnitVectorFromDegrees</span>(<span class="line-through">self</span>,degrees)
+                </pre>
+            </div>        
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                The first alternative to not use self is to call <span class="o">getUnitVectorFromDegrees</span> on the <code class="lsg">Orientation</code> class
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+self.x_dir, self.y_dir = <span class="lsg">Oreinetation</span>.<span class="o">getUnitVectorFromDegrees</span>
+    class="o">getUnitVectorFromDegrees</span>
+def <span class="o">getUnitVectorFromDegrees</span>(degrees)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img mid-img" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            &emsp; <span class="o">getUnitVectorFromDegrees</span> is a <span class="o">static method</span> which doesn't belond to any particular 
+            class instance just the Orientation class itself. As seen in the previous lesson, we can make static attributes such as pi in this example
+            and the code will still work
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+import math
+class Orientation:
+    <span class="o">pi = 3.14</span>
+    def __init__(self, x_pos, y_pos, degrees):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.x_dir, self.y_dir = <span class="lsg">Orientation</span>.getUnitVectorFromDegrees(degrees)
+    def getUnitVectorFromDegrees(degrees):
+        radians = (180/degrees) * <span class="lsg">Orientation</span>.<span class="o">pi</span>
+        return math.sin(radians), -math.cos(radians)
+    def getNextPos(self):
+        return self.x_pos + self.x_dir, self.y_pos + self.y_dir
+myOrientation = Orientation(5,5,75)
+print(myOrientation.getNextPos())</pre>
+            </div>
+            
+        </div>
+    </div>
+    <h3>Decorator</h3>
+    <div class="fcol br2">
+        <div class="fi ">
+            <p class="line-through">
+                Another way to have this work without using self is with
+                <span class="v">@staticmethod</span>
+            </p>
+            <p>fuck this it doesn't work so never do this ever fuck this</p>
+        </div>
+    </div>
+    <div class="fc br2">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode line-through">
+import math
+class Orientation:
+    pi = 3.14
+    def __init__(self, x_pos, y_pos, degrees):
+        self.x_pos = x_pos
+        self.y_pos = y_pos
+        self.x_dir , self.y_dir = <span class="v">self</span>.getUnitVectorFromDegrees(degrees)
+    <span class="v">@staticmethod</span>
+    def getUnitVectorFromDegrees(degrees):
+        radians = (180/degrees) * Orientation.pi
+        return math.sin(radians) , -math.cos(radians)
+    def getNextPos(self):
+        return self.x_pos + self.x_dir, self.y_pos + self.y_dir
+myOrientation = Orientation(5,5,75)
+print(myOrientation.getNextPos)
+                </pre>
+            </div>        
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/fThis.png">
+        </div>
+        
+    </div>
+<footer tabindex="1"></footer>
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

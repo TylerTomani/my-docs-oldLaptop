@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-02-mulitThreading</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">09-02- Mulitthreading</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We will use this function <code>longSquare()</code> to demonstrate multithreading.
+                It will take 1/2 of a second to calculate the square of 4 numbers
+            </p>
+        </div>
+    </div>
+    <!-- def longSquare(n) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import threading
+import time
+
+def longSqaure(n):
+    time.sleep(0.5)
+    return n**2
+[longSquare(n) for n in range(1,5)]
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp; Multithreading is useful because there are processes like the one above that
+                require time to complete, using the available processing power and not allowing 
+                other processes to execute
+            </p>
+            <p>
+                &emsp;We can run two processes in pararrel using threads. We can make threads 
+                with <code class="v">threading.Thread()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img">
+t1 = <span class="v">threading.Thread()</span>
+t2 = <span class="v">threading.Thread()</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                <code><span class="v">Threading()</span></code> takes two arguments. The first 
+                is the <code><span class="o">target</span></code> which is the function or process we wish to perform.
+                The second is <code><span class="b">args</span></code> which are the arguments for the target operation.
+            </p>
+        </div>
+    </div>
+    <!-- Threading(target,args) -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img">
+t1 = threading.Threading(<span class="o">target</span>=longSquare, <span class="b">args</span>=(1,))
+t2 = threading=Theading(target=longSquare,args=(2,))
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            The <code class="r">,</code> after the arguements in <code><span class="b">args</span>(2<span class="r">,</span>)</code>
+            indicates that the arugment is a tuple which is a requirement sometimes.
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                To start the threads we use the <code>start()</code> function.
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img">
+t1.start()
+t2.start()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <p>
+                Then we have to join them with the <code>join()</code> function.
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img">
+t1.join()
+t2.join()</pre>
+            </div>  
+        </div>
+        <div class="fcol">
+            <div class="fi">
+                <p>
+                    The <code>join()</code> function checks if the operations are complete and pauses until 
+                    they are complete, but there is one problem....
+                </p>
+            </div>
+        </div>
+        <div class="fc">
+            <div class="fi">
+                <div class="code-container asc inline-block">
+                    <pre tabindex="1" class="copy-code smcode">
+import threaing
+import time
+
+def longSquare(n):
+    time.sleep(0.5)
+    return n**2
+t1 = threading.Thread(target=longSquare,args=(1,))
+t2 = threading.Thread(target=longSquare,args=(2,))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+                    </pre>
+                </div>        
+            </div>
+            <div class="fi">
+                <img class="right-img" src="images/02.png">
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                ... Where is the output?? There is no way to get the output using threads alone, but 
+                joining threads allow both operations/threads to share memory..
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Go to the next lesson to see how
+            </p>
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

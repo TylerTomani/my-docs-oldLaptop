@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bool(numbers)</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-03-1 <code class="mdcode">bool(numbers)</code></h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                To cast integers to booleans use <code>bool()</code>
+            </p>
+        </div>
+    </div>
+    <!-- bool(1) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container jsc asc">
+                <code tabindex="1" class="copy-code">
+                    bool(1)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-boo1.png">
+        </div>
+    </div>
+    <!-- bool(0) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container jsc asc">
+                <code tabindex="1" class="copy-code">
+                    bool(0)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-bool0.png">
+        </div>
+    </div>
+    <!-- Anything Casted ...  -->
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                Antyhing casted in <code>bool()</code> that isn't 0 will 
+                be <code>true</code>, even negative numbers
+            </p>
+        </div>
+    </div>
+    <!-- bool(-1) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container jsc asc">
+                <code tabindex="1" class="copy-code">
+                    bool(-1)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-boolNeg1.png">
+        </div>
+    </div>
+    <!-- Also, imaginary num ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Also, imaginary numbers will also return true
+                <br>
+            </p>
+        </div>
+    </div>
+    <!-- bool(1j) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container jsc asc">
+                <code tabindex="1" class="copy-code">
+                    bool(1j)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-bool1j.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Both imaginary <code>0j</code> and float 0 return false
+            </p>
+        </div>
+    </div>
+    <!-- bool(0j) bool(0.0) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container jsc asc">
+                <pre tabindex="1" class="copy-code">
+bool(1j)
+bool(0.0)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-floatAndImg0.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

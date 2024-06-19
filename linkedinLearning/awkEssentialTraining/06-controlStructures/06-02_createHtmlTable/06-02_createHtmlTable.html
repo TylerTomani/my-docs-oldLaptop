@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-02_createHtmlTable</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    
+    <script src="../js/unit6-exampleConsole.js" defer></script>
+    <link rel="stylesheet" href="../js/practConsoleStyle.css">
+    
+
+    <link rel="stylesheet" href="../../css/newlesson.css">
+    <script src="../../js/focus.js" defer></script>
+
+    <script src="../../js/copycode.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">06-02_createHtmlTable</h2>
+        <a tabindex="1" target="_blank" href="fullExample/fullExample.html"> full example</a>
+    </header>
+    <div  class="flex-container">
+        <div  class="flex-item flex-col space-around md-txt">    
+            <p class="flex-col-item m-1 justify-self-start">
+                &emsp;The given file is a tab seperated list of bowlers's names and their scores
+            </p>
+            <p class="flex-col-item m-1 justify-self-end">
+                &emsp;The Example below creates a header on top, and an average of each column at the bottom.
+            </p>
+        
+        </div>
+        <div class="flex-item">
+            <code class="flex-col-item code-color score-example align-self-center">
+                $ cat scores.txt
+                <br>Gretchen
+                Galloway&emsp;&emsp;268&emsp;&emsp;178&emsp;&emsp;256&emsp;&emsp;259&emsp;&emsp;282&emsp;&emsp;139&emsp;&emsp;167
+                <br>Isaac
+                Steele&emsp;&emsp;253&emsp;&emsp;155&emsp;&emsp;210&emsp;&emsp;195&emsp;&emsp;225&emsp;&emsp;172&emsp;&emsp;202
+                <br>Wayne
+                Myers&emsp;&emsp;290&emsp;&emsp;283&emsp;&emsp;227&emsp;&emsp;243&emsp;&emsp;128&emsp;&emsp;221&emsp;&emsp;103
+                <br>Lillith
+                Lee&emsp;&emsp;148&emsp;&emsp;127&emsp;&emsp;260&emsp;&emsp;131&emsp;&emsp;180&emsp;&emsp;125&emsp;&emsp;121
+                <br>Molly
+                Blackwell&emsp;&emsp;299&emsp;&emsp;143&emsp;&emsp;202&emsp;&emsp;267&emsp;&emsp;222&emsp;&emsp;159&emsp;&emsp;227
+                <br>Maia
+                Arnold&emsp;&emsp;204&emsp;&emsp;198&emsp;&emsp;294&emsp;&emsp;158&emsp;&emsp;254&emsp;&emsp;205&emsp;&emsp;253
+                <br>Lev
+                Reese&emsp;&emsp;180&emsp;&emsp;278&emsp;&emsp;156&emsp;&emsp;170&emsp;&emsp;261&emsp;&emsp;283&emsp;&emsp;113
+                <br>Carlos
+                Guthrie&emsp;&emsp;289&emsp;&emsp;205&emsp;&emsp;117&emsp;&emsp;138&emsp;&emsp;232&emsp;&emsp;278&emsp;&emsp;169
+                <br>Sophia
+                Buck&emsp;&emsp;112&emsp;&emsp;104&emsp;&emsp;191&emsp;&emsp;112&emsp;&emsp;147&emsp;&emsp;294&emsp;&emsp;280
+                <br>Vincent
+                Mitchell&emsp;&emsp;270&emsp;&emsp;153&emsp;&emsp;207&emsp;&emsp;175&emsp;&emsp;252&emsp;&emsp;202&emsp;&emsp;233
+                <br>Buffy
+                Harris&emsp;&emsp;206&emsp;&emsp;107&emsp;&emsp;187&emsp;&emsp;286&emsp;&emsp;286&emsp;&emsp;244&emsp;&emsp;156
+                <br>Reuben
+                Miles&emsp;&emsp;247&emsp;&emsp;227&emsp;&emsp;170&emsp;&emsp;237&emsp;&emsp;133&emsp;&emsp;188&emsp;&emsp;276
+                <br>Brendan
+                Fowler&emsp;&emsp;265&emsp;&emsp;166&emsp;&emsp;145&emsp;&emsp;278&emsp;&emsp;170&emsp;&emsp;237&emsp;&emsp;291
+                <br>Mason
+                Hancock&emsp;&emsp;217&emsp;&emsp;231&emsp;&emsp;271&emsp;&emsp;187&emsp;&emsp;284&emsp;&emsp;179&emsp;&emsp;262
+                <br>Nigel
+                Boone&emsp;&emsp;236&emsp;&emsp;282&emsp;&emsp;196&emsp;&emsp;143&emsp;&emsp;290&emsp;&emsp;284&emsp;&emsp;129
+                <br>Gretchen
+                Foreman&emsp;&emsp;276&emsp;&emsp;228&emsp;&emsp;186&emsp;&emsp;223&emsp;&emsp;156&emsp;&emsp;257&emsp;&emsp;161
+                <br>Serena
+                Goodman&emsp;&emsp;189&emsp;&emsp;145&emsp;&emsp;137&emsp;&emsp;155&emsp;&emsp;211&emsp;&emsp;183&emsp;&emsp;133
+                <br>Shoshana
+                Velez&emsp;&emsp;281&emsp;&emsp;120&emsp;&emsp;125&emsp;&emsp;199&emsp;&emsp;252&emsp;&emsp;296&emsp;&emsp;287
+                <br>Eve
+                Hughes&emsp;&emsp;236&emsp;&emsp;176&emsp;&emsp;249&emsp;&emsp;173&emsp;&emsp;158&emsp;&emsp;146&emsp;&emsp;216
+            
+            
+            </code>
+        </div>
+        
+    </div>
+    <hr>
+
+<!-- EXAMPLE 1 -->
+    <!-- Beggining of the example -->
+    <div   class="flex-col-container m-t-1 space-around flex">
+        <div class="flex-col-container-item ">
+            <div class="step ">
+                <p>
+                    &emsp;Since the header appears at the top of the file use the special patter.
+                    <span class="code sm-code">BEGIN</span>
+                </p>
+                <p>
+                    &emsp;The file is tab seperated so declare <span class="code sm-code">FS</span> as
+                    <span class="code sm-code">"\t"</span>
+                    and set it up at the beggining of the HTML table
+                </p>
+                <p>
+                    &emsp;Set up a <code class="sm-code v" >for loop</code> for the first column of data
+                </p>
+            </div>
+        </div>
+    <!-- Copy example text to clipboard here -->
+        <div class="flex-col-container-item">
+            <pre  tabindex="1"  id="example1" class="copy-pre-code pre-code sm-code">
+BEGIN {
+    FS="\t";
+    print "&LT;table>";
+    print "&LT;tr>";
+    print "\t&LT;th>Bowler&LT;/th>";
+    <span class="v">for</span>(i=1; i &LT; 7; i++){
+         print "\t&LT;td>Round" , i"&LT;/td>";
+    }
+    print "&LT;/tr>"; 
+}
+            </pre>
+        </div> 
+    </div>
+
+    <!-- <p style="color:red">Almost working perfect, Fill rest of page with the script in sections</p>
+    <br>binding will be very useful in order to add script to each console -->
+        <div class=" console-container">
+            <div  class="console-input console-container-item">
+                <textarea tabindex="1"  name="input1" id="input1" cols="30" rows="10"
+                placeholder="BEGIN {
+    FS=&quot;\t&quot;;
+    print &quot;&lt;table>&quot;;
+    print &quot;&lt;tr>&quot;;
+    print &quot;\t&lt;th>Bowler&lt;/th>&quot;;
+    for(i=1; i &lt; 7; i++){
+         print &quot;\t&lt;td>Round&quot; , i&quot;&lt;/td>&quot;;
+    }
+    print &quot;&lt;/tr>&quot;;}"
+                ></textarea>
+                <button tabindex="1" class="run-btn">Run</button>
+            </div>
+            
+            <div class="console-container-item html-result">
+            </div>
+            <div class="console-container-item page-result">
+            </div>   
+        </div>
+        <hr>
+<!-- Example 2 -->
+        <div class="flex-col-container m-t-1 space-around flex">
+            <div class="flex-col-container-item ">
+                <div class="step ">
+                    <p>
+                        The <span class="code sm-code o">FS</span> is NOT neccessary when 
+                        combined with the code above.
+                    </p>                   
+                    <p>
+                        This section created a new row with the Bowlers name, followed by each 
+                        round score
+                    </p>
+                </div>
+                </div>
+                <div class="flex-col-container-item"> 
+                    <pre tabindex="1" id="example1" class="copy-pre-code pre-code sm-code">
+{
+    <span class="o">FS</span>=&QUOT;\t&QUOT;;
+    print &QUOT;&LT;table>&QUOT;;
+    print &QUOT;&LT;tr>&QUOT;;
+    print &QUOT;\t&LT;td>&LT;b>&QUOT; $1 &QUOT;&LT;/b>&LT;/td>&QUOT;;
+    for( i=2; i &LT; 8; i++){
+      print &QUOT;\t&LT;td>&QUOT; $i &QUOT;&LT;/td>&QUOT;;
+      total[i] += $i;
+    }
+    print &QUOT;&LT;/tr>&QUOT;;
+}
+                    </pre>
+                </div>
+        </div>
+<!-- Example 2 Console -->
+        <div class=" console-container">
+            <div class="console-input console-container-item">
+                <textarea tabindex="1" name="input2" id="input2" cols="30" rows="10" 
+            placeholder="{       
+    FS=&QUOT;\t&QUOT;;
+    print &QUOT;&LT;tr>&QUOT;;
+    print &QUOT;\t&LT;td>&LT;b>&QUOT; $1 &QUOT;&LT;/b>&LT;/td>&QUOT;;
+    for( i=2; i &LT; 8; i++){
+      print &QUOT;\t&LT;td>&QUOT; $i &QUOT;&LT;/td>&QUOT;;
+      total[i] += $i;
+    }
+    print &QUOT;&LT;/tr>&QUOT;;
+
+"></textarea>
+                <button tabindex="1" class="run-btn">Run</button>
+            </div>
+        
+            <div tabindex="1" class="console-container-item html-result">
+            </div>
+            <div class="console-container-item page-result">
+            </div>
+        </div>
+<!-- Example 3     -->
+
+<div class="flex-col-container m-t-1 space-around flex">
+    <div class="flex-col-container-item ">
+        <div class="step ">
+            <p>
+                To finish the script use the keyword <span class="code">END</span>,
+                this matches the end of the file. When the <span class="code">END</span>
+                is reached, let output a &lt;tr> with the total scores on the bottom using
+                the <code>total[i]</code> array from above.
+            </p>
+            <p>
+                Convert the total array to int. <code>int(total[i])</code>.
+                <br>Then divide by the total number of rows
+            </p>
+            <p>
+                <code class="v">int(total[i] / NR)</code>
+            </p>
+            <p>
+            </p>
+        </div>
+    </div>
+    <div class="flex-col-container-item">
+        <pre tabindex="1" id="example1" class="copy-pre-code pre-code sm-code">
+END {
+    print "&lt;tr>";
+    print "&lt;td>&lt;i>"average"&lt;/i>&lt;td>";
+    for(i=2; i &lt; 8; i++){
+        print "\t&lt;td>&lt;i>" int(total[i] / NR) "&lt;i>&lt;/td>"; 
+    }
+    print "&lt;/tr>";
+    print "&lt;/table>";
+}
+        </pre>
+    </div>
+</div>
+    <div class=" console-container">
+        <div class="console-input console-container-item">
+            <textarea tabindex="1" name="input3" id="input3" cols="30" rows="10" placeholder="END {
+    print &quot;&lt;tr>&quot;;
+    print &quot;&lt;td>&lt;i>&quot;average&quot;&lt;/i>&lt;td>&quot;;
+    for(i=2; i &lt; 8; i++){
+        print &quot;\t&lt;td>&lt;i>&quot; int(total[i] / NR) &quot;&lt;i>&lt;/td>&quot;; 
+    }
+    print &quot;&lt;/tr>&quot;;
+    print &quot;&lt;/table>&quot;;
+}
+               
+        
+    
+    "></textarea>
+            <button tabindex="1" class="run-btn">Run</button>
+        </div>
+    
+        <div class="console-container-item html-result">
+        </div>
+        <div class="console-container-item page-result">
+        </div>
+    </div>
+    <p style="color:red">The last one is NOT working, I can't figure it out, i spent two day on this,
+    i need to move on, But this was overrall a success</p>
+    <p>Go back and refactor this before implementing into other pages</p>
+
+
+</body>
+</html>

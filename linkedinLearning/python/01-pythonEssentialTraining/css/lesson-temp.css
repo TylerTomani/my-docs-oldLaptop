@@ -1,0 +1,275 @@
+.lone-p {
+    font-size: 1.1rem;
+    display: flex;
+    padding: 0 2.5%;
+}
+.code-txt-center {
+    display: flex;
+    align-items: center;
+}
+
+
+/* Code  */
+.code-container {
+    display: flex;
+    flex-direction: column;
+    background-color: whitesmoke;
+}
+/* Code Sizes */
+.xxsmcode {
+    font-size: .65rem !important;
+}
+.xsmcode {
+    font-size: .82rem !important;
+}
+.smcode {
+    font-size: .9rem !important;
+}
+.mdsmcode {
+    font-size: 1.02rem;
+}
+.mdcode {
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+.lgcode {
+    font-size: 1.3rem;
+}
+.xxlgcode {
+    font-size: 2rem;
+}
+.shiftKey {
+    display: inline-block;
+    margin-top: -.5%;
+}
+
+* {margin: 0;padding: 0;}
+/* Flex */
+/* // Maybe give code own section in css script */
+
+/* // */
+
+.flex,
+.flex-container,
+.fc,
+.fc3,
+.flex-container-3 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1%;
+}
+.fc > .fi,
+.flex-container>.flex-item {
+    flex-basis: 47.5%;
+    /* border: 2px solid blue; */
+    padding: 0 1%;
+}
+.fc3 > .fi,
+.flex-container-3>.flex-item {
+    flex-basis: 30.5%;
+    padding: 0 1%;
+}
+.fcol,
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+.fcol > .fi,
+.flex-col > .flex-item {padding: 0 1%;}
+
+.fcc,
+.flex-container-container {
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+.fcc > .fc
+.flex-container-container>.flex-container {
+    display: flex !important;
+    border: 1px solid red;
+    flex-basis: 47.5%;
+}
+.list-flex-container {
+    display: flex;
+    width: 100%;
+    /* border: 1px solid; */
+}
+
+.list-flex-container>.list-flex-item {
+    /* border: 1px solid; */
+    flex-basis: 50%;
+    padding-top: 2.5%;
+    padding-left: 15%;
+}
+
+.list-flex-item>ul,
+.list-flex-container>.list-flex-item>ul {
+    list-style-type: disc;
+    font-size: .85rem;
+}
+/* // I don't know what this is */
+.square {
+    list-style-type: square !important;
+}
+.square  li > ul {
+    margin-left: 10%;
+}
+
+/* Align */
+
+.align-between,
+.ab{align-items: space-between;}
+.align-center,
+.ac {align-items: center;}
+.align-end,
+.ae {align-items: end;}
+
+.align-self-start,
+.ass{align-self: flex-start;}
+.align-self-center,
+.asc {align-self: center;}
+.align-self-end,
+.ase {align-self: flex-end;}
+
+/* Justify */
+.justify-between {justify-content: space-between;}
+.jc,
+.justify-center {justify-content: center;}
+.justify-end {justify-content: flex-end;}
+.jss,
+.justify-self-start {justify-self: flex-start;}
+.jsc,
+.justify-self-center {justify-self: center;}
+.jse,
+.justify-self-end {justify-self: flex-end;}
+
+.jcsb {
+    justify-content: space-between;
+}
+
+/************* Font Size *********** */
+.code-container code,
+.code-container pre {
+    font-size: 1.15rem;
+}
+.fi > p,
+.flex-item > p{
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.smtxt {font-size: 1.05rem;}
+.mdsmtxt {font-size: 1.5rem;}
+.mdtxt {font-size: 2rem;}
+.mdtxt {font-size: 2rem;}
+.lgtxt {font-size: 3rem;}
+.xlgtxt {font-size: 4rem;}
+
+/************* Font Style *********** */
+.math-link{
+    /* outline: none; */
+    text-decoration: none;
+}
+.math-link >h3{
+    /* outline: none; */
+}
+.math-link >h3 > a{
+    outline: none;
+}
+.underline { 
+    border-bottom: 2px solid black;
+}
+/************* Images *********** */
+
+.flex-item > img,
+.fi > img{
+    width: 100%;
+    /* max-width: 500px;
+    max-height: 500px; */
+}
+.mid-img {
+    max-width: 400px;
+    max-height: 400px;
+}
+.enlarge-img {
+    width: 105%;
+    height: 100%;
+}
+.desize-img {
+    width:50% !important;
+}
+.sm-img {
+    width: 75% !important;
+}
+
+/************* Margin *********** */
+
+.code-container {margin: 1%;}
+/* zero margin */
+.m0 {margin: 0 !important;}
+/* center margin */
+.mauto {margin: 0 auto;}
+/* margin-top % */
+.mt1 {margin-top: 1%;}
+.mt2 {margin-top: 2%;}
+.mt3 {margin-top: 3%;}
+.mt4 {margin-top: 4%;}
+.mt5 {margin-top: 5%;}
+/* margin-bottom % */
+.mb1 {margin-bottom: 1%;}
+.mb2 {margin-bottom: 2%;}
+/* margin-left % */
+.ml1 {margin-left: 1%;}
+.ml2 {margin-left: 2%;}
+.ml3 {margin-left: 3%;}
+.ml4 {margin-left: 4%;}
+.ml5 {margin-left: 5%;}
+/* margin-top-bottom % */
+.mtb1 {margin: 1% 0;}
+.mtb2 {margin: 2% 0;}
+
+/************* Padding *********** */
+/* padding side 1% */
+.ps1 {padding: 0 1%;}
+.pt1 {padding-top: 1%;}
+.pt2 {padding-top: 2%;}
+.pt2 {padding-top: 2%;}
+.pt5 {padding-top: 5%;}
+/* specific items */
+.copy-code {
+    padding: 3px 5px;
+}
+
+/************* Videos *********** */
+.video-container{
+    flex-basis: 38%;
+}
+video {
+    max-width: 400px;
+}
+.video-container > video {
+    /* border: 4px solid blue; */
+    /* width: 500px; */
+}
+.fi > video.smvid
+.flex-item > video.smvid {
+    min-width: 300px;
+}
+
+.enlarge-vid {
+    width: 100%;
+    min-width: 400px;
+    height: 120%;
+    
+}
+
+/************* Xtra *********** */
+.inline-block {
+    display: inline-block !important;
+}
+.line-through {
+    text-decoration: line-through 2px solid red;
+}
+.important {
+    color: tomato !important;
+}

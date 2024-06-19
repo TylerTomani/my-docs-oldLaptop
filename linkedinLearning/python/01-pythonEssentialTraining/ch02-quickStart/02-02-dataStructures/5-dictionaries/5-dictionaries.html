@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-02-5_dictionaries</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" >02-02-5_Dictionaries</h2>
+    <!-- my_dict = (
+    'key': 'value1',
+    'key2': 'value2'
+    ) -->
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;Dictionaries are very different from the previous structures but
+                are used often, If you are familiar with Javascript they are very similar to Objects.
+            </p>
+        </div>
+        <div class="fi">
+                <p>
+                    &emsp;Declare a dictionary by using {} curley braces but inside of the parenthesis we
+                    insert "key" "value" pairs
+                </p>
+        </div>
+        <div class="code-container asc">
+            <pre tabindex="1" class="copy-code no-img">
+my_dict = {
+    'key': 'value1',
+    'key2': 'value2'
+}</pre>
+        </div>       
+    </div>
+
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    We can retrieve values from keys by typing the dictionarie's name
+                    and enclosing a "key" name within [] square brackets
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_dict = {
+    'apple': 'a red fruit',
+    'bear': 'scary animal'
+}
+print(my_dict['apple'])</pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="" src="images/17-dict.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    The keys in dictionaries must have unique names, otherwise
+                    when attempting to retrieve a value of a key, it will return 
+                    the last occurance of the name of the key that occurs twice.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_dict = {
+    'apple': 'a red fruit',
+    'bear': 'scary animal',
+    'apple': 'delicious'
+}
+print(my_dict['apple'])</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/18-keyTwice.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-03-extendException</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-03- Extend the <code class="lsg">Exception</code> class</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The class <code class="b">CustomException</code>, extends the 
+                The class <code class="lsg">Exception</code>,
+
+            </p>
+            
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+class <code class="b">CustomException</code>(<span class="lsg">Exception</span>):
+    <span class="mo">pass</span>
+                </pre>
+            </div>
+        </div>
+        <div class="fi flex asc">
+            <p>
+                Using <code class="mo">pass</code>
+                gives <code class="b">CustomException</code>
+                each attribute and method from the <code class="lsg">Exception</code> class
+                
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Create a function that raises the
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <p>
+                Here you can see that instead of <code class="lsg">Exception</code> 
+                appearing, <code class="b">CustomException</code> is displayed
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class <span class="b">CustomException</span>(<span class="lsg">Exception</span>):
+    <span class="mo">pass</span>
+
+def raiseException():
+    raise CustomException
+
+
+raiseException()</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Placing a string as an <span class="o">argument</span> to the 
+                <code class="b">CustomException</code> class, will also display 
+                a message 
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class CustomException(Exception):
+    pass
+
+def raiseException():
+    raise CustomException(<span class="o">'This is a custom exception'</span>)
+
+raiseException()
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/02.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

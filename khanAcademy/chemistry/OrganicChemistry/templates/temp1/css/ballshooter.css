@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body > header {
+    display: flex;
+    border-bottom: 1px solid black;
+    height: 5%;
+}
+body > header > .page-title{
+    display: flex;
+    flex-basis: 60%;
+}
+body > header > .page-title > .titles{
+    display: flex;
+    flex-direction: column;
+}
+body > header > .page-title > .titles > h1,
+body > header > .page-title > .titles > h2{
+    font-size: 80%;
+}
+body > header > .home-link, 
+body > header > .page-logo {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-basis: 20%;
+}
+header img {
+    width: 25%;
+}
+main {
+    display: flex;
+    margin: 0 5%;
+    /* flex-direction: column; */
+    flex-direction: row;
+    border: 1px solid orange;
+    gap: 1%
+}
+canvas{
+    width: 50%;
+    height: 50vh;
+}
+canvas:active,canvas:focus{
+    box-shadow: 0 0 12px 14px orange;
+}
+.scripts-section {
+    width: 50%;
+}
+.scripts-container {
+    width: 100vmax;
+    border: 1px solid black;
+    color: white;
+    overflow-x: scroll;
+    background-color: black;
+}
+.script {
+    padding: 2.5%;
+    padding-top: 0%;
+}
+.script>.btns-container{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+
+}
+button{
+    font-size: 1.5rem ;
+    margin-left: 2.5%;
+}
+.script > .btns-container > button:active,
+.script>.btns-container>button:focus{
+    box-shadow: 0 0 3px 3px blue;
+}
+.moveScript {
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    left: 50%;
+}
+.hide {
+    display: none
+}
+.copy-code {
+    font-size: 1.05rem;
+    /* overflow: scroll; */
+}
+.copy-code:active,
+.copy-code:focus{
+    border: 2px solid yellow;
+    box-shadow: 0 0 5px 5px yellow !important;
+    padding: 1.5%;
+}
+.flex {
+    display: flex;
+
+}
+button:focus{
+    font-size: 150%;
+    border: 5px solid yellow;
+}
+button:active{
+    font-size: 200%;
+    box-shadow: 0 0 12px 12px yellow;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-memoryForThread</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">09-02-2- Memory for Threads</h2>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img smcode">
+import threading
+import time
+def longSquare(n):
+    time.sleep(0.5)
+    return n**2
+t1 = theading.Thread(target=longSquare,args=(1,))
+t2 = threading.Thread(target=longSquare,args(2,))
+t1.start()
+t2.start()
+t1.join()
+t2.join()</pre>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;We can modify the code above seen in the last lesson to store the results of the function
+                into a data structure such as a dictionary in order to display the results of the two threads.
+            </p>
+            <p>
+                &emsp;We do this by creating a empty dictionary and within the function put the result into that dictionary.
+                We must also supply the dictionary <code class="r">results</code> into the <code class="o">args=</code> within 
+                the second arguement of <code>Thread()</code>.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code xsmcode">
+import threading
+import time
+
+def longSquare(n,<span class="r">results</span>):
+    time.sleep(0.5)
+    <span class="r">results</span>[n] = n**2
+
+t1 = threading.Thread(target=longSquare, <span class="o">args</span>=(1,<span class="r">results</span>))
+t2 = threading.Thread(target=longSquare, args=(2,results))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+print(results)
+                </pre>
+            </div>     
+        </div>
+        <img tabindex="1" class="left-img sm-img" src="images/01.png">
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                There is more to this chapter but I'm realizing this is not helping
+                my skills to build my own project so I'n moving on to the next chapter
+            </p>
+            <p>
+                This is the last example
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="med-img" src="images/02.png">
+        </div>
+    </div>
+    
+
+
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

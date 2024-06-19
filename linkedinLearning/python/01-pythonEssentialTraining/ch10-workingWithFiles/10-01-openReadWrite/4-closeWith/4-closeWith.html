@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-closeWith</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">close <code class="db">with</code></h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Using <code class="db">with</code> will allow us to close a file within the scope of the <code class="db">with</code>
+                block.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('newFile.txt','w')
+f.write('Line 1\n')
+f.write('Line 2\n')
+<span class="db">with</span> open('newFile.txt','a') as f:
+    f.write('Another line\n')
+    f.write('Another Line again\n')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;We still having access to it outside of the block <strong>But</strong>,
+                 we cannot modify the file outside of the block</p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+<span class="db">with</span> open('newFile.txt','a') as f:
+    f.write('Another Line\n')
+    f.write('Another Line again\n')
+print(f)
+f.write('PS: more stuff')</pre>
+            </div>    
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div> 
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-intClass</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">03-01-ints and floats 2_<code class="mdsmtxt">int()</code> Class</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Python has built in classes written in lowercase.
+            </p>
+        </div>
+        <div class="fi">
+            &emsp;<code class="mdcode lsg">int()</code> is a <i>built-in class</i> that converts floats into integers.
+            This process is called <i>casting</i>. <code class="mdcode">int()</code> looks like a funciton but it 
+            is a <i>built-in</i> class.
+        </div>
+    </div>
+    <!-- int(3 * 4.0) -->
+    <div class="fc">
+        <div class="fi fcol ">
+            <div class="fi">
+                <p>
+                    &emsp;This converts the result to an int rather than a float. 
+                </p>
+            </div>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+exp = <span class="lsg">int</span>(3 * 4.0)
+print(type(exp), exp)</pre>
+            </div>            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-intClass.png">
+        </div>
+        
+    </div>
+    <!-- int(8.999) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    &emsp;Casting a floating point number into the int class will 
+                    truncate the decimal and <strong>not</strong> round it.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(int(8.999))
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-truncate.png">
+        </div>
+        
+    </div>
+    <!-- int(14 / 3) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p>
+                    <span class="r">Imporant note</span>,
+                    <br> <code class="lsgmdcode">int</code> will <strong>not</strong>
+                    round with division either, if there are remaining decimal places
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(int(14 / 3))
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-divisionTruncate.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

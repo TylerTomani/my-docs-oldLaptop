@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-01-basicInFieldSerperate</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+</head>
+<body>
+    <header>
+        <h1 tabindex="1">03-01_Basic input-field seperator </h1>
+    </header>
+    
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;By default, awk uses any amount of white space as a field seperator.
+                It does not matter how much white space there is, white space will
+                be the seperator.
+            </p>
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk '{print $3}' <br>
+                one two three <br>
+                three <br>
+                $ awk '{print $3}' <br>
+                one&emsp;&emsp;two&emsp;&emsp;&emsp;three <br>
+                three
+            </code>
+        </div>
+    </div>
+    <!--###########    -F      Field Seperator  Flag ###########-->
+    <h3><code>-F</code> set field seperator</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;To change this behavor, use the capital F flag <code>-F</code>.
+                <br>Whatever we place after the <code>-F</code> flag will be the seperator.
+            </p>
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk <span class="w">-F ,</span> '{print $3}' <br>
+                one two, three, four <br>
+                four
+            </code>
+            <p>The space is now part of the field</p>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;The field seperator can also be characters
+            </p>
+
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk -F <span class="w">Teeb</span> '{print $2}' <br>
+                one two <span class="">TeeB </span> three four <br>
+                three four
+            </code>
+        </div>
+    </div>
+    
+    <h3>Empty field</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;If there is a blank field it will output nothing
+            </p>
+            <p>
+                The first line has no <q>second</q> field.
+                <br>
+                The second line has no <q>first</q> field
+            </p>
+        </div>
+        <div class="flex-item">
+            <code class="code">
+                $ awk -F , '{print $2}'
+                <br>one,,two
+                <br>
+                <br>,two,three
+                <br>two
+            </code>
+        </div>
+        
+    </div>
+    <h3>Regular Expression seperator</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;You can use regular expressions as field seperators.
+                <br> This example uses either a <code>,</code> or <code>!</code> as a seperator.
+            </p>
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk -F '[,!]' '{print $2 $3}' <br>
+                one two , three ! four <br>
+                &nbsp;three&nbsp;&nbsp;four
+            </code>
+        </div>
+    </div>
+    
+    
+
+
+
+
+</body>
+</html>

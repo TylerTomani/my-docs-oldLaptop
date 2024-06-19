@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-01-regexBasics</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+<script src="../../js/focus.js" defer></script>
+</head>
+<body>
+    <header class="flex-container">
+        <div class="flex-item flex-col align-self-start">
+            <h2 tabindex="1" class="lesson-header align-self-start">05-01-regexBasics</h2>
+            
+            
+        </div>
+        <!-- Example Text -->
+        <div class="flex-item flex-col">
+            <h2>Example poem </h2>
+            <code class="code x-sm-code inline-block">
+                The grand old Duke of York
+               <br> He had ten thousand men
+               <br> He marched them up to the top of the hill
+               <br> And he marched them down again
+               <br> And when they were up they were up
+               <br> And when they were down they were down
+               <br> And when they were only half-way up
+               <br> They were neither up nor down
+            </code>
+        </div>
+        
+    </header>
+    <hr>
+    <div tabindex="1" class="flex-col align-center">
+        <p class="text-center">
+            &emsp;regex expressions are placed between <code class="sm-code">/ regex /</code>, and are
+            case sensitive.
+        </p>
+    </div>
+
+    
+    <h3>String matching / str /</h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;regex is great for pattern matching in strings
+            </p>
+        </div>
+        <div class="flex-item">
+            <p>/ abc / matches "abc"</p>
+            <p>/ abc / matches "xxxabcxxx"</p>
+            <p>/ abc / <strong>DOES NOT</strong> match "abxxc"</p>
+            <p>/ abc / <strong>DOES NOT</strong> match "ab"</p>
+            <p>/ abc / <strong>DOES NOT</strong> match "ABC"</p>
+        </div>
+        
+    </div>
+    <hr>
+    <div class="flex-col m-top">
+        <p>
+            &emsp;In the example below, regex is used to search for the words
+            <code class="sm-code">/<span class="w">up</span>/</code> and
+            <code class="sm-code">/<span class="w">down</span>/</code>
+        </p>
+        <p>
+            &emsp;It then prints out any line containing up and down (
+            indicated by the <code class="sm-code">$<span class="v">0</span></code>
+            ).
+        </p>
+    </div>
+    <div class="flex-col m-top align-center">
+        <code class="code x-sm-code">
+            $ awk '/<span class="w">up</span>/{print "UP: " $<span class="v">0</span>} /<span class="w">down</span>/{print
+            "DOWN " $<span class="v">0</span>}' dukeofyork.txt
+        </code>
+    </div>
+    
+    <div tabindex="1" class="flex-col align-center m-top">
+        <code class="x-sm-code code inline">
+            UP: He marched them up to the top of the hill
+            <br> DOWN And he marched them down again
+            <br> UP: And when they were up they were up
+            <br> DOWN And when they were down they were down
+            <br> UP: And when they were only half-way up
+            <br> UP: They were neither up nor down
+            <br> DOWN They were neither up nor down
+        </code>
+        <p class="r">Notice how the the last line was printed twice, becuase 
+            it has both up and down
+        </p>
+
+    </div>
+    
+    <hr>
+    
+    
+    <h2><span class="code md-code">~</span> comparison </h2>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;The <code>~</code> tilda character will compare the argument (in this case the 
+                field <span class="code sm-code">$<span class="v">3</span> </span> ) to the regular expression.
+            </p>
+            <p>
+                &emsp;This is comparing the the 3rd field to whatever
+                the regex expression states. If they match, the line is returned
+            </p>
+
+        </div>
+        <div class="flex-item code sm-code">
+            <code class="">
+                $ awk '$<span class="v">3</span> ~ /<span class="w">up</span>/{print}' poems.txt <br>
+                They sailed up and back from across the big pond
+            </code>
+        </div>
+    </div>
+    
+    
+    <hr>
+    <h3>using metacharacters</h3>
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item flex-col border-black">
+            <h4>metacharacters</h4>
+            <h5 class="align-self-start"><code>.</code> matches anysingle character</h5>
+            <ul class="list-style-none">
+                <li>/a.c/ matches <q>abc</q></li>
+                <li>/a.c/ matches <q>awc</q></li>
+                <li>/a.c/ does <strong>not</strong> match <q>ac</q></li>
+            </ul>
+            <h5 class="m-top align-self-start"><code>^</code> matches string that begins with</h5>
+            <ul class="list-style-none">
+                <li>/^abc/ matches <q>abcd</q></li>
+                <li>/^abc/ does <strong>not</strong> match <q>dabcd</q></li>
+            </ul>
+            <h5 class="align-self-start"><code>$</code> matches string that ends with</h5>
+            <ul class="list-style-none">
+                <li>/abc$/ matches <q>dabc</q></li>
+                <li>/abc$/ does <strong>not</strong> match <q>abcd</q></li>
+            </ul>
+            
+        </div>
+        <div tabindex="1" class="flex-item flex-col">
+            <div class="flex-col border-black p-2">
+                <h2 class="justify-self-start">escaping metacharacters</h2>
+                <ul class="list-style-none ">
+                    <li>/a\.c/ matches <q>a.c</q></li>
+                    <li>/a\\c/ matches <q>a\c</q></li>
+                    <li>/a\/c/ matches <q>a/c</q></li>
+                </ul>
+            </div>
+            <p>To use a meta character within an regex statement,
+                use the <span class="code sm-code">\</span> backslash escape key before the \
+            </p>
+        </div>
+    </div>
+    
+    <hr>
+    <div class="flex-col code x-sm-code align-center">
+        <code class="inline">
+            The grand old Duke of York
+            <br> He had ten thousand men
+            <br> He marched them up to the top of the hill
+            <br> And he marched them down again
+            <br> And when they were up they were up
+            <br> And when they were down they were down
+            <br> And when they were only half-way up
+            <br> They were neither up nor down
+        </code>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                
+                <br>&emsp;If we match the regex expression <code>/the/</code> 
+                to match every third field <span class="code sm-code">$<span class="v">3</span></span>, it will return any word containing "t" "h" and "e" in
+                <br> that field
+            </p>
+        </div>
+        <div class="flex-item">
+            <code class="code sm-code">
+                $ awk '$<span class="v">3</span> ~ /<span class="w">the</span>/{print}' dukeofyork.txt
+                <br> He marched <span class="w">the</span>m up to the top of the hill
+                <br> And when <span class="w">the</span>y were up they were up
+                <br> And when <span class="w">the</span>y were down they were down
+                <br> And when <span class="w">the</span>y were only half-way up
+                <br> They were <span class="bv">nei<span class="w">the</span>r</span> up nor down
+            </code>
+        </div>
+        
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Notice that <code>neither</code> is recognized. This is because it is in the
+                third field and contains the letter <q>the</q>.
+                <br>&emsp;Use the <code>^</code> metacharcter to only get the words that start
+                with the.
+            </p>
+        </div>
+        <div class="flex-item">
+            <code class="code sm-code">
+                $ awk '$3 ~ /^the/{print}' dukeofyork.txt'
+                <br> He marched them up to the top of the hill
+                <br> And when they were up they were up
+                <br> And when they were down they were down
+                <br> And when they were only half-way up
+            </code>
+        </div>
+        
+    </div>
+
+
+    <footer tabindex="2"></footer>
+</body>
+</html>

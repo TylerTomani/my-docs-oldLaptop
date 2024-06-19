@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0
+}
+#homelink{
+    display: inline-block;
+    margin: 2.5%;
+    padding: .5% 2.5%;
+    text-decoration: none;
+}
+#homlink:active,#homlink:focus{
+    box-shadow: 0 0px 4px 2px orange;
+}
+#navMain:active,#navMain:focus{
+    box-shadow: 0 0px 4px 2px lawngreen;
+}
+
+#asideMain:active,#asideMain:focus{
+    box-shadow: 0 2px 4px 6px lawngreen;
+}
+iframe:active,iframe:focus{
+    /* box-shadow: 0 0px 24px 6px orange; */
+    border: 20px solid orange;
+    height: 100vh;
+
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    gap: 25%;
+    border-bottom: 1px solid black;
+}
+header > .page-logo > img  {
+    width: 25%;
+}
+main > nav {
+    padding: 1% 0 1% 1%;
+    border-bottom: 1px solid black;
+}
+.main-container {
+    display: flex;
+}
+.main-container > #asideMain {
+    border-right: 1px solid black;
+    flex: 25%;
+}
+
+
+
+.units-container {
+    margin-left: 5%;
+    margin-top: 5%;
+}
+.unit-container > h3 > a.unit {
+    font-size: .8rem;
+    text-decoration: none;
+    display: inline-block;
+    color: darkolivegreen;
+}
+.unit-container {
+    margin-top: 5%;
+}
+.unit-container > ul{
+    margin-left: 5%;
+    list-style: none;
+}
+.sub-unit-container > h4 > a.sub-unit{
+    font-size: .75rem;
+    text-decoration: none;
+    display: block
+}
+.sub-unit-container > ul.lessons-container {
+    margin-left: 15%;
+    font-size: .7rem;
+}
+ul.lessons-container > li { 
+    margin: 2% 0;
+}
+ul.lessons-container > li > a{
+    text-decoration: none;
+}
+.main-container>iframe{
+    border: 2px solid blue;
+    flex-basis: 100%;
+    height: 100vh;
+    width: 100vw;
+}
+.main-container:active,.main-container:focus{
+    box-shadow: 0 0 4px 4px orange;
+}
+.hide {
+    display: none
+}
+.show {
+    display: inline-block
+}

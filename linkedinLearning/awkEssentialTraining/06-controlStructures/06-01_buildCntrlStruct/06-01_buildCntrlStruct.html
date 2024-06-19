@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-01-buildCntrlStruct</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/focus.js"></script>    
+    <link rel="stylesheet" href="../../practiceConsole/css/practiceConsole.css">
+    <script src="../../practiceConsole/js/practiceConsole.js" defer></script>
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">06-01-buildCntrlStruct(if statements)</h2>
+    </header>
+    
+    <!-- dukeofyork.txt -->
+    <div tabindex="" class="flex m-1">
+        <div class="m-center code justify-self-center code-strict-width-center">
+            <code class="x-sm-code ">
+                The grand old Duke of York
+                <br>He had ten thousand men
+                <br>He marched them up to the top of the hill
+                <br>And he marched them down again
+                <br>And when they were up they were up
+                <br>And when they were down they were down
+                <br>And when they were only half-way up
+                <br>They were neither up nor down
+            </code>
+        </div>
+    </div>
+    
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item align-start text-top ">
+            <p>
+                This example prepends the string <span class="code sm-code inline w ">Short Line:</span>
+                to any record containing &lt; 8 fields, and <span class="code sm-code inline o">Long Line:</span> to any other
+            </p>
+            <p>
+                &emsp;If writing an if statement on one line, don't loose track of the last closing bracket <span class="code sm-code bv">}</span>
+            </p>
+            
+        </div>
+        <div class="flex-item code x-sm-code">
+            <code>
+                $ awk '{if (NF &lt; 8) {print "<span class="w">Short Line:</span> " , $0} else {print <span class="o">Long Line:</span> , $0}<span class="bv">}</span>'
+                poem.txt
+                <br> <span class="w">Short line:</span> The grand old Duke of York
+                <br> <span class="w">Short line:</span> He had ten thousand men
+                <br> <span class="o">Long Line:</span> He marched them up to the top of the hill
+                <br> <span class="w">Short line:</span> And he marched them down again
+                <br> <span class="o">Long Line:</span> And when they were up they were up
+                <br> <span class="o">Long Line:</span> And when they were down they were down
+                <br> <span class="w">Short line:</span> And when they were only half-way up
+                <br> <span class="w">Short line:</span> They were neither up nor down
+    
+            </code>
+        </div>
+    </div>
+    
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col flex">
+            <p>
+                &emsp;It is best to write if statements in a file and
+                save that file with <span class="code sm-code">file.awk</span>.
+                
+            </p>
+            <pre class="code sm-code">
+<sub class="text-start code x-sm-code bv inline m-1">linelength.awk</sub>
+{
+    if (NF &lt; 8){
+        print "Short Line:" , $0
+    } else {
+        print "Long Line:" , $0
+    }
+}
+            </pre>
+        </div>
+        <div class="flex-item flex-col ">
+            <span class="code sm-code p-top-1 inline-block">
+                $ awk -f <span class="bv">linelength.awk</span> dukeofyork.txt
+            </span>
+            <p>This will produce the same result as above</p>
+            
+        </div>
+        
+    </div>
+    
+    <hr>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col">
+            <h3>Pratice in console here</h3>
+            <p>(Do NOT type spaces)</p>
+        </div>
+        <div class="flex-item flex-col">
+                <p>practice writing this if statement</p>
+                <p class="inline x-sm-code code">'{if (NF &lt; 8){print "Short Line:" , $0}else{print "Long Line:" , $0}}'</p>
+        </div>
+        
+    </div>
+    <hr>
+    <!-- Practice Console -->
+    <p style="color:red">This console.log is TRASH,, go to the next lesson to see a better working one</p>
+    <div class="container m-top">
+        <div class="flex-col practice-console-container">
+            <textarea tabindex="1" name="input1" id="input1" cols="30" rows="20"
+                placeholder="'{if (NF &lt; 8){print &#34;Short Line:&#34; , $0}else{print &#34;Long Line:&#34; , $0}}' "></textarea>
+            <button tabindex="1" class="run-btn">Run</button>
+            <pre class="result"></pre>
+        </div>
+    </div>
+    <hr><hr>
+    
+
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <h2>shortlong.sh</h2>
+            <p>We can also put the awk command within the program</p>
+            <pre class="code sm-code">
+<sub class="bv">shortlong.sh</sub>
+awk
+'{
+	if ( NF &lt; 8 ) {
+		print "SHORT LINE:" , $0
+	} else {
+		print "LONG LINE:" , $0
+	}
+}'
+            </pre>
+        </div>
+
+        <div tabindex="1" class="flex-item flex-col">
+            <p>remember to change the user permission if it doesnt work</p>
+            <span class="code sm-code">chmod u+x <span class="bv">shortlong.sh</span></span>
+            <p>then run the script by typing 
+            <br><span class="code sm-code ">shortlong.sh</span> 
+            <br> or
+            <br><code>./shortlong.sh</code></p>
+        </div>
+    </div>
+
+    <h2>For Loop</h2>
+
+    <div class="flex-container align-start">
+        <div tabindex="1" class="flex-item ">
+            <p>This is a weird for loop example go back an make your own</p>
+            <pre class="code sm-code">
+{
+    for ( i=1; i&lt;3; i++){
+        print "LINE:" NR , "FIELD:" , i ,$i
+    }
+}
+            </pre>
+        </div>
+        <div class="flex-item code x-sm-code">
+            <code class=" ">
+                $ awk -f forloop.awk dukeofyork.txt
+                <br> LINE:1 FIELD: 1 The
+                <br> LINE:1 FIELD: 2 grand
+                <br> LINE:2 FIELD: 1 He
+                <br> LINE:2 FIELD: 2 had
+                <br> LINE:3 FIELD: 1 He
+                <br> LINE:3 FIELD: 2 marched
+                <br> LINE:4 FIELD: 1 And
+                <br> LINE:4 FIELD: 2 he
+                <br> LINE:5 FIELD: 1 And
+                <br> LINE:5 FIELD: 2 when
+                <br> LINE:6 FIELD: 1 And
+                <br> LINE:6 FIELD: 2 when
+                <br> LINE:7 FIELD: 1 And
+                <br> LINE:7 FIELD: 2 when
+                <br> LINE:8 FIELD: 1 They
+                <br> LINE:8 FIELD: 2 were
+
+            </code>
+        </div>
+
+    </div>
+    <!-- <footer tabindex="1"></footer> -->
+    <footer ></footer>
+</body>
+</html>

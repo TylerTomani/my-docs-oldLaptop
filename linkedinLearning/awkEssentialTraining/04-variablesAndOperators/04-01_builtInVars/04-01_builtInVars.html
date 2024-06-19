@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-01-builtInVars</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+</head>
+<body>    
+    <h2 tabindex="1" class="lesson-header">04-01-builtInVariables</h2>
+    <h2>built-in awk variables</h2>
+    <!-- variable list -->
+    <div tabindex="1" class="flex-col">
+        <div class="flex-item text-top">
+            <ul class="ul-inline">
+                <li><span class="code">NR</span> - record/line number </li>
+                <li><span class="code">NF</span> - number of fields on each record</li>
+                <li><span class="code">FS</span> - input field seperator</li>
+                <li><span class="code">RS</span> - input record seperator</li>
+                <li><span class="code">OFS</span> - output field seperator</li>
+                <li><span class="code">ORS</span> - output record seperator</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <h3><code>NR</code></h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item text-top">
+            <p>
+                &emsp;NR returns the line number of each record/line
+            </p>
+            <p>Without the comma there is no space 
+            between fields.The Comma is a placeholder for <span class="code">OFS</span>,
+             by default it is a space.
+
+            </p>
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk '{print NR , $0}' names.txt
+                <br> 1 firstName lastName
+                <br> 2 Charlie Watts
+                <br> 3 Joe Fraizer
+                <br> 4 Dino Dinosaur
+                <br> 5 Freddie Prince
+                <br> 6 Lucy Carmichael
+                <br> 7 Henry Barthalameu
+                <br> 8 Joe Dezario
+                <br> 9 Heather Scalanzo
+            </code>
+        </div>
+    </div>
+    <hr>
+    <!-- Example text 1 -->
+    <div tabindex="1" class="flex-col m-center">
+        <h4>ex2.txt</h4>
+            <code  class="code">
+                This file contains lines of text.
+                <br> Each line of text is different.
+                <br> If this text is up, Then this
+                <br> text is down.
+                <br> Awk is a great program.
+                <br> Life is better when Learning new things.
+            </code>
+    </div>
+    
+    <h3><code>NF</code></h3>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item text-top">
+            <p>
+                &emsp;NF returns the number of fields on each line.
+                We can see by passing in the above example text file to the command containing <code class="bv">print NF , $0</code>, the output prints the number of fields followed by the entire line
+            </p>
+            
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '{<span class="bv">print NF , $0</span>}'
+               <br> 6 This file contains lines of text.
+               <br> 6 Each line of text is different.
+               <br> 7 If this text is up, Then this
+               <br> 3 text is down.
+               <br> 5 Awk is a great program.
+               <br> 7 Life is better when Learning new things.
+            </code>
+        </div>
+    </div>
+    <div class="text-c">
+        <p>
+            We can use NR to search for specific records or NF to find records with a certain number of fields, the NF example below returns the lines/records with 6 fields, and the example below that show NR record number 2.
+        </p>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="code">
+            <code >
+                $ awk "NF==6"{print NF, $0}' ex2.txt' <br>
+                6 This file contains lines of text. <br>
+                6 Each line of text is different. <br>
+            </code>
+        </div>
+        <div class="code">
+            <code>
+                $ awk 'NR==2{print NR , $0}' ex2.txt <br>
+                2 Each line of text is different.
+            </code>
+        </div>
+    </div>
+    <h2><code>FNR</code> - file name</h2>
+    <div tabindex="1" class="flex-col">
+        <p>If you include multiple input files, awk concatenates them together </p>
+        <p> &emsp;We can find out which file is currently being processed by using the
+            <br> <code>FNR</code> built-in variable along with <code>FILENAME</code>.
+            <br> This will show the record number for concatenated files and record number within each
+        </p>
+    </div>
+    <div class="flex-container">
+        <div tabindex="1" class="flex-item">
+            <code class="code">
+                $ awk '{print NR , $0}' ex2.txt names.txt
+                <br> 1 This file contains lines of text.
+                <br> 2 Each line of text is differnt.
+                <br> 3 If this text is up, Then this
+                <br> 4 text is down.
+                <br> 5 Awk is a great program.
+                <br> 6 Life is better when Learning new things.
+                <br> 7 firstName lastName
+                <br> 8 Charlie Watts
+                <br> 9 Joe Fraizer
+                <br> 10 Dino Dinosaur
+                <br> 11 Freddie Prince
+                <br> 12 Lucy Carmichael
+                <br> 13 Henry Barthalameu
+                <br> 14 Joe Dezario
+                <br> 15 Heather Scalanzo
+            </code>
+        </div>
+        <div tabindex="1" class="flex-item">
+            
+            <code class="code">
+                $ awk '{print NR , <span class="bv">FILENAME</span> , <span class="bv">FNR</span> , $0}' ex2.txt names.txt
+                <br> 1 ex2.txt 1 This file contains lines of text.
+                <br> 2 ex2.txt 2 Each line of text is differnt.
+                <br> 3 ex2.txt 3 If this text is up, Then this
+                <br> 4 ex2.txt 4 text is down.
+                <br> 5 ex2.txt 5 Awk is a great program.
+                <br> 6 ex2.txt 6 Life is better when Learning new things.
+                <br> 7 names.txt 1 firstName lastName
+                <br> 8 names.txt 2 Charlie Watts
+                <br> 9 names.txt 3 Joe Fraizer
+                <br> 10 names.txt 4 Dino Dinosaur
+                <br> 11 names.txt 5 Freddie Prince
+                <br> 12 names.txt 6 Lucy Carmichael
+                <br> 13 names.txt 7 Henry Barthalameu
+                <br> 14 names.txt 8 Joe Dezario
+                <br> 15 names.txt 9 Heather Scalanzo
+            </code>
+        </div>
+
+    </div>
+<hr>
+<div tabindex="1" class="flex-col">
+    <h2>Difficult Concepts</h2>
+    <p>
+        &emsp;($0 is the record number) Anything else after the dollar sign represents a field, such as $1, $2, etc...
+        <br>But, put anything after the dollar sign
+    </p>
+    
+</div>
+
+<h3>Examples</h3>
+<div tabindex="1" class="align-c code">
+    <h4>ex2.txt</h4>
+        <code>
+            This file contains lines of <span class="o">text</span>.
+            <br> Each line of text is <span class="o">differnt</span>.
+            <br> If this text is up, Then <span class="o">this</span>
+            <br> text is <span class="o">down</span>.
+            <br> Awk is a great <span class="o">program</span>.
+            <br> Life is better when Learning new <span class="o">things</span>.
+        </code>
+    
+</div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p> 
+                &emsp;<code>NF</code> returns the number of fields on the line.
+                <br>If we put <code>NF</code> after the <code>$</code>, it will give
+                <br> us the field number that matches the number of fields. Basically the last field of each line
+            </p>
+        </div>
+        <div class="code">
+            <code>
+                $ awk '{print $NF}' ex2.txt
+                <br> <span class="o-sm">text.</span>
+                <br> <span class="o-sm">differnt.</span>
+                <br> <span class="o-sm">this.</span>
+                <br> <span class="o-sm">down.</span>
+                <br> <span class="o-sm">program.</span>
+                <br> <span class="o-sm">things.</span>
+            </code>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;We can also put expressions in after the <code>$</code>.
+                <br><code>$(NF -1)</code> will give us the second last field.
+            </p>
+        </div>
+        <div class="code">
+            <code>
+                $ awk '{print $(NF-1)}' ex2.txt
+                <br> of
+                <br> is
+                <br> Then
+                <br> is
+                <br> great
+                <br> new
+
+            </code>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Tricky bit, if we type in a field number such as <span class="code">$1</span>
+                after the <code>$</code>; whatever value is there, is then passed into the <code>$</code>.
+                <br>&emsp;If the number 3 is in the first field, awk will return the third field
+            </p>
+            
+        </div>
+        <div class="code">
+            <code>
+                $ awk '{print $($1)}' <br>
+                3 one two three four <br>
+                two
+            </code>
+
+        </div>
+    </div>
+    <h2>Assigning NEW VALUES to input fields!</h2>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                This is great, we can assign new values by using the <code>$</code>
+            </p>
+        </div>
+        <div class="code">
+            <code>
+                awk '{$2="O YEA CHANGE"; print}' ex2.txt
+                <br> This O YEA CHANGE contains lines of text.
+                <br> Each O YEA CHANGE of text is differnt.
+                <br> If O YEA CHANGE text is up, Then this
+                <br> text O YEA CHANGE down.
+                <br> Awk O YEA CHANGE a great program.
+                <br> Life O YEA CHANGE better when Learning new things.
+            </code>
+        </div>
+    </div>
+    <h2>ADDING a new Field</h2>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;To add a field, we can use the expression <code>$(NF + 1)</code>
+            </p>
+        </div>
+        <div class="code">
+            <code >
+                $ awk '{$(NF + 1)="NEW FIELD";print}' names.txt
+                <br>firstName lastName NEW FIELD
+                <br>Charlie Watts NEW FIELD
+                <br>Joe Fraizer NEW FIELD
+                <br>Dino Dinosaur NEW FIELD
+                <br>Freddie Prince NEW FIELD
+                <br>Lucy Carmichael NEW FIELD
+                <br>Henry Barthalameu NEW FIELD
+                <br>Joe Dezario NEW FIELD
+                <br>Heather Scalanzo NEW FIELD
+            </code>
+        </div>
+
+    </div>
+
+
+
+    <footer tabindex="1"></footer>
+</body>
+</html>

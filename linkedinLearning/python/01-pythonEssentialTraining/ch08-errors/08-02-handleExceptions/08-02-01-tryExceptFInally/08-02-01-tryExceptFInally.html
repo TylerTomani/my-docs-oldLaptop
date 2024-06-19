@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02-01-tryExceptFinally</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-02-01 Try/Except Finally</h2>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We are catching the <code class="lsg">Exception</code> class with
+                <code class="v">except</code>. <code class="b lgcode">e</code> is the instance
+            </p>
+        </div>
+    </div>
+    <!-- Exception as e -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def causeError():
+    try:
+        1/0
+    <span class="v">except</span> <span class="lsg">Exception</span> as <span class="b">e</span>:
+        return e
+
+
+causeError()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We don't need to catch the class instance <code class="b">e</code>. We can do anything we want within the block of <code class="v">except</code>
+            </p>
+        </div>
+    </div>
+    <!-- print('ooops') -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def causeError():
+    try: 
+        1/0
+    <span class="v">except</span> Exception:
+        print('ooops')
+
+
+causeError()
+                </pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <!-- finally -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code class="v">finnaly</code> allows us to execute code no matter what
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def causeError():
+    try: 
+        1/0
+    except Exception:
+        print('something happened')
+    <span class="v">finnaly</span>:
+        print('always works')
+
+
+causeError()
+                </pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                You do not need to use except with finnaly, but the error will be printed
+                out instead of caught.
+            </p>
+        </div>
+        <div class="fi">
+        </div>
+        
+    </div>
+    <!-- finnaly no Exception -->
+    <div class="fc">
+        <div class="fi">
+
+            
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def causeError():
+    try:
+        1/0
+    finally:
+        print('always works')
+
+
+causeError()</pre>
+                </div>
+                
+            </div>
+            <div class="fi">
+                <img class="right-img" src="images/04.png">
+            </div>
+            
+    </div>
+    <footer tabindex="1"></footer>         
+</body>
+</html>

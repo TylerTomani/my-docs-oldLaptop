@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-01b-argsKwargs</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">06-01b- *args and **kwargs</h2>
+    <h3 class="mtb1"><code class="mdcode ">*args</code></h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can pass multiple arguements using the <code class="v">*args</code> keyword as a parameter.
+                The value will be returned as a tuple
+            </p>
+        </div>
+    </div>
+    <!-- print(*args) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def performOperation(*args):
+    return(args)
+performOperation(1,2,3)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                This can easily be casted into a list
+            </p>
+        </div>
+    </div>
+    <!-- return (list(args)) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def perfomOperation(*args):
+    return(list(args))
+performOperation(1,2,3)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+        
+    </div>
+    <h3 class="mtb1"><code class="mdcode ">**kwargs</code></h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code>*args</code> passes multiple positional arguements and returns
+                them as a tuple, <code>**kwargs</code> stands for keyword arguments and will return
+                them as a dictionary.
+            </p>
+        </div>
+    </div>
+    <!-- print(args) and print(kwargs) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def perfomeOperation(*args,**kwargs):
+    print(args)
+    print(kwargs)
+
+perfomeOperation(1,2,3,operation = 'message')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Python has a standard built in <span class="b">sum</span> function, but the <span class="v">product</span> function requiers 
+                the <code class="o">math</code> library to use the <span class="v">prod</span> function.
+            </p>
+            <p>
+                <span class="v">Notice how we can add as many numbers to sum with <code>*args</code></span>
+            </p>
+        </div>
+    </div>
+    <!-- import math -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+import <span class="o">math</span>
+
+def performOperation(*args, **kwargs):
+    if operation == 'sum':
+        return <span class="b">sum</span>(args)
+    if operation == 'multipy':
+        return math.<span class="v">prod</span>(args)
+result = performOperation(2,5,<span class="v">8</span>,<span class="v">19</span> operation = 'sum')
+print(result)
+result = performOperation(2,5, operation = 'multiply')
+print(result)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/04.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

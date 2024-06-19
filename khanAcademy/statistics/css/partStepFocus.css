@@ -1,0 +1,21 @@
+.step {
+    display: flex;
+}
+.step>.step-txt,
+.step>.step-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    flex-basis: 47.5%;
+}
+
+.step>.step-txt {
+    padding: 0 2.5%;
+}
+
+.step>.step-img>img {
+    width: 90%;
+    min-height: 200px;
+}

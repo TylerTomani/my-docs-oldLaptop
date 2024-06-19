@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-03-inheritance</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-03- Inheritance</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We will use the <code>Dog</code> class as the parent class.
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode no-img">
+class Dog:
+    _legs = 4
+    def __init__(self,name):
+        self.name = name
+    def speak(self):
+        print(f'{self.name} says Bark')
+    def getLegs(self):
+        return self._legs</pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;Place <code class="dg">pass</code> child class and it will have all attributes and 
+                methods from the parent. 
+            </p>
+            <p>
+                Put <code class="v">Dog</code> within the <span class="v">parenthesis</span> of the child class
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode no-img">
+class Chihuahua<span class="v">(Dog)</span> :
+    <span class="dg">pass</span></pre>
+            </div>    
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            The class <code>Chihuahua</code> has access to all the attributes and methods from dog
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+littleDog = Chihuahua('lola')
+littleDog.speak()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;We can change/extend a method from the parent class by creating the same method within the child class.
+                The child class method take precedence over the parent's method of the same name. 
+            </p>
+            <p>
+                &emsp; We can also add methods to the child class. You can see the <code>Chihuahua</code>
+                 class <code>speak()</code> method now says <q>ruff ruff</q>, 
+                and has the new method <code>wagTail()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class Chihuahua(Dog):
+    def speak(self):
+        print(f'{self.name} say ruff ruff')
+    def wagTail(self):
+        print(self.name + " is wagging its tail")
+littleDog = Chihuahua('roxy')
+littleDog.speak()
+littleDog.wagTail()
+                    
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/02.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

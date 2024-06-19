@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-challengeFindPrimeFast</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">05-challenge FindPrimeFast</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                I still don't quiet get how this works
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code ">
+def findPrimes(num):
+    primes = [2]
+    for n in range(3,num):
+        sqrtN = n ** 0.5
+        for factor in primes:
+            if n % factor == 0:
+                break
+            if factor > sqrtN:
+                primes.append(n)
+                break
+    return primes
+print(findPrimes(22))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <footer class="mt3" tabindex="1"></footer>
+</body>
+</html>

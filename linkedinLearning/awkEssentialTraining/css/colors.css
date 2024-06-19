@@ -1,0 +1,42 @@
+/* /Colors  */
+.problem {
+    color: red
+}
+.code {
+    background-attachment: black;
+    display: inline-block;
+    font-family: monospace;
+}
+.r,
+.b,
+.v {
+    font-weight: 600;
+}
+
+.r {
+    color: red;
+}
+
+.b {
+    color: rgb(110, 181, 205);
+}
+.db {
+    color: rgb(0, 100, 225);
+    font-weight: 900;
+}
+
+.v {
+    color: magenta;
+}
+.w {
+    color:white
+}
+.bv {
+    border: 2px solid magenta;
+}
+.o {
+    color: orange;
+}
+.o-under {
+    text-decoration: underline 2px solid orange;
+}

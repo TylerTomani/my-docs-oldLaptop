@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>khanAcademy</title>
+    <link rel="stylesheet" href="css/khanAcademy.css">
+    <link rel="stylesheet" href="../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../css/resource-header-temp-v4.css">
+    <script src="js/letterFocus-docs.js" defer></script>
+    <script src="js/dropTopic-docs.js" defer></script>
+    <!-- <script src="../../documentation/js/dropResource-docs.js" defer></script> -->
+
+    <!-- <script src="../js/loadTopic-docs.js"></script> -->
+</head>
+
+<body>
+    <header>
+        <a tabindex="1" id="homeLink" href="../../index.html">&larr;home- (Documentation)</a>
+        <div class="page-title">
+            <h1>Khan Academy</h1>
+            
+        </div>
+        <article class="page-logo">
+            <img src="data:image/png;base64,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">
+        </article>
+    </header>
+    <main>
+        <div class="topics-container">
+            <!-- Chemistry -->
+            <div class="topic-container ">
+                <header tabindex="1" id="chemistry" class="dropTopic">
+                    <h3>Chemistry</h3>
+                </header>
+                <div class="sub-resources-container ">
+                    <ul>
+                        <li><a tabindex="1" id="highSchoolChemistry" class="topic"
+                                href="chemistry/highSchoolChemistry/highSchoolChemistry.htm">
+                                high school Chemistry</a> </li>
+                        <li><a tabindex="1" id="organicChemistry" class="topic"
+                                href="chemistry/OrganicChemistry/OrganicChemistry.htm">
+                                Organic Chemistry</a> </li>
+                    </ul>
+                    </a>
+                </div>
+            </div>
+            <!-- computerProgramming -->
+            <div class="topic-container ">
+                <a tabindex="1" id="computerProgramming" class="topic" href="computerProgramming/computerProgramming.htm" >
+                    <h3>computerProgramming</h3>
+                </a>        
+            </div>
+            
+            <!-- computerScience-->
+            <div class="topic-container ">
+                <a tabindex="1" id="" class="topic" href="#" >
+                    <h3>computer science(haven't started)</h3>
+                </a>        
+            </div>
+            <!-- Electrical Enginering -->
+            <div class="topic-container ">
+                <a tabindex="1" id="electricalEnginering" class="topic" href="#" >
+                    <h3>Electrical Enginering(started can't find) 
+                        <br><sup>start over?</sup>
+                    </h3>
+                </a>        
+            </div>
+            <!-- MachineLearning -->
+            <div class="topic-container ">
+                <a tabindex="1" id="machineLearning" class="topic" href="#">
+                    <h3>machineLearning</h3>
+                </a>
+            </div>
+            <!-- Precalculus -->
+            <div class="topic-container ">
+                <a tabindex="1" id="precalculus" class="topic" href="precalculus/precalculus.htm">
+                    <h3>Precalculus</h3>
+                </a>
+            </div>
+            <!-- Physics -->
+            <div class="topic-container ">
+                <header tabindex="1" id="" class="dropTopic">
+                    <h3>Physics</h3>
+                </header>
+                <div class="sub-resources-container ">
+                    <ul>
+                        <li><a tabindex="1" id="highSchoolPhysics" class="topic" href="physics/high-school-physics/high-school-physics.htm">
+                                high school Physics</a> </li>
+                    </ul>
+                </a>        
+            </div>
+            <!-- Statistics -->
+            <div class="topic-container ">
+                <a tabindex="1" id="statistics" class="topic" href="statistics/statistics.htm" >
+                    <h3>Statistics</h3>
+                </a>        
+            </div>
+            <!-- Trigonometry -->
+            <div class="topic-container ">
+                <a tabindex="1" id="trigonometry" class="topic" href="trigonometry/trigonometry.htm">
+                    <h3>Trigonometry</h3>
+                </a>
+            </div>
+            <!-- Math -->
+            <div class="topic-container ">
+                <header tabindex="1" id="math" class="dropTopic" href="#">
+                    <h3>Math</h3>
+                </header>
+                <div class="sub-resources-container ">
+                    <ul>
+                        <li>
+                            <a tabindex="1" id="getReadyAlgebra2" class="resource" href="getReadyAlgebra2/index.html">getReadyAlgebra2
+                                <!-- <img src="images/gmail.png" alt=""> -->
+                            </a>
+                        </li>
+                        <li>
+                            <a tabindex="1" id="algebra" class="resource" href="#">Algebra
+                                <!-- <img src="images/gmail.png" alt=""> -->
+                            </a>
+                        </li>
+                        
+                    </ul>
+            
+                </div>
+            </div>
+            </div>
+    </main>
+</body>
+
+</html>

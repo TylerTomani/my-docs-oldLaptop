@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-01_mouseInteraction</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <canvas></canvas>
+    <div class="flex-container">
+        <div class="flex-item flex-col">
+            <p>
+                First I simplified the mouse tracking code on the right by:
+            </p>
+            <ul>
+                <li>getting rid of listner and placing it into a <span class="v">function</span></li>
+                <li>only using <span class="b">event.clientX</span> and <span class="b">event.clientY</span></li>
+            </ul>
+            <code class="border-b align-end justify-end">
+function <span class="v">mouseDraw</span>(e){
+<br>&emsp;let bound = canvas.getBoundingClientRect();
+<br>&emsp;let x = <span class="b">e.clientX</span> ;
+<br>&emsp;let y = <span class="b">e.clientY</span>  ;
+<br>&emsp;<span class="g">// subtract half the width and height to
+    <br> get shape to draw at center</span>
+<br>&emsp;c.fillRect(x-8, y-8, 16, 16);
+};
+            </code>
+
+        </div>
+        <div class="flex-item flex-col">
+            <p>track mouse position from <a target="_blank" href="https://stackoverflow.com/a/48500289">stack overflow</a></p>
+            <code class="sm-code border-b align-end justify-end m-top-1">
+canvas.addEventListener('click', event => {
+<br>&emsp;&emsp;let bound = canvas.getBoundingClientRect();
+<br> 
+<br>&emsp;&emsp;let x = event.clientX - bound.left - canvas.clientLeft;
+<br>&emsp;&emsp;let y = event.clientY - bound.top - canvas.clientTop;
+<br> 
+<br>&emsp;&emsp;context.fillRect(x, y, 16, 16);
+<br> });
+
+            </code>
+        </div>
+    </div>
+    <hr>
+    <div >
+        <p>
+            &emsp;I was able to add the function to the <code>'mousedown'</code> listner and
+            remove it in the <code>'mouseup</code> listner
+        </p>
+        <pre>
+            function mouseDraw(e){
+                let bound = canvas.getBoundingClientRect();
+                // console.log("clientX",event.clientX,"clientY:",event.clientY)
+                let x = e.clientX ;
+                let y = e.clientY  ;
+                c.lineWidth = 2;
+                c.strokeStyle = "black"
+                c.fillStyle = "lightblue"
+                // subtract half the width and height to get shape to draw at center
+                c.fillRect(x-8,y-8,16,16)
+                c.strokeRect(x-8, y-8, 16, 16);
+                
+            };
+            
+            // Took the the code below from 
+            // <a href="https://www.youtube.com/watch?v=adPc41k4EvE">https://www.youtube.com/watch?v=adPc41k4EvE</a>
+            canvas.addEventListener('mousedown',() => {
+                canvas.addEventListener('mousemove',mouseDraw)
+            });
+            canvas.addEventListener('mouseup',() => {
+                canvas.removeEventListener('mousemove',mouseDraw)
+            });
+        </pre>
+    </div>
+</body>
+</html>

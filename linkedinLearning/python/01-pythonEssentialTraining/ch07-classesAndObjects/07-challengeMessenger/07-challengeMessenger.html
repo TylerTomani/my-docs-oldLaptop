@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-challengeMessenger</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-challengeMessenger</h2>
+    <h3 class="r">Go Back and re-do this</h3>
+    <p class="r">
+        For Now I have to give up on this and the next challenege I need help to understand this.
+        For days this has been hurting my head
+    </p>
+    <p>
+        Moving on to threading
+    </p>
+    <p>
+        This is extreamly difficult to understand, finish course then go back
+    </p>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+from datetime import datetime
+def getCurrentTime():
+    return datetime.now().strftime('%m-%d-%Y %H:%M:%S')
+
+class Messenger:
+    def __init__(self, listeners=[]):
+        self.listeners = listeners
+    def send(self,message):
+        for listener in self.listeners:
+            listener.receive(message)
+    def receive(self,message):
+        pass
+
+class SaveMessages(Messenger):
+    def __init__(self,listeners=[]):
+        # I don't get the listeners in init() below
+        super().__init__(listeners)
+        self.messages = []
+    def receive(self,message):
+        self.messages.append({'message':message, 'time': getCurrentTime()})
+    def printMessage(self):
+        for m in self.messages:
+            print(f'Message: "{m["message"]}" Time: {m["time"]}')
+        self.messages = []
+
+listener = SaveMessages()
+sender = Messenger([listener])
+sender.send('Hello I dont get how this works')
+sender.send('Still Don\'t know')
+sender.send('What\'s going on??')
+
+listener.printMessage()
+
+                </pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="right-img desize-img" src="images/01.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

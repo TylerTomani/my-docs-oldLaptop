@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-memberOperators</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" >5-membershipOperators</h2>
+    <div class="fc">
+        <div class="fi flex-col ">
+            <div class="fi">
+                <p>
+                    There are only two Membership operators
+                </p>
+            </div>        
+            <div class="fi asc justify-self-center mt3">
+            <ul>
+                <li><code class="b lgcode">in</code></li>
+                <li><code class="b lgcode">not in</code></li>
+            </ul>
+        </div>
+        </div>
+        
+    </div>
+    
+    <h3><code class="b lgcode">in</code></h3>
+    <div class="fc">
+        <div class="fi flex-col jc">
+            <p>
+                Checks for a value <span class="v">in</span> a structure or variable.
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(1 <span class="v mdsmcode">in</span> [1,2,3])
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/01-in.png">
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi flex-col jc">
+            <p>
+                If it's not there it returns <code class="b mdcode">False</code>
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(8 <span class="v mdsmcode">in</span> [1,2,3])
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/02-inFalse.png">
+        </div>
+        
+    </div>
+    <h3><code class="b lgcode">not in</code></h3>
+    <div class="fc">
+        <div class="fi flex-col jc">
+            <p>
+                Use <code class="b mdcode">not it</code> to return <code class="b mdcode">True</code>
+                if the value is not there.
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print(10 <span class="v mdsmcode">not in</span> [1,2,3])
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/03-noIn.png">
+        </div>
+    
+    </div>
+    <hr>
+    <div class="fc">
+        <div class="fi flex-col jc">
+            <p>
+                This can be applied to strings. You can search for letters and words in 
+                strings.
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print('cat' <span class="v mdsmcode">in</span> 'Concatenation')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/04-inStrings.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex-col jc">
+            <p>
+                Or you can retrieve a <code class="b mdcode">True</code> by using
+                <code class="b mdcode">not in</code>
+                
+            </p>
+            <sub class="r">This doesn't seem right, what did I mean by this</sub>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    print('cat' <span class="v mdsmcode">not in</span> 'Concatenation')
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/05-notInString.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

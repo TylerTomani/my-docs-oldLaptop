@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-02-staticInstanceMethods</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-02-staticInstanceMethods</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                This class appends words to a sets. It puts the txt through two class methods.
+                <code class="v">addTxt</code> and <code class="v">cleanTxt</code>
+            </p>
+        </div>
+    </div>
+    <!-- basic WordSet class -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class WordSet:
+    def __init__(self):
+        self.words = set()
+    def <span class="v">addTxt</span>(self,txt):
+        txt = self.cleanTxt(txt)
+        for word in txt.split():
+            self.words.add(word)
+    def <span class="v">cleanTxt</span>(self,txt):
+        txt = txt.replace('!','').replace('?','')
+        return txt.lower()
+wordSet = WordSet()
+wordSet.addTxt('? These are some!! words?')
+wordSet.addTxt('!!!! These are more words!?!')
+print(wordSet.words)
+                </pre>
+            </div>     
+            <div class="fi">
+                <p>
+                    Don't forget the <code><span class="o">split</span>()</code> function
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The <code class="b">self</code> in <code><span class="v">cleanTxt</span>(<span class="b">self</span>,txt)</code>
+                is <strong>Not</strong> being used.
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img smcode">
+    def <span class="v">cleanTxt</span>(<span class="b">self</span>,txt):
+        txt = txt.replace('!','').replace('?','')
+        return txt.lower()
+                </pre>
+            </div>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                But, if we try to remove it and run the code, it will throw an error.
+            </p>
+        </div>
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+    def <span class="v">cleanTxt</span>(txt):
+        txt = txt.replace('!','').replace('?','')
+        return txt.lower()
+                </pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can omit <span class="b">self</span> from <code><span class="v">cleanTxt</span>(txt)</code>
+                by adding a <code><span class="o">@staticmethod</span></code> decorator above the <code><span class="v">cleanTxt</span>()</code>
+                method
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class WordSet:
+    def __init__(self):
+        self.words = set()
+    def addTxt(self,txt):
+        txt = self.cleanTxt(txt)
+        for word in txt.split():
+            self.words.add(word)
+    <span class="o">@staticmethod</span>
+    def cleanTxt(txt):
+        txt = txt.replace('!','').replace('?','')
+        return txt.lower()
+wordSet = WordSet()
+wordSet.addTxt('? These are some!! words?')
+wordSet.addTxt('!!!! These are more words!?!')
+print(wordSet.words)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;<code><span class="o">cleanTxt</span>()</code> is a <span class="o">static method</span> because it doesn't use self,
+                while <code><span class="v">addTxt</span>()</code> is an <span class="v">instance method</span> because
+                it requires the instance of the class
+            </p>
+            <p>
+                To fix this we can use the <span class="o">@staticmethod</span> decorator above the <code><span class="o">cleanTxt</span>()</code>
+                method. Add also place the punctuations we wish to replace in a <span class="o">static attribute</span>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class WordSet:
+    <span class="o">puncs</span> = ['!','?']
+    def __init__(self):
+        self.words = set()
+    def <span class="v">addTxt</span>(self,txt):
+        txt = self.cleanTxt(txt)
+        for word in txt.split():
+            self.words.add(word)
+    <span class="o">@staticmethod</span>
+    def <span class="o">cleanTxt</span>(txt):
+        for punc in WordSet.puncs:
+            txt = txt.replace(punc,'')
+        return txt.lower()
+wordSet = WordSet()
+wordSet.addTxt('? These are some!! words?')
+wordSet.addTxt('!!!! These are more words!?!')
+print(wordSet.words)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

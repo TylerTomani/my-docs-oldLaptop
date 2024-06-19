@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-write</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">2-write</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;To write to a file we assign a variable to the <code><span class="dg">open</span>()</code> function.
+                The first argument is the file name we want to create, and the second argument is <code class="v">w</code>
+                for <span class="v">write</span>
+            </p>
+            <p>
+                &emsp;When we run the file below it will create a file with the name supplied in the same
+                folder as the python script
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="fcol mt2">
+        <div class="fi">
+            <p>
+                <span class="important">Important Note</span> In Visual Studio Code you must run the script 
+                in <span class="r">'Run Current File in Interactive Window'</span>. I made the shortcut,
+            </p>
+        </div>
+        <div class="fi asc">
+            <code class="lgtxt">⌃ + ⌘ + \</code>
+        </div>
+        
+    </div>
+    <!-- f = open('newFile.txt','w') -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = <span class="dg">open</span>('newFile.txt','<span class="v">w</span>')
+print(f)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="left-img desize-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <p tabindex="1" class="copy-code">
+Then the file will appear in the same folder as the python script
+                </p>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="left-img desize-img" src="images/02.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;Use the <code><span class="o">write</span>()</code> function to write to the file.
+                <span class="important">Important note</span> <strong>Always</strong> close the file after writing 
+                with <code><span class="r">close</span>()</code>  
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                &emsp;When we open the file we will the see the two lines appear directly next to each other
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                &emsp; <span class="important">Important Note</span>, You can just run the script normally in VS code
+                to write to the file, the shortcut for my settings is
+            </p>
+        </div>
+        <div class="fi asc">
+            <code class="lgtxt">⌥ + ⌘ + \</code>
+        </div>
+    </div>
+    <!-- f.write('Line 1') -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code no-img ">
+f = open('newFile.txt','w')
+f.write('Line 1')
+f.write('Line 2')
+f.<span class="r">close</span>()</pre>
+                <div class="fi">
+                    <img class="right-img" src="images/03.png">
+                </div>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;You must add the <code>\n</code> new line character for the lines to be written as such
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                And Every time you write to a file, it overwites any existing content already in the file so 
+                <span class="important">Be Careful</span>
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                <span class="important">Important</span> if it doesn't work with the run script shortcut.
+                Use <span class="r">Run Current File in Interactive Window</span>
+            </p>
+        </div>
+        
+    </div>
+    <!-- f.write('Line 1 \n') -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('newFile.txt','w')
+f.write('Line 1 \n')
+f.write('Line 2 \n')
+f.close()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div>
+        
+    </div>
+    
+    <footer tabindex="1"></footer>
+    
+    
+    
+    
+    
+</body>
+</html>

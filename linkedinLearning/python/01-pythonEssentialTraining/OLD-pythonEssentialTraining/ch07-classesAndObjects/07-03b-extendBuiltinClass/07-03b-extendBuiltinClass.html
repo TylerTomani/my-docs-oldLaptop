@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-03b-extendBuiltinClass</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">07-03b- Extending built-in classes</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;Remember, python classes, such as <code>list</code> are lowercase but are still classes.
+                We can extend these built-in classes and add atttributes and methods.
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;If we want to make a list that makes all the items unique like a set, we would have to 
+                extend the list class and overwrite the <code>append()</code> function.
+                We could try the following,
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc br2">
+                <pre tabindex="1" class="copy-code">
+class UniqueList(list):
+    def append(self,item):
+        if item in self:
+            return
+        <span class="r">self</span>.append(item)
+                </pre>
+            </div>
+        </div>  
+        <div class="fi">
+            <p>
+                &emsp;<span class="r">This is will not work</span>, This append method will call
+                itself's <code class="r">self</code> and lead to infinite recursion. 
+            </p>
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi flex asc">
+            <p>
+                We can call the parent's <code class="mo">append</code> method with
+                <code class="dg">super()</code>
+            </p>
+        </div>
+        
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+class UniqueList(list):
+    def append(self,item):
+        if item in self:
+            return 
+        <span class="dg">super()</span>.append(item)
+                </pre>
+            </div>     
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+class UniqueList(list):
+    def append(self,item):
+        if item in self:
+            return 
+        <span class="dg">self()</span>.append(item)
+uniqueList = UniqueList()
+uniqueList.append(1)
+uniqueList.append(1)
+uniqueList.append(2)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                The parent's <code>append</code> class method works as will the child's.
+            </p>
+        </div>
+    </div>
+    <h3>Initializing <code>__init__</code> in childe</h3>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class UniqueList(list):
+    def <span class="r">__init__</span>(self):
+        self.someProperty = "another list"
+    def append(item)
+        if item in self:
+            return 
+        super().append()
+
+                </pre>
+            </div>
+            
+        </div>
+        <div class="fi flex asc">
+            <p>
+                Using <code class="r">__init__</code> in a child class will overwrite 
+                the parent's class <code>__init__</code> initializing method.
+            </p>
+        </div>
+        
+    </div>
+    
+    <div class="fc">
+        <div class="fi">
+            <p>
+                To solve this use <code class="dg">super().__init__()</code> in the child's <code>__init__</code>
+                method.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class UniqueList(list);
+    def __init__(self):
+        <span class="dg">super().__init__()</span>
+        self.someProperty = 'another list'
+    def append(self,item):
+        if item in self:
+            return
+        super().append(item)
+
+uniqueList = UniqueList()
+uniqueList.append(1)
+uniqueList.append(1)
+uniqueList.append(1)
+print(uniqueList)
+print(uniqueList.someProperty)
+                </pre>
+            </div>
+        </div>
+        <div class="fc">
+            <div class="fi">
+                <img tabindex="1" class="left-img" src="images/02.png">
+            </div>
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

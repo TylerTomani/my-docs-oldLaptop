@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-writing</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-2-4- Writing</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We need to use the code from the previous lesson to write the data into a file.
+            </p>
+        </div>
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+with open('../10_02_us.csv','r') as f:
+    data = list(csv.DictReader(f, delimiter='\t'))
+primes = []
+for n in range(2,99999):
+    for factor in range(2,int(n**0.5)):
+        if n % factor == 0:
+            break
+    else:
+        primes.append(n)
+data = [row for row in data if int(row['postal code']) in primes and row['state code'] == 'MA']
+print(len(data))
+                </pre>
+            </div>     
+        </div>
+    </div>
+    <h3 class="r">Important Note</h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The code above will only work in VS code if you <span class="r">
+                    'Run Current File in Interactive Window'
+                </span>
+            </p>
+        </div>
+        <div class="fi">
+            I made the shortcut
+        </div>
+        <div class="fi asc">
+            <code class="lgtxt">⌃ + ⌘ + \</code>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p tabindex="1">
+                <span class="r">I stil don't know how data is available outside the scope of the initial with open
+                block but it is</span>, so we use it to write the data into a file with another with statement.
+            </p>
+        </div>
+        <div class="fi">
+            <p tabindex="1">
+                The data gathered from the code above contains all the MA real estate with postal codes that are prime numbers.
+                We can write whatever we want from those dictionaries into a new file, in this case we are writing 
+                the <code class="v">'place name'</code> and <code class="v">'county'</code>
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                To do this we must use the <code class="o">writer()</code> function from csv and <code class="b">writerow()</code> function
+            </p>
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+with open('primeEstate.csv','w') as f:
+    writer = csv.<span class="o">writer</span>(f)
+    for row in data:
+        writer.<span class="b">writerow</span>([row['<span class="v">place name</span>'], row['<span class="v">county</span>']])
+                </pre>
+            </div>     
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p tabindex="1">
+                We could pass a delimiter argument to specify how we want the content spaced, but default it is a comma which is what we want,
+                this is what the final output should look like, and should be in the same folder as the script.
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+    
+    
+    
+    
+    
+    
+</body>
+</html>

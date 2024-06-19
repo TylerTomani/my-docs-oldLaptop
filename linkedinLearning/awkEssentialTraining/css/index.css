@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    display: flex;
+    justify-content: space-around;
+}
+header > a > img {
+    width: 67%;
+    min-width: 250px;
+
+}
+header > p {
+    font-size: 25%;
+
+}
+.unit-lesson-display {
+    background-color: #b8d2d2;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.main-section {
+    display: flex;
+}
+iframe {
+    padding-top: .5%;
+    width: 100vmax;
+    height: 100vh;
+}
+aside { 
+    padding: 1% 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+aside ul.accordian > li > a {
+    text-decoration: none;
+}
+aside ul.accordian > li > ul > li a {
+    text-decoration: none;
+    color:blue
+}
+aside ul.accordian > li > a > h2{
+    font-size: .75rem;
+}
+aside ul.accordian > li {
+    /* font-size: .7rem; */
+    padding: 1%;
+}
+aside ul.accordian > li > ul {
+    font-size: .9rem;
+    margin-left: 1rem;
+}
+aside ul.accordian > li > ul > li{
+    font-size: .75rem;
+    padding: 1.5% 0;
+    margin: 1% 0;
+    
+}
+.hide   {
+    display: none
+}
+#show {
+    display: block;
+}
+aside {
+    min-width: 150px;
+}
+

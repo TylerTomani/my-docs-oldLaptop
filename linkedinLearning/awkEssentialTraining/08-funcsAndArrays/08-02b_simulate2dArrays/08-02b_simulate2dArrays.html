@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-02b_simulate2dArrays</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">08-02b-Simulate 2d arrays</h2>
+    </header>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <p>
+                &emsp;Awk can only support 1 dimensional array, but here is how to 
+                simulate a 2-d array. Build a string in an associative array that
+                 includes each dimension you want.
+            </p>
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <pre tabindex="1" class="copy-code">
+{
+	for ( i=1; i&lt;=NF; i++){
+		a[NR ":" i] = $i;
+	}
+	if (NF > maxNF){
+		maxNF = NF;
+	}
+}
+END {
+	for (field=1; field&lt;=maxNF; field++){
+		for(rec=1; rec&lt;=NR; rec++){
+			printf( "%-10s", a[rec ":" field] );	
+		}	
+		print ("\n");
+	}
+}
+
+
+            </pre>
+
+        </div>
+        <div class="flex-item">
+            <pre>
+                The grand old Duke of York
+                He had ten thousand men
+                He marched them up to the top of the hill
+                And he marched them down again
+                And when they were up they were up
+                And when they were down they were down
+                And when they were only half-way up
+                They were neither up nor down
+            </pre>
+
+        </div>        
+    </div>
+    <div class="flex-col">
+                <div class="flex-item">
+            <code>$ awk -f array2d.awk dukeofyork.txt</code>
+            <pre>
+The     He      He      And     And     And     And     They
+
+grand   had     marched he      when    when    when    were
+
+old     ten     them    marched they    they    they    neither
+
+Duke    thousand up     them    were    were    were    up
+
+of      men     to      down    up      down    only    nor
+
+York            the     again   they    they    half-way down
+
+                top             were    were    up
+
+                of              up      down
+
+                the
+
+                hill
+  
+            </pre>
+        </div>
+       
+    </div>
+    
+    
+
+</body>
+</html>

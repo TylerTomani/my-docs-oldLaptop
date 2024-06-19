@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-dataStructures-1-list</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">02-02-1_Lists</h2>
+    <!-- my_list = [] -->
+    <div class="fcol align-center">
+        <div class="fi">
+            <p>
+                To create an empty list use <code>[ ]</code> square brackets
+            </p>
+        </div>
+        <div class="code-container align-self-center">
+            <code tabindex="1" class="copy-code no-img">
+                my_list = [ ]
+            </code>
+        </div>
+    </div>
+    <!-- my_list = [1,2,3,4] -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Add items to a list by seperating each one with a <code class="mdsmtxt">,</code> comma.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2,3,4]
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-list.png">
+        </div>
+    </div>
+    <!-- my_list = ['list', 'of', 'things'] -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>Different types of variables can go into a list</p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_list = ['list', 'of', 'things']
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-strList.png">
+        </div>
+    </div>
+    <!-- my_list = [1, 'list', False, ['one','two']] -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>You can mix different types of varialbe within a list,
+                    even <span class="v">other list</span>.
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_list = [1, 'list', <span class="b">False</span>, <span class="v mdsmtxt">[</span>'one','two'<span
+class="v mdsmtxt">]</span>]
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/03-varietyList.png">
+        </div>
+    </div>
+    <!-- my_list = [[1,2], [False, True], ['three','four']] -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    It is also possible to put list in list
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_list = [[1,2], [False, True], ['three','four']]
+print(my_list)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/04-listInList.png">
+        </div>
+    </div>
+    <h3><code class="lgcode">len</code></h3>
+    <div class="fcol align-center">
+        <div class="fi">
+            <p>
+                <code class="v mdcode">len</code> is a funcion used to return the length
+                of a list
+            </p>
+        </div>
+        <div class="code-container align-self-center">
+            <code tabindex="1" class="copy-code no-img mdcode">
+                len()
+            </code>
+        </div>
+    </div>    
+    <!-- print(len(my_list)) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>
+                    Here the length of <code>my_list</code> is 3 because
+                    if contains three items
+                </p>
+            </div>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+my_list = [[1,2], [False, True], ['three','four']]
+print(<span class="v mdcode">len</span>(my_list))</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="left-img" src="images/05-len.png">
+        </div>
+    </div>
+        <footer tabindex="1"></footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-01-ifAndElse</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">05-01 if and else</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                If the number is divisible by 3 print 'Fizz',
+                divisble by 5 print 'Buzz' and if the number is 
+                divisible by 15 print 'FizzBuzz', other wise 
+                just print the number
+            </p>
+        </div>
+    </div>
+    <!-- if else -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+for n in range(1,50):
+    if n % 3 == 0:
+        print('fizz')
+    else:
+        if n % 5 == 0:
+            print('buzz')
+        else:
+            if n % 15 == 0:
+                print('fizzbuzz')
+            else:
+                print(n)</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01.png">
+        </div> 
+    </div>
+
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This code works but it messy. Python has the <code>elif</code> statement 
+                which will clean it up. The <code class="r">else</code> statement at the end is optional.
+                
+            </p>
+        </div>
+    </div>
+    <!-- elif -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+for n in range(1,50):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 5 == 0:
+        print('Buzz')
+    elif n % 3 == 0:
+        print('Fizz')
+    <span class="r">else:</span>
+        print(n)</pre>
+            </div>
+    
+        </div>
+        <div class="fi">
+            <img class="" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p> You can add an additional <code class="o mdcode">if</code> statement block after as well</p>
+        </div>
+    </div>
+    <!-- elif then an if -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+for n in range(1,50):
+    if n % 15 == 0:
+        print('FizzBuzz')
+    elif n % 5 == 0:
+        print('Buzz')
+    elif n % 3 == 0:
+        print('Fizz')
+    else:
+        print(n)
+    <span class="o">if</span> n % 2 == 0:
+        print('Even')</pre>
+            </div>
+    
+        </div>
+        <div class="fi">
+            <img class="" src="images/03.png">
+        </div>
+    </div>
+    <h3>Single <code>if</code> statement line</h3>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <p tabindex="1" class="copy-code">
+                    You can write an if statement on one line, <span class="r">In Python</span> it 
+                    does <strong>NOT</strong> seem like you can use an if without an else in 
+                    a print function
+                    
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04a.png">
+        </div>
+    </div>
+    <!-- print(' \'fizz \' ') -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+n = 3
+print(' \'fizz\' ' if n % 3 == 0 else n)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/04b.png">
+        </div>
+        
+    </div>
+    <h3>Ternary Operator</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                we can apply this one line if statement as a <i>ternary</i> operator to 
+                assign a value to a variable
+            </p>
+        </div>
+    </div>
+    <!-- oddNum -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+n = 7
+oddNum = 'Even Number' if n % 2 == 0 else 'Odd Number'
+                </pre>
+            </div>     
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="left-img" src="images/05.png">
+        </div>
+        
+    </div>
+    <h3>String on lines together</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>We can string together the first example all on one line but <strong>Remember</strong>
+                an <code class="r">else</code>  is required with an if statement
+            </p>
+        </div>
+    </div>
+    <!-- 'fizzbuzz' if n % 15 == 0 else 'buzz' if n % 5 == 0 else 'fizz' if n % 3 == 0 -->
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+n = 3
+num = 'fizzbuzz' if n % 15 == 0 else 'buzz' if n % 5 == 0  else 'fizz' if n % 3 == 0 
+<span class="r">else</span> n
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="md-img" src="images/06.png">
+        </div>
+        
+    </div>
+    <div class="fcol mt2">
+        <div tabindex="1" class="fi ">
+            <p>
+                 You can put this in a list with the for loop at the end, pretty cool
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <img tabindex="1" class="md-img" src="images/07.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-filterData</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-2-3- filter Data</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                In the previous lesson we used the <code>csv.DictReader</code> to covert the header row items into 
+                keys for dictionaries. We can cast these dictionaries into a list and filter out specific values from those keys.
+            </p>
+        </div>
+        <div class="fi mt1">
+            <p>
+                The below example filters out any postal code that is a prime number and also in the state of 'MA'.
+                
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+with open('../10_02_us.csv','r') as f:
+    data = list(csv.DictReader(f, delimiter='\t'))
+
+primes = []
+for n in range(2,99999):
+    for factor in range(2,int(n**0.5)):
+        if n % factor == 0:
+            break
+    else:
+        primes.append(n)
+
+data = [row for row in data if int(row['postal code']) in primes and row['state code'] == 'MA']
+print(len(data))
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p tabindex="1">
+                We can see that it works by checking the len. There are 91 results. Go
+                to the next lesson to see how to write the data to a file.
+            </p>
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

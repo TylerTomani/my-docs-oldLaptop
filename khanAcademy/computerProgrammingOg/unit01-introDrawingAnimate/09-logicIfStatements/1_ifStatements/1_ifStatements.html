@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_ifStatements</title>
+    <link rel="stylesheet" href="../../../css/lesson.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <canvas tabindex="1" id=""></canvas>
+    <div class="flex-col align-center">
+        <pre>
+<div tabindex="1">
+const canvas = document.querySelector("canvas")
+const c = canvas.getContext("2d")
+canvas.width = innerWidth;
+canvas.height = innerHeight * .3;
+
+class Ball {
+    constructor({position,velocity}){
+        this.position = position;
+        this.velocity = velocity;
+    }
+    draw(){
+        c.beginPath();
+        c.fillStyle = "orange"
+        c.ellipse(this.position.x,this.position.y,
+            canvas.width * .05,canvas.width *.05, Math.PI / 4, 0 , 2 * Math.PI);
+        c.fill();
+        c.stroke()
+        c.closePath()
+    }
+</div>
+    <div tabindex="1">update(){
+        this.draw()
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+        if(this.position.x > canvas.width){
+            this.velocity.x = -5
+        } else if(this.position.x < 0){
+            this.velocity.x = 10;
+        }
+        if(this.position.y > canvas.height){
+            this.velocity.y = -10
+        } else if(this.position.y < 0){
+            this.velocity.y = 5;
+        }
+    }
+</div>
+}
+
+<div tabindex="1">const ball1 = new Ball({
+    position: {
+        x: canvas.width * .5,
+        y: 10
+    },
+    velocity:{
+        x: 10,
+        y: 3
+    }
+})
+</div>
+<div tabindex="1">
+function animate(){
+    window.requestAnimationFrame(animate);
+    canvas.style.background = "rgb(30,200,100)"
+    c.clearRect(0,0,canvas.width,canvas.height)
+    ball1.update()
+}    
+animate()</div>
+        </pre>
+    </div>
+
+
+</body>
+</html>

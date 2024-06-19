@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-03b-defaultdict</title>
+    <link rel="stylesheet" href="../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../css/path-colors.css">
+    <script src="../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-03b-defaultdict</h2>
+    <div class="fc">
+        <div class="fi flex-col">
+            <p>
+                Import the defaultdict from the <code>collections</code> module/library
+            </p>
+        </div>
+        <div class="code-container asc">
+            <code tabindex="1" class="copy-code no-img">
+from collections import defaultdict
+            </code>
+        </div>
+    </div>
+    <hr>
+    <div class="flex-col">
+        <div class="fi ">
+            <p>
+                You must past <strong>the name</strong> of the type of object the default dict must return by default, 
+                in this example passes list into it.
+            </p>
+        </div>
+ 
+    </div>
+    <!-- animals = defaultdict(list) -->
+    <div class="fc">
+        <div class="fi flex-col">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+animals = defaultdict(list)
+animals</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-defaultdictList.png">
+        </div>
+        
+    </div>
+    <div class="flex-col">
+        <div class="fi ">
+            <p>
+                This has created an empty dictionary. Since list is the default value 
+                within the dict, we don't have to create keys with empty list ( as seen 
+                at the end of the last lesson)
+            </p>
+        </div>
+        <div class="fi mt1">
+            <p>
+                We can just use append values to list in keys, even if the key doesn't exist, 
+                it will create the key with the appended list
+            </p>
+        </div>
+    </div>
+    <!-- animals['b'].append('boar') -->
+    <div class="fc">
+        <div class="fi flex-col">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+animals['b'].append('boar')
+animals</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-appendToDefaultDict.png">
+        </div>
+    </div>
+    <!-- animals['f'] -->
+    <div class="flex-col">
+        <div class="fi ">
+            <p>
+                Now if we index a key that doesn't exist, no error occurs; Instead 
+                a new key is made with an empty list
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex-col">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+animals['f']
+animals</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-fEmpty.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

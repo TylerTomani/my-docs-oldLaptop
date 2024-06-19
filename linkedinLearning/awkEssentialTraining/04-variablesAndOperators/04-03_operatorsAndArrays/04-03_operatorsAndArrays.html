@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-03-operatorsAndArrays</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+</head>
+<body>
+    <header tabindex="1">
+        <h2 class="lesson-header">04-03-operatorsAndArrays</h2>
+    </header>
+    <div class="flex-col">
+        <p>
+            &emsp;awk provides three string operators
+        </p>
+        <ul>
+            <li><code>concatenation</code> - doesn't have a symbol</li>
+            <li><code style="padding: 0 1rem;font-weight: 999; font-size: 2.7rem;">~</code> - checks if regular expression
+                matches another</li>
+            <li><code style="padding: 0 1rem;font-weight: 999; font-size: 2.7rem;">!~</code> - checks if regular expression does
+                NOT match another</li>
+        </ul>
+    </div>    
+    <div class="flex-col">
+        <h2>Arrays</h2>
+        <p>
+            &emsp; turn a variable into an array using subscript, just like other language, but remember, $0 is the whole line.
+            <br>And, awk only accepts single dimension arrays
+        </p>
+    </div>
+
+        <code class="code sm-code inline-block">
+            $ awk '{a[1]=$1;a[2]=$2;a[3]=$3; print a[1] , a[2], a[3]}'
+            <br> dog cat mouse
+            <br> dog cat mouse
+        </code>
+
+
+
+
+</body>
+</html>

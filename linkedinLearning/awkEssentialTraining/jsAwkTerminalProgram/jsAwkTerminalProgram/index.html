@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-01_manipulateStrings</title>
+    <!-- <link rel="stylesheet" href="../../css/lesson.css"> -->
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../css/08-lessonStyles.css">
+    <link rel="stylesheet" href="../consoleUnit08/console08Styles.css">
+
+    <!-- console script -->
+    <script src="../consoleUnit08/script.js" defer></script>
+</head>
+<body>
+    <a tabindex="1" href="../../index.html">home</a>
+    
+<h4>cmd</h4>
+<!-- <a href="#" id="focus"></a> -->
+<!-- Console Container-->
+<div class="console-container">
+    <!-- Console -->
+    <div class="console console-container-item ">
+        <div class="console-cmdline-input">
+            <p class="cmd-line-txt">$</p>
+            <textarea tabindex="1" name="legnthInput" id="legnthInputScript" cols="50" rows="1"
+                placeholder=""></textarea>
+            <button class="run-btn">Run</button>
+        </div>
+        <div>
+            <p id="currentInput">current cmd line textarea output</p>
+        </div>
+        <!-- <div class="console-script-input">
+                <h4>UW PICO 5.09  <span class="script-input-file">File:<span class="script-input-file-name">file.awk</span></span></h4>
+                <textarea tabindex="1"  name="legnthInput" id="legnthInputScript" cols="20" rows="20"
+                placeholder=""></textarea>
+                <button  class="run-btn">Run</button>
+            </div> -->
+    </div>
+
+
+    <!-- Example Text -->
+    <div class="txt-file-example console-container-item">
+        <h2>Example Text</h2>
+        <pre class="txt-file copy-pre-code">
+            The grand old Duke of York
+            He had ten thousand men
+            He marched them up to the top of the hill
+            And he marched them down again
+            And when they were up they were up
+            And when they were down they were down
+            And when they were only half-way up
+            They were neither up nor down</pre>
+    </div>
+
+</div>
+    <!-- <header class="m-b-1 "> -->
+    <header>
+        <h2  class="lesson-header">08-01- Manipulate Strings </h2>
+    </header>
+    <div class="flex-container justify-center m-tb-1 md-txt">
+        <div class="flex-item flex justify-center ">
+            <ul class="code-list ">
+                <li><code><span class="cmd">length</span>([stirng])</code></li>
+                <li><code><span class="cmd">index</span>( string, target)</code></li>
+                <li><code><span class="cmd">match</span>( string, regex)</code></li>
+                <li><code><span class="cmd">substr</span>(start [,legnth]</code></li>
+            </ul>
+        </div>
+
+        <div class="flex-item ">
+            <ul class="code-list">
+                <li><code><span class="cmd">sub</span>(regex, newval[,string])</code></li>
+                <li><code><span class="cmd">gsub</span>(regexp, newbal[,string])</code></li>
+                <li><code><span class="cmd">split</span>(string,array[,regex])</code></li>
+            </ul>
+        </div> 
+    </div>
+    <div class="flex-container">
+    
+    
+        <!-- length() -->
+        <div  class="flex-item flex-col justify-center align-center b-1" >
+            <div class="flex-item flex-col ">
+                <h2><code>length()</code></h2>
+            </div>
+            <div class="flex-item flex-col ">
+                <h3><code class=" ">legnth("antidisestablishmentarianism", "blish"</code></h3>
+            </div>
+            <div class="flex-item p-s-2">
+                <ul>
+                    <li>Return 12, the index of b</li>
+                </ul>
+            </div>
+        </div>
+        <!-- index() -->
+        <div  class="flex-item flex-col justify-center align-center b-1" >
+            <div class="flex-item flex-col ">
+                <h2><code>index()</code></h2>
+            </div>
+            <div class="flex-item flex-col ">
+                <h3><code class=" ">index("antidisestablishmentarianism", "blish"</code></h3>
+            </div>
+            <div class="flex-item p-s-2">
+                <ul>
+                    <li>Return 12, the index of b</li>
+                </ul>
+            </div>
+        </div>
+        <!-- match() -->
+        <div  class="flex-item flex-col justify-center align-center b-1" >
+            <div class="flex-item flex-col">
+                <h2><code>match()</code></h2>
+                <h3><code class=" ">match("antidisestablishmentarianism", <span class="v">/b[a-z]*n/)</span> </code></h3>
+                <p>Looks for in string with a <span class="v">regular expression</span>, then;</p>
+                <ul class="m-s-2">
+                    <li>Returns 12</li>
+                    <li>Sets <code>RSTART</code> to 12</li>
+                    <li>Sets <code>RLENGTH</code> to 14</li>
+                </ul>
+            </div>
+            <div class="flex-item flex-col ">
+                
+            </div>
+            <div class="flex-item p-s-2">
+                <ul>
+                    <li>Returns 12, the index of b</li>
+                </ul>
+            </div>
+        </div>
+        <!-- substr() -->
+        <div  class="flex-item flex-col justify-center align-center b-1" >
+            <div class="flex-item flex-col">
+                <h2><code>substr()</code></h2>
+                <h3><code class=" ">substring("antidisestablishmentarianism", 12, 5) </code></h3>
+                <p>The <code class="md-txt">12</code> is the index to start from. The <code class="md-txt">5</code> is how many to go</p>
+                <ul class="m-s-2">
+                    <li>Returns "blish"</li>
+                </ul>
+                <h3><code class=" ">substring("antidisestablishmentarianism", 12, <span class="b-2-red p-s-1"></span>  ) </code></h3>
+                <p>If the third argument <code class="b-1-red md-txt">5</code> is omiited, </p>
+                <ul class="m-s-2">
+                    <li>Returns the rest of string "blishmentarianism</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>

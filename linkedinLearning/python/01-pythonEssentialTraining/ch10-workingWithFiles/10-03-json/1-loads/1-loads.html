@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-loadsDumps</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-3-1 <code>json.loads()</code></h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                This is a json string, notice it is a string and <strong>Not</strong> a python dictionary.
+            </p>
+        </div>
+        <div class="fi mtb1 ">
+            <code tabindex="1" class=" copy-code mdcode">jsonString = '{ "a" : "apple", "b": "bear", "c": "cat" }'</code>
+        </div>
+        <div class="fi">
+            <p>
+                To convert it into a python dictionary we must import the <code class="o">json</code> module
+                to use the json method <code><span class="v">loads</span>()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi flex ac">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code xsmcode">
+import <span class="o">json</span>
+jsonString = '{ "a" : "apple", "b": "bear", "c": "cat" }'
+json.<span class="v">loads</span>(jsonString)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                In VS code or any other IDE, just assign this to a variable to see the results
+            </p>
+        </div>
+        <div class="fi flex jc">
+            <img tabindex="1" class="mid-img" src="images/02.png">
+        </div>
+    </div>
+    <hr>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Adding a trailing comma to a python dictionary is fine,
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json
+jsonString = '{"a":"apple","b":"bear","c":"cat"}'
+jsonDict = json.loads(jsonString)
+jsonDict = {'a':'apple','b':'bear','c':'cat',}
+print(jsonDict)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                But adding a trailing comma to a json string will return a <code class="r">JSONDecodeError</code>.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json
+jsonString = '{"a":"apple","b":"bear","c":"cat",}'
+jsonDict = json.loads(jsonString)
+jsonDict = {'a':'apple','b':'bear','c':'cat'}
+print(jsonDict)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <p>
+                It is common to use a try and except to catch this <code class="r">JSONDecodeError</code> when 
+                using json. But you also need to import from the json module itself
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code xsmcode">
+import json
+from json import <span class="r">JSONDecodeError</span>
+jsonString = '{"a":"apple","b":"bear","c":"cat",}'
+try:
+    json.loads(jsonString)
+except JSONDecodeError:
+    print('Bad json string')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div> 
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

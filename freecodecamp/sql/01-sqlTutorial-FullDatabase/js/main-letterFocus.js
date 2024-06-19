@@ -1,8 +1,9 @@
 const backlink = document.getElementById('backlink')
 const homelink = document.getElementById('homelink')
+const linuxCmds = document.getElementById('linuxCmds')
+const popSqlShorcuts = document.getElementById('popSqlShorcuts')
 const tutoriallink = document.getElementById('tutorialLink')
 const regexCmds = document.getElementById('regexCmds')
-const linuxCmds = document.getElementById('linuxCmds')
 export const nav = document.querySelector('nav')
 export const aside = document.querySelector('aside')
 export const targetDiv = document.querySelector('#targetDiv')
@@ -41,11 +42,14 @@ addEventListener('keydown', e => {
         case 'a':
             aside.focus()
             break
+        case 'l':
+            linuxCmds.focus()
+            break
         case 'm':
             targetDiv.focus()
             break
-        case 'l':
-            linuxCmds.focus()
+        case 'p':
+            popSqlShorcuts.focus()
             break
         case 't':
             tutoriallink.focus()

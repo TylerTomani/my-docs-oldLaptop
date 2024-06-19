@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02-tuplesSets</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-02- tuples and sets</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Set can <span class="r">only </span> contain unique values. We can 
+                use this to <a tabindex="1" href="#dupValues" class="r">remove duplicate values</a>
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi mtb2">
+            <p>
+                &emsp;Use <code>list()</code> to cast an 
+                <a class="r" target="_blank" tabindex="1"
+                    href="https://www.tutorialsteacher.com/python/set-method#:~:text=iterable%3A%20(Optional)%20An%20iterable%20such%20as%20string%2C%20list%2C%20set%2C%20dict%2C%20tuple%20or%20custom%20iterable%20class.">iterable</a>
+                object: into a <code>[]</code> list
+            </p>
+        </div>
+    </div>
+    <!-- newList = list({'one','two','three'}) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+newList = list({'one','two','three'})
+newList</pre>
+            </div>           
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02-setToList.png">
+        </div>
+    </div>
+    <!-- newList = list(('1',2','3')) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+newList = list(('1','2','3'))
+newList</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-tupleToList.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol mtb2">
+        <div  class="fi ">
+            <p tabindex="1"  id="dupValues">
+                Within <code>list()</code>, put an
+                <a class="r" target="_blank" tabindex="1"
+                    href="https://www.tutorialsteacher.com/python/set-method#:~:text=iterable%3A%20(Optional)%20An%20iterable%20such%20as%20string%2C%20list%2C%20set%2C%20dict%2C%20tuple%20or%20custom%20iterable%20class.">iterable</a>
+                object into a <code><span class="v">set</span>()</code> list. <span class="r">This removes duplicates</span>
+            </p>
+        </div>
+    </div>
+    <!-- myList = list(set((myList) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = ['a','b','b','c']
+myList = list(set((myList)
+myList</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-listSetRemoveDuplicate.png">
+        </div>
+        
+    </div>
+    <hr>
+    <h3><code>newSet[1]</code> vs newList[1]</h3>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <span class="r">**Important</span> Remember, <code>set()</code> objects
+                are <span class="runder3">not <i>subscriptable</i></span>
+            </p>
+        </div>
+    </div>
+    <!-- mySet[1] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = {'1','2','3'}
+mySet[1]</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-setNotScriptable.png">
+        </div>
+    </div>
+    <!-- list object are..  -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                <code>list()</code> object are,
+            </p>
+        </div>
+    </div>
+    <!-- myList[1] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3]
+myList[1]</pre>
+            </div>   
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-listScriptable.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                &emsp;In python, objects are <i>scriptable</i> if they contains items that can 
+                be accessed my their index.
+            </p>
+            <p >
+                The <code>set()</code> object with <code>{}</code> curley braces are not because 
+                their order is not garunteed in memory.
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div tabindex="1" class="fi ">
+            <p>
+                The same error would occur if trying to index anything <strong>not</strong>
+                <i>scriptable</i>
+            </p>
+        </div>
+    </div>
+    <!-- 1[0] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+a = 1
+a[0]</pre>
+            </div>        
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-1NotScriptable.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

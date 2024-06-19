@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-reading</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-2-1-reading</h2>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p>
+                    Import the <code>csv</code> module, The file we're working with looks like this to the right
+                    and is located in the parent directory of this file.
+                </p>
+            </div>
+            <div class="fi asc">
+                <div class="code-container asc inline-block">
+                    <pre tabindex="1" class="copy-code no-img">
+import csv</pre>
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;We can use the <code>csv.<span class="o">reader</span>()</code> object to read from a csv file.
+                It is its own type of object, but is iterable like a list. In order to use it 
+                we must open the file first
+            </p>
+        </div>
+    </div>
+    <!-- type(reader) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = csv.<span class="o">reader</span>(f)
+type(reader)
+                </pre>
+            </div> 
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p> 
+                &emsp;Since the <code>_csv.reader</code> object is iterable we can use a for loop to iterate through it.
+            </p>
+        </div>
+    </div>
+    <!-- print(row) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = csv.reader(f)
+    for row in reader:
+        print(row)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+        
+    </div>
+    <hr>
+    <h3 class="important">Error in jupyter notebook</h3>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p class="r xsmtxt">
+                    I received this error when trying to execute the code above,
+                    but pasting the code below in the terminal and re-opening the jupyter notebook Server
+                    fixed the error.
+                </p>
+            </div>
+            <div class="fi">
+                <p class="smtxt">
+                    found the solution at <a tabindex="1" target="_blank"
+                        href="https://stackoverflow.com/questions/43288550/iopub-data-rate-exceeded-in-jupyter-notebook-when-viewing-image#:~:text=Try%20this%3A-,jupyter%20notebook%20%2D%2DNotebookApp.iopub_data_rate_limit%3D1.0e10,-Or%20this%3A">stackoverflow</a>
+                </p>
+            </div>
+            <div class="fi">
+                <div class="code-container asc inline-block">
+                    <pre tabindex="1" class="copy-code xsmcode">
+jupyter notebook --NotebookApp.iopub_data_rate_limit=1.0e10
+                    </pre>
+                </div>
+                
+            </div>     
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04-error.png">
+        </div>
+    </div>
+    <hr>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp; If you notice in the output, the <code class="r">\t</code>is displayed, 
+                which is how spread sheets and other type of tabbed seperated content is
+                formatted,
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                We can changed this by adding a <code class="v">delimiter</code> argument in the <code><span class="o">reader</span>()</code>, and 
+                asigning it to the specific seperater shown, in this case the <code class="r">\t</code>,
+                by default the delimiter is a <code>,</code>
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+
+            </p>
+        </div>
+        
+    </div>
+    <!-- delimiter -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = csv.<span class="o">reader</span>(f,<span class="v">delimiter</span>='\t')
+    for row in reader:
+        print(row)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                If you notice, the first row is the <strong>header</strong>, shown at the top in numbers. We
+                can skip the header in two ways. the first way is by using the function <code><span class="dg">next</span>()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = csv.reader(f, delimiter='\t'):
+    <span class="dg">next</span>(reader)
+    for row in reader:
+        print(row)</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/06.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Or, we can cast the csv.reader into a list and use the <code>[1:]</code> syntax 
+                to skip the header/ first row
+            </p>
+        </div>
+    </div>
+    <!-- list(csv.reader) -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import csv
+
+with open('../10_02_us.csv','r') as f:
+    reader = list(csv.reader(f, delimiter='\t'))
+    for row in reader[1:]:
+        print(row)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/07.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

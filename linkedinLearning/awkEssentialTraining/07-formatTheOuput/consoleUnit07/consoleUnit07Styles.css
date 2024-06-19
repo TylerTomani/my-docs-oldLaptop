@@ -1,0 +1,66 @@
+.console-container{
+    /* border: 1px solid black; */
+    width: 100%;
+}
+.console-input {
+    display: flex;
+    flex-direction: column;
+    background:black;
+    opacity: .9;
+    border-radius: 5px;
+    height: 400;
+    max-height: 200px;
+    margin-right: 10%;
+    
+}
+.console-input,
+.console-input>textarea {
+    background: black;
+    padding-left: .5%;
+}
+
+.console-input>textarea {
+    border: none;
+    font-size: 1rem;
+    padding-top: 1%;
+    color: lime;
+}
+
+textarea:active,
+textarea:focus,
+textarea:hover{
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    color: lime;
+}
+.run-btn {
+    width: 30%;
+    font-size: 1rem;
+    margin-top: .5rem;
+    align-self: flex-end;
+    /* justify-self: flex-end; */
+
+}
+
+.hide {
+    display: none;
+}
+
+.copy-pre-tag-container{
+    margin-top: .25%;
+    padding: .2%;
+}
+.copy-pre-tag{
+    padding: 2%;
+}
+@media screen and (max-height: 670px) {
+    .copy-pre-tag-container,
+    .console-container{
+        padding-left: 2%;
+    }
+    .console-container > .console-input{
+
+        margin-top: 1rem;
+    }
+}

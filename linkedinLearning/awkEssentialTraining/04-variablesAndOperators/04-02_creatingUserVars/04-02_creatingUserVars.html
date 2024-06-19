@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02-creatingUserVars</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/focus.js"></script>
+</head>
+<body>
+    <header>
+        <h2 tabindex="1" class="lesson-header">04-02-creatingUserVariables</h2>
+    </header>
+    <div tabindex="1" class="flex-col">
+            <p>
+                &emsp;Variables are case sensitive, and all variables are global.
+                <br> This means you cannot assign new values to already declared
+                <br>variables.
+            </p>
+        
+    </div>
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                This will not print anything on the first line of output. So use <code>BEGIN</code>.
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code class="">
+                $ awk '{hi="Hello";cya="Goodbye"; print hi cya}'
+                <br>
+            </code>
+        </div>
+    </div>
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;If you want to print user-defined variables right away,
+                you must use <code>BEGIN</code>
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{hi="Hello";cya="Goodbye"; print hi cya}' <br>
+                Hello Goodbye
+            </code>
+        </div>
+    </div>
+    
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;Variables are created as soon as you use them, so
+                if you accidently <span class="v">mispell</span> a variable in a print statement,
+                <br>&emsp; awk will not produce an error because a new variable will be
+                <br> created.
+            </p>
+        </div>
+        <div class="flex-item flex-col code sm-code">
+            <code>
+                $ awk 'BEGIN{hi="Hello";cya="Goobye"; print <span class="v">ih</span> cya}' <br>
+                Goodbye
+            </code>
+            <p><code class="bv">ih</code> was created as an empty string in the print statement</p>
+            
+        </div>
+    </div>
+
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                We can assign input to user defined variables
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk '{input1=$1;input2=$2;print input1,input2}' <br>
+                word1 word2 <br>
+                word1 word2
+            </code>
+        </div>
+    </div>
+    
+    <hr>
+
+    <h2>Strings and Numbers</h2>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col">
+            <h2>Numbers in awk</h2>
+            <p>
+                &emsp;awk handles variables as strings and numbers quite nicely.
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code >
+                $ awk 'BEGIN{a=1;b=2; print a + b}' <br>
+                3
+            </code>
+        </div>
+    </div>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;We can concate numbers as well,
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{a=1;b=2; print a b}' <br>
+                12
+            </code>
+        </div>
+        
+    </div>
+    
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item flex-col">
+            <h2>Strings with Numbers</h2>
+            <p>
+                &emsp;If you attempt math on a string, awk will treat the string
+                 as a zero
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{a=1;b="Number"; print a + b}' <br>
+                1
+            </code>
+        </div>
+        
+    </div>
+    
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                but you can concatenate strings with numbers
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{a=1;b="Number"; print a b}' <br>
+                1Number
+            </code>
+        </div>
+        
+    </div>
+    
+    
+    
+    <hr>
+    
+    <div tabindex="1" class="flex-container">
+        <div  class="flex-item flex-col justify-self-start align-self-start">
+            <h2 class="align-self-start ">Force string to be a number</h2>
+            <p class="align-self-start">
+                &emsp;To force a string to be 0, use it without declaring.
+            </p>
+            <code class="code sm-code">
+                $ awk 'BEGIN{print "number" + 1}' <br>
+                1
+            </code>
+        </div>
+        
+        <div class="flex-item flex-col justify-self-start align-self-start">
+            <h2 class=" align-self-start">Force number to be a string</h2>
+            <p>
+                &emsp;Concatenate any string or number to force it into being
+                a string;
+            </p>
+            <code class="code sm-code">
+                $ awk 'BEGIN{num=1; print num + ""}' <br>
+                1
+            </code>
+            <p>This forces the number 1 to be treated as a string</p>
+        </div>
+
+    </div>
+    
+    <hr>
+    <h2>Complicated example</h2>
+    <h3>concatenate and math</h3>
+    <div tabindex="1" class="flex-container ">
+        <div class="flex-item flex-col ">
+            <p>
+                &emsp;awk multiplies first then concatenates
+            </p>
+            <p>
+                Put the a and b in () <code>(a b)</code> to force concatenation first
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code>
+                $ awk 'BEGIN{a=1;b=2;c=3; print a b * c}' <br>
+                16
+            </code>
+        </div>
+        
+    </div>
+    <h3 class="important">Accepting strings as numbers</h3>
+    <p>converting numbers to strings??</p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp;A string can be an integer by adding zero 0, and as long
+                 as the numbered string is in quotes.
+            </p>
+        </div>
+        <div class="flex-item code sm-code">
+            <code >
+                $ awk '{print "\"" $1 "\" + 0 = " $1 + 0}' <br>
+                202 <br>
+                "202" + 0 = 202 <br>
+                6.5 <br>
+                "6.5" + 0 = 6.5 <br>
+                4e3 <br>
+                "4e3" + 0 = 4000
+                0023 <br>
+                "0023" + 0 = 23
+            </code>
+        </div>
+        
+    </div>
+    
+    <hr>
+        
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <p>
+                &emsp; If you are treating a string as a number and if a string begins with a number but is followed by
+                <br> non-numeric character, the non-numeric characters will be ignored.
+                <br>
+                <br>And if a string containing numbers starts with non-numerica characters, it will
+                 be treated as a 0
+            </p>
+        </div>
+        <div class="flex-item">
+            <code class="code sm-code">
+                $ awk '{print "\"" $1 "\" + 0 = " $1 + 0}' <br>
+                44ayeaye <br>
+                "44ayeaye" + 0 = 44 <br>
+                ayeaye33 <br>
+                "ayeaye33" + 0 = 0
+            </code>
+        </div>
+    </div>
+
+
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

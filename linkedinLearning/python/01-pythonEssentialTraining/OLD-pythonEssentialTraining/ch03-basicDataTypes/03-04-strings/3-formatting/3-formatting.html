@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-formatting</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-04-3 Formatting</h2>
+    <!-- Basic string format ...  -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Basic string format often consist of concatenation
+            </p>
+        </div>
+    </div>
+    <!-- 'my number is :' + str(5) -->
+    <div class="fc">
+        <div class="fi">            
+            <div class="code-container asc">
+                <p>
+                    <code>str()</code> converts numbers to strings
+                </p>
+                <code tabindex="1" class="copy-code">
+                    'my number is :' + str(5)
+                </code>
+            </div>
+        </div>
+        <div class="fi flex jc ">
+            <img class="mid-img" src="images/01-strConcatClass.png">
+        </div>
+    </div>
+    <!-- 'str' not callable -->
+    <div class="fcol br2">
+        <div class="fcol ">
+            <p>
+                I don't know how I could practice this method in the interactive python console.
+            </p>
+            <p class="r">
+                Notice the error, <code>'str' not callable</code>
+            </p>
+            <p>
+                I can't figure out how to perform this concatenation in the terminal
+            </p>
+        </div>
+        <!-- 'my number is :' + str(5) -->
+        <div class="fc">
+            <div class="fi fcol">
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code error">
+                        'my number is :' + str(5)
+                    </code>
+                </div>
+                
+            </div>
+            <div class="fi">
+                <img class=" error" src="images/02-strConcatERROR.png">
+            </div>
+            
+        </div>
+        
+        
+    </div>
+    <hr>
+    <h3 tabindex="1" class="mt2"><code>f''</code> string format</h3>
+    <!-- We can use the f'' ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp; We can use the <code>f''</code> string 
+                format for concatenating strings by placing 
+                variables within <code>{}</code> curly braces
+            </p>
+        </div>
+    </div>
+    <!-- f'my number is : {5}' -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    f'my number is : {5}'
+                </code>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-fStrTerminal.png">
+        </div>
+    </div>
+    <!-- print(f'my number is : {5}') -->
+    
+    <div class="fc mtb2">
+        <div class="fi ">
+            <p>
+                We can put expressions inside the f strings.
+            </p>
+        </div>
+    </div>
+    <!-- f'{2} times {2 * 3} equals {2 * 2 * 3}' -->
+    <div class="fc mt2">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    f'{2} times {2 * 3} equals {2 * 2 * 3}'
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="mid-img" src="images/05-fStrExpression.png">
+        </div>
+    </div>
+
+    <h3><code>import math</code></h3>
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                &emsp;<code>import</code> the math class to see how to use math function within f strings
+            </p>
+            <p>
+                Pie in the math class goes to the 15th decimal place
+            </p>
+        </div>
+    </div>
+    <!-- f'{math.pi}' -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                All 15 decimal places are printed out
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    f'{math.pi}'
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/06-mathPiTerminal.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi flex jc">
+            <img tabindex="1" class="mid-img" src="images/07-mathPiVsCode.png">
+        </div>
+    </div>
+    <!-- f'{math.pi:2f}' -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                We can add <code>:2f</code> to limit it to decimal places
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    f'{math.pi:2f}'
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/08-colon2f.png">
+        </div>
+    </div>
+    <hr>
+    <h3>Old way of <code>.format</code></h3>
+    <!-- '{}'.format(math.pi) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                f strings are new, the old was with <code>.format</code>
+            </p>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code">
+                    '{}'.format(math.pi)
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/09-oldFormat.png">
+        </div>
+        
+    </div>
+    
+    
+    
+    <footer tabindex="1"></footer>
+    
+    
+    
+</body>
+</html>

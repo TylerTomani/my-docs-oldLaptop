@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-04-2-comprehendFunctions</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-04-02- List Comprehension & Functions</h2>
+    <!--Step 00 myString.split('.') -->
+    <div class="fcol">
+        <div class="fi mt1">
+            <div class="asc">
+                <pre  tabindex="1" class="copy-code inline-block smtxt no-img">
+myString = 'My name is Buster Mayfield. I live in Texas.'
+myString.split('.')</pre>
+            </div>
+        </div>
+        <div class="fi mt1">
+            <p>Splits the string by the argument <code>'.'</code> three string items within a list.
+                <span class="r">last item is blank because of last period</span>
+            </p>
+        </div>    
+        <div class="fi ase">
+            <img tabindex="1" src="images/01.png">
+        </div>
+    </div>
+    <!--Step 01 myString.split(' ') -->
+    <div class="fcol mt1">
+        <div class="fi">
+            <p>
+                By default, if no argument is passed into <code>split()</code>, the string 
+                is seperated by each space.
+            </p>
+        </div>    
+        <div class="fi ass mt2">
+            <img tabindex="1" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This is <i>list comprehension</i>, taking each element of a list or string
+                and putting it into a new list.
+            </p>
+        </div>
+    </div>
+    <!-- [myFunction(el) for el in myList] -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code no-img smtxt">
+                    [myFunction(el) for el in myList]
+                </code>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can pass each element from a list or string into a function the same way.
+            </p>
+        </div>
+    </div>
+    <!-- [toLower(item) for item in myString] -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code mdcode no-img">
+myString = 'My name is Teddy Truman. I live in Arizona'
+def toLower(letter):
+    return letter.lower()
+
+[toLower(word) for word in myString]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <p tabindex="1" class="copy-code">
+                Each letter is an element in a string. This list out every letter 
+                lowercased.
+            </p>
+        </div>
+        <div class="fi">
+            <img tabindex="1" src="images/03.png">
+        </div>
+    </div>
+    <h3><code>split()</code></h3>
+    <!-- myString.split() -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                By default, applying <code class="o">split()</code> seperates each word
+                by each space.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code inline-block no-img">
+myString = 'This is a String. It Has periods.'
+myString.<span class="o">split</span>()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                &emsp;The <code>removeDots</code> function uses the 
+                <code class="v">replace()</code> function to remove the first argument
+                <code class="mdsmcode">'.'</code>
+                and replace it with its second <code class="mdcode">''</code>, which is 
+                a blank string/nothing.
+            </p>
+        </div>
+        <div class="fi mtb1">
+            <p>
+                It then lowercases each letter with <code class="lsg">lower()</code>. This is called <q><i>chaining</i></q> methods/functions
+            </p>
+        </div>
+    </div>
+    <!-- wrd.replace().lower() -->
+    <div class="fcol">
+        <div class="fi ">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+myString = 'This is a String. It Has periods.'
+def removeDots(wrd):
+    return wrd.<span class="v">replace</span>('.','').<span class="lsg">lower</span>()
+[removeDots(word) for word in myString.<span class="o">split</span>()]</pre>
+            </div>
+            <div class="fi">
+                <p tabindex="1" class="copy-code" >
+                    We can perform <code><span class="o">split</span>()</code> on the list
+                    within the list comprehension brackets <code>[]</code>
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/05.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can set a condition on the list/string inside the list comprehension too.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+myString = 'This is a String. It Has periods.'
+def removeDots(wrd):
+    reutrn wrd.replace(',','').lower()
+[removeDots(word) for word in myString.split() if len(removeDots(word) &lt; 3)]</pre>
+            </div>
+        </div>
+        
+        
+        <div class="fi">
+            <img tabindex="1"  src="images/04-ifInListComprehend.png">
+        </div>
+        
+    </div>
+    <hr>
+    <h2 class="mt2">summary</h2>
+    <div class="fcol">
+        <div class="fi">
+            <ul>
+                <li>If we do not split the word, The function will act on each letter. </li>
+                <li>If we split the function will act on each word.</li>
+                <li>a condition can be applied to the function</li>
+            </ul>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+myString = 'This is a string. It has periods.'
+def cleanWord(word):
+    return word.replace('.','').lower()
+
+[cleanWord(word) for word in myString]
+
+[cleanWord(word) for word in myString.split()]
+
+[cleanWord(word) for word in myString.split() if len(cleanWord(word)) &lt; 3]
+                    
+                </pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/06.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

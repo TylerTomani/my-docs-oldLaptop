@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-04-01-comprehenFilter</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-04-01- List Comprhension & Filters</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                Perform an action on each item in a list by doing the following.
+                This multiples each element by 2
+            </p>
+        </div>
+    </div>
+    <!-- [2*item for item in my_list] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+myList = [1,2,3,4,5]
+[2*item for item in myList]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                &emsp;The first part <code>2*item</code> is the action performed on each element from the list
+                and gets returned.
+            </p>
+            <p>
+                &emsp;typing item alone returns each item from the list.
+            </p>
+        </div>
+    </div>
+    <!-- [item for item in myList] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+[item for item in myList]
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/02.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can return only items that meet a condition by adding 
+                an <code>if</code> at the end
+            </p>
+        </div>
+    </div>
+    <!-- [item for item in myList if item % 3 == 0] -->
+    <div class="fcol">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+myList = list(range(1,22))
+[item for item in myList if item % 3 == 0]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/03.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Cool Example, this will return only numbers ending with 
+                0, 1, or 2
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code no-img">
+myList = list(range(1.51))
+filtered = [item for item in myList if item % 10 &lt; 3]
+filtered</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/04.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

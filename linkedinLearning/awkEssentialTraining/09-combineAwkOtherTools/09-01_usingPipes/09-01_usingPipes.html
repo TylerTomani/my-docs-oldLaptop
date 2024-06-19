@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-01_usingPipes</title>
+    <link rel="stylesheet" href="../../css/colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/focus.js" defer></script>
+    <link rel="stylesheet" href="../../08-funcsAndArrays/css/08-lessonStyles.css">
+</head>
+<body>
+    <header>
+        <h2 class="lesson-header">09-01- Using Pipes</h2>
+    </header>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p tabindex="1">
+                This example will add up the bites of all the <code>.txt</code> files in the directory
+            </p>
+        </div>
+        <div class="flex-item">
+            <img tabindex="1" src="images/01-txtFiles.png">
+
+        </div> 
+    </div>
+    <div  class="flex-col">
+        <div class="flex-item">
+            <code >
+$ <span tabindex="1" class="copy-code">ls -l | awk '/\.txt/{total += $5} END{print total}'</span>
+<br>2442
+
+            </code>
+        </div>
+    </div>
+    <h3 class="m-t-2">Using sed with awk</h3>
+    <div class="b-2-red">
+    <div tabindex="1" class="flex-col">
+        <p class="r">THIS EXAMPLE ISN'T WORKING GO BACK AND DO once we buy linkedin learning again</p>
+        <div class="flex-item ">
+            <p>
+                If you use the <code>-F</code> flag on ls, it will use special characters to
+                display what type of file each item in the directory is.
+            </p>
+            <ul>
+                <li><code>/</code> for directory</li>
+                <li><code>*</code> for and executable file</li>
+            </ul>
+        </div>
+        <div class="flex-item">
+            <img tabindex="1" src="images/02-ls-F.png">
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div tabindex="1" class="flex-item flex-col flex justify-center">
+            <div class="flex-item">
+                <p>
+                    For practice purposes make an output files of all the items within the direcotry
+                </p>
+            </div>
+            <div class="flex-item">
+                <code>
+                    $ <span tabindex="1" class="copy-code">ls -lF > ls.out</span>
+                </code>
+            </div>
+        </div>
+        <div class="flex-item">
+            <img tabindex="1" src="images/03-ls-out.png">
+        </div>
+    </div>
+    <div  class="flex-col">
+        <div class="flex-item ">
+            <p tabindex="1">
+                If we use the same command from above to add up all the memory 
+                of <code>.txt</code> files, it will miss any executable ones because
+                of the asterisk <code>*</code>.
+            </p>
+        </div>
+        <div class="flex-item">
+            <code>
+                $ <span tabindex="1" class="copy-code">awk '/\.txt/{total += $5}END{print total}' ls.out</span>
+                <br>2442
+            </code>
+        </div> 
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p>
+                Use sed to preproccess the input and remove the asterisk
+            </p>
+        </div>
+        
+    </div>
+    </div>
+    <h3 class="m-t-1">piping awk programs together</h3>    
+    <div tabindex="1"  class="flex-col">
+        <div class="flex-item">
+            <code tabindex="1" class="xsm-txt big-code copy-code">
+Stevie Westerbeck stevie.westerbeck@yahoo.com
+<br>Pamella Fortino pamella@fortino.com
+<br>Harrison Haufler hhaufler@hotmail.com
+<br><span class="b-2-v">Johnna "Zip" Engelberg jlengelberg@engelberg.org</span>
+<br>Buddy Cloney buddy.cloney@yahoo.com
+<br>Dalene Riden dalene.riden@aol.com
+<br><span class="b-2-v">Jerry "Killer" Zurcher jzurcher@zurcher.org</span>
+<br>Haydee Denooyer hdenooyer@denooyer.org
+<br>Joseph Cryer joseph_cryer@cox.net
+<br>Deonna Kippley deonna_kippley@hotmail.com
+<br>Raymon Calvaresi raymon.calvaresi@gmail.com
+<br>Alecia Bubash alecia@aol.com
+
+            </code>
+        </div> 
+    </div>
+    <div class="flex-col">
+        <div class="flex-item">
+            <div class="flex-item flex-col">
+                <p>
+                    Say we have a emailing list file. If we try to reformat it
+                    and there are nicknames that have three words in a name, we won't get the proper
+                    output.
+                </p>
+            </div>
+            <code>
+                $ <span tabindex="1" class="copy-code">awk '{print $1 , $2 , "&lt;" $3 ">"}' emailNames.txt</span>
+<br> Stevie Westerbeck &lt;stevie.westerbeck@yahoo.com>
+<br>Pamella Fortino &lt;pamella@fortino.com>
+<br>Harrison Haufler &lt;hhaufler@hotmail.com>
+<br>Johnna "Zip" <span class="b-v-2">&lt;Engelberg></span>
+<br>Buddy Cloney &lt;buddy.cloney@yahoo.com>
+<br>Dalene Riden &lt;dalene.riden@aol.com>
+<br>Jerry "Killer" <span class="b-2-v">&lt;Zurcher></span>
+<br>Haydee Denooyer &lt;hdenooyer@denooyer.org>
+<br>Joseph Cryer &lt;joseph_cryer@cox.net>
+<br>Deonna Kippley &lt;deonna_kippley@hotmail.com>
+<br>Raymon Calvaresi &lt;raymon.calvaresi@gmail.com>
+<br>Alecia Bubash &lt;alecia@aol.com>
+
+
+            </code>
+        </div> 
+    </div>
+    <div class="flex-col">
+        <div class="flex-item">
+            <p> To remidy this we can pipe multiple awk programs together</p>
+        </div>
+        <div class="flex-item">
+            <code>
+$ <span tabindex="1" class="copy-code">
+awk '{if(NF==4){$2=""}; print}' emailNames.txt | awk '{print $1 , $2 , "&lt;" $3 ">"}'</span>
+            </code>
+        </div>
+        
+    </div>
+    
+    
+    
+    
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-02-recordsFieldsPatterns</title>
+    <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <!-- <link rel="stylesheet" href="../../css/lesson.css">
+    <link rel="stylesheet" href="../../css/colors.css"> -->
+
+</head>
+<body>
+    <h2 tabindex="1" class="lesson-header">02-02_Working with records, fields patterns and actions</h2>
+    <!-- <h3 class="code">awk '{action}' file</h3> -->
+    <div class="flex-col">
+        <div class="m-1 p-0">
+            <p tabindex="1">
+                &emsp;AWK manipulates text files. It doesn't work well with binary files such as Microsoft word docs or HTML
+                files. To use binary files in awk, convert them to a text file.
+            </p>
+        </div>
+
+        <div class="m-1 p-1">
+            <p tabindex="1">
+                &emsp;Awk reads input as a series of records, each record consists of a series of fields. 
+                A record is a line of text, fields are seperated by white space
+            </p>
+        </div>
+    </div>
+    <div  class="flex-container">
+        <div class="flex-item text-top">
+            <p tabindex="1">
+                &emsp;The first record has four fields. The&nbsp;second has 5&nbsp;
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code >
+                $ cat ex1.txt <br>
+                field1 field 2 field3 field4 <br>
+                The dog ate an apple
+            </code>
+        </div>
+    </div>
+    <hr>
+    <h2>$ - access fields and records</h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;The <code>$</code> allows us to access records and fields.
+                 <code>$0</code> refers to entire line, Notice how this act no different from 
+                 cat as seen in the above example
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '{print $0}' ex1.txt <br>
+                field1 field 2 field3 field4 <br>
+                The dog ate an apple
+            </code>
+        </div>
+    </div>
+
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;To access a field, use the <code>$</code> followed by the field number.
+                <br>&emsp;This will print out the first field in each record/line.
+            </p>
+        </div>
+        <div class="flex-item ">
+            <code class="code">
+                $ awk '{print $1}' ex1.txt <br>
+                field1 <br>
+                The
+            </code>
+            
+        </div>
+    </div>
+    <hr>
+    <h2>Manipulate output</h2>
+    <div class="flex-container">
+        <div class="flex-item text-top">
+            <p tabindex="1">
+                &emsp;We can alter the order of the fields in the output.
+                To add a space between the fields in the output, seperate the <span class="code">$</span>'s  with a comma <code class="bv">,</code>, otherwise there will be no space and the fields will be concatanated.
+
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '{print $4<span class="bv">,</span>$2}' ex1.txt <br>
+                field4 field2 <br>
+                an dog <br>
+                $ awk '{print $4<span class="bv"> </span>$2}' <br>
+                field4field2 <br>
+                andog
+            </code>
+        </div>
+    </div>
+    <hr>
+    <h2>record field seperator</h2>
+    <div  class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;To add a comma in the output, place a comma <code>,</code> within
+                quotes <code><q>, </q></code> between the fields.</p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '{print $4 "<span class="bv">,</span> " $2} ex1.txt <br>
+                field4, field2 <br>
+                an, dog
+            </code>
+        </div>
+
+    </div>
+    <hr>
+    <h2 class="text-c">Good examples</h2>
+    <h3><code>NF</code> <q>Number of fields</q></h3>
+    <div class="flex-container">
+        <div class="flex-item text-top">
+            <p tabindex="1">
+                &emsp;This example prints out the number of fields at
+                the beggining of each line/record
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '{print NF, $0}' ex1.txt <br>
+                4 field1 field2 field3 field4 <br>
+                5 The dog ate an apple
+            </code>
+        </div>
+    </div>
+    <hr>
+    <h3><code>/regex/</code> regex expressions</h3>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;Regular expressions can be added before the actions using
+                slashes <code>/regex/{action}</code>.
+                <br>&emsp;This examples tells awk to print only the records with
+                the word dog
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk '/dog/{print NF, $0} ex1.txt <br>
+                5 The dog ate an apple
+            </code>
+        </div>
+    </div>
+    <hr>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;Here, we tell awk to find a line/record that has 4 fields
+                by typing <code>NF=4</code> before the {action}
+            </p>
+            <p>
+                &emsp;If no records/lines contains the set number of fields, nothing will be returned</p>
+            <p>
+        </div>
+             
+        <div class="flex-item code">
+            <code>
+                $ awk 'NF=4{print NF, $0}' ex1.txt <br>
+                4 field1 field2 filed3 field4
+            </code>
+            
+        </div>
+    </div>
+    
+    <div class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                &emsp;If you want to just print the lines with a certain number of fields without the number of fields
+                 just do so with the following and don't include <code>NF</code> after <code>print</code>
+            </p>
+        </div>
+        <div class="flex-item code">
+            <code>
+                $ awk 'NF=4{print $0}' ex1.txt <br>
+                4 field1 field2 filed3 field4
+            </code>
+        </div>
+    </div>
+    <div class="flex-col">
+        <h3>Use pattern without the actions</h3>
+        <div tabindex="1" class="flex-container">
+            <div class="flex-item">
+                <p>
+                    &emsp;It is possible to omit the action and use only the patter
+                </p>
+            </div>
+            <div class="flex-item code">
+                <code>
+                    $ awk 'NF=4' ex1.txt
+                    field1 field 2 field3
+                    The dog ate an
+                </code>
+            </div>
+            
+        </div>
+    </div>
+    
+    <hr>
+    <h2>Combine actions and add text to output</h2>
+    <h2>text file example</h2>
+    <div class="flex-container">
+        <div class="code">
+            <code>
+            This file contains lines of text. <br>
+            Each line of text is differnt. <br>
+            If this text is up, Then this <br>
+            text is down. <br>
+            Awk is a great program. <br>
+            Life is better when Learning new things. <br>
+            </code>
+        </div>
+    </div>
+    
+    <div tabindex="1" class="text-c">
+
+            <p>
+                &emsp;The above code is a text file named <code>ex2.txt</code> that  we can feed into awk.
+                We can combine actions together and add text to the output.
+                This example adds the words Up and Down, before the records/lines,<br>that contain the text up and down, 
+            </p>
+
+    </div>
+    <div tabindex="1" class="flex-container">
+
+            <code class="code">
+                $ awk '/up/{print NF "UP:", $0} /down/{print NF, "DOWN:", $0}' ex2.txt <br>
+                7 <span class="bv-sm">UP:</span> If this text is up, Then this <br>
+                3 <span class="bv-sm">DOWN:</span> text is down. <br>
+            </code>
+
+    </div>
+    <h2>Quick Trick</h2>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p tabindex="1">
+                If you only want to output lines with a certain number of fields, you only have to type
+            </p>
+            <p>
+                If no lines has the specified number of fields, nothing will be printed out
+            </p>
+        </div>
+        <div class="flex-item code" >
+            <code>
+                awk 'NF=3' ex2.txt
+                <br>text is down
+            </code>
+        </div>
+        
+    </div>
+    
+
+    <footer tabindex="1"></footer>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-callbackReading</title>
+    <link rel="stylesheet" href="../../../../css/lesson.css">
+    <link rel="stylesheet" href="../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../css/flex.css">
+</head>
+<body>
+    <h1 tabindex="1">1-Callback Reading</h1>
+    <p>
+        &emsp;Functions can be stored in variables. They can also be passed into functions as <span class="b">arguments</span>. This is refered to as a <q>Callback</q>.
+        We can invoke these two variables like functions.
+    </p>
+    <!-- foo() bar() -->
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <code>
+                <br> let foobar = function(<span class="b">callback</span>){
+                <br>&emsp;console.log("foo")
+                <br>&emsp;<span class="b">callback</span>();
+                <br>&emsp;console.log("bar")
+                <br> }
+                <br> let sayHey = function(){
+                <br>&emsp;console.log("hey")
+                <br> }
+                <br> foobar(sayhey);
+            </code>
+        </div>
+        <div class="flex-item">
+            <code>
+                <span class="g">// prints foo
+                    <br>hey
+                    <br>bar
+                </span>
+            </code>
+        </div>
+        
+    </div>
+    <script>
+        console.log("'foobar example")
+        let foobar = function(callback){
+            console.log("foo");
+            callback();
+            console.log("bar");
+        }
+        let sayHey = function(){
+            console.log("Hey")
+        }
+        foobar(sayHey)
+    </script>
+    
+    <!-- double() negate() -->
+    <p tabindex="1">
+        &emsp;This allows for different operations to occur within a function, like this math example. We can return
+        the result from double or negate.
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre>
+    let math = function(num1, num2, <span class="b">cb</span>){
+        let sum = num1 + num2;
+        let result = <span class="b">cb</span>(sum):
+        return result
+    }
+    let double = function(num){
+        return num * 2;
+    }
+    let negate = function(num){
+        return num * -1;
+    }
+    console.log(math(2, 2, <span class="b">double</span>));
+    console.log(math(2, 2, <span class="b">negate</span>));
+            </pre>
+        </div>
+        <div class="flex-item">
+            <code>
+                <span class="g">// prints 
+                    <br>8
+                    <br>-4
+                </span>
+            </code>
+        </div>
+        
+    </div>
+    <script>
+        console.log("'math example");
+
+        let math = function(num1, num2, cb){
+            let sum = num1 + num2;
+            let result = cb(sum);
+            return result;
+        }
+
+        let double = function(num){
+            return num * 2;
+        }
+        let negate = function(num){
+            return num * -1;
+        }
+
+        console.log(math(2, 2, double));
+        console.log(math(2, 2, negate));
+    </script>
+    <!-- Math.sqrt() -->
+    <h2>Pass in built in functions</h2>
+    <p tabindex="1">
+        &emsp;We can also pass in built in functions
+    </p>
+    <div tabindex="1" class="flex-container">
+        <div class="flex-item">
+            <pre>
+    let math2 = function(num1, num2, <span class="b">cb</span>){
+    let sum = num1 + num2;
+    return <span class="b">cb</span>(sum);
+
+    }
+    console.log(math2(8, 8, <span class="b">Math.sqrt</span>))
+            </pre>
+        </div>
+        <div class="flex-item">
+            <code>
+                <span class="g">//prints
+                    <br>4
+                </span>
+            </code>
+        </div>
+        
+    </div>
+    <script>
+        console.log("math2 Math.sqrt example")
+        let math2 = function(num1, num2, cb){
+            let sum = num1 + num2;
+            return cb(sum);
+        }
+        console.log(math2(8, 8, Math.sqrt))
+    </script>
+    <hr>
+    <!-- arg undefined -->
+    <h2>Make the call back optional</h2>
+    <p tabindex="1">
+        &emsp;Javascript is NOT <q>strict</q> when it comes to using arguments within functions, so if you try to use a <span class="r">argument</span> in
+        a function that wasn't passed in, it just becomes <i>undefined</i>
+    </p>
+    <pre tabindex="1">
+        let hiNames = function(name1, <span class="r">name2</span>){
+            console.log("Hey " + name1 + ", and Hey " + <span class="r">name2</span>)
+        }
+        hiNames("Ted","Mary")
+        hiNames("Bob")
+        <span class="g">
+        // prints Hey Ted, and Hey Mary
+        // prints Hey Bob, and Hey <span class="r">undefined</span>
+        </span>
+    </pre>
+    <script>
+        let hiNames = function (name1, name2) {
+            console.log("Hey " + name1 + ", and Hey " + name2)
+        }
+        hiNames("Ted", "Mary")
+        hiNames("Bob")
+    </script>
+
+    <div tabindex="1">
+        <p>
+            &emsp;We can take advantage of undefined and use an if statement to run a function
+            without the callback.
+        </p>
+        <p>
+            If the callback is <i class="o">undefined</i>, run the normal function. Else, run the <span class="b">callback</span>
+        </p>
+    </div>
+    <pre tabindex="1">
+        let math3 = function(num1, num2, cb){
+            let sum =  num1 + num2;
+            if(cb === <span class="o">undefined</span>){
+                return sum;
+            }
+            return <span class="b">cb</span>(sum);
+        }
+        console.log(math3(5,5))
+        console.log(math3(5,5,Math.log))
+    </pre>
+    <script>
+        let math3 = function(num1, num2, cb){
+            let sum = num1 + num2;
+            if(cb === undefined){
+                return sum;
+            }
+            return cb(sum);
+        }
+        console.log(math3(5,5))
+        console.log(math3(5,5,Math.log))
+    </script>
+
+
+
+</body>
+</html>

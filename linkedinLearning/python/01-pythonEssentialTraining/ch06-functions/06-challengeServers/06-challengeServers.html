@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-challengeServers</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">06-challengeServers</h2>
+    <p>
+        getData functions
+    </p>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code smcode">
+import random
+import time
+
+serverUp = True
+
+def getData50():
+    if serverUp and random.random() &lt; 0.5:
+        return 'Data received : 50% chance'
+def getData25():
+    if serverUp and random.random() &lt; 0.25:
+        return 'Data received : 25% chance'
+def getData10():
+    if serverUp and random.random() &lt; 0.1:
+        return 'Data received : 10% chance'
+
+                </pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                The <code class="v">_</code> is used in python to use the loop without using the 
+                the variable in the loop itself. That way we can loop through a process a set number of times
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+def getWithRetry(dataFunc):
+    maxRetry = 20
+    for <span class="v">_</span> in range(0,maxRetry):
+        response = dataFunc()
+        if response:
+            return response
+        else:
+            return 'Failed'
+
+print(getWithRetry(getData50))
+print(getWithRetry(getData25))
+print(getWithRetry(getData10))
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img sm-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <p>
+                We can perform the same operation using recursion
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code">
+def getWithRetry(dataFunc, retries = 20):
+    if retries == 0:
+        return 'Failed'
+    return dataFunc() or getWithRetry(dataFunc, retries = retries -1)
+                </pre>
+            </div>        
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <img tabindex="1" class="right-img" src="images/02.png">
+        </div>
+    </div>
+    
+    
+    
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

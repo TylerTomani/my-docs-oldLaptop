@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06-03-functionsAsVariables</title>
+    <link rel="stylesheet" href="../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../css/path-colors.css">
+    <script src="../../js/copycode.js" defer></script>
+    <script src="../../js/path-img-enlarge.js" defer></script>
+    <script src="../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">06-03-Functions as Variables</h2>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                In python a function is represented as an object
+            </p>
+        </div>
+    </div>
+    <!-- import this -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+import this</pre>
+            </div>
+            <div class="fi flex ac">
+                <p>
+                    
+                    will print out the mission statement of python.
+                    <br>Copy and paste it into a variable named text or whatever
+                </p>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/00.png">
+        </div>
+        
+    </div>
+    <hr>
+    <div tabindex="1" class="fcol">
+        <div class="fi ">
+            <p>
+                Below are different functions that we can place into a dictonaries
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="fc">
+        <div class="fcol">
+            <div class="fi">
+                <div class="code-container align-self-center">
+                    <pre tabindex="1" class="copy-code smcode no-img">
+def lowercase(txt):
+    return txt.lower()</pre>
+                </div>
+            </div>
+            <div class="fi">
+                <div class="code-container align-self-center">
+                    <pre tabindex="1" class="copy-code smcode no-img">
+def removePunctuation(txt):
+    punctuations = ['.', '-', ',', '*']
+    for punctuation in punctuations:
+        txt = txt.replace(punctuations,'')
+    return txt</pre>
+                </div>
+            </div>
+            <div class="fi">
+                <div class="code-container align-self-center">
+                    <pre tabindex="1" class="copy-code smcode no-img">
+def removeNewLines(txt):
+    txt = txt.replace('\n','')
+return txt</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fcol br1">
+        <div class="fi ">
+            <p class="r">I don't yet get how the two functions below work</p>
+        </div>
+    </div>
+    
+    <div class="fcol br2">
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+def removeShortWords(text):
+    return ' '.join([word for word in text.split() if len(word) > 9])</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode">
+def removeLongWords(text):
+    return ' '.join([word for word in text.split() if len(word) &lt; 3])</pre>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div tabindex="1" class="fcol">
+        <div class="fi ">
+            <p>
+                We can put each function into a list, and place them in a order that we wish to perform 
+                them on the text. (poorly worded by see below to understand)
+            </p>
+        </div>
+        <div>
+            <p class="">&emsp; In Jypyter assigning <code class="r">text = func(text)</code> 
+            will erase the original text from variable so you can <strong>Not</strong>
+            run in twice.
+            </p>
+            <p>so assign processing functions to <code class="b">newText</code></p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code smcode no-img">
+processingFunctions = [ removePunctuations, removeNewLines, removeShortWords]
+
+for func in processingFunctions:
+    <span class="b">newText</span> = <span class="r">func(text)</span>
+print(<span class="b">newText</span>)</pre>
+            </div> 
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="" src="images/01.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>    
+    
+</body>
+</html>

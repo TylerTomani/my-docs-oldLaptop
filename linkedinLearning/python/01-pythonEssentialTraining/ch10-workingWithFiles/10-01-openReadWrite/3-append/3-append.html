@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-append</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">3-append</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp; As seen in the previous lesson, when we use <code>f = <span class="dg">open</span>
+                ('newFile.txt','w')</code> then <code>f.write('Line 1\n')</code>...
+                <br>
+                &emsp;It will overwrite any existing content in the file.
+            </p>
+        </div>
+        <div class="fi">
+            <p>
+                &emsp;To fix this, open an existing file you wish to add content to in append mode by 
+                using <code class="v">a</code> as the second argument in <code><span class="dg">open</span>()</code>.
+                <br>Then add content with <code>f.<span class="o">write</span>()</code>
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = <span class="dg">open</span>('newFile.txt','<span class="v">a</span>')
+f.write('Line 3 \n')
+f.write('Line 4 \n')
+f.close()</pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                There is more detail in this lesson about closing a file correctly but here is 
+                just a pic of the code using the <code class="dg">with</code> statement
+            </p>
+            <p>
+                As soon as you leave the <code class="dg">with</code> statement code block, the file 
+                gets closed
+            </p>
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="med-img" src="images/02.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

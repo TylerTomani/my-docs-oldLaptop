@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-slice</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-04-1 <code>slice</code></h2>
+    <h3><code>slice()</code> list and strings</h3>
+    <!-- Slicing strings and list... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Slicing strings and list works very much the same
+            </p>
+        </div>
+    </div>
+    <!-- name[0:2] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+name = 'My name is Larry'
+name[0:2]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-str02.png">
+        </div>
+    
+    </div>
+    <!-- print(my_list[0:2]) -->
+    <div class="fc">
+        <div class="fi fcol justify-center">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2,3,4]
+print(my_list[0:2])</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-mylist02.png">
+        </div>
+        
+    </div>
+    
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                Accessing their indexes works simliarly as well.
+            </p>
+        </div>
+    </div>
+    <!-- name[1] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+name = "My name is Larry"
+name[1]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03-indexStr.png">
+        </div>
+        
+    </div>
+    <!-- my_list['one','two','three'] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_list =  ['one','two','three']
+my_list[1]</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/04-indexList.png">
+        </div>
+    </div>
+    <div class="fcol mtb1">
+        <div class="fi fcol">
+            <p>
+                <code>[first argument: second argument]</code>, slices from first to second argument
+            </p>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                No first argument implies
+                [0] or the start of <code>my_list</code> or <code>name</code>
+            </p>
+        </div>
+    </div>
+    
+    <!-- name[:2] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                This will take the first 2 characters list items.
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+name = 'My name is Larry'
+name[:2]</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/05-first2Str.png">
+        </div>
+        
+    </div>
+    <!-- my_list[:2] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                This will take the first 2 list items
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2,3,4]
+my_list[:2]</pre>
+            </div>
+            
+        </div>
+        <div class="fi ase">
+            <img class="" src="images/06-first2List.png">
+        </div>
+        
+    </div>
+    <!-- No second argument implies -->
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                No second argument implies
+                the end of <code>my_list</code> or <code>name</code>
+            </p>
+        </div>
+    </div>
+    <!-- name[12:] -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                This will take the characters from 11 to the end
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+name = 'My name is Larry'
+name[11:]</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="" src="images/07-name.png">
+        </div>
+        
+    </div>
+    
+    
+    
+    <div class="fc">
+        <div class="fi fcol">
+            <p>This is will take the last 3 list item</p>
+        </div>
+    </div>
+    
+    <footer tabindex="1"></footer>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-open</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">10-01-1- Opening Files</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                &emsp;To open a file assign the <code><span class="dg">open</span>()</code> function 
+                with the file you wish to open as the first argument and <code class="v">'r'</code> as the second for
+                <span class="v">read</span>.
+                <span class="r">The file you want to open </span> must be in the same directory as the python script. 
+                Or the path should be supplied to its location
+            </p>
+            <p>
+                Printing f will display a file object
+            </p>
+        </div>
+    </div>
+    <!-- open() -->
+    <div class="fc">
+        <div class="fi flex jc">
+            <div class="code-container asc inline-block">
+                <pre tabindex="1" class="copy-code ">
+f = <span class="dg">open</span>('10_01_file.txt','<span class="v">r</span>')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img med-img" src="images/01.png">
+        </div>
+        
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can use f.readline() to read one line at a time
+            </p>
+        </div>
+    </div>
+    <!-- f.readline() -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('10_01_file.txt','r')
+f.readline()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img med-img" src="images/02.png">
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                If we run it again it will display the following line
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('10_01_file.txt','r')
+f.readline()
+f.readline()
+</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/03.png">
+        </div>
+    </div>
+    <h3><code>f.readlines()</code></h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                <code>f.readlines()</code> will place each line of the file as an item into a list
+                including the <code>\n</code> line character.
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('10_01_file.txt','r')
+f.readlines()</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div> 
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                one way to display each line would by looping through
+                the <code>f.readline()</code> function
+            </p>
+        </div>
+    </div>
+    <!-- for line in f.readline() -->
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('10_01_file.txt','r')
+for line in f.readlines():
+    print(line)</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div>
+    </div>
+    <h3><code class="o">strip()</code></h3>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can use the <code class="o">strip()</code> function to get rid of the 
+                new lines or any trailing white space
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+f = open('10_01_file.txt','r'):
+for line in f.readlines():
+    print(line.<span class="o">strip()</span>)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/06.png">
+        </div>
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

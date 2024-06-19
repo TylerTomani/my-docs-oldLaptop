@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-boolLogic</title>
+    <link rel="stylesheet" href="../../../css/lesson-temp.css">
+    <link rel="stylesheet" href="../../../css/path-colors.css">
+    <script src="../../../js/copycode.js" defer></script>
+    <script src="../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../js/lastFocusItem.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">03-03-3 Boolean Logic</h2>
+    <!-- We can evaluate ...  -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can evaluate a variable as a boolean without using the <code>bool()</code> class.
+                Type the name of the variable.
+            </p>
+        </div>
+    </div>
+    <!-- if my_list: -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc ">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2]
+if my_list:
+    print('true')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01.png">
+        </div>
+        
+    </div>
+    <!-- This is exactly the ... -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                This is exactly the same as using <code><span class="v">bool</span>(my_list)</code>
+            </p>
+        </div>
+    </div>
+    <!-- if bool(my_list) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc ">
+                <pre tabindex="1" class="copy-code">
+my_list = [1,2]
+if <span class="v">bool</span>(my_list):
+    print('list has values')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02.png">
+        </div>
+        
+    </div>
+    <hr>
+    <!-- We can also evaluate expressions ..  -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                We can also evaluate expressions as booleans
+            </p>
+        </div>
+    </div>
+    <!-- a - b -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+a = 5
+b = 5
+if a - b:
+print('not equal')
+print('a - b is 0 and equal')</pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03.png">
+        </div> 
+    </div>
+    <div class="fc">
+        <div class="fi fcol jc">
+            <p class="r">
+                I don't completly get whats going on here
+            </p>
+            <p>
+            </p>
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+print(a == 5)
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/03b.png">
+        </div> 
+    </div>
+    <hr>
+    <h3>Difficult logic</h3>
+    <div class="fcol">
+        <div class="fi fcol">
+            <p>
+                These examples show how python multiple boolean
+            </p>
+            <p>
+                <code>weatherIsNice</code> is <code>False</code>
+                and <code>haveUmbrella</code> is <code>True</code>
+            </p>
+            <p>
+                By typing <code class="v">not</code> <code>haveUmbrella</code>
+                evaluates it as <code>False</code> making the else statement 
+                run
+            </p>
+        </div>
+    </div>
+    <!-- not haveUmbrella and weatherIsNice -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+weatherIsNice = False
+haveUmbrella = True
+if <span class="v">not</span> haveUmbrella or weatherIsNice:
+    print('stay inside')
+else 
+    print('go for walk')
+                </pre>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/04.png">
+        </div>
+        
+    </div>
+    <!-- if (not haveUmbrella mdsmtxt") or weatherIsNice: -->
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                There are imaginary <code class="b mdtxt">()</code> parenthesis around the logical operators
+                and their variable
+            </p>
+        </div>
+        <div class="code-container asc">
+            <pre tabindex="1" class="copy-code">
+weatherIsNice = False
+haveUmbrella = True
+    if <span class="b mdsmtxt">(</span>not haveUmbrella<span class="b mdsmtxt">)</span> or weatherIsNice:
+        print('stay inside')
+    else
+        print('go for walk')
+            </pre>
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi ">
+            <p>
+                but to sum it up here would be a good way to perform
+                the logic that if the weather is nice and we don't have an umbrella, go for a walk
+            </p>
+        </div>
+    </div>
+    <!-- if not haveUmbrella and weatherIsNice: -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code sm-code">
+weatherIsNice = True
+haveUmbrella = False
+if not haveUmbrella and weatherIsNice:
+    print('stay inside')
+else:
+    print('go for walk')
+                </pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img class="right-img" src="images/05.png">
+        </div>
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>

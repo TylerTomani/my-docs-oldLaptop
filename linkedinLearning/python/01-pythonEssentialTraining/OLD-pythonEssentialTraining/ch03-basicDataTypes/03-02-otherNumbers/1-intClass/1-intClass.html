@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-intClass</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/open-math-doc.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1" class="lgcode mt1 ms1">03-02-1_<code class="mdcode">int()</code> class</h2>
+    <h3>Change 'string to <code class="mdcode">int</code> </h3>
+    <!-- print(type(int('100')), int('100')) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p>
+                    Passing an integer as a string, <code class="mdtext">int('10')</code>,
+                    converts
+                    it into an integer.
+                    
+                </p>
+            </div>
+            <div class="code-container  jse">
+                <code tabindex="1" class="copy-code">
+                    print(type(int('100')), int('100'))
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/01-strToInt.png">
+        </div> 
+    </div>
+    <!-- print(int('10.0')) -->
+    <div class="fc">
+        <div class="fi fcol jc">
+            <div class="fi">
+                <p>This will <strong>not</strong> work with a float</p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code rlinethru ">
+                    print(int('10.0'))
+                </code>
+            </div>
+        </div>
+        <div class="fi">
+            <img class="" src="images/02-valError.png">
+        </div>
+    </div>
+    <!-- Use int('10',2-->
+    <h3>Use <code class="mdcode">int('10',2)</code> to change  
+        <a tabindex="1" target="_blank" class="math-link" href="../../../00-math-tutorials/01-base10.html"
+        >base 10 to decimal</a>
+    </h3>
+        <div class="fcol">
+            <!-- int('0002') -->
+            <div class="fi mtb1">
+                <p>
+                    The first arg can be any based number but <strong>Must</strong> be written 
+                    as a <span class="o">string</span>.
+                </p>
+            </div>
+            <div class="code-container asc">
+                <code tabindex="1" class="copy-code no-img">
+                    int(<span class="o">'0002'</span>)
+                </code>
+            </div>
+            <div class="fi mtb1">
+                <p>
+                    &emsp;The second argument is the base that the number is converted to.
+                </p>
+            </div>
+            <!-- print(int('0010',2)) -->
+            <div class="fc">
+                <div class="fcol">
+                    <div class="code-container asc">
+                        <code tabindex="1" class="copy-code">
+                            print(int('0010',2))
+                        </code>
+                        
+                    </div>
+                    <div class="fi">
+                        <p>
+                            <code>'0010'</code> in binary (base 2) is 2
+                        </p>
+                    </div>
+                </div>
+                <div class="fi fcol">
+                    <img class="sm-img" src="images/03-base2.png">
+                </div>
+            </div>
+            
+        </div>
+        <!-- print(int('0010',10)) -->
+        <div class="fc">
+            <div class="fcol">
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        print(int('0010',10))
+                    </code>
+        
+                </div>
+                <div class="fi">
+                    <p>
+                        <code>'0010'</code> in base 10 is 10.
+                    </p>
+                </div>
+            </div>
+            <div class="fi fcol">
+                <img class="sm-img" src="images/04-base10.png">
+            </div>
+        </div>
+        <h3 tabindex="1">Basic base 10 to decimal examples</h3>
+        <div class="fc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+print(int('1000',2))
+print(int('0100',2))
+print(int('0010',2))
+print(int('0001',2))</pre>
+            </div>
+            
+            <div class="fi fcol">
+                <img class="lg-img" src="images/05-quickBinary.png">
+            </div>
+        </div>
+        <h3 tabindex="1">Basic binary base2 to base 10 examples</h3>
+        <div class="fc">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+print(int('1000',10))
+print(int('0100',10))
+print(int('0010',10))
+print(int('0001',10))</pre>
+            </div>
+            
+            <div class="fi fcol">
+                <img class="lg-img" src="images/06-quickBase10.png">
+            </div>
+        </div>    
+        <h3>Use <code class="mdcode">int('1dc',16)</code> to change
+            <a tabindex="1" target="_blank" class="math-link" href="../../../00-math-tutorials/01-base10.html">base 10 to
+                to</a>
+        <div class="fc">
+            <div class="fi fcol">
+                <p>
+                    You can also convert hexadecimal numbers
+                    which are base 16, pass in 16
+                    as a seconde argument which is the 
+                    base the number should be converted from
+                </p>
+                <div class="code-container asc">
+                    <code tabindex="1" class="copy-code">
+                        int('1ab',16)
+                    </code>
+                </div>
+            </div>
+            <div class="fi">
+                <img class="" src="images/07-hexadecimal.png">
+            </div>
+            
+            
+        </div>
+         
+        
+    <footer tabindex="1"></footer>
+    
+</body>
+</html>

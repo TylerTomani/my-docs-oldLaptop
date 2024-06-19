@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-03-02-httpExtensionClass</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/images.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">08-03-02- http <code class="lsg">Exception</code> class</h2>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                This create a generic <code class="b">HttpException</code> extended
+                from the <code class="lsg">Exception</code> class.  <sub>Review 
+                    chapter 07-03b-Extending built-in classes.
+                </sub>
+
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code">
+class <span class="b">HttpException</span>(<span class="lsg">Exception</span>):
+    statusCode = None
+    message = None
+    def __init__(self):
+        super().__init__(f'{self.statusCode} : {self.message}')
+        
+</pre>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                We can then create child classes from the <code class="b">HttpException</code> 
+                to target specific common http errors by extending <code class="b">HttpException</code>
+                and initializing the <span class="o">variables</span>.
+
+            </p>
+        </div>
+    </div>
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+class NotFound(HttpException):
+    <span class="o">statusCode</span> = 404
+    <span class="o">message</span> = 'Resource Not found'
+
+class ServerError(HttpException):
+    <span class="o">statusCode</span> = 500
+    <span class="o">message</span> = 'The server messed up'
+
+</pre>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fcol">
+        <div class="fi">
+            <p>
+                To check if it works create a function that raises one of the child classes.
+            </p>
+        </div>
+    </div>
+
+    <div class="fc">
+        <div class="fi">
+            <div class="code-container asc">
+                <pre tabindex="1" class="copy-code smcode">
+def raiseServerError():
+    raise ServerError
+
+</pre>
+            </div>
+            
+        </div>
+        <div class="fi">
+            <img tabindex="1" class="right-img" src="images/01.png">
+        </div>
+        
+    </div>
+    
+    
+    
+    
+    <footer tabindex="1"></footer>
+    
+    
+</body>
+</html>

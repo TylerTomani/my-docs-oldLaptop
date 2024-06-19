@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-02-tuplesSets</title>
+    <link rel="stylesheet" href="../../../../../css/path-lesson-template.css">
+    <link rel="stylesheet" href="../../../../../css/path-colors.css">
+    <script src="../../../../../js/path-img-enlarge.js" defer></script>
+    <script src="../../../../../js/lastFocusItem.js" defer></script>
+    <script src="../../../../../js/copycode.js" defer></script>
+</head>
+<body>
+    <h2 tabindex="1">04-02-01 sets</h2>
+    <!-- mySet = {'a','b','c'}     -->
+    <div class="fc">
+        <div class="fi fcol">
+            <div class="fi">
+                <p>
+                    To make a set use <code>{ }</code> curley brackets
+                </p>
+            </div>
+            
+            <div class="fi">
+                <sub><a tabindex="1" href="#" onclick="this.stopPropogation()"><span class="r">Review Chapter 2.2-Data Strucutres
+                            2.Sets</span></a>
+                    <span style="font-size: .7rem;">Make this a link to lesson</span> </sub>
+            </div>
+        </div>
+        <div class="fi fcol">
+            <div class="code-container align-self-center">
+                <code tabindex="1" class="copy-code">
+                    mySet = {'a','b','c'}
+                </code>
+            </div>
+        </div>
+        
+    </div>
+    <div class="fcol mt2">
+        <div class="fi fcol">
+            <p>
+                Or, us the <code>set()</code> constructor method that turns any 
+                <a class="r" target="_blank" tabindex="1"
+                    href="https://www.tutorialsteacher.com/python/set-method#:~:text=iterable%3A%20(Optional)%20An%20iterable%20such%20as%20string%2C%20list%2C%20set%2C%20dict%2C%20tuple%20or%20custom%20iterable%20class.">iterable</a>
+                object:
+                
+            </p>
+        </div>
+        <div class="fi ml5">
+            <ul class="mdsmtxt ml5">
+                <li>string</li>
+                <li>lists</li>
+                <li>sets</li>
+                <li>dicst</li>
+                <li>tuples</li>
+                <li>or custom class</li>
+            </ul>
+        </div>
+        <div class="fi">
+            <p>
+                into a set.
+            </p>
+        </div>
+        
+    </div>
+    <!-- mySet = set(['a','b','c']) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                Turn a list <code>['a','b','c']</code> into a set <code>{'a','b','c'}</code>
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = set(['a','b','c'])
+mySet</pre>
+            </div>
+        </div>
+        <div class="fi align-self-end">
+            <img class="" src="images/01-listToSet.png">
+        </div>
+
+    </div>
+    <!-- mySet = set(('a','b','c')) -->
+    <div class="fc">
+        <div class="fi fcol">
+            <p>
+                And we can change an <strong>immutable</strong> tuple <code>('a','b','c')</code>
+                into a set <code>{'a','b','c'}</code>
+            </p>
+            <div class="code-container align-self-center">
+                <pre tabindex="1" class="copy-code">
+mySet = set(('a','b','c'))
+mySet</pre>
+            </div>
+        </div>
+        <div class="fi align-self-center">
+            <img class="" src="images/02-tupleToSet.png">
+        </div>
+        
+        
+    </div>
+    <footer tabindex="1"></footer>
+</body>
+</html>
