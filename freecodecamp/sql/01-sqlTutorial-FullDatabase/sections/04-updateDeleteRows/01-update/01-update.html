@@ -1,6 +1,6 @@
 <script type="module" src="../../../js/lesson-temp.js"defer></script>
 <div class="steps-container">
-    <h1>04-01 update</h1>
+    <h1>04-01 <code class="lsg">UPDATE</code></h1>
     <!-- 01-01 -->
      <div class="step">
         <div tabindex="1" class="step-txt">
@@ -21,7 +21,7 @@ INSERT INTO student(name,major) VALUES('Kate','Sociology');
 INSERT INTO student(name,major) VALUES('Claire','Chemistry');
 INSERT INTO student(name,major) VALUES('Jack','Biology');
 INSERT INTO student(name,major) VALUES('Mike','Computer Science');
-SELECT * FROM student</pre>
+SELECT * FROM student;</pre>
             </div>
             
         </div>
@@ -38,7 +38,7 @@ SELECT * FROM student</pre>
             </p>
             <div class="code-container">
                 <pre tabindex="1" class="copy-code">
-UPDATE student
+<span class="lsg">update</span> student
 SET major = 'Bio';
 SELECT * FROM student</pre>
             </div>
@@ -89,7 +89,7 @@ SELECT * FROM student;</pre>
                 <pre tabindex="1" class="copy-code">
 UPDATE student
 SET major = 'Bio'
-WHERE major = 'Biology';
+<span class="lsg">WHERE</span> major = 'Biology';
 SELECT * FROM student; </pre>
             </div>
             <p>
