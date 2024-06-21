@@ -9,22 +9,25 @@ main {
 header {
     display: flex;
     justify-content: space-between;
-    padding: 2.5%;
-    padding-top: 2%;
-    padding-left: 6.3%;
+    padding: 5% ;
     border-bottom: 1px solid black;
     align-items: center;
     
 }
 #homelink{
     border: 1px solid black;
+    border-radius: 5px;
     display: inline-block;
-    padding: .5% 5%
+    padding: 1% 5%;
+    text-decoration: none;
+    font-size: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .resource-container {
     display: flex;
     flex-direction: column;
     margin: 0 5%;
+    padding-top: 6%;
 }
 
 .tutorials-container {
@@ -33,24 +36,29 @@ header {
     display: flex
 }
 .tutorials-container > .tutorial{
-    flex-basis: 25%;
+    flex-basis: 33%;
     border: 1px solid black;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 2%;
+    padding-top: 1%;
+    padding-left: 3%;
 }
 .tutorial >h3{
     font-size: 1rem;
     flex-basis: 15%;
-    border: 1px solid black;
+
 }
 .tutorial > img {
     width: 100%;
 }
 a:focus,a:active{
-    box-shadow: 0 0 13px 13px lightseagreen;
+    box-shadow: 0 0 10px 6px lightseagreen;
 }
 #homelink:focus,#homelink:active{
-    background-color: lightseagreen;
-    opacity: .5;
-    /* font-size: ; */
+    box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);
+    
 }
 .hide {
     display: none;
