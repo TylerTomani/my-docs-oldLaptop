@@ -91,6 +91,9 @@ a:focus,a:active{
     flex-wrap: nowrap;
 }
 @media screen and (max-width: 600px){
+    main {
+        padding-top: 5%;
+    }
     .resources-container{
         flex-direction: column;
     }
