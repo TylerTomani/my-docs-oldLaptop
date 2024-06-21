@@ -36,12 +36,12 @@ header {
     flex-basis: 25%;
     border: 1px solid black;
 }
-.tutorials-container > .tutorial >h3{
+.tutorial >h3{
     font-size: 1rem;
     flex-basis: 15%;
     border: 1px solid black;
 }
-.tutorials-container > .tutorial > img {
+.tutorial > img {
     width: 100%;
 }
 a:focus,a:active{
@@ -50,8 +50,17 @@ a:focus,a:active{
 #homelink:focus,#homelink:active{
     background-color: lightseagreen;
     opacity: .5;
-    font-size: ;
+    /* font-size: ; */
 }
 .hide {
     display: none;
+}
+
+@media screen and (max-width: 700px){
+    header > h1 {
+        font-size: 99%;
+    }
+    .tutorial > h3{
+        font-size: 90% ;
+    }
 }

@@ -10,7 +10,6 @@ function hideTopicsContainers(){
     })
 }
 hideTopicsContainers()
-
 dropResources.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
@@ -18,12 +17,11 @@ dropResources.forEach(el => {
     })
     
 })
-
 function toggleTopics(e){
     const resourcesContainer = getResourcesContainer(e.target.parentElement)
     const resourceContainer = getResourceContainer(e.target.parentElement)
     const topicsContainer = resourceContainer.querySelector('.topics-container')
-    console.log(topicsContainer)
+    console.log(resourceContainer.querySelector('.dropResource'))
     if(topicsContainer.classList.contains('hide')){
         resourcesContainer.classList.add('fcol')
         hideTopicsContainers()
@@ -36,7 +34,6 @@ function toggleTopics(e){
         resourcesContainer.classList.remove('fcol')
     }
 }
-
 function getResourceContainer(parent){
     if(parent.classList.contains('resource-container')){
         return parent
