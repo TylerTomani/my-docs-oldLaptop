@@ -3,12 +3,16 @@ const homelink = document.getElementById('homelink')
 const tutoriallink = document.getElementById('tutorialLink')
 const regexCmds = document.getElementById('regexCmds')
 const linuxCmds = document.getElementById('linuxCmds')
-export const nav = document.querySelector('nav')
+export const nav = document.querySelector('.section-lesson-title')
 export const aside = document.querySelector('aside')
 export const targetDiv = document.querySelector('#targetDiv')
 
 nav.addEventListener('click', e => {
-    
+    if(!aside.classList.contains('hide')){
+            aside.classList.add('hide')
+        } else {
+            aside.classList.remove('hide')
+        }    
 })
 nav.addEventListener('keydown', e => {
     let key = e.keyCode
