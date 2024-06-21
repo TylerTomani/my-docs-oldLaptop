@@ -9,19 +9,20 @@ nav#mainLinks {
     /* justify-content: space-around; */
 }
 nav#mainLinks > a {
-    /* display: inline-block; */
     display: inline-flex;
     border: 1px solid black;
     padding: 1% 5%;
-    
     height: 100%;
 }
-na
 header {
     display: flex;
+    flex-direction: column;
 }
 header > .tutorial img {
     max-height: 100px;
+}
+header > .title-tutorialLink-container{
+    display: flex;
 }
 nav {
     border-top: 1px solid black;
