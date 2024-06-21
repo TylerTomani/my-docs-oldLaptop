@@ -133,34 +133,33 @@ li > code {
     main > aside > .sections {
         display: flex;
         flex-wrap: wrap;
-        border-right: 1px solid black;
-        padding: 0%;
-    }
-    .sections {
         font-size: 60%;
     }
     .section-container {
         margin: 0;
         list-style: none;
+        margin-bottom: 2%;
+        flex-basis: 40%;
+        display: flex;
+        flex-direction: column;
     }
     
-        .section-container>.section {
-            text-decoration: none;
-            color: black;
-        }
+    .section-container>.section {
+        text-decoration: none;
+        color: black;
+        overflow-x: hidden;
+    }
     
-        .sub-section {
-            margin-left: 16%;
-            list-style: square;
-        }
+    .sub-section {
+        margin-left: 0%;
+        list-style: square;
+    }
     
-        .sub-section>li {
-            list-style: square;
-            line-height: 1.2;
-            margin-bottom: 3%;
-        }
     
         .sub-section>li>a {
             text-decoration: none;
         }
+    main > aside{
+        border-bottom: 2px solid black !important;
+    }
 }
