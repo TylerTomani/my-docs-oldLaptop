@@ -6,10 +6,25 @@ main {
     margin: 0 5%;
     padding-top: 2.5%;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5%;
+    padding-top: 2%;
+    padding-left: 6.3%;
+    border-bottom: 1px solid black;
+    align-items: center;
+    
+}
+#homelink{
+    border: 1px solid black;
+    display: inline-block;
+    padding: .5% 5%
+}
 .resource-container {
     display: flex;
     flex-direction: column;
-    padding-top: 2.5%;
+    margin: 0 5%;
 }
 
 .tutorials-container {
@@ -31,6 +46,11 @@ main {
 }
 a:focus,a:active{
     box-shadow: 0 0 13px 13px lightseagreen;
+}
+#homelink:focus,#homelink:active{
+    background-color: lightseagreen;
+    opacity: .5;
+    font-size: ;
 }
 .hide {
     display: none;
