@@ -71,8 +71,8 @@ aside {
     min-width: 15%;
     border-right: 1px solid black;
     padding-top: 1%;
-    padding-left: 1.5%;
-    padding-right: 1%;
+    padding-left: .5%;
+    padding-right: 4%;
 }
 .sections{
     color: black;
@@ -95,6 +95,7 @@ aside {
     list-style: square;
     line-height: 1.2;
     margin-bottom: 3%;
+    white-space: nowrap
 }
 .sub-section > li > a{
     text-decoration: none;
@@ -115,7 +116,29 @@ li > code {
             font-size: 70%;
     }
 }
-@media screen and (max-width: 550px){
+@media screen and (max-width: 770px){
+    main > aside {
+        padding-right: 5%;
+        width: 20vmax !important;
+    }
+    .sections {
+        font-size: 60%;
+    }
+}
+@media screen and (max-width: 581px){
+    main>aside {
+            padding-right: 5%;
+            width: 20vmax !important;
+        }
+    .sections {
+        font-size: 70%;
+    }
+    .sub-section > li > a{
+        font-size: 20% !important;
+
+    }
+}
+@media screen and (max-width: 500px){
     header{ 
         margin-top: 2%;
     }
@@ -130,6 +153,10 @@ li > code {
     main{
         flex-direction: column;
     }
+    main > aside{
+        padding-left: 1.5%;
+        border-bottom: 1px solid black 
+    }
     main > aside > .sections {
         display: flex;
         flex-wrap: wrap;
@@ -137,29 +164,29 @@ li > code {
     }
     .section-container {
         margin: 0;
-        list-style: none;
-        margin-bottom: 2%;
-        flex-basis: 40%;
-        display: flex;
-        flex-direction: column;
+        /* list-style: none; */
+        /* display: flex; */
+        /* flex-direction: column; */
+        flex-basis: 33%;
     }
-    
     .section-container>.section {
         text-decoration: none;
         color: black;
         overflow-x: hidden;
     }
-    
     .sub-section {
         margin-left: 0%;
         list-style: square;
+        /* display: flex;
+        flex-wrap: wrap; */
+        /* justify-content: space-evenly; */
     }
-    
-    
-        .sub-section>li>a {
-            text-decoration: none;
-        }
-    main > aside{
-        border-bottom: 2px solid black !important;
+    .sub-section>li {
+        /* flex-basis: 50%; */
     }
+    .sub-section>li>a {
+        text-decoration: none;
+        font-size: 10% !important;
+    }
+
 }
