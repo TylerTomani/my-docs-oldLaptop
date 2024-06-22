@@ -32,15 +32,15 @@ addEventListener('keydown', e => {
     switch(letter){
         case 'b':
             backlink.focus()
-            backlink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // backlink.scrollIntoView({ behavior: 'smooth', block: 'start' });
             break
         case 'h':
             homelink.focus()
-            homelink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // homelink.scrollIntoView({ behavior: 'smooth', block: 'start' });
             break
         case 'r':
             regexCmds.focus()
-            regexCmds.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // regexCmds.scrollIntoView({ behavior: 'smooth', block: 'start' });
             break
         case 'a':
             aside.focus()
@@ -57,6 +57,8 @@ addEventListener('keydown', e => {
         case 'n':
             nav.focus()
             break
+        default: 
+
     }
 });
 [aside,nav,targetDiv].forEach( el => {
