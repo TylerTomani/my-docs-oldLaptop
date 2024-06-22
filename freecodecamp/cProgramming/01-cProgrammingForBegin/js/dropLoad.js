@@ -1,5 +1,10 @@
 import { addCopyCodes } from "./copy-code.js"
 import { stepTxtListeners } from "./lesson-temp.js"
+const backlink = document.getElementById('backlink')
+const homelink = document.getElementById('homelink')
+const tutoriallink = document.getElementById('tutorialLink')
+const regexCmds = document.getElementById('regexCmds')
+const linuxCmds = document.getElementById('linuxCmds')
 const navbar = document.querySelector('.section-lesson-title')
 const allEls = document.querySelectorAll('body *')
 const mainAside = document.querySelector('main > aside')
@@ -208,13 +213,28 @@ addEventListener('keydown', e => {
         keys.shift.pressed = true
     }
     switch(letter){     
+        case 'b':
+            backlink.focus()
+            break
+        case 'h':
+            homelink.focus()
+            break
+        case 'r':
+            regexCmds.focus()
+            break
+        case 'l':
+            linuxCmds.focus()
+            break
+        case 't':
+            tutoriallink.focus()
+            break
         case 'a':
-            scrollTo(0,0)
             mainAside.focus()
+            scrollTo(0,0)
             break        
         case 'm':
-            scrollTo(0,0)
             targetDiv.focus()
+            scrollTo(0,0)
             break        
         case 'n':
             navbar.focus()

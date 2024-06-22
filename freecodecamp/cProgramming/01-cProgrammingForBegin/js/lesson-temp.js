@@ -31,7 +31,7 @@ function handleCopyCodes(e){
 }
 stepTxts.forEach(el => {
     el.addEventListener('click', e => {
-        toggleImgSize(e)
+        // toggleImgSize(e)
         handleVideoKeydown(e)
     })
     el.addEventListener('focus', e => {
@@ -53,18 +53,7 @@ stepTxts.forEach(el => {
         }
     })    
 })
-function toggleImgSize(e){
-    e.preventDefault()
-    const step = getStep(e.target)
-    const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
-    if(!img.classList.contains('enlarge')){
-        img.classList.add('enlarge')
-        img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-    } else{
-        img.classList.remove('enlarge')
-    }
-    
-}
+
 function getStep(parent){
     if(parent.classList.contains('step')){
         return parent
@@ -186,11 +175,23 @@ allVideos.forEach(el => {
 })
 allImages.forEach(el => {
     el.addEventListener('click',e => {
-        console.log(e.target)
+
         // e.preventDefault()
         toggleImgSize(e)
         denlargeAllImages()
     })
 })
-
+function toggleImgSize(e){
+    e.preventDefault()
+    const step = getStep(e.target)
+    const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
+    console.log(img)
+    if(!img.classList.contains('enlarge')){
+        img.classList.add('enlarge')
+        img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+    } else{
+        img.classList.remove('enlarge')
+    }
+    
+}
 }
