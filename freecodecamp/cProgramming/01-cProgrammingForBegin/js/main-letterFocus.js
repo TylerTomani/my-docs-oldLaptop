@@ -32,7 +32,7 @@ addEventListener('keydown', e => {
     switch(letter){
         case 'b':
             backlink.focus()
-            // backlink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            backlink.scrollIntoView({ behavior: 'smooth', block: 'start' });
             break
         case 'h':
             homelink.focus()
@@ -42,21 +42,14 @@ addEventListener('keydown', e => {
             regexCmds.focus()
             // regexCmds.scrollIntoView({ behavior: 'smooth', block: 'start' });
             break
-        case 'a':
-            aside.focus()
-            break
-        case 'm':
-            targetDiv.focus()
-            break
+
         case 'l':
             linuxCmds.focus()
             break
         case 't':
             tutoriallink.focus()
             break
-        case 'n':
-            nav.focus()
-            break
+        
         default: 
 
     }

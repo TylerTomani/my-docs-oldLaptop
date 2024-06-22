@@ -129,14 +129,10 @@ function handleVideoKeydown(e){
     let key = e.keyCode    
     const step = getStep(e.target.parentElement)
     const vid = step.querySelector('.step-vid > video')
-    
-    if(vid){
-        
-        
+    if(vid){        
         switch(key){
             case 32:
                 e.preventDefault()
-                // 
                 if(playing){
                     vid.play() 
                     vid.style.border = "2px solid blue"
@@ -156,11 +152,11 @@ function handleVideoKeydown(e){
                 break
             case 39:
                 vid.currentTime = vid.currentTime + 2
-                if(vid.currentTime >= vid.duration ){
+                if(vid.currentTime >= vid.duration  ){
                     // playing = false
                     vid.style.border = '14px solid red'
                     vid.pause()
-                    vid.currentTime = vid.duration()
+                    vid.currentTime = vid.duration 
                 } 
                 break
             default:
