@@ -190,7 +190,7 @@ export function getSectionContainer(parent){
         return null
     }
 }
-function getSubSection(parent){
+export function getSubSection(parent){
     if(parent.classList.contains('sub-section')){
         return parent
     } else if (parent.parentElement){
@@ -201,11 +201,9 @@ function getSubSection(parent){
 }
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
-    
     if(sectionsFocused && !targetDivFocused){
         navSections(e,letter)
     }
-
     if(letter == 's' && !sectionsFocused ){
         lastFocusedElement.focus()
     }
@@ -250,11 +248,9 @@ addEventListener('keydown', e => {
             }
         }
     }
-
     if(lessonsFocused){
         navLessons(e,letter)
     }
-    
 });
 navbar.addEventListener('click', e => {
     if(!mainAside.classList.contains('hide')){
@@ -286,6 +282,9 @@ function fetchLessonHref(href){
             stepTxtListeners()
             addCopyCodes()
     })
-    .catch(error => console.error('Error fetching content.html:', error));   
+    .catch(error => console.log('Error fetching content.html:'));   
 }
 
+[mainAside,navbar,targetDiv].forEach( el => {
+    el.addEventListener('focus', ()=>{scrollTo(0,0)});
+})

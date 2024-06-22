@@ -1,4 +1,5 @@
 import { lastFocusedElement } from "./dropLoad.js"
+import { getSubSection } from "./dropLoad.js"
 export function stepTxtListeners(){
 const stepTxts = document.querySelectorAll('.step-txt')
 
@@ -29,30 +30,6 @@ function handleCopyCodes(e){
     const copyCodes = step.querySelectorAll('.step-txt > .code-container > .copy-code')
     addTabIndex(copyCodes)
 }
-stepTxts.forEach(el => {
-    el.addEventListener('click', e => {
-        // toggleImgSize(e)
-        handleVideoKeydown(e)
-    })
-    el.addEventListener('focus', e => {
-        pauseAllVideo()
-        removeAllTabIndex()
-    })
-    el.addEventListener('focusout', e => {
-        denlargeAllImages()
-    })
-    el.addEventListener('keydown', e => {
-        let key = e.keyCode
-        const stepTxt = e.target
-        const as = stepTxt.querySelectorAll('a')
-        handleVideoKeydown(e)
-        if(key === 13){
-            addTabIndex(as)
-            handleCopyCodes(e)
-            toggleImgSize(e)
-        }
-    })    
-})
 
 function getStep(parent){
     if(parent.classList.contains('step')){
@@ -91,7 +68,11 @@ addEventListener('keydown', e => {
             }
         } else {
             if(letter == 'e'){
-                nxtLesson.focus()
+                if(nxtLesson){
+                    nxtLesson.focus()
+                } else {
+                    stepTxts[stepTxts.length - 1 ].focus()
+                }
             }        
         }
     } 
@@ -145,7 +126,6 @@ function handleVideoKeydown(e){
     }
 }
 // The playing variable is asscoiated with img size so it is placed in here
-
 function denlargeAllImages(){
     allVideos.forEach(el => {
         if(el.classList.contains('enlarge')){
@@ -173,16 +153,36 @@ allVideos.forEach(el => {
         handleVideoKeydown(e)
     })
 })
+stepTxts.forEach(el => {
+    el.addEventListener('click', e => {
+        // toggleImgSize(e)
+        handleVideoKeydown(e)
+    })
+    el.addEventListener('focus', e => {
+        pauseAllVideo()
+        removeAllTabIndex()
+    })
+    el.addEventListener('focusout', e => {
+        denlargeAllImages()
+    })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        const stepTxt = e.target
+        const as = stepTxt.querySelectorAll('a')
+        handleVideoKeydown(e)
+        if(key === 13){
+            addTabIndex(as)
+            handleCopyCodes(e)
+            toggleImgSize(e)
+        }
+    })    
+})
 allImages.forEach(el => {
     el.addEventListener('click',e => {
-
-        // e.preventDefault()
         toggleImgSize(e)
-        denlargeAllImages()
     })
 })
 function toggleImgSize(e){
-    e.preventDefault()
     const step = getStep(e.target)
     const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
     console.log(img)
@@ -191,7 +191,25 @@ function toggleImgSize(e){
         img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
     } else{
         img.classList.remove('enlarge')
-    }
-    
+    }   
+}
+nxtLesson.addEventListener('focus', e => {
+    removeAllTabIndex()
+    pauseAllVideo()
+})
+if(nxtLesson){
+    nxtLesson.addEventListener('click', e => {
+        console.log(lastFocusedElement)
+        const subSection = getSubSection(lastFocusedElement)
+        if(subSection){
+            const lessons = subSection.querySelectorAll('li > a')
+            let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
+            lessons[iLesson].focus()
+        } else {
+            // lastFocusedElement.focus()
+        }
+        
+
+    })
 }
 }
