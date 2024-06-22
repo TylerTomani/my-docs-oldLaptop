@@ -256,6 +256,24 @@ addEventListener('keydown', e => {
     }
     
 });
+navbar.addEventListener('click', e => {
+    if(!mainAside.classList.contains('hide')){
+            mainAside.classList.add('hide')
+        } else {
+            mainAside.classList.remove('hide')
+        }    
+})
+navbar.addEventListener('keydown', e => {
+    let key = e.keyCode
+    if(key === 13){
+        if(!mainAside.classList.contains('hide')){
+            mainAside.classList.add('hide')
+        } else {
+            mainAside.classList.remove('hide')
+        }
+    }
+
+})
 function fetchLessonHref(href){
     fetch(href)
     .then(response => response.text())
