@@ -10,6 +10,8 @@ export const navBar = document.querySelector('.section-lesson-title')
 const allEls = document.querySelectorAll('body *')
 const mainAside = document.querySelector('main > aside')
 const sections = document.querySelectorAll('.section')
+const sectionTitle = document.getElementById('section-title')
+const lessonTitle = document.getElementById('lesson-title')
 const subSections = document.querySelectorAll('.sub-section')
 const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
@@ -148,6 +150,8 @@ sections.forEach(el => {
         e.stopPropagation()
         toggleSubSections(e)
         fetchLessonHref(e.target.href)
+        sectionTitle.innerText = e.target.innerText
+        lessonTitle.innerText = ''
     })  
     el.addEventListener('focus', e => {
         lastFocusedElement = e.target
