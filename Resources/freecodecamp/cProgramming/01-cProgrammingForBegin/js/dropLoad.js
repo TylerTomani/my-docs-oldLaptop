@@ -81,6 +81,9 @@ lessons.forEach(el => {
         clickLesson(e)
         fetchLessonHref(e.target.href)
     })
+    el.addEventListener('keydown', e => {
+        startSection = true
+    })
     el.addEventListener('focus', e => {
         currentLesson = ''
         lastFocusedElement = e.target
