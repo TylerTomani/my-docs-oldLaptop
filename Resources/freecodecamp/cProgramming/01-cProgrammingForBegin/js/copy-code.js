@@ -61,16 +61,17 @@ function animate(e){
     let el = e.target
     if(el.classList.contains('decopied')){
         el.classList.remove('decopied')
-        el.classList.add('copied')
     }
     el.classList.add('copied')
-    setInterval(() => {
+    setTimeout(() =>{
         el.classList.remove('copied')
         el.classList.add('decopied')
+
     },250)
     let txt = e.target.innerText
     copyToClip(txt)
 }
+
 
 function copyToClip(txt){
 

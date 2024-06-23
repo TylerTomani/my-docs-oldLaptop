@@ -1,13 +1,10 @@
 header>nav#mainLinksContainer {
     display: flex;
 }
-
 header>nav#mainLinksContainer>#mainLinks {
     display: flex;
     flex-basis: 80%; 
-    /* align-items: flex-end;
-    justify-content: space-between; */
-    /* flex-wrap: wrap; */
+    
 }
 #mainLinks>a {
     flex-basis: 40%;
@@ -16,23 +13,13 @@ header>nav#mainLinksContainer>#mainLinks {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    white-space: normal;
-    text-align: center;
-    flex-wrap: wrap;
-    padding: 0 1%
 }
-
-header>#mainLinksContainer>.img-container {}
-
 #tutorialLink>img {
     min-width: 150px;
     max-width: 200px;
     min-height: 60px;
     max-height: 50px;
 }
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -45,8 +32,6 @@ header {
 header a:focus,header a:active {
     box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);
 }
-
-
 header > .title-tutorialLink-container > h1 {
     font-size: 160%;
     padding-left: 5%;
@@ -175,6 +160,7 @@ li > code {
     }
     #mainLinks>a {
         font-size: 80%;
+        
     }
     main > aside{
         flex-basis: 27%;

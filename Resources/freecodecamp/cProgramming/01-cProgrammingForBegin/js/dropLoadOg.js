@@ -13,10 +13,7 @@ const sections = document.querySelectorAll('.section')
 const subSections = document.querySelectorAll('.sub-section')
 const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
-/* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
-page is first opened */
-let startSection = false
-let iSection = 0
+
 let intLetter = 0
 let sectionsFocused = false
 let lessonsFocused = false
@@ -160,18 +157,14 @@ addEventListener('keyup', e => {
 })
 
 function navSections(e,letter){
-    if(!startSection){
-        return  
-    } else {
-        if(!keys.shift.pressed && letter == 's'){
-            iSection = (iSection + 1) % sections.length
-    
-        } else if (keys.shift.pressed && letter == 's'){
-            if(iSection > 0 ){
-                iSection -= 1
-            } else if(iSection <= 0){
-                iSection = sections.length -1
-            }
+    if(!keys.shift.pressed && letter == 's'){
+        iSection = (iSection + 1) % sections.length
+
+    } else if (keys.shift.pressed && letter == 's'){
+        if(iSection > 0 ){
+            iSection -= 1
+        } else if(iSection <= 0){
+            iSection = sections.length -1
         }
     }
     sections[iSection].focus()   
@@ -222,9 +215,11 @@ export function getSubSection(parent){
 }
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
-    if(letter == 's' && !sectionsFocused ){
-        lastFocusedElement.focus()
-    }
+    console.clear
+    
+    
+
+    if(letter == 's' && !sectionsFocused ){lastFocusedElement.focus()}
     if(letter == 'shift'){keys.shift.pressed = true}
     // Controls Section Selection with numbers on keyboard
     if(!isNaN(letter) && !lessonsFocused && !targetDivFocused){
@@ -270,7 +265,7 @@ addEventListener('keydown', e => {
             break
             
     }
-    startSection = true    
+    
 });
 function fetchLessonHref(href){
     fetch(href)
