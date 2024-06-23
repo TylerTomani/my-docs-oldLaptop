@@ -159,7 +159,11 @@ sections.forEach(el => {
         fetchLessonHref(e.target.href)
         sectionTitle.innerText = e.target.innerText
         lessonTitle.innerText = ''
+        startSection = true
     })  
+    el.addEventListener('keydown', e => {
+        startSection = true
+    })
     el.addEventListener('focus', e => {
         lastFocusedElement = e.target
         targetDivFocused = false

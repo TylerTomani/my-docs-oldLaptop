@@ -122,30 +122,30 @@ li > code {
 }
 @media screen and (max-width: 581px){
     main>aside {
-            padding-right: 5%;
-            width: 20vmax !important;
-        }
+        padding-right: 5%;
+        width: 20vmax !important;
+    }
     .sections-container {
-        font-size: 70%;
+        /* font-size: 70%; */
     }
     .sub-section > li > a{
         font-size: 20% !important;
+        white-space: wrap;
 
     }
 }
 @media screen and (max-width: 500px){
-    header{ 
-        margin-top: 5%;
-    }
+    header{ margin-top: 5%;}
     header > h1{
-        font-size: 100%;
-        padding-left: 2%;
+        font-size: 120%;
+        padding-left: 1%;
     }
-    
+    .section-lesson-title {padding-left: 2%;}
     main > aside > .sections-container {
-        display: flex;
-        flex-wrap: wrap;
         font-size: 60%;
+        /* display: flex;
+        flex-wrap: wrap;
+        */
     }
     .section-container {
         margin: 10% 0;
