@@ -84,7 +84,7 @@ body {
     max-height: 250px;
 }
 .step > .step-vid > video{
-    border : 2px solid green;
+    border : 2px solid lightseagreen;
 }
 .step-txt:active,.step-txt:focus{
     box-shadow: 0 0 3px 3px lightseagreen;
@@ -93,6 +93,12 @@ body {
 .enlarge {
     position: relative;
     transform: scale(2.2);
+    /* margin-right: 0%; */
+    right: 50%;
+}
+.enlarge-vid {
+    position: relative;
+    transform: scale(1.6);
     /* margin-right: 0%; */
     right: 50%;
 }

@@ -95,7 +95,7 @@ function handleVideoKeydown(e){
             case 32:
                 e.preventDefault()
                 // 
-                if(playing){
+                if(!playing){
                     vid.play() 
                     vid.style.border = "2px solid blue"
                 } else if(!playing) {
@@ -137,8 +137,8 @@ function handleVideoKeydown(e){
 // The playing variable is asscoiated with img size so it is placed in here
 function denlargeAllImages(){
     allVideos.forEach(el => {
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
+        if(el.classList.contains('enlarge-vid')){
+            el.classList.remove('enlarge-vid')
             playing = false
             el.pause()
         }
@@ -195,12 +195,23 @@ function toggleImgSize(e){
     const step = getStep(e.target)
     const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
     // console.log(img)
-    if(!img.classList.contains('enlarge')){
-        img.classList.add('enlarge')
-        img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-    } else{
-        img.classList.remove('enlarge')
-    }   
+    if(img.tagName == 'VIDEO'){
+        console.log('vid')
+        if(!img.classList.contains('enlarge-vid')){
+            img.classList.add('enlarge-vid')
+            img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
+        } else{
+            img.classList.remove('enlarge-vid')
+        }   
+    } else {
+
+        if(!img.classList.contains('enlarge')){
+            img.classList.add('enlarge')
+            img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+        } else{
+            img.classList.remove('enlarge')
+        }   
+    }
 }
 if(nxtLesson){
 
@@ -225,9 +236,13 @@ if(nxtLesson){
             }
 
         } else {
+        }        
+    })
+    nxtLesson.addEventListener('keydown', e => {
+        let letter = e.key.toLowerCase()
+        if(letter == 'a'){
+            lastFocusedElement.focus()
         }
-        
-
     })
 }
 }
