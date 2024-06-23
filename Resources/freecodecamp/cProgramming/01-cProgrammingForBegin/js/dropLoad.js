@@ -84,6 +84,7 @@ mainAside.addEventListener('focus', e => {
 })
 mainAside.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
+    let key = e.keyCode
     if(letter == 's' && !sectionsFocused){
         if(lastFocusedElement.classList.contains('section')){
             lastFocusedElement.focus()
@@ -91,7 +92,9 @@ mainAside.addEventListener('keydown', e => {
         }    
         
     }
-    
+    if(key === 13){
+        sections[0].focus()
+    }
 })
 navBar.addEventListener('focus', e => {
     targetDivFocused = false    
@@ -282,6 +285,7 @@ function fetchLessonHref(href){
     })
     .catch(error => console.log('Error fetching content.html:', error));   
 }
-[mainAside,navBar,targetDiv,backlink,homelink].forEach( el => {
+[mainAside,navBar,targetDiv,backlink,homelink,tutorialLink].forEach( el => {
     el.addEventListener('focus', ()=>{scrollTo(0,0)});
 })
+

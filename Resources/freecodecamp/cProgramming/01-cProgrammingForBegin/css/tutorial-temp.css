@@ -18,6 +18,8 @@ header>nav#mainLinksContainer>#mainLinks {
     align-items: center;
     white-space: normal;
     text-align: center;
+    flex-wrap: wrap;
+    padding: 0 1%
 }
 
 header>#mainLinksContainer>.img-container {}
