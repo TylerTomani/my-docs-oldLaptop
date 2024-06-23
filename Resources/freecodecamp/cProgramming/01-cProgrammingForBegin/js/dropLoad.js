@@ -1,14 +1,16 @@
-import { addCopyCodes } from "./copy-code.js"
+// import { stepTxtListeners } from "./lesson-temp.js"
 import { stepTxtListeners } from "./lesson-temp.js"
+const header = document.querySelector('header')
 const backlink = document.getElementById('backlink')
 const homelink = document.getElementById('homelink')
-const tutoriallink = document.getElementById('tutorialLink')
-const regexCmds = document.getElementById('regexCmds')
-const linuxCmds = document.getElementById('linuxCmds')
-const navbar = document.querySelector('.section-lesson-title')
+const tutorialLink = document.getElementById('tutorialLink')
+const regexCmdsLink = document.getElementById('regexCmds')
+const programShorcutsLink = document.getElementById('programShorcuts')
+export const navBar = document.querySelector('.section-lesson-title')
 const allEls = document.querySelectorAll('body *')
 const mainAside = document.querySelector('main > aside')
 const sections = document.querySelectorAll('.section')
+const sectionTitle = document.getElementById('section-title')
 const subSections = document.querySelectorAll('.sub-section')
 const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
@@ -20,6 +22,10 @@ let asideFocused = false
 let targetDivFocused = false
 let currentLesson
 let shiftS = []
+header.addEventListener('focusin', e => {
+    console.log('focus')
+    sectionsFocused = false
+})
 // Where the pages first loads, Section1 is the lastFocused Element
 export let lastFocusedElement = document.querySelector('.section')
 
@@ -87,11 +93,19 @@ mainAside.addEventListener('keydown', e => {
     }
     
 })
-navbar.addEventListener('focus', e => {
+navBar.addEventListener('focus', e => {
     targetDivFocused = false    
 })
-navbar.addEventListener('keydown', e => {
+navBar.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
+    let key = e.keyCode
+    if(key === 13){
+        if(!mainAside.classList.contains('hide')){
+            mainAside.classList.add('hide')
+        } else {
+            mainAside.classList.remove('hide')
+        }
+    }
     targetDivFocused = false
     if(letter == 's' ){
             lastFocusedElement.focus()
@@ -119,6 +133,7 @@ sections.forEach(el => {
         e.stopPropagation()
         toggleSubSections(e)
         fetchLessonHref(e.target.href)
+        sectionTitle.innerText = e.target.innerText
     })  
     el.addEventListener('focus', e => {
         lastFocusedElement = e.target
@@ -162,6 +177,9 @@ function navLessons(e,letter){
         const section = sectionContainer.querySelector('.section')
         const subSection = getSubSection(e.target.parentElement)
         const lessons = subSection.querySelectorAll('li > a')
+        if(letter == 's'){
+            section.focus()
+        }
         if(!isNaN(letter)){
             let intLetter = parseInt(letter)
             if(intLetter <= lessons.length && intLetter >= 0){
@@ -170,9 +188,7 @@ function navLessons(e,letter){
 
             }
         }
-        if(letter == 's'){
-            section.focus()
-        }
+        
     }
 }
 function clickLesson(e){
@@ -201,45 +217,13 @@ export function getSubSection(parent){
 }
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
-    if(sectionsFocused && !targetDivFocused){
-        navSections(e,letter)
-    }
-    if(letter == 's' && !sectionsFocused ){
-        lastFocusedElement.focus()
-    }
-    if(letter == 'shift'){
-        keys.shift.pressed = true
-    }
-    switch(letter){     
-        case 'b':
-            backlink.focus()
-            break
-        case 'h':
-            homelink.focus()
-            break
-        case 'r':
-            regexCmds.focus()
-            break
-        case 'l':
-            linuxCmds.focus()
-            break
-        case 't':
-            tutoriallink.focus()
-            break
-        case 'a':
-            mainAside.focus()
-            scrollTo(0,0)
-            break        
-        case 'm':
-            targetDiv.focus()
-            scrollTo(0,0)
-            break        
-        case 'n':
-            navbar.focus()
-            break
-            default: 
-            
-    }
+    console.clear
+    
+    
+
+    if(letter == 's' && !sectionsFocused ){lastFocusedElement.focus()}
+    if(letter == 'shift'){keys.shift.pressed = true}
+    // Controls Section Selection with numbers on keyboard
     if(!isNaN(letter) && !lessonsFocused && !targetDivFocused){
         let intLetter = parseInt(letter)
         if(intLetter <= sections.length){
@@ -248,43 +232,56 @@ addEventListener('keydown', e => {
             }
         }
     }
+    if(sectionsFocused && !targetDivFocused){
+        navSections(e,letter)}
     if(lessonsFocused){
         navLessons(e,letter)
     }
-});
-navbar.addEventListener('click', e => {
-    if(!mainAside.classList.contains('hide')){
-            mainAside.classList.add('hide')
-        } else {
-            mainAside.classList.remove('hide')
-        }    
-})
-navbar.addEventListener('keydown', e => {
-    let key = e.keyCode
-    if(key === 13){
-        if(!mainAside.classList.contains('hide')){
-            mainAside.classList.add('hide')
-        } else {
-            mainAside.classList.remove('hide')
-        }
+    switch(letter){     
+        case 'a':
+            scrollTo(0,0)
+            mainAside.focus()
+            break        
+        case 'm':
+            scrollTo(0,0)
+            targetDiv.focus()
+            break        
+        case 'n':
+            navBar.focus()
+            break
+        case 'b':
+            backlink.focus()
+            backlink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            break
+        case 'h':
+            homelink.focus()
+            homelink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            break
+        case 'r':
+            regexCmdsLink.focus()
+            // regexCmdsLink.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            break   
+        case 'p':
+            programShorcutsLink.focus()
+            break
+        case 't':
+            tutorialLink.focus()
+            break
+            
     }
-
-})
+    
+});
 function fetchLessonHref(href){
     fetch(href)
     .then(response => response.text())
     .then(html => {
         // Inject the retrieved HTML into the target div
         document.getElementById('targetDiv').innerHTML = html;
-////////////// This function is located in lessonsFocus.js ////////////////////////////////////////////////////////////////////////////////////
-            // partStepsEventListeners()
-            // chatGptDropTopics()
+////////////// This function is located in lesson-temp.js ////////////////////////////////////////////////////////////////////////////////////
             stepTxtListeners()
-            addCopyCodes()
     })
-    .catch(error => console.log('Error fetching content.html:'));   
+    .catch(error => console.log('Error fetching content.html:', error));   
 }
-
-[mainAside,navbar,targetDiv].forEach( el => {
+[mainAside,navBar,targetDiv,backlink,homelink].forEach( el => {
     el.addEventListener('focus', ()=>{scrollTo(0,0)});
 })

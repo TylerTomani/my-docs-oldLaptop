@@ -193,10 +193,13 @@ function toggleImgSize(e){
         img.classList.remove('enlarge')
     }   
 }
-nxtLesson.addEventListener('focus', e => {
-    removeAllTabIndex()
-    pauseAllVideo()
-})
+if(nxtLesson){
+
+    nxtLesson.addEventListener('focus', e => {
+        removeAllTabIndex()
+        pauseAllVideo()
+    })
+}
 if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
         console.log(lastFocusedElement)
