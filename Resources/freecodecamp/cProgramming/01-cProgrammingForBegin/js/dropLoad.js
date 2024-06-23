@@ -80,6 +80,7 @@ lessons.forEach(el => {
         e.stopPropagation()
         clickLesson(e)
         fetchLessonHref(e.target.href)
+        // e.target.focus()
     })
     el.addEventListener('keydown', e => {
         startSection = true

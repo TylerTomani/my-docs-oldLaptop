@@ -194,7 +194,7 @@ allImages.forEach(el => {
 function toggleImgSize(e){
     const step = getStep(e.target)
     const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
-    console.log(img)
+    // console.log(img)
     if(!img.classList.contains('enlarge')){
         img.classList.add('enlarge')
         img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
