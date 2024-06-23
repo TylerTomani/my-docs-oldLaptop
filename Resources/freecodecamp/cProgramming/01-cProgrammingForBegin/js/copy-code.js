@@ -1,8 +1,6 @@
 export function addCopyCodes(){
-
-
     
-    const codeCopy = document.querySelectorAll('.copy-code')
+const codeCopy = document.querySelectorAll('.copy-code')
 const codeContainers = document.querySelectorAll('.code-container')
 const stepTxtPAsCopy = document.querySelectorAll('.step-txt > p > a')
 let cmdCarray = []

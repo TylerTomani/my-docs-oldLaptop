@@ -1,4 +1,4 @@
-// import { stepTxtListeners } from "./lesson-temp.js"
+import { addCopyCodes } from "./copy-code.js"
 import { stepTxtListeners } from "./lesson-temp.js"
 const header = document.querySelector('header')
 const backlink = document.getElementById('backlink')
@@ -304,6 +304,7 @@ function fetchLessonHref(href){
         document.getElementById('targetDiv').innerHTML = html;
 ////////////// This function is located in lesson-temp.js ////////////////////////////////////////////////////////////////////////////////////
             stepTxtListeners()
+            addCopyCodes()
     })
     .catch(error => console.log('Error fetching content.html:', error));   
 }
