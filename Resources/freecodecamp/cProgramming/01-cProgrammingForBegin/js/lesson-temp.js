@@ -216,9 +216,15 @@ if(nxtLesson){
         if(subSection){
             const lessons = subSection.querySelectorAll('li > a')
             let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
-            lessons[iLesson].focus()
+            if(lessons[iLesson]){
+
+                lessons[iLesson].focus()
+            } else {
+
+                lastFocusedElement.focus()
+            }
+
         } else {
-            lastFocusedElement.focus()
         }
         
 
