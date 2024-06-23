@@ -83,6 +83,19 @@ lessons.forEach(el => {
     })
     el.addEventListener('keydown', e => {
         startSection = true
+        let letter = e.key.toLowerCase()
+        if(letter == 's'){
+            const subSection = getSectionContainer(e.target)
+            const section = subSection.querySelector('.section')
+            iSection = [...sections].indexOf(section)
+            if(sections[iSection -1]){
+                sections[iSection -1].focus()
+
+            }
+
+            
+        }
+        
     })
     el.addEventListener('focus', e => {
         currentLesson = ''
