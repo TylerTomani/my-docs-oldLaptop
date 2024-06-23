@@ -27,8 +27,15 @@ let targetDivFocused = false
 let currentLesson
 let shiftS = []
 header.addEventListener('focusin', e => {
-    console.log('focus')
     sectionsFocused = false
+    
+})
+header.addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(letter == 's' ){
+        lastFocusedElement.focus()
+        iSection -= 1
+    }    
 })
 // Where the pages first loads, Section1 is the lastFocused Element
 export let lastFocusedElement = document.querySelector('.section')
