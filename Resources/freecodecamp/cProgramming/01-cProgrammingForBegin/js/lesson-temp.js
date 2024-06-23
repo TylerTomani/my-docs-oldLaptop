@@ -20,6 +20,15 @@ targetDiv.addEventListener('focusout', e => {
     targetDivFocus = false
     denlargeAllImages()    
 })
+targetDiv.addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(letter == ''){
+        if(nxtLesson){
+            nxtLesson.focus()
+        }
+    }
+    
+})
 allStepTxtPAs.forEach(el =>{
     el.addEventListener('focus', () =>{
         denlargeAllImages()
@@ -209,7 +218,7 @@ if(nxtLesson){
             let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
             lessons[iLesson].focus()
         } else {
-            // lastFocusedElement.focus()
+            lastFocusedElement.focus()
         }
         
 
