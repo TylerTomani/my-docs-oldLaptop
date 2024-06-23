@@ -90,19 +90,15 @@ body {
 .copy-code:active,.copy-code:focus{
     box-shadow: 0 0 6px 6px lightseagreen;
 }
-
-.b{color: blue;}
-.r{color:red}
-.m{color:magenta}
-.gr{color:goldenrod}
-.lsg{color:lightseagreen}
-.g{color:green}
-.o{color:orange}
-
 #nxtLesson{
     margin-left: 2.5%;
     padding: .5% 1.5%
 }
 #nxtLesson:active,#nxtLesson:focus{
     box-shadow: 0 0 5px 5px lightseagreen;
+}
+@media screen and (max-width:500px){
+    .step-txt > .code-container {
+        font-size: 50%;
+    }
 }
