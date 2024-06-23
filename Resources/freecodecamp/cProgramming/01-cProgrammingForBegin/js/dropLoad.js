@@ -115,6 +115,19 @@ navBar.addEventListener('keydown', e => {
         }    
     
 })
+navBar.addEventListener('click', e => {
+    if(!mainAside.classList.contains('hide')){
+        mainAside.classList.add('hide')
+    } else {
+        mainAside.classList.remove('hide')
+    }
+    targetDivFocused = false
+    if(letter == 's' ){
+            lastFocusedElement.focus()
+            iSection -= 1
+        }    
+    
+})
 targetDiv.addEventListener('focus', e => {
     targetDivFocused = true
     sectionsFocused = false
