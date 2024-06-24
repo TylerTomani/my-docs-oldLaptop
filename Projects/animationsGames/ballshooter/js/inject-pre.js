@@ -52,6 +52,7 @@ nextBtn.addEventListener('click', e => {
     changeScript(currentIndex)
 })
 
+console.log(currentIndex)
 function changeScript(currentIndex){
     switch(currentIndex){
         case 0:
