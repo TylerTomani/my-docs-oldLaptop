@@ -100,6 +100,9 @@ main > aside {
     line-height: 1.2;
     margin-bottom: 3%;
 }
+.sub-section > li >ul {
+    font-size: 40%;
+}
 .sub-section > li > a{
     display: flex;
     flex-wrap: wrap;
