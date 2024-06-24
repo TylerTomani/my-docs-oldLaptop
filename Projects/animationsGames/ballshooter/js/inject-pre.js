@@ -8,7 +8,7 @@ const main = document.querySelector('main')
 let shiftS = []
 let scriptMoved = false
 let currentScript ,preEl
-let currentIndex = 0
+let currentIndex = 2
 const copyCodesInner = document.querySelectorAll('.copy-code > .copy-code')
 const explainerContainer = document.querySelector('.explainer-container')
 changeScript(1)

@@ -88,14 +88,14 @@ const c = canvas.getContext('2d')
 canvas.style.background = 'black'
 c.clearRect(0,0,canvas.width,canvas.height)
 canvas.style.border = '4px solid red'
-canvas.width = innerWidth /2 
-canvas.height = innerHeight /2 
+canvas.width = innerWidth  
+canvas.height = innerHeight 
 let playerVelocity = 5
 let projectileVelocity = 12
-let enemieVelocity = 2
+let enemieVelocity = 3
 let pause = false
 let animationId
-const scale = .5
+let scale = .8
 <span class="l">let paused = false</span>
 </pre>
 <!-- keys -->
@@ -121,7 +121,7 @@ class Enemy{
     constructor(x,y,radius,color,velocity){
         this.x = x
         this.y = y
-        this.radius = radius * .8
+        this.radius = radius * scale
         this.color = color
         this.velocity = velocity
     }
@@ -198,7 +198,6 @@ addEventListener('keydown',e  => {
     if(key == 32){
         e.preventDefault()
         paused = !paused
-        console.log(paused)
         scrollTo(0,0)
     }
     // Projectiles
@@ -299,10 +298,8 @@ function animate(){
                 el.x - el.radius > canvas.width ||
                 el.y + el.radius &lt; 0 ||
                 el.y - el.radius > canvas.height ){
-                console.log('boom')
                 setTimeout(()=>{
                     projectiles.splice(i,1)
-                    console.log(projectiles.length)
                 },0)
             } 
         })
@@ -312,10 +309,8 @@ function animate(){
                 el.x - el.radius > canvas.width ||
                 el.y + el.radius &lt; 0 ||
                 el.y - el.radius > canvas.height ){
-                console.log('boom')
                 setTimeout(()=>{
                     enemies.splice(i,1)
-                    console.log(projectiles.length)
                 },0)
             } 
         })
@@ -381,6 +376,8 @@ spawnEnemies()
 <pre tabindex="1" class="copy-code">
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+canvas.style.background = 'black'
+c.clearRect(0,0,canvas.width,canvas.height)
 canvas.style.border = '10px solid white'
 canvas.style.boxShadow = '0 0 10px 2px black'
 </pre>
