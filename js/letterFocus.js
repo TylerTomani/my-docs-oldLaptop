@@ -1,58 +1,52 @@
 const allEls = document.querySelectorAll('body *') 
+const allElsArr = Array.from(allEls)
 let letteredEls = []
-let currentLetteredEls = []
+let sorted = []
 let currentLetter
-let indexLetter = 0
+let iLetter = 0
 allEls.forEach(el => {
     if(el.hasAttribute('id')){
         letteredEls.push(el)
         el.setAttribute('tabindex', '1')
     }
+    el.addEventListener('focus', e => {
+    })
 })
+
+sorted = letteredEls.sort((a, b) => {     
+            const idA = a.id.toLowerCase();
+            const idB = b.id.toLowerCase();
+            if (idA < idB) return -1;
+            if (idA > idB) return 1;
+            return 0;
+        });
 addEventListener('keydown', e  => {
     let letter = e.key.toLowerCase()
-    currentLetteredEls = []
-    
     if(letter != 'enter'){
-        letteredEls.forEach(el => {
-            const topicsContainer = el.parentElement
-            if(topicsContainer && !topicsContainer.classList.contains('hide')){
-                if(letter == el.id[0] ){
-                    currentLetteredEls.push(el)
-                } else {
-                    return
+        if(currentLetter != letter){
+            sorted.forEach((el,i,arr) => {
+                if(letter == el.id[0]){
+                    iLetter = i
                 }
-            }
-        })
-        if(currentLetteredEls){
-            if(currentLetter == letter){
-                indexLetter = (indexLetter + 1) % currentLetteredEls.length       
-            } else if(currentLetter == letter && indexLetter == 0){
-                indexLetter += 1
-                currentLetteredEls[indexLetter].focus()
-            } else {
-                indexLetter = 0
-            }
-            if(currentLetteredEls.length != 0){
-                currentLetteredEls[indexLetter].focus()
-            }
+            })
         }
-        currentLetter = letter
-    } else {
-        /*  This return else clause allows Animation to Games to be focused on if the letter 'A'
-            is pressed after hitting enter on App,Chrome Extensions Project, otherwise you have 
-            to press 'A' twice to switch
-        */
-        return
-    }
-});
+        // if(currentLetter == letter){
 
-function getTopicsContainer(parent){
-    if(parent.classList.contains('topics-container')){
-        return parent
-    } else if (parent.parentElement){
-        return getTopicsContainer(parent.parentElement)
+        // }
+        console.log(iLetter)
+        console.log(sorted[iLetter])
+        sorted[iLetter].focus()
+                
     } else {
-        return null
     }
-}
+    currentLetter = letter
+});
+// function getTopicsContainer(parent){
+//     if(parent.classList.contains('topics-container')){
+//         return parent
+//     } else if (parent.parentElement){
+//         return getTopicsContainer(parent.parentElement)
+//     } else {
+//         return null
+//     }
+// }

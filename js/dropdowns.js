@@ -21,7 +21,6 @@ function toggleTopics(e){
     const resourcesContainer = getResourcesContainer(e.target.parentElement)
     const resourceContainer = getResourceContainer(e.target.parentElement)
     const topicsContainer = resourceContainer.querySelector('.topics-container')
-    console.log(resourceContainer.querySelector('.dropResource'))
     if(topicsContainer.classList.contains('hide')){
         resourcesContainer.classList.add('fcol')
         hideTopicsContainers()

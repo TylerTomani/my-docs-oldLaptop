@@ -3,13 +3,20 @@
     padding:0;
     box-sizing: border-box;
 }
+/* h2:focus,h2:active{
+    box-shadow: 0 0 4px 4px lightseagreen;
+} */
 header { display: flex;
          justify-content: space-between;}
 main {   border: 2px solid lightseagreen ;
          margin: 0 1.5%;
          padding: 0 5%;
 }
-main h2 {margin: .5% 0;}
+main h2 {
+    margin: .5% 0;
+    display: inline-block;
+    padding: 0 1%
+}
 .resources-container {  
     display: flex;
     flex-wrap: wrap;
