@@ -72,7 +72,7 @@ main > aside {
 .section-container{
     display: flex;
     flex-direction: column;
-    margin: 8% 0;
+    margin: 4% 0;
     width: 100%;
     flex-wrap: wrap;
     list-style:none;
@@ -80,7 +80,7 @@ main > aside {
 .section-container > .section {    
     width: 100%;
     display: inline-block;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-decoration: none;
     color: black;
 }
@@ -124,15 +124,13 @@ li > code {
 }
 @media screen and (max-width: 771px){
     main > aside {
-        padding-right: 5%;
         width: 20vmax !important;
     }
     .sections-container {
         font-size: 75%;
     }
-    .section {
-        /* white-space: nowrap */
-        
+    .section-container>.section {
+        width: 100% !important;
         /* border: 1px solid black; */
     }
 }
@@ -144,6 +142,11 @@ li > code {
     .sections-container {
         font-size: 70%;
     }
+
+    .sections-container > .sub-section {
+        border: 1px solid black;
+    }
+
     .sub-section > li > a{
         font-size: 100% !important;
         white-space: wrap;

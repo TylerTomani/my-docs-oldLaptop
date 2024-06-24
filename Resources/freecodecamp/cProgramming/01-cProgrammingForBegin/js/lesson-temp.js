@@ -18,7 +18,7 @@ targetDiv.addEventListener('focusout', e => {
 })
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    if(letter == ''){
+    if(letter == 'e'){
         if(nxtLesson){
             nxtLesson.focus()
         }
