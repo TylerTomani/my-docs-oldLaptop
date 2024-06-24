@@ -1,4 +1,4 @@
-import { allEls } from "./letterFocus.js"
+const allEls = document.querySelectorAll('body *') 
 const dropResources = document.querySelectorAll('.dropResource')
 const topics = document.querySelectorAll('.topic')
 const topicsContainers = document.querySelectorAll('.topics-container')

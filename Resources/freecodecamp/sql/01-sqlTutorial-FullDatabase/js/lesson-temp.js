@@ -1,6 +1,7 @@
 import { lastFocusedElement } from "./dropLoad.js"
 import { getSubSection } from "./dropLoad.js"
 export function stepTxtListeners(){
+const navbar = document.querySelector('.section-lesson-title')
 const stepTxts = document.querySelectorAll('.step-txt')
 const allImages = document.querySelectorAll(".step-img > img")
 const allVideos = document.querySelectorAll(".step-vid > video")
@@ -24,10 +25,17 @@ targetDiv.addEventListener('keydown', e => {
     }
     
 })
-allStepTxtPAs.forEach(el =>{
-    el.addEventListener('focus', () =>{
-        denlargeAllImages()
-    })
+
+navbar.addEventListener('keydown',e =>{
+    let letter = e.key.toLowerCase()
+    if(letter == 'e'){
+        if(nxtLesson){
+            nxtLesson.focus()
+        }
+        
+    }
+    
+
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
@@ -57,7 +65,32 @@ function removeAllTabIndex(){
         el.setAttribute('tabindex','-1')
     })
 }
-
+stepTxts.forEach(el => {    
+    el.addEventListener('focus', e => {
+        pauseAllVideo()
+        removeAllTabIndex()
+    })
+    el.addEventListener('focusout', e => {
+        denlargeAllImages()
+    })
+    el.addEventListener('click', e => {
+        toggleImgSize(e)
+        e.preventDefault()
+        handleVideoKeydown(e)
+        
+    })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        const stepTxt = e.target
+        const as = stepTxt.querySelectorAll('a')
+        handleVideoKeydown(e)
+        if(key === 13){
+            addTabIndex(as)
+            handleCopyCodes(e)
+            toggleImgSize(e)
+        }
+    })    
+})
 // Numpad focus to invidiual steps
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -109,31 +142,7 @@ allVideos.forEach(el => {
         handleVideoKeydown(e)
     })
 })
-stepTxts.forEach(el => {    
-    el.addEventListener('focus', e => {
-        pauseAllVideo()
-        removeAllTabIndex()
-    })
-    el.addEventListener('focusout', e => {
-        denlargeAllImages()
-    })
-    el.addEventListener('click', e => {
-        // toggleImgSize(e)
-        handleVideoKeydown(e)
-        
-    })
-    el.addEventListener('keydown', e => {
-        let key = e.keyCode
-        const stepTxt = e.target
-        const as = stepTxt.querySelectorAll('a')
-        handleVideoKeydown(e)
-        if(key === 13){
-            addTabIndex(as)
-            handleCopyCodes(e)
-            toggleImgSize(e)
-        }
-    })    
-})
+
 allImages.forEach(el => {
     el.addEventListener('click',e => {
         toggleImgSize(e)
@@ -206,7 +215,6 @@ function handleVideoKeydown(e){
     }
 }
 if(nxtLesson){
-
     nxtLesson.addEventListener('focus', e => {
         removeAllTabIndex()
         pauseAllVideo()
@@ -236,4 +244,13 @@ if(nxtLesson){
         }
     })
 }
+allStepTxtPAs.forEach(el =>{
+    el.addEventListener('focus', () =>{
+        denlargeAllImages()
+    })
+    el.addEventListener('click',e =>{
+        e.preventDefault()
+        open(e.target.href,'_blank')
+    })
+})
 }

@@ -1,4 +1,5 @@
-export let allEls = document.querySelectorAll('body *') 
+(function (){
+     const allEls = document.querySelectorAll('body *') 
 let idEls = []
 let letterEls = [] 
 let currentLetter 
@@ -57,3 +58,5 @@ addEventListener('keydown', e => {
     
     currentLetter = letter
 })
+
+}())

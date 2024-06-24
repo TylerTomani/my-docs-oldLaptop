@@ -63,33 +63,48 @@ main > aside {
     padding-left: .5%;
     padding-right: 2%;
 }
-.sections{
+.sections-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     color: black;
-
 }
 .section-container{
+    display: flex;
+    flex-direction: column;
     margin: 8% 0;
+    width: 100%;
+    flex-wrap: wrap;
     list-style:none;
 }
 .section-container > .section {    
+    width: 100%;
     display: inline-block;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     text-decoration: none;
     color: black;
 }
 
 .sub-section{
-    margin-left: 16%;
-    list-style: square;
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    margin-left: 5%;
+    list-style:none;
+    white-space: wrap;
 }
 .sub-section > li{
-    list-style: square;
+    /* border: 1px solid black; */
+    width: 100%;
     line-height: 1.2;
     margin-bottom: 3%;
-    white-space: nowrap
 }
 .sub-section > li > a{
+    display: flex;
+    flex-wrap: wrap;
     text-decoration: none;
+    white-space: nowrap
 }
 
 li > code {
@@ -123,14 +138,14 @@ li > code {
 }
 @media screen and (max-width: 581px){
     main>aside {
-        padding-right: 5%;
-        width: 20vmax !important;
+        /* padding-right: 5%; */
+        /* width: 20vmax !important; */
     }
     .sections-container {
-        /* font-size: 70%; */
+        font-size: 70%;
     }
     .sub-section > li > a{
-        font-size: 20% !important;
+        font-size: 100% !important;
         white-space: wrap;
 
     }

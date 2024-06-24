@@ -2,7 +2,7 @@ export function addCopyCodes(){
     
 const codeCopy = document.querySelectorAll('.copy-code')
 const codeContainers = document.querySelectorAll('.code-container')
-const stepTxtPAsCopy = document.querySelectorAll('.step-txt > p > a')
+
 let cmdCarray = []
 codeCopy.forEach(copycode => {
     copycode.addEventListener('keydown' , e => {        
@@ -36,23 +36,7 @@ codeCopy.forEach(copycode => {
     });
 
 })
-stepTxtPAsCopy.forEach(copycode => {
-    copycode.addEventListener('keydown' , e => {        
-        cmdCarray.unshift(e.keyCode)
-        if(cmdCarray.length > 3){
-            cmdCarray.pop()
-        }
-        if(cmdCarray[0] === 67 && cmdCarray[1] === 91){
-            animate(e)
-            
-        }
-    })
-    copycode.addEventListener('click', e => {
-        e.preventDefault()
-        animate(e)
-    })
 
-})
 
 function animate(e){
     
