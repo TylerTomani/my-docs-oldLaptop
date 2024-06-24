@@ -6,14 +6,10 @@
 body {
     padding-bottom: 5%;
 }
-
 .steps-container {
     display: flex;
     flex-direction: column;
 }
-
-
-
 .step-col {
     flex-basis: 80%;
     width: 80%;
@@ -21,7 +17,6 @@ body {
     justify-self: center;
     border: 1px solid black;
 }
-
 .step {
     display: flex;
 }
@@ -36,24 +31,19 @@ body {
 .step-col>.step-txt {
     display: flex;
     flex-direction: column;
-    padding-bottom: 5%;
-    align-items: center;
+    padding: 2.5%;
+    margin-top: 2.5%;
 }
-
-.step>.step-txt {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 5%;
+.step > .step-txt{
+    padding: 1%;
+    padding-top: 0;
+}
+.step-txt> sub{
 }
 .step-txt>p {
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* flex-direction: column; */
     width: 100%;
-    padding-top: 2.5%;
-    /* width: 100%; */
-    height: 100%;
-    padding: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 .step-txt>p a{
     width: 100%;
@@ -66,9 +56,7 @@ body {
     align-self: flex-start;
 }
 
-.step-col>.step-txt {
-    margin-top: 2.5%;
-}
+
 .step-txt>ul,
 .step-txt>ol {
     align-self: center;
@@ -99,7 +87,14 @@ body {
     /* margin-right: 50%; */
     right: 50%;
 }
+.enlarge-vid {
+    position: relative;
+    transform: scale(2.2);
+    /* margin-right: 50%; */
+    right: 50%;
+}
 .code-container {
+    width: 98%;
     border: 1px solid black;
     width: 90%;
     align-self: center;
@@ -119,4 +114,43 @@ body {
 #nxtLesson:active,
 #nxtLesson:focus {
     box-shadow: 0 0 5px 5px lightseagreen;
+}
+
+@media screen and (max-width: 500px){
+    .step-txt > p{
+        font-size: 80%;
+    }
+    .code-container {
+        width: 99%;
+        font-size: 50%;
+    }
+    .copy-code {
+        /* padding-left: 2.5%; */
+        /* padding-top: 1.5%; */
+        overflow-x: scroll;
+    }
+    .enlarge{
+        position: relative;
+        transform: scale(3.2);
+        width: 400px;
+        height: 150px;
+        max-width: 500px !important;
+        max-height: 150px !important;
+        /* margin-right: 50%; */
+        right: 50%;
+    }
+    video {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    .enlarge-vid {
+        position: relative;
+        transform: scale(2.2);
+        /* margin-right: 50%; */
+        width: 150px      !important ;
+        height: 150px     !important ;
+        max-width: 200px  !important ;
+        max-height: 150px !important ;
+        right: 50%;
+    }
 }

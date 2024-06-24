@@ -76,7 +76,7 @@ stepTxts.forEach(el => {
     el.addEventListener('click', e => {
         toggleImgSize(e)
         e.preventDefault()
-        handleVideoKeydown(e)
+        // handleVideoKeydown(e)
         
     })
     el.addEventListener('keydown', e => {
@@ -207,7 +207,7 @@ function handleVideoKeydown(e){
             }    
             if(playing){
                 vid.play() 
-                vid.style.border = "2px solid blue"
+                vid.style.border = "1px solid blue"
             } else if(!playing) {
                 vid.pause()
                 vid.style.border = "1px dotted red"
