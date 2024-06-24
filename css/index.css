@@ -12,17 +12,17 @@ main {   border: 2px solid lightseagreen ;
 main h2 {margin: .5% 0;}
 .resources-container {  
     display: flex;
-    /* flex-wrap: wrap; */
-    /* gap: 2%; */
+    flex-wrap: wrap;
+    gap: 2%;
 }
 
 .resource-container > h3> .dropResource {
     text-decoration: none;
     box-shadow: 0 0 1px 1px black; 
     border-radius: 5px;
-    /* padding: .5% 0; */
-    /* padding-left: 1.5%; */
-    /* margin-bottom: 1%; */
+    padding: .5% 0;
+    padding-left: 1.5%;
+    margin-bottom: 1%;
     display: inline-block;
     width: 80%
     
@@ -94,18 +94,25 @@ a:focus,a:active{
 }
 @media screen and (max-width: 600px){
     header{
-        /* margin-top: 2.5%; */
-        /* margin-left: 2.5%; */
+        margin-bottom:5%;
     }
     main {
-        /* margin-top: 5%; */
-        /* padding-top: 2.5%; */
+        padding-top: 5%;
     }
     .resources-container{
         flex-direction: column;
+        flex-wrap: nowrap;
+        
     }
     .resources-container > .resource-container{
-        /* margin-bottom: 2.5%; */
+        margin: 2% 0;
     }
-
+    .resource-container > .topics-container {
+        padding-top: 2.5%;
+        gap: 5%;
+        
+    }
+    .topics-container > .topic {
+        margin: 2.5% 0;
+    }
 }

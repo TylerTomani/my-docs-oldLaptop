@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    border-bottom: 1px solid black;
+    align-items: center;
+
+}
+header > p {
+    flex-basis: 50%;
+}
+#homelink {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 1% 5%;
+    text-decoration: none;
+    font-size: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
