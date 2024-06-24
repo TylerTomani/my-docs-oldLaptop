@@ -1,7 +1,0 @@
-.flex {display: flex;}
-.fcol {display: flex; flex-direction: column;}
-.ac{align-items: center !important;}
-.jc{justify-content: center !important;}
-.ass{align-self: flex-start !important;}
-.asc{align-self: center !important; margin-top: 15%;}
-.jsc{justify-self: center !important;}
