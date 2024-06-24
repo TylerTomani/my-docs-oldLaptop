@@ -76,9 +76,15 @@ main h2 {
     justify-self: flex-end;
     border: 1px solid red;
 }
-.dropResource:focus,.dropResource:active,
 a:focus,a:active{
     box-shadow: 1px 2px 5px 4px lightseagreen;
+}
+.dropResource:focus,.dropResource:active{
+    /* box-shadow: 1px 2px 25px 40px orange; */
+    display: inline-block;
+    background-color: lightseagreen;
+    opacity: .8;
+    color: black;
 }
 
 #toDoList{

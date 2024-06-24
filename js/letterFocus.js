@@ -1,52 +1,59 @@
-const allEls = document.querySelectorAll('body *') 
-const allElsArr = Array.from(allEls)
-let letteredEls = []
-let sorted = []
-let currentLetter
+export let allEls = document.querySelectorAll('body *') 
+let idEls = []
+let letterEls = [] 
+let currentLetter 
 let iLetter = 0
-allEls.forEach(el => {
-    if(el.hasAttribute('id')){
-        letteredEls.push(el)
-        el.setAttribute('tabindex', '1')
-    }
-    el.addEventListener('focus', e => {
-    })
-})
-
-sorted = letteredEls.sort((a, b) => {     
-            const idA = a.id.toLowerCase();
-            const idB = b.id.toLowerCase();
-            if (idA < idB) return -1;
-            if (idA > idB) return 1;
-            return 0;
-        });
-addEventListener('keydown', e  => {
+let elCurrent
+let currentIndex
+let lastIndex
+addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    if(letter != 'enter'){
-        if(currentLetter != letter){
-            sorted.forEach((el,i,arr) => {
-                if(letter == el.id[0]){
-                    iLetter = i
-                }
-            })
-        }
-        // if(currentLetter == letter){
+    idEls = []
+    letterEls = []
+    allEls.forEach(el =>{
+        if(el.hasAttribute('id') && !el.classList.contains('hide')){
+            idEls.push(el)
 
-        // }
-        // console.log(iLetter)
-        // console.log(sorted[iLetter])
-        sorted[iLetter].focus()
-                
-    } else {
+        }
+    })
+    // console.clear()
+    idEls.forEach(el =>{
+        if(letter == el.id[0].toLowerCase() && !el.classList.contains('hide') ){
+            letterEls.push(el)
+            currentIndex = [...idEls].indexOf(el)
+        }
+        
+    })
+    
+    if(letterEls){
+        if(currentLetter == letter){
+            iLetter = (iLetter + 1 ) % letterEls.length
+        } else {
+            iLetter = 0
+            
+        }
+        
+        
+        if(letterEls){
+            currentIndex = [...idEls].indexOf(letterEls[iLetter])
+            // console.log('currentIndex',currentIndex)
+            // console.log(idEls[currentIndex].id)
+            if(currentIndex < lastIndex && letterEls.length > 1){
+                console.log('yes')
+                // if(idEls[iLetter + 1]){
+                //     iLetter +=1
+                // }
+            }
+        }
+        if(letterEls[iLetter]){
+            letterEls[iLetter].focus()
+        }
+        lastIndex = currentIndex
     }
+    // console.log(idEls[letteredIndex].id)
+
+    /* We almos have it, need to check if currentElement index is < first lettered element index 
+    in idEls */
+    
     currentLetter = letter
-});
-// function getTopicsContainer(parent){
-//     if(parent.classList.contains('topics-container')){
-//         return parent
-//     } else if (parent.parentElement){
-//         return getTopicsContainer(parent.parentElement)
-//     } else {
-//         return null
-//     }
-// }
+})

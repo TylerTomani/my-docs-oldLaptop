@@ -1,58 +1,43 @@
-const allEls = document.querySelectorAll('body *') 
-let letteredEls = []
-let currentLetteredEls = []
-let currentLetter
-let indexLetter = 0
-allEls.forEach(el => {
-    if(el.hasAttribute('id')){
-        letteredEls.push(el)
-        el.setAttribute('tabindex', '1')
-    }
-})
-addEventListener('keydown', e  => {
+export let allEls = document.querySelectorAll('body *') 
+let idEls = []
+let letterEls = [] 
+let currentLetter 
+let iLetter = 0
+let elCurrent
+let letteredIndex
+let currentIndex
+addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    currentLetteredEls = []
-    
-    if(letter != 'enter'){
-        letteredEls.forEach(el => {
-            const topicsContainer = el.parentElement
-            if(topicsContainer && !topicsContainer.classList.contains('hide')){
-                if(letter == el.id[0] ){
-                    currentLetteredEls.push(el)
-                } else {
-                    return
-                }
-            }
-        })
-        if(currentLetteredEls){
-            if(currentLetter == letter){
-                indexLetter = (indexLetter + 1) % currentLetteredEls.length       
-            } else if(currentLetter == letter && indexLetter == 0){
-                indexLetter += 1
-                currentLetteredEls[indexLetter].focus()
-            } else {
-                indexLetter = 0
-            }
-            if(currentLetteredEls.length != 0){
-                currentLetteredEls[indexLetter].focus()
-            }
-        }
-        currentLetter = letter
-    } else {
-        /*  This return else clause allows Animation to Games to be focused on if the letter 'A'
-            is pressed after hitting enter on App,Chrome Extensions Project, otherwise you have 
-            to press 'A' twice to switch
-        */
-        return
-    }
-});
+    idEls = []
+    letterEls = []
+    allEls.forEach(el =>{
+        if(el.hasAttribute('id') && !el.classList.contains('hide')){
+            idEls.push(el)
 
-function getTopicsContainer(parent){
-    if(parent.classList.contains('topics-container')){
-        return parent
-    } else if (parent.parentElement){
-        return getTopicsContainer(parent.parentElement)
-    } else {
-        return null
+        }
+    })
+    // console.clear()
+    idEls.forEach(el =>{
+        if(letter == el.id[0].toLowerCase() && !el.classList.contains('hide') ){
+            letterEls.push(el)
+        }
+        
+    })
+    if(letterEls){
+        if(currentLetter == letter){
+            iLetter = (iLetter + 1 ) % letterEls.length
+            letteredIndex = [...idEls].indexOf(letterEls[iLetter])    
+        } else {
+            iLetter = 0
+        }
+        if(letterEls[iLetter]){
+            letterEls[iLetter].focus()
+        }
+        
     }
-}
+
+    /* We almos have it, need to check if currentElement index is < first lettered element index 
+    in idEls */
+    
+    currentLetter = letter
+})
