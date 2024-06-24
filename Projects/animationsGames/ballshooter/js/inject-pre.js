@@ -41,6 +41,7 @@ prevBtn.addEventListener('click', e => {
     changeScript(currentIndex)
 });
 nextBtn.addEventListener('click', e => {
+    e.preventDefault()
     scrollTo(0,0)
     arrScripts[currentIndex].classList.remove('show')
     hideScripts()

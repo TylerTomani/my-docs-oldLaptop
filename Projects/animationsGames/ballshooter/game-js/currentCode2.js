@@ -2,10 +2,16 @@ const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 canvas.style.background = 'black'
 c.clearRect(0,0,canvas.width,canvas.height)
-canvas.style.border = '4px solid #c0d375'
+canvas.style.border = '4px solid red'
 canvas.width = innerWidth /2 
 canvas.height = innerHeight /2 
-let velocityGlobal = 5
+let playerVelocity = 5
+let projectileVelocity = 12
+let enemieVelocity = 2
+let pause = false
+let animationId
+let paused = false
+
 
 class Player{
     constructor(x,y,radius,color,velocity){
