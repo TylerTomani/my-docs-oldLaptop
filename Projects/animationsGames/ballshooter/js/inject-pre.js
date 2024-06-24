@@ -191,7 +191,6 @@ copyCodeFirstMains.forEach(el => {
 
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    
     shiftS.unshift(letter)
     if(shiftS.length > 2){
         shiftS.pop()
@@ -201,11 +200,7 @@ addEventListener('keydown', e => {
         if(!scriptMoved){
             main.style.display = 'flex'
             main.style.flexDirection = 'row'
-            // scriptsSection.style.width = '100vw '
-            // scriptsSection.style.flexBasis = '100%'
-            scrollTo(0,0)
-            
-            // console.log(copyCode)
+            scrollTo(0,0)       
         } else {
             main.style.display = 'flex'
             main.style.flexDirection = 'column'
@@ -213,9 +208,6 @@ addEventListener('keydown', e => {
         copyCode.focus()
         scriptMoved = !scriptMoved
     }
-    // console.log(typeof(letter))
-    // console.log(letter)
-
     if(letter <= 9){
         currentIndex = parseInt(letter)
         if(typeof(letter == 'number')){
