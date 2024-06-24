@@ -74,8 +74,8 @@ stepTxts.forEach(el => {
         denlargeAllImages()
     })
     el.addEventListener('click', e => {
-        toggleImgSize(e)
         e.preventDefault()
+        // toggleImgSize(e)
         // handleVideoKeydown(e)
         
     })
