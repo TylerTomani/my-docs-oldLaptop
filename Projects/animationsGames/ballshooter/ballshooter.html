@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="css/copy-code.css">
     <script type="module" src="js/copy-code.js" defer></script>
     <script type="module" src="js/letterFocus.js" defer></script>
-    <script type="module" src="js/inject-pre.js" defer></script>
+    <!-- <script type="module" src="js/inject-pre.js" defer></script> -->
     <!-- <script type="module" src="game-js/currentCode.js" defer></script> -->
+    <script type="module" src="game-js/currentCode2.js" defer></script>
 </head>
 <body>
     <header>
@@ -419,6 +420,8 @@ animate()</pre>
 <pre tabindex="1" class="copy-code">
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+canvas.style.background = 'black'
+c.clearRect(0,0,canvas.width,canvas.height)
 c.clearRect(0,0,canvas.width,canvas.height)
 canvas.style.border = '4px solid #c0d375'
 canvas.width = innerWidth /2 
