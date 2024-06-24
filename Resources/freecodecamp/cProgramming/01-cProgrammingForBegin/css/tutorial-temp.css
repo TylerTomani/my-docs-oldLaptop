@@ -11,6 +11,7 @@ header>nav#mainLinksContainer>#mainLinks {
     border: 1px solid black;
     border-top: none;
     display: inline-flex;
+    padding: 0 5%;
     justify-content: center;
     align-items: center;
 }
@@ -160,7 +161,7 @@ li > code {
     }
     #mainLinks>a {
         font-size: 80%;
-        
+        padding: 0 2.5%;
     }
     main > aside{
         flex-basis: 27%;

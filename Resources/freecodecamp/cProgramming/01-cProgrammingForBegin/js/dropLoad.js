@@ -75,6 +75,9 @@ function toggleSubSections(e){
     }
 }
 lessons.forEach(el => {
+    if(el.hasAttribute('autofocus')){
+        lessonsFocused = true
+    }
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()

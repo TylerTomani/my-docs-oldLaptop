@@ -2,19 +2,14 @@ import { lastFocusedElement } from "./dropLoad.js"
 import { getSubSection } from "./dropLoad.js"
 export function stepTxtListeners(){
 const stepTxts = document.querySelectorAll('.step-txt')
-
 const allImages = document.querySelectorAll(".step-img > img")
 const allVideos = document.querySelectorAll(".step-vid > video")
-
 const allStepTxtPAs = document.querySelectorAll('.step-txt > p > a')
 const copyCodes = document.querySelectorAll('.step-txt > .code-container > .copy-code')
-
 const nxtLesson = document.getElementById('nxtLesson') ? document.getElementById('nxtLesson') : null
 const targetDiv = document.getElementById('targetDiv')
 let targetDivFocus = false
-
 let playing = false
-
 targetDiv.addEventListener('focusin', e => {targetDivFocus = true})
 targetDiv.addEventListener('focusout', e => {
     targetDivFocus = false
@@ -86,6 +81,84 @@ addEventListener('keydown', e => {
         }
     } 
 });
+
+// The playing variable is asscoiated with img size so it is placed in here
+function denlargeAllImages(){
+    allVideos.forEach(el => {
+        if(el.classList.contains('enlarge-vid')){
+            el.classList.remove('enlarge-vid')
+            playing = false
+            el.pause()
+        }
+    })
+    allImages.forEach(el => {
+        if(el.classList.contains('enlarge')){
+            el.classList.remove('enlarge')
+        }
+    })
+}
+function pauseAllVideo(){
+    allVideos.forEach(el => {
+        el.pause()
+    })
+}
+allVideos.forEach(el => {
+    el.addEventListener('click', e =>{
+        e.preventDefault()
+        toggleImgSize(e)
+        handleVideoKeydown(e)
+    })
+})
+stepTxts.forEach(el => {    
+    el.addEventListener('focus', e => {
+        pauseAllVideo()
+        removeAllTabIndex()
+    })
+    el.addEventListener('focusout', e => {
+        denlargeAllImages()
+    })
+    el.addEventListener('click', e => {
+        // toggleImgSize(e)
+        handleVideoKeydown(e)
+        
+    })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        const stepTxt = e.target
+        const as = stepTxt.querySelectorAll('a')
+        handleVideoKeydown(e)
+        if(key === 13){
+            addTabIndex(as)
+            handleCopyCodes(e)
+            toggleImgSize(e)
+        }
+    })    
+})
+allImages.forEach(el => {
+    el.addEventListener('click',e => {
+        toggleImgSize(e)
+    })
+})
+function toggleImgSize(e){
+    const step = getStep(e.target)
+    const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
+    if(img.tagName == 'VIDEO'){
+        if(!img.classList.contains('enlarge-vid')){
+            img.classList.add('enlarge-vid')
+            img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
+        } else{
+            img.classList.remove('enlarge-vid')
+        }   
+    } else {
+
+        if(!img.classList.contains('enlarge')){
+            img.classList.add('enlarge')
+            img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+        } else{
+            img.classList.remove('enlarge')
+        }   
+    }
+}
 function handleVideoKeydown(e){
     let key = e.keyCode    
     const step = getStep(e.target.parentElement)
@@ -115,7 +188,6 @@ function handleVideoKeydown(e){
             case 39:
                 vid.currentTime = vid.currentTime + 2
                 if(vid.currentTime >= vid.duration ){
-                    // playing = false
                     vid.style.border = '14px solid red'
                     vid.pause()
                     vid.currentTime = vid.duration()
@@ -130,87 +202,7 @@ function handleVideoKeydown(e){
             } else if(!playing) {
                 vid.pause()
                 vid.style.border = "1px dotted red"
-            }
-            
-    }
-}
-// The playing variable is asscoiated with img size so it is placed in here
-function denlargeAllImages(){
-    allVideos.forEach(el => {
-        if(el.classList.contains('enlarge-vid')){
-            el.classList.remove('enlarge-vid')
-            playing = false
-            el.pause()
-        }
-    })
-    allImages.forEach(el => {
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
-        }
-    })
-}
-function pauseAllVideo(){
-    allVideos.forEach(el => {
-        el.pause()
-    })
-}
-allVideos.forEach(el => {
-    el.addEventListener('click', e =>{
-        console.log(e.target)
-        e.preventDefault()
-        toggleImgSize(e)
-        handleVideoKeydown(e)
-    })
-})
-stepTxts.forEach(el => {
-    el.addEventListener('click', e => {
-        // toggleImgSize(e)
-        handleVideoKeydown(e)
-    })
-    el.addEventListener('focus', e => {
-        pauseAllVideo()
-        removeAllTabIndex()
-    })
-    el.addEventListener('focusout', e => {
-        denlargeAllImages()
-    })
-    el.addEventListener('keydown', e => {
-        let key = e.keyCode
-        const stepTxt = e.target
-        const as = stepTxt.querySelectorAll('a')
-        handleVideoKeydown(e)
-        if(key === 13){
-            addTabIndex(as)
-            handleCopyCodes(e)
-            toggleImgSize(e)
-        }
-    })    
-})
-allImages.forEach(el => {
-    el.addEventListener('click',e => {
-        toggleImgSize(e)
-    })
-})
-function toggleImgSize(e){
-    const step = getStep(e.target)
-    const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
-    // console.log(img)
-    if(img.tagName == 'VIDEO'){
-        console.log('vid')
-        if(!img.classList.contains('enlarge-vid')){
-            img.classList.add('enlarge-vid')
-            img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
-        } else{
-            img.classList.remove('enlarge-vid')
-        }   
-    } else {
-
-        if(!img.classList.contains('enlarge')){
-            img.classList.add('enlarge')
-            img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-        } else{
-            img.classList.remove('enlarge')
-        }   
+            }            
     }
 }
 if(nxtLesson){
@@ -222,7 +214,6 @@ if(nxtLesson){
 }
 if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
-        console.log(lastFocusedElement)
         const subSection = getSubSection(lastFocusedElement)
         if(subSection){
             const lessons = subSection.querySelectorAll('li > a')
