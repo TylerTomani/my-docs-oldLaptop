@@ -1,37 +1,39 @@
 const dropResources = document.querySelectorAll('.dropResource')
 const topics = document.querySelectorAll('.topic')
 const topicsContainers = document.querySelectorAll('.topics-container')
-function hideTopicsContainers(){
-    topicsContainers.forEach(el => {
-        if(!el.classList.contains('show')){
-
-            el.classList.add('hide')        
+function hideTopics(){
+    topics.forEach(el => {
+        const topicsContainer = getTopicsContainer(el)
+        if(!topicsContainer.classList.contains('show')){
+            el.classList.add('hide')
         }
     })
 }
-hideTopicsContainers()
-dropResources.forEach(el => {
-    el.addEventListener('click', e => {
-        e.preventDefault()
-        toggleTopics(e)
+hideTopics()
+
+dropResources.forEach(el =>{
+    el.addEventListener('click', e =>{
+        const resourceContainer = getResourceContainer(e.target.parentElement)
+        const topicsContainer = resourceContainer.querySelector('.topics-container')
+        const topics = topicsContainer.querySelectorAll('.topic')
+        toggleTopics(topics,topicsContainer)
     })
-    
 })
-function toggleTopics(e){
-    const resourcesContainer = getResourcesContainer(e.target.parentElement)
-    const resourceContainer = getResourceContainer(e.target.parentElement)
-    const topicsContainer = resourceContainer.querySelector('.topics-container')
-    if(topicsContainer.classList.contains('hide')){
-        resourcesContainer.classList.add('fcol')
-        hideTopicsContainers()
+function toggleTopics(els,topicsContainer){
+    els.forEach(el =>{
+        console.log(topicsContainer)
         if(topicsContainer.classList.contains('show')){
             topicsContainer.classList.remove('show')
+            // el.classList.toggle('hide')
+        } 
+        if(el.classList.contains('hide')){
+            el.classList.remove('hide')
+        } else {
+            hideTopics()
+            el.classList.add('hide')
         }
-        topicsContainer.classList.remove('hide')
-    } else {
-        topicsContainer.classList.add('hide')
-        resourcesContainer.classList.remove('fcol')
-    }
+         
+    })
 }
 function getResourceContainer(parent){
     if(parent.classList.contains('resource-container')){
@@ -42,11 +44,11 @@ function getResourceContainer(parent){
         return null
     }
 }
-function getResourcesContainer(parent){
-    if(parent.classList.contains('resources-container')){
+function getTopicsContainer(parent){
+    if(parent.classList.contains('topics-container')){
         return parent
     } else if (parent.parentElement){
-        return getResourcesContainer(parent.parentElement)
+        return getTopicsContainer(parent.parentElement)
     } else {
         return null
     }

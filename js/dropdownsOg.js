@@ -10,7 +10,6 @@ function hideTopicsContainers(){
     })
 }
 hideTopicsContainers()
-
 dropResources.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
@@ -18,15 +17,12 @@ dropResources.forEach(el => {
     })
     
 })
-
 function toggleTopics(e){
     const resourcesContainer = getResourcesContainer(e.target.parentElement)
     const resourceContainer = getResourceContainer(e.target.parentElement)
     const topicsContainer = resourceContainer.querySelector('.topics-container')
-    console.log(topicsContainer)
     if(topicsContainer.classList.contains('hide')){
         resourcesContainer.classList.add('fcol')
-        resourceContainer.classList.add('mtop-2')
         hideTopicsContainers()
         if(topicsContainer.classList.contains('show')){
             topicsContainer.classList.remove('show')
@@ -35,11 +31,8 @@ function toggleTopics(e){
     } else {
         topicsContainer.classList.add('hide')
         resourcesContainer.classList.remove('fcol')
-        resourceContainer.classList.remove('mtop-2')
-
     }
 }
-
 function getResourceContainer(parent){
     if(parent.classList.contains('resource-container')){
         return parent

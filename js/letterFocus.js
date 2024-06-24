@@ -33,8 +33,8 @@ addEventListener('keydown', e  => {
         // if(currentLetter == letter){
 
         // }
-        console.log(iLetter)
-        console.log(sorted[iLetter])
+        // console.log(iLetter)
+        // console.log(sorted[iLetter])
         sorted[iLetter].focus()
                 
     } else {
