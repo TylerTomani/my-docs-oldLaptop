@@ -172,6 +172,21 @@ targetDiv.addEventListener('keydown', e => {
     }    
 })
 sections.forEach(el => {
+    const children = el.querySelectorAll('*')
+    children.forEach(el =>{
+        el.addEventListener('click',e =>{
+            const section = getSection(e.target.parentElement)
+            e.preventDefault()
+            e.stopPropagation()
+            toggleSubSections(e)
+            fetchLessonHref(section.href)
+            sectionTitle.innerText = section.innerText
+            lessonTitle.innerText = ''
+            startSection = true
+            
+        })
+
+    })
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
@@ -249,6 +264,15 @@ function clickLesson(e){
         targetDiv.focus()
     }
     currentLesson = e.target
+}
+function getSection(parent){
+    if(parent.classList.contains('section')){
+        return parent
+    } else if (parent.parentElement){
+        return getSection(parent.parentElement)
+    } else {
+        return null
+    }
 }
 export function getSectionContainer(parent){
     if(parent.classList.contains('section-container')){
