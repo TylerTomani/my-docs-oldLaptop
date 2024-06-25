@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="home-link">
-            <a id="homelink" tabindex="1" href="../../../index.html">&larr;home</a>
+            <a id="homelink" tabindex="1" href="../../../../index.html">&larr;home</a>
         </div>
         <div class="page-title">
             <div class="titles">
@@ -854,7 +854,7 @@ const keys = {
     },
 }
 </pre>
-<!-- Enemy, Player, Projectile Classes -->
+<!-- Enemy-->
 <pre tabindex="1" class="copy-code">
 class Enemy{
     constructor(x,y,radius,color,velocity){
@@ -878,6 +878,9 @@ class Enemy{
         this.y += this.velocity.y
     }
 }
+</pre>
+<!-- Player -->
+<pre tabindex="1" class="copy-code">
 class Player{
     constructor(x,y,radius,color,velocity){
         this.x = x
@@ -900,6 +903,9 @@ class Player{
         this.y += this.velocity.y
     }
 }
+</pre>
+<!-- Projectile  -->
+<pre tabindex="1" class="copy-code">
 class Projectile{
     constructor(x,y,radius,color,velocity){
         this.x = x
@@ -922,7 +928,9 @@ class Projectile{
         this.y += this.velocity.y
     }
 }
-
+</pre>
+<!-- Variable -->
+<pre tabindex="1" class="copy-code">
 const player = new Player(canvas.width * .5, canvas.height * .5, 12, 'lightskyblue',
 {x:0,y:0})
 const projectiles = []

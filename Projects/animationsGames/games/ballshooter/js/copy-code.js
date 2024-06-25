@@ -17,6 +17,12 @@ codeCopy.forEach(copycode => {
         e.preventDefault()
         animate(e)
     })
+    copycode.addEventListener('focus', e => {
+        const el = e.target
+        el.focus()
+        el.scrollIntoView({ behavior: "smooth", block: "center", inline: "start" });
+        console.log(el)
+    })
 
 })
 

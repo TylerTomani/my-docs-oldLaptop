@@ -19,7 +19,8 @@ main h2 {
 }
 .resources-container {  
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
     
 }
 
@@ -103,8 +104,8 @@ a:focus,a:active{
     display: none !important;
 }
 .fcol {
-    flex-direction: column;
-    flex-wrap: nowrap;
+    /* flex-direction: column;
+    flex-wrap: nowrap; */
 }
 @media screen and (max-width: 600px){
     header{

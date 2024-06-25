@@ -17,7 +17,6 @@ addEventListener('keydown', e => {
 
         }
     })
-    // console.clear()
     idEls.forEach(el =>{
         if(letter == el.id[0].toLowerCase() && !el.classList.contains('hide') ){
             letterEls.push(el)
@@ -29,12 +28,12 @@ addEventListener('keydown', e => {
     if(letterEls){
         if(currentLetter == letter){
             iLetter = (iLetter + 1 ) % letterEls.length
+            if(letterEls[iLetter + 1]){
+                letterEls[iLetter + 1].focus()
+            }
         } else {
-            iLetter = 0
-            
+            iLetter = 0   
         }
-        
-        
         if(letterEls){
             currentIndex = [...idEls].indexOf(letterEls[iLetter])
             // console.log('currentIndex',currentIndex)

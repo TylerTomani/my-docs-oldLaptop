@@ -51,17 +51,17 @@ main {
     margin-left: 1.26%;
     max-height: 50px;
 }
-.sub-resources-container {
+.sub-topics {
     margin-top: 1%;
     margin-left: 2.5%;
     padding-bottom: 1%;
 }
-.sub-resources-container > ul {
+.sub-topics > ul {
     list-style: none;
     display: flex;
     gap: 2%;
 }
-.sub-resources-container > ul > li{
+.sub-topics > ul > li{
     flex-basis: 20%;
     border: 1px solid black;
 }
@@ -76,7 +76,7 @@ main {
     transform: scale(1.3);
     transform: all 200ms;
 }
-.sub-resources-container > ul > li > .resource > img{
+.sub-topics > ul > li > .resource > img{
     max-height: 90px;
     width: 100%;
 
@@ -89,7 +89,7 @@ main {
     display: inline-block;
 }
 
-.sub-resources-container > ul > li > a  >img {
+.sub-topics > ul > li > a  >img {
     width: 50%;
     max-height: 50px !important;
 }
