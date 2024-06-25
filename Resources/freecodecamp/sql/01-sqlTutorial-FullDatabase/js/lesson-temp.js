@@ -44,7 +44,7 @@ function handleCopyCodes(e){
 }
 
 function getStep(parent){
-    if(parent.classList.contains('step')){
+    if(parent.classList.contains('step') || parent.classList.contains('step-col')){
         return parent
     } else if (parent.parentElement){
         return getStep(parent.parentElement)
@@ -150,27 +150,34 @@ allImages.forEach(el => {
 })
 function toggleImgSize(e){
     const step = getStep(e.target)
-    const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
-    if(img.tagName == 'VIDEO'){
-        if(!img.classList.contains('enlarge-vid')){
-            img.classList.add('enlarge-vid')
-            img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
-        } else{
-            img.classList.remove('enlarge-vid')
-        }   
-    } else {
+    if(step){
+        const img = step.querySelector('.step-img > img') ? step.querySelector('.step-img > img') : step.querySelector('.step-vid > video')
+        if(img && img.tagName == 'VIDEO'){
+            if(!img.classList.contains('enlarge-vid')){
+                img.classList.add('enlarge-vid')
+                img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
+            } else{
+                img.classList.remove('enlarge-vid')
+            }   
+        } else {
+            if(img){
 
-        if(!img.classList.contains('enlarge')){
-            img.classList.add('enlarge')
-            img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-        } else{
-            img.classList.remove('enlarge')
-        }   
+                if(!img.classList.contains('enlarge')){
+                    img.classList.add('enlarge')
+                    img.style.border = "1px solid black"
+                    img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+                } else{
+                    img.style.border = "none"
+                    img.classList.remove('enlarge')
+                }   
+            }
+        }
+
     }
 }
 function handleVideoKeydown(e){
     let key = e.keyCode    
-    const step = getStep(e.target.parentElement)
+    const step = getStep(e.target.parentElement) 
     const vid = step.querySelector('.step-vid > video')
     if(vid){
         switch(key){

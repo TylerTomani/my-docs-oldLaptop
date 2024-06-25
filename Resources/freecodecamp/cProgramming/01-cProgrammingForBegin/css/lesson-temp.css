@@ -37,6 +37,7 @@ body {
     /* padding: 2.5%; */
     padding-top: .5%;
     padding-left: .5%;
+    padding-bottom: 4.5%;
     /* margin-top: 2.5%; */
 }
 
@@ -54,9 +55,6 @@ body {
     width: 100%;
     margin-top: 1%;
     margin-bottom: 1%;
-}
-.step-txt>pre {
-    overflow-x: scroll;
 }
 
 .step-txt>p a {
@@ -119,15 +117,18 @@ body {
 .code-container {
     width: 98%;
     border: 1px solid black;
-    width: 90%;
     align-self: center;
 }
 
 .copy-code {
+    font-size: .6rem;
     padding-left: 2.5%;
+    overflow-x: scroll;
     padding-top: 1.5%;
 }
-
+.smtxt{
+    font-size: 50% !important;
+}
 .copy-code:active,
 .copy-code:focus {
     box-shadow: 0 0 6px 6px lightseagreen;
@@ -142,6 +143,7 @@ body {
 #nxtLesson:focus {
     box-shadow: 0 0 5px 5px lightseagreen;
 }
+
 
 @media screen and (max-width: 500px) {
     .step-txt>p {
@@ -185,16 +187,12 @@ body {
         max-height: 150px !important;
         right: 50%;
     }
-
-    .step-txt>ul,
-    .step-txt>ol {
-        align-self: center;
-        justify-content: center;
-        margin: 0 5%;
-        margin-bottom: 5%;
-        margin-left: 10%;
-    }
-        .step-txt>pre {
-            font-size: 50%;
+        .step-txt>ul,
+        .step-txt>ol {
+            align-self: center;
+            justify-content: center;
+            margin: 0 5%;
+            margin-bottom: 5%;
+            margin-left: 10%;
         }
 }

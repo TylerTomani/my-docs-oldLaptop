@@ -37,6 +37,7 @@ body {
     /* padding: 2.5%; */
     padding-top: .5%;
     padding-left: .5%;
+    padding-bottom: 4.5%;
     /* margin-top: 2.5%; */
 }
 
@@ -50,8 +51,9 @@ body {
     padding-top: 0;
 }
 
-.step-txt>p {
+.step-txt > p {
     width: 100%;
+    font-size: .8rem;
     margin-top: 1%;
     margin-bottom: 1%;
 }
@@ -83,15 +85,16 @@ body {
     justify-content: center;
 }
 
+
 .step>.step-img>img,
 .step>.step-vid>video {
-    width: 80%;
+    width: 100%;
     min-height: 150px;
     max-height: 250px;
 }
 
 .step>.step-vid>video {
-    border: 2px solid blue;
+    border: 1px solid lightseagreen;
 }
 
 .step-txt:active,
@@ -102,29 +105,30 @@ body {
 .enlarge {
     position: relative;
     transform: scale(2.2);
-    /* margin-right: 50%; */
     right: 50%;
 }
 
 .enlarge-vid {
     position: relative;
     transform: scale(2.2);
-    /* margin-right: 50%; */
     right: 50%;
 }
 
 .code-container {
     width: 98%;
     border: 1px solid black;
-    width: 90%;
     align-self: center;
 }
 
 .copy-code {
+    font-size: .6rem;
     padding-left: 2.5%;
+    overflow-x: scroll;
     padding-top: 1.5%;
 }
-
+.smtxt{
+    font-size: 50% !important;
+}
 .copy-code:active,
 .copy-code:focus {
     box-shadow: 0 0 6px 6px lightseagreen;
@@ -157,20 +161,21 @@ body {
         overflow-x: scroll;
     }
 
-    .enlarge {
+    .enlarge,
+    .enlarge-vid {
         position: relative;
-        transform: scale(3.2);
-        width: 400px;
+        transform: scale(2.5);
+        /* width: 400px;
         height: 150px;
         max-width: 500px !important;
-        max-height: 150px !important;
+        max-height: 150px !important; */
         /* margin-right: 50%; */
-        right: 50%;
+        /* right: 50%; */
     }
 
     video {
-        width: 100% !important;
-        height: 100% !important;
+        /* width: 100% !important; */
+        /* height: 100% !important; */
     }
 
     .enlarge-vid {
@@ -178,7 +183,7 @@ body {
         transform: scale(2.2);
         /* margin-right: 50%; */
         width: 150px !important;
-        height: 150px !important;
+        height: 100px !important;
         max-width: 200px !important;
         max-height: 150px !important;
         right: 50%;

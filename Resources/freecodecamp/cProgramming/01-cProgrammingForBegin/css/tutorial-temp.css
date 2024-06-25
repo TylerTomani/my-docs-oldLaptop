@@ -33,7 +33,7 @@ header {
 header a:focus,header a:active {
     box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);
 }
-header>h1 {
+header  > h1 {
     font-size: 120%;
     /* padding-left: 5%; */
     /* padding-top: 2.5%; */
@@ -99,6 +99,9 @@ main > aside {
     width: 100%;
     line-height: 1.2;
     margin-bottom: 3%;
+}
+.sub-section > li >ul {
+    font-size: 40%;
 }
 .sub-section > li > a{
     display: flex;
