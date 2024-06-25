@@ -12,7 +12,7 @@
     <script type="module" src="js/letterFocus.js" defer></script>
     <script type="module" src="js/inject-pre.js" defer></script>
     <!-- <script type="module" src="game-js/currentCode.js" defer></script> -->
-    <!-- <script type="module" src="game-js/currentCode2.js" defer></script> -->
+    <script type="module" src="game-js/currentCode2.js" defer></script>
 </head>
 <body>
     <header>
@@ -414,8 +414,8 @@ animate()</pre>
             </div>
             <!-- part2 projectilesClicked -->
             <div id="script02" class="script ">
-                <h3 class="plr1">part2 - <span class="dy">Projectiles (clicked)</span></h3>
-                <div class="code-container ">
+                <h3 class="plr1">part2 - <span class="dy">Projectiles (clicked)</span> & <span class="r">enemies</span></h3>
+                <div class="code-container">
                     <pre tabindex="1" class="copy-code">
 <pre tabindex="1" class="copy-code">
 const canvas = document.querySelector('canvas')
@@ -427,8 +427,9 @@ canvas.style.border = '4px solid #c0d375'
 canvas.width = innerWidth /2 
 canvas.height = innerHeight /2 
 let velocityGlobal = 5
+let enemieVelocity = 1
 </pre>
-<!-- player -->
+<!-- Player -->
 <pre tabindex="1" class="copy-code">
 class Player{
     constructor(x,y,radius,color,velocity){
@@ -452,11 +453,10 @@ class Player{
         this.y += this.velocity.y
     }
 }
-const player = new Player(canvas.width * .5, canvas.height * .5, 10, 'white',
-{x:0,y:0})
 </pre>
-<!-- projectiles -->
-<pre tabindex="1" class="dy copy-code">class Projectile{
+<!-- Enemy -->
+<pre tabindex="1" class="copy-code">
+class Enemy{
     constructor(x,y,radius,color,velocity){
         this.x = x
         this.y = y
@@ -479,20 +479,98 @@ const player = new Player(canvas.width * .5, canvas.height * .5, 10, 'white',
     }
 }
 </pre>
+<!-- Projectiles -->
 <pre tabindex="1" class="copy-code">
-<span class="dy">const projectiles = []</span>
+class Projectile{
+    constructor(x,y,radius,color,velocity){
+        this.x = x
+        this.y = y
+        this.radius = radius
+        this.color = color
+        this.velocity = velocity
+    }
+    draw(){
+        
+        c.beginPath()
+        c.arc(this.x,this.y,this.radius,0, Math.PI * 2, false)
+        c.fillStyle = this.color
+        c.fill()
+        c.closePath()
+    }
+    update(){
+        this.draw()
+        this.x += this.velocity.x
+        this.y += this.velocity.y
+    }
+}
+</pre>
+<!-- Variables -->
+<pre tabindex="1" class="copy-code">
+const player = new Player(canvas.width * .5, canvas.height * .5, 12, 'lightskyblue',
+{x:0,y:0})
+const projectiles = []
+const enemies = []
+</pre>
+<!-- animate -->
+<pre tabindex="1" class="copy-code">
 function animate(){
     requestAnimationFrame(animate)
-    c.clearRect(0,0,canvas.width,canvas.height)
-    player.update()
-    <span class="dy">projectiles.forEach(el => {
+    c.fillStyle = 'black'
+    c.fillRect(0,0,innerWidth,innerHeight)
+    player.update()    
+    projectiles.forEach((el,i) => {
         el.update()
-        })</span>
-    
-    }
+        if( el.x + el.radius &lt; 0 || 
+            el.x - el.radius > canvas.width ||
+            el.y + el.radius &lt; 0 ||
+            el.y - el.radius > canvas.height ){
+            console.log('boom')
+            setTimeout(()=>{
+                projectiles.splice(i,1)
+                console.log(projectiles.length)
+            },0)
+        } 
+    })
+    enemies.forEach((el,i) => {
+        el.update()
+        if( el.x + el.radius &lt; 0 || 
+            el.x - el.radius > canvas.width ||
+            el.y + el.radius &lt; 0 ||
+            el.y - el.radius > canvas.height ){
+            console.log('boom')
+            setTimeout(()=>{
+                enemies.splice(i,1)
+                console.log(projectiles.length)
+            },0)
+        } 
+    })
+    enemies.forEach((enemy,eIndex) => {
+        enemy.update()
+        const dist = Math.hypot(enemy.x - player.x, enemy.y - player.y )
+        // if(dist &lt; player.radius){   
+        //     cancelAnimationFrame(animationId)
+        // }
+        
+        projectiles.forEach((projectile,pIndex) => {
+            // console.log(enemy.x - projectile.x)
+            const dist = Math.hypot(projectile.x - enemy.x, projectile.y - enemy.y)
+            // console.log(dist)
+            if(dist - enemy.radius - projectile.radius &lt;= 1 ){
+                setTimeout(()=>{
+                    projectiles.splice(pIndex,1)
+                    enemies.splice(eIndex,1)
+
+                },0)
+            } 
+            
+        })
+    })
+
+}   
 animate()
 </pre>
-<pre tabindex="1" class="copy-code y">
+<!-- Clicked event projectiles -->
+<pre tabindex="1" class="copy-code">
 addEventListener('click', e => {
     const rect = canvas.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
@@ -508,7 +586,35 @@ addEventListener('click', e => {
     console.log(angle);
 });
 </pre>
+<!-- spawnEnemies -->
+<pre tabindex="1" class="copy-code">
+    function spawnEnemies(){
+    setInterval(() => {
+        const radius = 10
+        const color = 'red'
+        let x
+        let y
+        
+        if(Math.random() &lt; 0.5){
+            x = Math.random() &lt; 0.5 ? 0 - radius : canvas.width + radius
+            y = Math.random() * canvas.height
+        } else {
+            x = Math.random() * canvas.width
+            y = Math.random() &lt; 0.5 ? 0 - radius : canvas.height + radius
+        }
+
+        const angle = Math.atan2(player.y - y, player.x - x )
+        const velocity = {  
+        x: Math.cos(angle) * enemieVelocity,
+        y: Math.sin(angle) * enemieVelocity
+        };              
+        enemies.push(new Enemy(x,y,radius,color,velocity))
+    },1000)
+}
+spawnEnemies()
+</pre></pre>
                 </div>
+                
             </div>
             <!-- part3 - Projectiles Keys -->
             <div id="script03" class="script " >
@@ -929,7 +1035,7 @@ class Projectile{
     }
 }
 </pre>
-<!-- Variable -->
+<!-- Variables -->
 <pre tabindex="1" class="copy-code">
 const player = new Player(canvas.width * .5, canvas.height * .5, 12, 'lightskyblue',
 {x:0,y:0})
@@ -1136,6 +1242,9 @@ class Enemy{
         this.y += this.velocity.y
     }
 }
+</pre>
+<!-- Player -->
+<pre tabindex="1" class="copy-code">
 class Player{
     constructor(x,y,radius,color,velocity){
         this.x = x
@@ -1158,6 +1267,9 @@ class Player{
         this.y += this.velocity.y
     }
 }
+</pre>
+<!-- Projectiles -->
+<pre tabindex="1" class="copy-code">
 class Projectile{
     constructor(x,y,radius,color,velocity){
         this.x = x
@@ -1180,7 +1292,9 @@ class Projectile{
         this.y += this.velocity.y
     }
 }
-
+</pre>
+<!-- Variables -->
+<pre tabindex="1" class="copy-code">
 const player = new Player(canvas.width * .5, canvas.height * .5, 12, 'white',
 {x:0,y:0})
 const projectiles = []
