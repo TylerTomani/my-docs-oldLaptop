@@ -17,10 +17,10 @@ const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
-let startSection = false
-let iSection = 0
+let startSection = true
+let iSection = -1
 let intLetter = 0
-let sectionsFocused = false
+let sectionsFocused = true
 let lessonsFocused = false
 let asideFocused = false
 let targetDivFocused = false
@@ -273,9 +273,12 @@ addEventListener('keydown', e => {
     if(letter == 's' && !sectionsFocused ){
         lastFocusedElement.focus()
     }
-    if(letter == 'shift'){keys.shift.pressed = true}
+    if(letter == 'shift'){
+        keys.shift.pressed = true
+    }
     // Controls Section Selection with numbers on keyboard
-    if(!isNaN(letter) && !lessonsFocused && !targetDivFocused){
+    
+    if(!isNaN(letter) && sectionsFocused){
         let intLetter = parseInt(letter)
         if(intLetter <= sections.length){
             if(sections[intLetter - 1]){
