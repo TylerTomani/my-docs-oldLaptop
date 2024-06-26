@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin: 0 5%;
+    padding-top: 2.5%;
+}
+
+.resource-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5%;
+}
+
+.shortcuts-container {
+    padding-top: 1.5%;
+    padding-left: 2.5%;
+    display: flex;
+}
+
+.shortcuts-container>.shortcut-container>h3 {
+    flex-basis: 100%;
+    padding-bottom: 0;
+}
+
+.shortcuts-container>.shortcut-container {
+    flex-basis: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid black;
+    padding-bottom: 2%;
+}
+
+.shortcuts-container>.shortcut-container>* {
+    padding-top: 1%;
+    padding-left: 2.5%;
+}
+
+.shortcut-container>.code-container>.copy-code {
+    padding: 5% 5%;
+    padding-left: 5%;
+    white-space: none;
+    display: inline-block;
+    overflow-x: scroll;
+
+}
+
+.shortcut-container>.shortcut-txt {
+    margin-left: 5%;
+    /* border: 2px solid blue ; */
+}
+
+a:focus,
+a:active {
+    box-shadow: 0 0 13px 13px lightseagreen;
+}
+
+.hide {
+    display: none;
+}

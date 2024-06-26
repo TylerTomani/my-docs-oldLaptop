@@ -22,8 +22,7 @@ targetDiv.addEventListener('keydown', e => {
         if(nxtLesson){
             nxtLesson.focus()
         }
-    }
-    
+    }    
 })
 
 navbar.addEventListener('keydown',e =>{
@@ -32,10 +31,7 @@ navbar.addEventListener('keydown',e =>{
         if(nxtLesson){
             nxtLesson.focus()
         }
-        
     }
-    
-
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
@@ -164,8 +160,10 @@ function toggleImgSize(e){
 
                 if(!img.classList.contains('enlarge')){
                     img.classList.add('enlarge')
+                    img.style.border = "1px solid black"
                     img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
                 } else{
+                    img.style.border = "none"
                     img.classList.remove('enlarge')
                 }   
             }

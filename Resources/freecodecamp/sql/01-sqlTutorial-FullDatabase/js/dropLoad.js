@@ -18,7 +18,7 @@ const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
 let startSection = false
-let iSection = 0
+let iSection = -1
 let intLetter = 0
 let sectionsFocused = false
 let lessonsFocused = false
@@ -208,10 +208,10 @@ function navSections(e,letter){
     if(!startSection){
         return  
     } else {
-        if(!keys.shift.pressed && letter == 's'){
+        if(!keys.shift.pressed && (letter == 's' || letter == 'f')){
             iSection = (iSection + 1) % sections.length
     
-        } else if (keys.shift.pressed && letter == 's'){
+        } else if (keys.shift.pressed && (letter == 's' || letter == 'f')){
             if(iSection > 0 ){
                 iSection -= 1
             } else if(iSection <= 0){
@@ -267,7 +267,7 @@ export function getSubSection(parent){
 }
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
-    if(letter == 's' && !sectionsFocused ){
+    if((letter == 's' || letter == 'f' || letter == 'v') && !sectionsFocused ){
         lastFocusedElement.focus()
     }
     if(letter == 'shift'){keys.shift.pressed = true}
