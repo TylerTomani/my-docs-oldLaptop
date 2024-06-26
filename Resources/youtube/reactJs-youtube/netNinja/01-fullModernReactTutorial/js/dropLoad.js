@@ -18,7 +18,7 @@ const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
 let startSection = false
-let iSection = 0
+let iSection = -1
 let intLetter = 0
 let sectionsFocused = false
 let lessonsFocused = false

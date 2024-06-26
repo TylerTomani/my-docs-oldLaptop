@@ -92,9 +92,14 @@ create table branch (
     branch_name VARCHAR(40),
     <span class="g">mgr_id</span> INT,
     mgr_start_date DATE,
-    <span class="g">FOREIGN KEY(</span>mgr_id<span class="g">)</span> REFERENCES employee(emp_id) ON DELETE SET NULL
+    <span class="g">FOREIGN KEY(</span>mgr_id<span class="g">)</span> REFERENCES employee(emp_id) <span class="m">ON DELETE SET NULL</span>
 );</pre>
             </div>
+            <p>
+                When assigining a foreign key, we must reference the table already created with 
+                <code class="g">FOREIGH KEY()</code> and at the end 
+                <code class="m">ON DELETE SET NULL</code>
+            </p>
         </div>
         <div class="step-img">
             <img src="sections/06-databaseIntro/01-createDataBase/images/01-04.png">
