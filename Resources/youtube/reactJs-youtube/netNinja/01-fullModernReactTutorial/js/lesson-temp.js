@@ -22,8 +22,7 @@ targetDiv.addEventListener('keydown', e => {
         if(nxtLesson){
             nxtLesson.focus()
         }
-    }
-    
+    }    
 })
 
 navbar.addEventListener('keydown',e =>{
@@ -32,10 +31,7 @@ navbar.addEventListener('keydown',e =>{
         if(nxtLesson){
             nxtLesson.focus()
         }
-        
     }
-    
-
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)

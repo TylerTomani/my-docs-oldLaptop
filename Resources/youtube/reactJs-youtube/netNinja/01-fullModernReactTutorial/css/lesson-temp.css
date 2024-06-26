@@ -84,6 +84,9 @@ body {
     display: flex;
     justify-content: center;
 }
+.step>.step-img > iframe{
+    max-height: 200px;
+}
 
 
 .step>.step-img>img,

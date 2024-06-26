@@ -84,7 +84,10 @@ main > aside {
     text-decoration: none;
     color: black;
 }
-
+/* 
+    Cant stop collapsing text inside sections 
+    when clicked
+*/
 .sub-section{
     width: 100%;
     display: flex;
@@ -93,6 +96,8 @@ main > aside {
     margin-left: 5%;
     list-style:none;
     white-space: wrap;
+    /* Cant stop collapsing text inside sections */
+    min-width: 100px !important;
 }
 .sub-section > li{
     /* border: 1px solid black; */
@@ -100,11 +105,11 @@ main > aside {
     line-height: 1.2;
     margin-bottom: 3%;
     white-space: nowrap;
-    text-wrap: nonwrap;
+    text-wrap: nowrap;
 }
 .sub-section>li>a {
-    display: flex;
-    display: block;
+    /* display: flex; */
+    /* display: block; */
     flex-wrap: nowrap;
     width: 100%;
     text-decoration: none;
