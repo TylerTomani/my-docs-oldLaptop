@@ -14,8 +14,7 @@
             </p>
             <div class="code-container">
                 <pre tabindex="1" class="copy-code smtxt">
-INSERT INTO employee VALUES(100,'David','Wallace','1967-11-17','M',250000, <span class="r">NULL</span>, <span class="r">NULL</span>);
-</pre>                
+INSERT INTO employee VALUES(100,'David','Wallace','1967-11-17','M',250000, <span class="r">NULL</span>, <span class="r">NULL</span>);</pre>                
             </div>
                 <p>
                     So insert <code class="r">NULL</code> values for the the primary key <code class="g">super_id</code>
@@ -94,6 +93,11 @@ INSERT INTO employee VAlUES(105,'Stanley','Hudson','1958-02-19','M',69000,102,2)
 SELECT * FROM employee;</pre>
 
             </div>
+            <p>
+                We have to do it this way. Employess can't get the <code class="g">branch_id</code> or <code
+                    class="g">super_id</code>
+                when no values have been inserted in client_table,
+            </p>
         </div>
         <div class="step-img">
             <img src="sections/06-databaseIntro/02-insertIntoTables/images/01-03.png">

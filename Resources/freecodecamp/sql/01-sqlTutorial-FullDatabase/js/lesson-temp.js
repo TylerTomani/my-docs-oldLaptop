@@ -1,5 +1,6 @@
 import { lastFocusedElement } from "./dropLoad.js"
 import { getSubSection } from "./dropLoad.js"
+import { mainAside } from "./dropLoad.js"
 export function stepTxtListeners(){
 const navbar = document.querySelector('.section-lesson-title')
 const stepTxts = document.querySelectorAll('.step-txt')
@@ -22,7 +23,8 @@ targetDiv.addEventListener('keydown', e => {
         if(nxtLesson){
             nxtLesson.focus()
         }
-    }    
+    }
+    
 })
 
 navbar.addEventListener('keydown',e =>{
@@ -31,7 +33,10 @@ navbar.addEventListener('keydown',e =>{
         if(nxtLesson){
             nxtLesson.focus()
         }
+        
     }
+    
+
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
@@ -227,16 +232,17 @@ if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
         const subSection = getSubSection(lastFocusedElement)
         if(subSection){
+            if(mainAside.classList.contains('hide')){
+                mainAside.classList.remove('hide')
+            }
             const lessons = subSection.querySelectorAll('li > a')
             let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
             if(lessons[iLesson]){
-
                 lessons[iLesson].focus()
             } else {
-
                 lastFocusedElement.focus()
             }
-
+            
         } else {
         }        
     })

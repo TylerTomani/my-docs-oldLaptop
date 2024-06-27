@@ -8,7 +8,7 @@ const regexCmdsLink = document.getElementById('regexCmds')
 const programShorcutsLink = document.getElementById('programShorcuts')
 export const navBar = document.querySelector('.section-lesson-title')
 const allEls = document.querySelectorAll('body *')
-const mainAside = document.querySelector('main > aside')
+export const mainAside = document.querySelector('main > aside')
 const sections = document.querySelectorAll('.section')
 const sectionTitle = document.getElementById('section-title')
 const lessonTitle = document.getElementById('lesson-title')
@@ -18,7 +18,7 @@ const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
 let startSection = false
-let iSection = -1
+let iSection = 0
 let intLetter = 0
 let sectionsFocused = false
 let lessonsFocused = false
@@ -208,10 +208,10 @@ function navSections(e,letter){
     if(!startSection){
         return  
     } else {
-        if(!keys.shift.pressed && (letter == 's' || letter == 'f')){
+        if(!keys.shift.pressed && letter == 's'){
             iSection = (iSection + 1) % sections.length
     
-        } else if (keys.shift.pressed && (letter == 's' || letter == 'f')){
+        } else if (keys.shift.pressed && letter == 's'){
             if(iSection > 0 ){
                 iSection -= 1
             } else if(iSection <= 0){
@@ -267,7 +267,7 @@ export function getSubSection(parent){
 }
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
-    if((letter == 's' || letter == 'f' || letter == 'v') && !sectionsFocused ){
+    if(letter == 's' && !sectionsFocused ){
         lastFocusedElement.focus()
     }
     if(letter == 'shift'){keys.shift.pressed = true}
