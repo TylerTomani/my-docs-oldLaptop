@@ -1,7 +1,7 @@
-header>nav#mainLinksContainer {
+body > header>nav#mainLinksContainer {
     display: flex;
 }
-header>nav#mainLinksContainer>#mainLinks {
+body > header>nav#mainLinksContainer>#mainLinks {
     display: flex;
     flex-basis: 80%; 
     
@@ -26,19 +26,18 @@ header>nav#mainLinksContainer>#mainLinks {
     padding: 0;
     box-sizing: border-box;
 }
-header {
+body > header {
     display: flex;
     flex-direction: column;
 }
-header a:focus,header a:active {
+body > header a:focus,header a:active {
     box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);
 }
-header  > h1 {
+body > header  > h1 {
     font-size: 120%;
-    /* padding-left: 5%; */
-    /* padding-top: 2.5%; */
+
 }
-header > .title-tutorialLink-container{
+body > header > .title-tutorialLink-container{
     display: flex;
     justify-content: space-between;
     border-top: 1px solid black;
@@ -84,10 +83,7 @@ main > aside {
     text-decoration: none;
     color: black;
 }
-/* 
-    Cant stop collapsing text inside sections 
-    when clicked
-*/
+
 .sub-section{
     width: 100%;
     display: flex;
@@ -96,8 +92,6 @@ main > aside {
     margin-left: 5%;
     list-style:none;
     white-space: wrap;
-    /* Cant stop collapsing text inside sections */
-    min-width: 100px !important;
 }
 .sub-section > li{
     /* border: 1px solid black; */
@@ -105,11 +99,11 @@ main > aside {
     line-height: 1.2;
     margin-bottom: 3%;
     white-space: nowrap;
-    text-wrap: nowrap;
+    text-wrap: nonwrap;
 }
 .sub-section>li>a {
-    /* display: flex; */
-    /* display: block; */
+    display: flex;
+    display: block;
     flex-wrap: nowrap;
     width: 100%;
     text-decoration: none;
@@ -180,8 +174,8 @@ li > code {
     }
 }
 @media screen and (max-width: 500px){
-    header{ margin-top: 5%;}
-    header > h1{
+    body > header{ margin-top: 5%;}
+    body > header > h1{
         font-size: 120%;
         padding-left: 1%;
     }

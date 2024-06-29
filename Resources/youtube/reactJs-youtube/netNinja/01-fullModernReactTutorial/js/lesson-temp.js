@@ -100,7 +100,10 @@ addEventListener('keydown', e => {
         if(!isNaN(letter) && key != 32 ){
             let intLetter = parseInt(letter)
             if(intLetter > stepTxts.length){
-                nxtLesson.focus()
+                if(nxtLesson){
+
+                    nxtLesson.focus()
+                }
             } else {
                 stepTxts[intLetter - 1].focus()
             }
@@ -180,6 +183,7 @@ function handleVideoKeydown(e){
     let key = e.keyCode    
     const step = getStep(e.target.parentElement) 
     const vid = step.querySelector('.step-vid > video')
+    console.log(key)
     if(vid){
         switch(key){
             case 32:
@@ -194,7 +198,9 @@ function handleVideoKeydown(e){
                 }
                 playing = !playing
                 break;
+            // left arrow
             case 37:
+                e.preventDefault()
                 if(vid.currentTime > 0){
                     vid.currentTime = vid.currentTime - 1
                 }
@@ -226,6 +232,10 @@ if(nxtLesson){
     nxtLesson.addEventListener('focus', e => {
         removeAllTabIndex()
         pauseAllVideo()
+        const playlistVideoNum = document.getElementById('playlistVideoNum') ? document.getElementById('playlistVideoNum') : null;
+        if(playlistVideoNum != null){
+            playlistVideoNum.focus()
+        }
     })
 }
 if(nxtLesson){
