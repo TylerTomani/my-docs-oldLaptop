@@ -118,6 +118,22 @@ body {
     margin-bottom: 5%;
 }
 
+.step-col > .step-img-2{
+    display: flex;
+    justify-content: center;
+    /* gap: 5%; */
+}
+.step-col > .step-img-2 > .step-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
+    flex-basis: 50%;
+}
+.step-col > .step-img-2 > .step-img > img{
+    width: 90%;
+    max-height: 200px !important;
+}
 .step>.step-img,
 .step>.step-vid {
     display: flex;
