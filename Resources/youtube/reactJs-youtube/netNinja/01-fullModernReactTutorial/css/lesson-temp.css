@@ -162,6 +162,11 @@ body {
     transform: scale(2.2);
     right: 50%;
 }
+.enlarge {
+    position: relative;
+    transform: scale(2.65);
+    right: 60%;
+}
 
 .enlarge-vid {
     position: relative;

@@ -17,11 +17,12 @@ const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
-let startSection = false
+// true when  not working on project
+let startSection = true
 let iSection = -1
 let intLetter = 0
 // false when  not working on project
-let sectionsFocused = false
+let sectionsFocused = true
 let lessonsFocused = false
 let asideFocused = false
 let targetDivFocused = false
