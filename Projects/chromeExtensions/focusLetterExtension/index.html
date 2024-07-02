@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/lesson-temp.css">
+    <link rel="stylesheet" href="../css/youtube-resource.css">
+    <link rel="stylesheet" href="../css/copy-code.css">
+    <script src="../../../js/letterFocus.js" defer></script>
+    <script type="module" src="../js/lesson-temp.js" defer></script>
+    <script type="module" src="../js/copy-code.js" defer></script>
+</head>
+<body>
+    <header>
+        <a id="homelink" href="../../../index.html">home</a>
+        <h1>ReactJS Tutorials</h1>
+    </header>
+    <main>
+
+        <div class="steps-container">
+            <!-- 01-01 -->
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                    <h4>01</h4>
+                    <p>
+                        Make a <code>manifest.json</code> file
+                    </p>
+                    <div class="code-container">
+                        <pre tabindex="1" class="copy-code">
+{
+"manifest_version": 3,
+"name": "Link and Button Focus",
+"version": "1.0",
+"description": "Focus on the first link or button that starts with the pressed letter and click it with Enter.",
+"permissions": [
+"activeTab"
+],
+"background": {
+"service_worker": "background.js"
+},
+"content_scripts": [
+{
+"matches": ["&lt;all_urls>"],
+    "js": ["content.js"]
+    }
+    ]
+}</pre>
+                    </div>
+                    
+                </div>
+                <div class="step-img">
+                    <img src="images/01.png" alt="">
+                </div>
+            </div>    
+            <!-- 01-02 -->
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                    <h4>02</h4>
+                    <sub>Create Background script</sub>
+                    <p>
+                        <code>background.js</code> it's main function is running the <code>content.js</code>
+                        <q>Similiar to react's index.js running app.js</q>
+                    </p>
+                    <div class="code-container">
+                        <pre tabindex="1" class="copy-code">
+// background.js
+chrome.runtime.onInstalled.addListener(() => {
+    console.log("Extension Installed");
+});</pre>
+                    </div>
+                    
+                </div>
+                <div class="step-img">
+                    <img src="images/02.png" alt="">
+                </div>
+            </div>    
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                    <h4>03</h4>
+                    <h5>create content script</h5>
+                    <p>
+                        contains the functionality of focusing to letters,
+                    </p>
+                    <div class="code-container">
+                        <pre tabindex="1" class="copy-code">
+// content.js
+document.addEventListener('keydown', (event) => {
+  // Check if a letter key is pressed
+  if (event.key.length === 1 && event.key.match(/[a-z]/i)) {
+    const pressedLetter = event.key.toLowerCase();
+    
+    // Find the first link or button that starts with the pressed letter
+    const elements = document.querySelectorAll('a, button');
+    for (let element of elements) {
+      const text = element.textContent.trim().toLowerCase();
+      if (text.startsWith(pressedLetter)) {
+        element.focus();
+        
+        // Add event listener for Enter key
+        const enterListener = (e) => {
+          if (e.key === 'Enter') {
+            element.click();
+            document.removeEventListener('keydown', enterListener);
+          }
+        };
+        
+        document.addEventListener('keydown', enterListener);
+        break;
+      }
+    }
+  }
+});
+</pre>
+                    </div>
+                    
+                </div>
+                <div class="step-img">
+                    <img src="images/03.png">
+                </div>
+            </div>    
+            <!-- 01-04 -->
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                    <h4>04</h4>
+                    <p>
+                        Navigate to 
+                    </p>
+                    <div class="code-container">
+                        <pre tabindex="1" class="copy-code">
+chrome://extensions/</pre>
+                    </div>
+                    <ol>
+                        <li>enable the <strong>Developer mode </strong> in upper right corner</li>
+                        <li>click the load unpack</li>
+                        <li>open the directory containing the:
+                            <ul>
+                                <li>manifest.json</li>
+                                <li>background.js</li>
+                                <li>content.js</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <p>
+                        files
+                    </p>
+                    
+                </div>
+                <div class="step-img">
+                    <img src="images/04.png">
+                </div>
+            </div>
+            <!-- 01-05 -->
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                    <h4>05</h4>
+                    <p>
+                        Enable the extension, its working but make it better
+                    </p>
+                </div>
+                <div class="step-img">
+                    <img src="sections/">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

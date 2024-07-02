@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Link and Button Focus",
+  "version": "1.0",
+  "description": "Focus on the first link or button that starts with the pressed letter and click it with Enter.",
+  "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
