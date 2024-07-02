@@ -17,11 +17,9 @@ const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
-// true when  not working on project
-let startSection = true
-let iSection = -1
+let startSection = false
+let iSection = 0
 let intLetter = 0
-// false when  not working on project
 let sectionsFocused = false
 let lessonsFocused = false
 let asideFocused = false
@@ -29,17 +27,19 @@ let targetDivFocused = false
 let currentLesson
 let shiftS = []
 header.addEventListener('focusin', e => {
-    sectionsFocused = false    
+    sectionsFocused = false
+    
 })
 header.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    if(letter == 's' || letter == 'f' ){
+    if(letter == 's' ){
         lastFocusedElement.focus()
         iSection -= 1
     }    
 })
 // Where the pages first loads, Section1 is the lastFocused Element
 export let lastFocusedElement = document.querySelector('.section')
+
 addEventListener('DOMContentLoaded',()  => {
     allEls.forEach(el => {
         if(el.hasAttribute('autofocus')){
@@ -64,17 +64,14 @@ function hideSubSections(){
 function toggleSubSections(e){
     const section = getSectionContainer(e.target.parentElement)
     const subSections = section.querySelector('.sub-section')
-    if(subSections){
-        if(subSections.classList.contains('show')){
-            subSections.classList.remove('show')
-        }
-        if(subSections.classList.contains('hide')){
-            
-            hideSubSections()
-            subSections.classList.remove('hide')
-        } else{
-            subSections.classList.add('hide')
-        }
+    if(subSections.classList.contains('show')){
+        subSections.classList.remove('show')
+    }
+    if(subSections.classList.contains('hide')){
+        hideSubSections()
+        subSections.classList.remove('hide')
+    } else{
+        subSections.classList.add('hide')
     }
 }
 lessons.forEach(el => {
@@ -88,7 +85,7 @@ lessons.forEach(el => {
     el.addEventListener('keydown', e => {
         startSection = true
         let letter = e.key.toLowerCase()
-        if(letter == 's' || letter == 'f' ){
+        if(letter == 's'){
             const subSection = getSectionContainer(e.target)
             const section = subSection.querySelector('.section')
             iSection = [...sections].indexOf(section)
@@ -158,9 +155,8 @@ navBar.addEventListener('click', e => {
     
 })
 targetDiv.addEventListener('focus', e => {
-    sectionsFocused = false
-    lessonsFocused = false
     targetDivFocused = true
+    sectionsFocused = false
 })
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -172,7 +168,27 @@ targetDiv.addEventListener('keydown', e => {
         }    
     }    
 })
-
+sections.forEach(el => {
+    el.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        toggleSubSections(e)
+        fetchLessonHref(e.target.href)
+        sectionTitle.innerText = e.target.innerText
+        lessonTitle.innerText = ''
+        startSection = true
+    })  
+    el.addEventListener('keydown', e => {
+        startSection = true
+    })
+    el.addEventListener('focus', e => {
+        lastFocusedElement = e.target
+        targetDivFocused = false
+        sectionsFocused = true
+        lessonsFocused = false
+        iSection = [...sections].indexOf(e.target)
+    })
+})
 const keys = {
     shift : {
         pressed: false
@@ -192,10 +208,10 @@ function navSections(e,letter){
     if(!startSection){
         return  
     } else {
-        if(!keys.shift.pressed && letter == 's' || !keys.shift.pressed && letter == 'f'){
+        if(!keys.shift.pressed && letter == 's'){
             iSection = (iSection + 1) % sections.length
     
-        } else if (keys.shift.pressed && letter == 's' || keys.shift.pressed && letter == 'f'){
+        } else if (keys.shift.pressed && letter == 's'){
             if(iSection > 0 ){
                 iSection -= 1
             } else if(iSection <= 0){
@@ -249,41 +265,6 @@ export function getSubSection(parent){
         return null
     }
 }
-
-sections.forEach(el => {
-    el.addEventListener('click', e => {
-        e.preventDefault()
-        e.stopPropagation()
-        toggleSubSections(e)
-        fetchLessonHref(e.target.href)
-        sectionTitle.innerText = e.target.innerText
-        lessonTitle.innerText = ''
-        startSection = true
-    })  
-    el.addEventListener('focus', e => {
-        lastFocusedElement = e.target
-        targetDivFocused = false
-        sectionsFocused = true
-        lessonsFocused = false
-        iSection = [...sections].indexOf(e.target)
-    })
-    el.addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        console.log(letter)
-        startSection = true
-        const sectionContainer = getSectionContainer(e.target.parentElement)
-        // const lessons = sectionContainer.querySelectorAll('.sub-section > li')
-        const subSection = sectionContainer.querySelector('.sub-section')
-
-        if(subSection == null && currentLesson == e.target && letter == 'enter'){
-            sectionsFocused = true
-            targetDiv.focus()
-            console.log(';kdjf')
-        } 
-        currentLesson = e.target
-    })
-    
-})
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()    
     if(letter == 's' && !sectionsFocused ){
@@ -330,12 +311,7 @@ addEventListener('keydown', e => {
             programShorcutsLink.focus()
             break
         case 't':
-            if(!targetDivFocused){
-                tutorialLink.focus() 
-            } else if (targetDivFocused){
-                const tutoralNumLink = document.getElementById('tutoralNumLink')
-                tutoralNumLink.focus()
-            }
+            tutorialLink.focus()
             break
             
     }
@@ -356,4 +332,3 @@ function fetchLessonHref(href){
 [mainAside,navBar,targetDiv,backlink].forEach( el => {
     el.addEventListener('focus', ()=>{scrollTo(0,0)});
 })
-
