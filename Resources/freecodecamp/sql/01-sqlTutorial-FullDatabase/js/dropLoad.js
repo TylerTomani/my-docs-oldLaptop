@@ -1,5 +1,6 @@
 import { addCopyCodes } from "./copy-code.js"
 import { stepTxtListeners } from "./lesson-temp.js"
+// import { denlargeAllImages } from "./lesson-temp.js"
 const header = document.querySelector('header')
 const backlink = document.getElementById('backlink')
 const homelink = document.getElementById('homelink')
@@ -9,11 +10,11 @@ const programShorcutsLink = document.getElementById('programShorcuts')
 export const navBar = document.querySelector('.section-lesson-title')
 const allEls = document.querySelectorAll('body *')
 export const mainAside = document.querySelector('main > aside')
-const sections = document.querySelectorAll('.section')
+export const sections = document.querySelectorAll('.section')
 const sectionTitle = document.getElementById('section-title')
 const lessonTitle = document.getElementById('lesson-title')
 const subSections = document.querySelectorAll('.sub-section')
-const lessons = document.querySelectorAll('.sub-section > li > a')
+export const lessons = document.querySelectorAll('.sub-section > li > a')
 const targetDiv = document.getElementById('targetDiv')
 /* The startSection is crucial to ensure section1 is focus if 's' is pressed whehn 
 page is first opened */
@@ -28,6 +29,7 @@ let asideFocused = false
 let targetDivFocused = false
 let currentLesson
 let shiftS = []
+let cmdEnter = []
 header.addEventListener('focusin', e => {
     sectionsFocused = false    
 })
@@ -99,6 +101,14 @@ lessons.forEach(el => {
 
             
         }
+        // cmdEnter.unshift(letter)
+        // if(cmdEnter.length >2){
+        //     cmdEnter.pop()
+        // }
+        // console.log(cmdEnter)
+        // if(cmdEnter[0] == 'enter' && cmdEnter[1] == 'meta'){
+        //     open(e.target.href,'_blank')
+        // }
         
     })
     el.addEventListener('focus', e => {
@@ -107,11 +117,13 @@ lessons.forEach(el => {
         sectionsFocused = false
         lessonsFocused = true
         targetDivFocused = false
+        // denlargeAllImages()
     })
 })
 mainAside.addEventListener('focus', e => {
     targetDivFocused = false
     sectionsFocused = false
+    denlargeAllImages()
 })
 mainAside.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -161,6 +173,9 @@ targetDiv.addEventListener('focus', e => {
     targetDivFocused = true
     sectionsFocused = false
 })
+targetDiv.addEventListener('focusout', e => {
+    // denlargeAllImages()
+})
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     sectionsFocused = false
@@ -202,7 +217,10 @@ function navSections(e,letter){
             }
         }
     }
-    sections[iSection].focus()   
+    if(sections[iSection]){
+
+        sections[iSection].focus()   
+    }
 }
 function navLessons(e,letter){
     const sectionContainer = getSectionContainer(e.target.parentElement)
@@ -265,10 +283,11 @@ sections.forEach(el => {
         sectionsFocused = true
         lessonsFocused = false
         iSection = [...sections].indexOf(e.target)
+        // denlargeAllImages()
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
-        console.log(letter)
+        
         startSection = true
         const sectionContainer = getSectionContainer(e.target.parentElement)
         // const lessons = sectionContainer.querySelectorAll('.sub-section > li')

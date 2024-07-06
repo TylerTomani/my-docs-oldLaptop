@@ -21,8 +21,8 @@ page is first opened */
 let startSection = true
 let iSection = -1
 let intLetter = 0
-// false when  not working on project
-let sectionsFocused = false
+// true when  not working on project
+let sectionsFocused = true
 let lessonsFocused = false
 let asideFocused = false
 let targetDivFocused = false

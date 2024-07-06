@@ -133,8 +133,8 @@ allStepTxtPAs.forEach(el =>{
         denlargeAllImages()
     })
     el.addEventListener('click',e =>{
-        // e.preventDefault()
-        // open(e.target.href,'_blank')
+        e.preventDefault()
+        open(e.target.href,'_blank')
     })
 })
 copyCodes.forEach(el =>{

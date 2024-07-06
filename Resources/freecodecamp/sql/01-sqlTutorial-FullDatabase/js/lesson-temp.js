@@ -1,49 +1,54 @@
 import { lastFocusedElement } from "./dropLoad.js"
 import { getSubSection } from "./dropLoad.js"
 import { mainAside } from "./dropLoad.js"
+import { sections } from "./dropLoad.js"
+import { lessons } from "./dropLoad.js"
 export function stepTxtListeners(){
+    const bodyHeader = document.querySelector('body > header')
+    const allVideos = document.querySelectorAll(".step-vid > video")
+    const allImages = document.querySelectorAll(".step-img > img")
 const navbar = document.querySelector('.section-lesson-title')
 const stepTxts = document.querySelectorAll('.step-txt')
-const allImages = document.querySelectorAll(".step-img > img")
-const allVideos = document.querySelectorAll(".step-vid > video")
 const allStepTxtPAs = document.querySelectorAll('.step-txt > p > a')
 const copyCodes = document.querySelectorAll('.step-txt > .code-container > .copy-code')
 const nxtLesson = document.getElementById('nxtLesson') ? document.getElementById('nxtLesson') : null
 const targetDiv = document.getElementById('targetDiv')
 let targetDivFocus = false
 let playing = false
-targetDiv.addEventListener('focusin', e => {targetDivFocus = true})
-targetDiv.addEventListener('focusout', e => {
-    targetDivFocus = false
-    denlargeAllImages()    
+
+bodyHeader.addEventListener('focusin', e => denlargeAllImages())
+navbar.addEventListener('focusin', e => denlargeAllImages())
+sections.forEach(el => {
+    el.addEventListener('focus', e => denlargeAllImages())
 })
+lessons.forEach(el => {
+    el.addEventListener('focus', e => denlargeAllImages())
+})
+mainAside.addEventListener('focus', e => denlargeAllImages())
+targetDiv.addEventListener('focus', e => denlargeAllImages())
+targetDiv.addEventListener('focusin', e => targetDivFocus = true)
+targetDiv.addEventListener('focusout', e => targetDivFocus = false)
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(letter == 'e'){
         if(nxtLesson){
             nxtLesson.focus()
         }
-    }
-    
+    }    
 })
-
 navbar.addEventListener('keydown',e =>{
     let letter = e.key.toLowerCase()
     if(letter == 'e'){
         if(nxtLesson){
             nxtLesson.focus()
-        }
-        
+        }      
     }
-    
-
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
     const copyCodes = step.querySelectorAll('.step-txt > .code-container > .copy-code')
     addTabIndex(copyCodes)
 }
-
 function getStep(parent){
     if(parent.classList.contains('step') || parent.classList.contains('step-col')){
         return parent
@@ -71,24 +76,27 @@ stepTxts.forEach(el => {
         pauseAllVideo()
         removeAllTabIndex()
     })
-    el.addEventListener('focusout', e => {
-        denlargeAllImages()
+    el.addEventListener('focusin', e => {
+        // denlargeAllImages()
     })
     el.addEventListener('click', e => {
         e.preventDefault()
-        // toggleImgSize(e)
-        // handleVideoKeydown(e)
         
     })
     el.addEventListener('keydown', e => {
         let key = e.keyCode
         const stepTxt = e.target
         const as = stepTxt.querySelectorAll('a')
-        handleVideoKeydown(e)
         if(key === 13){
+            handleVideoKeydown(e)
+            // denlargeAllImages()
             addTabIndex(as)
             handleCopyCodes(e)
             toggleImgSize(e)
+        }
+        if(key == 9){
+            console.log(key)
+            denlargeAllImages()
         }
     })    
 })
@@ -120,20 +128,7 @@ addEventListener('keydown', e => {
 });
 
 // The playing variable is asscoiated with img size so it is placed in here
-function denlargeAllImages(){
-    allVideos.forEach(el => {
-        if(el.classList.contains('enlarge-vid')){
-            el.classList.remove('enlarge-vid')
-            playing = false
-            el.pause()
-        }
-    })
-    allImages.forEach(el => {
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
-        }
-    })
-}
+
 function pauseAllVideo(){
     allVideos.forEach(el => {
         el.pause()
@@ -183,7 +178,6 @@ function handleVideoKeydown(e){
     let key = e.keyCode    
     const step = getStep(e.target.parentElement) 
     const vid = step.querySelector('.step-vid > video')
-    console.log(key)
     if(vid){
         switch(key){
             case 32:
@@ -272,4 +266,31 @@ allStepTxtPAs.forEach(el =>{
         open(e.target.href,'_blank')
     })
 })
+copyCodes.forEach(el =>{
+    el.addEventListener('focusin', () =>{
+        
+        denlargeAllImages()
+    })
+    
+    el.addEventListener('click',e =>{
+        e.preventDefault()
+        open(e.target.href,'_blank')
+    })
+})
+function denlargeAllImages(){
+    
+    allVideos.forEach(el => {
+        if(el.classList.contains('enlarge-vid')){
+            el.classList.remove('enlarge-vid')
+            playing = false
+            el.pause()
+        }
+    })
+    allImages.forEach(el => {
+        
+        if(el.classList.contains('enlarge')){
+            el.classList.remove('enlarge')
+        }
+    })
+}
 }
