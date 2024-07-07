@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 header>nav#mainLinksContainer {
     display: flex;
 }
@@ -21,11 +26,7 @@ header>nav#mainLinksContainer>#mainLinks {
     min-height: 60px;
     max-height: 50px;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 header {
     display: flex;
     flex-direction: column;

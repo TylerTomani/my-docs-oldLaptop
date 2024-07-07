@@ -1,0 +1,38 @@
+main {
+    border-top: 1px solid blue;
+    display: flex
+}
+
+main > aside{
+    border-right: 1px solid black;
+    height: 100vmax;
+    flex-basis: 15%;
+}
+
+aside > ul {
+    margin-left: 4%;
+    margin-top: 10%;
+}
+
+aside > ul > li {
+    margin-bottom: 5%;
+}
+aside > ul > li > ul{
+    margin-left: 15%;
+    margin-top: 5%;
+}
+aside > ul > li > ul> li{
+    margin: 5% 0;
+}
+#targetDiv{
+    width: 100vmax;
+    height: 100vmax;
+    /* border: 20px solid blue; */
+}
+#targetDiv:active,#targetDiv:focus,
+main > aside:active,main > aside:focus{
+    box-shadow: 0 0 4px 4px lightseagreen;
+}
+.hide {
+    display: none;
+}
