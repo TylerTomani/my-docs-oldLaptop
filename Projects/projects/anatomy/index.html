@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>antomy</title>
-    <script src="js/homefocus.js" defer></script>
+    <!-- <script src="js/homefocus.js" defer></script> -->
     <script src="js/letterFocus.js" defer></script>
     <script src="js/toggleSystems.js" defer></script>
     <link rel="stylesheet" href="css/index.css">
@@ -12,7 +12,6 @@
 <body>
     <header>
         <a tabindex="1" id="homelink" href="../../../index.html">home</a>
-        <a target="_blank" tabindex="1" id="regexCmds" href="../../../regex-cmds/regex-cmds.html">regex</a>
     </header>
     <nav>
         <button id="skeletalSystemBtn">skeletal system</button>
@@ -27,7 +26,7 @@
                     <a autofocus id="vetebralColumn" href="#" class="drop">Vetebral Column</a>
                     <div class="sub-group">
                         <a id="cervicalSpine" href="#" class="drop">Cervical Spine</a>
-                        <ul>
+                        <ul class="sub-group-items">
                             <li><a id="c1" href="#">c1</a></li>
                             <li><a id="c2" href="#">c2</a></li>
                             <li><a id="c3" href="#">c3</a></li>
@@ -39,7 +38,7 @@
                     </div>
                     <div class="sub-group">
                         <a id="thoracicSpine" href="#" class="drop">Thoracic Spine</a>
-                        <ul>
+                        <ul class="sub-group-items">
                             <li><a id="t1" href="#">t1</a></li>
                             <li><a id="t2" href="#">t2</a></li>
                             <li><a id="t3" href="#">t3</a></li>
@@ -50,11 +49,13 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Thoracic Cage -->
                 <div class="group">
                     <a id="thoracicCage" href="#" class="drop">Thoracic Cage</a>
+                    <!-- Ribs -->
                     <div class="sub-group">
                         <a id="ribs" href="#" class="drop">Ribs</a>
-                        <ul>
+                        <ul class="sub-group-items">
                             <li><a id="sternum" href="#">sternum</a></li>
                             <li><a id="rib1" href="#">1</a></li>
                             <li><a id="rib2" href="#">2</a></li>
@@ -70,11 +71,10 @@
                             <li><a id="rib12" href="#">12</a></li>
                         </ul>
                     </div>
-                    
                 </div>
                 <div class="group">
-                    <a href="#" class="drop">Cranial Bones</a>
-                    <ul>
+                    <a id="cranialBones" href="#" class="drop">Cranial Bones</a>
+                    <ul class="group-items">
                         <li><a id="enthimoid" href="#">Enthimoid</a></li>
                         <li><a id="frontal" href="#">Frontal</a></li>
                         <li><a id="occiptal" href="#">Occipital</a></li>
@@ -84,7 +84,6 @@
                     </ul>
                 </div>
             </div>
-
             
             <div id="nervousSystem" class="system">
                     

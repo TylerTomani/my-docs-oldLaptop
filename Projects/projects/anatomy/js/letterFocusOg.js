@@ -19,33 +19,18 @@ addEventListener('keydown', e => {
         
     })
     if(letterElsArr){
-
-        
         if(currentLetter != letter && letterElsArr[0]){
             letterElsArr[0].focus()
-        }             
+        } 
+
         if(currentLetter == letter && letterElsArr.length > 0){
             iLetter++  
             if(iLetter >= letterElsArr.length){
                 iLetter = 0
             }
             letterElsArr[iLetter].focus()
-
-            const parent = getParent(letterElsArr[iLetter])
-            
         }
     }
-
     
     currentLetter = letter
 });
-
-function getParent(parent){
-    if(parent.classList.contains('sub-group') || parent.classList.contains('group')){
-        return parent
-    } else if (parent.parentElement){
-        return getParent(parent.parentElement)
-    } else {
-        return null
-    }
-}
