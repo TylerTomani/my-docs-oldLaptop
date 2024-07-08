@@ -86,10 +86,13 @@ function lessonsFocus(e,letter){
     }
     if(!isNaN(letter)){
         const subSection = getSubSection(e.target.parentElement)
-        const lessons = subSection.querySelectorAll('li > a')
-        let intLetter = parseInt(letter)
-        if(intLetter <= lessons.length){
-            lessons[intLetter -1 ].focus()
+        if(subSection){
+
+            const lessons = subSection.querySelectorAll('li > a')
+            let intLetter = parseInt(letter)
+            if(intLetter <= lessons.length){
+                lessons[intLetter -1 ].focus()
+            }
         }
     }
 }
