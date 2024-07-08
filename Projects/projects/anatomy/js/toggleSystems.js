@@ -1,69 +1,96 @@
-const groups = document.querySelectorAll('.group')
-const subGroups = document.querySelectorAll('.sub-group')
+const skeletalSystemBtn = document.getElementById('skeletalSystemBtn')
+const nervousSystemBtn = document.getElementById('nervousSystemBtn')
+const muscularSystemBtn = document.getElementById('muscularSystemBtn')
+const systems = document.querySelectorAll('.system')
 const dropGroups = document.querySelectorAll('.group > .drop')
 const dropSubGroups = document.querySelectorAll('.sub-group > .drop')
+const groupItems = document.querySelectorAll('.group-items')
+const subGroups = document.querySelectorAll('.sub-group')
+const subGroupsItems = document.querySelectorAll('.sub-group-items')
+systems.forEach(el => {
+    if(!el.classList.contains('show')){
+        el.classList.add('hide')
+    }
+})
+function hideSystems(){
+    systems.forEach(el => {
+        if(el.classList.contains('show')){
+            el.classList.remove('show')
+            el.classList.add('hide')
+        }
+        el.classList.add('hide')
+    })
+}
 
 function hideGroupItems(){
-    groups.forEach(el => {
-        const groupItems = el.querySelector('.group-items')
-        if(groupItems){
-            if(!groupItems.classList.contains('hide')){
-                groupItems.classList.add('hide')                
-            }
+    groupItems.forEach(el => {
+        if(!el.classList.contains('hide')){
+            el.classList.add('hide')
         }
     })
 }
-function hideSubGroupsDrops(){
+function hideSubGroups(){
     subGroups.forEach(el => {
-        const subDrop = el.querySelector('.drop')
-        if(subDrop){
-            if(!subDrop.classList.contains('hide')){
-                subDrop.classList.add('hide')
-            }
+        if(!el.classList.contains('hide')){
+            el.classList.add('hide')
         }
     })
 }
-function hideSubGroupItems() {
-    subGroups.forEach(el => {
-        const subGroupItems = el.querySelector('.sub-group-items')
-        if(subGroupItems){
-            if(!subGroupItems.classList.contains('hide')){
-                subGroupItems.classList.add('hide')
-            }
+function hideSubGroupsItems(){
+    subGroupsItems.forEach(el => {
+        if(!el.classList.contains('hide')){
+            el.classList.add('hide')
         }
     })
 }
 hideGroupItems()
-hideSubGroupsDrops()
-hideSubGroupItems()
+hideSubGroups()
+hideSubGroupsItems()
+skeletalSystemBtn.addEventListener('click',e => {
+    const skeletalSystem = document.querySelector('#skeletalSystem')
+    console.log(skeletalSystem)
+    hideSystems()
+    if(skeletalSystem.classList.contains('hide')){
+        skeletalSystem.classList.remove('hide')
+    }
+})
+nervousSystemBtn.addEventListener('click',e => {
+    const nervousSystem = document.querySelector('#nervousSystem')
+    hideSystems()
+    console.log(nervousSystem)
+    if(nervousSystem.classList.contains('hide')){
+        nervousSystem.classList.remove('hide')
+    }
+})
+muscularSystemBtn.addEventListener('click',e => {
+    const muscularSystem = document.querySelector('#muscularSystem')
+    console.log(muscularSystem)
+    hideSystems()
+    if(muscularSystem.classList.contains('hide')){
+        muscularSystem.classList.remove('hide')
+    }
+})
 dropGroups.forEach(el => {
     el.addEventListener('click', e => {
         const group = getGroup(e.target.parentElement)
-        const groupItems = group.querySelector('.group-items') 
+        const groupItems = group.querySelector('.group-items')
         if(groupItems){
-
-            if(groupItems.classList.contains('hide')){
-                groupItems.classList.remove('hide')
-            } else {
-                groupItems.classList.add('hide')
-            }
+            toggleItems(groupItems)
         }
-
         const subGroups = group.querySelectorAll('.sub-group')
-        if(subGroups){
-            subGroups.forEach(subGroup => {
-                const subDrop = subGroup.querySelector('.drop')
-                if(subDrop.classList.contains('hide')){
-                    toggleItems(subDrop)
-                }                
-            })
-        }
+        subGroups.forEach(el =>{
+            console.log(el)
+            if(el.classList.contains('hide')){
+                el.classList.remove('hide')
+            } else {
+                el.classList.add('hide')
+
+            }
+        })
     })
 })
-
-dropSubGroups.forEach(el => {
-    el.addEventListener('click',e => {
-        console.log(e.target)
+dropSubGroups.forEach(el =>{
+    el.addEventListener('click', e => {
         const subGroup = getSubGroup(e.target.parentElement)
         const subGroupItems = subGroup.querySelector('.sub-group-items')
         toggleItems(subGroupItems)
@@ -73,7 +100,7 @@ dropSubGroups.forEach(el => {
 function toggleItems(el){
     if(el.classList.contains('hide')){
         el.classList.remove('hide')
-    } else{
+    } else {
         el.classList.add('hide')
     }
 }

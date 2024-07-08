@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>antomy</title>
-    <!-- <script src="js/homefocus.js" defer></script> -->
+    <title>Anatomy</title>
     <script src="js/letterFocus.js" defer></script>
     <script src="js/toggleSystems.js" defer></script>
+    <script src="js/showPic.js" defer></script>
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <header>
-        <a tabindex="1" id="homelink" href="../../../index.html">home</a>
+        <a tabindex="1" id="homeLink" href="../../../index.html">Home</a>
     </header>
-    <nav>
-        <button id="skeletalSystemBtn">skeletal system</button>
-        <button id="nervousSystemBtn">nervous system</button>
-        <button id="muscularSystemBtn">muscular system</button>
+    <nav class="systems-btns">
+        <button id="skeletalSystemBtn">Skeletal System</button>
+        <button id="nervousSystemBtn">Nervous System</button>
+        <button id="muscularSystemBtn">Muscular System</button>
     </nav>
     <main>
         <h1></h1>
         <div class="systems-container">
             <div id="skeletalSystem" class="system show">
                 <div class="group">
-                    <a autofocus id="vetebralColumn" href="#" class="drop">Vetebral Column</a>
+                    <a id="cranialBones" href="#" class="drop">Cranial Bones</a>
+                    <ul class="group-items">
+                        <li><a id="ethmoid" href="#">Ethmoid</a></li>
+                        <li><a id="frontal" href="#">Frontal</a></li>
+                        <li><a id="occipital" href="#">Occipital</a></li>
+                        <li><a id="parietal" href="#">Parietal</a></li>
+                        <li><a id="sphenoid" href="#">Sphenoid</a></li>
+                        <li><a id="temporal" href="#">Temporal</a></li>
+                    </ul>
+                </div>
+                <div class="group">
+                    <a autofocus id="vertebralColumn" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Illu_vertebral_column.svg/500px-Illu_vertebral_column.svg.png" class="drop">Vertebral Column</a>
                     <div class="sub-group">
-                        <a id="cervicalSpine" href="#" class="drop">Cervical Spine</a>
-                        <ul class="sub-group-items">
-                            <li><a id="c1" href="#">c1</a></li>
-                            <li><a id="c2" href="#">c2</a></li>
-                            <li><a id="c3" href="#">c3</a></li>
-                            <li><a id="c4" href="#">c4</a></li>
-                            <li><a id="c5" href="#">c5</a></li>
-                            <li><a id="c6" href="#">c6</a></li>
-                            <li><a id="c7" href="#">c7</a></li>
+                        <a id="cervicalSpine" href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Cervical_vertebrae_lateral2.png/500px-Cervical_vertebrae_lateral2.png" class="drop">Cervical Spine</a>
+                        <ul class="sub-group-items ">
+                            <li><a id="c1" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Atlas_%28C1%29_from_top_animation_small.gif/240px-Atlas_%28C1%29_from_top_animation_small.gif">c1</a></li>
+                            <li><a id="c2" href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/C2_from_top_animation_small.gif/240px-C2_from_top_animation_small.gif">c2</a></li>
+                            <li><a id="c3" href="/Projects/projects/anatomy/images/skeletalSys/cervical/c3/c3 copy.png">c3</a></li>
+                            <li><a id="c4" href="https://upload.wikimedia.org/wikipedia/commons/d/d9/Cervical_vertebra_english.png">c4</a></li>
+                            <li><a id="c5" href="https://upload.wikimedia.org/wikipedia/commons/d/d9/Cervical_vertebra_english.png">c5</a></li>
+                            <li><a id="c6" href="https://upload.wikimedia.org/wikipedia/commons/d/d9/Cervical_vertebra_english.png">c6</a></li>
+                            <li><a id="c7" href="https://upload.wikimedia.org/wikipedia/commons/c/c2/C7_animation_small.gif">c7</a></li>
                         </ul>
                     </div>
                     <div class="sub-group">
                         <a id="thoracicSpine" href="#" class="drop">Thoracic Spine</a>
-                        <ul class="sub-group-items">
+                        <ul class="sub-group-items ">
                             <li><a id="t1" href="#">t1</a></li>
                             <li><a id="t2" href="#">t2</a></li>
                             <li><a id="t3" href="#">t3</a></li>
@@ -49,53 +62,59 @@
                         </ul>
                     </div>
                 </div>
-                <!-- Thoracic Cage -->
                 <div class="group">
                     <a id="thoracicCage" href="#" class="drop">Thoracic Cage</a>
-                    <!-- Ribs -->
                     <div class="sub-group">
                         <a id="ribs" href="#" class="drop">Ribs</a>
-                        <ul class="sub-group-items">
-                            <li><a id="sternum" href="#">sternum</a></li>
-                            <li><a id="rib1" href="#">1</a></li>
-                            <li><a id="rib2" href="#">2</a></li>
-                            <li><a id="rib3" href="#">3</a></li>
-                            <li><a id="rib4" href="#">4</a></li>
-                            <li><a id="rib5" href="#">5</a></li>
-                            <li><a id="rib6" href="#">6</a></li>
-                            <li><a id="rib7" href="#">7</a></li>
-                            <li><a id="rib8" href="#">8</a></li>
-                            <li><a id="rib9" href="#">9</a></li>
-                            <li><a id="rib10" href="#">10</a></li>
-                            <li><a id="rib11" href="#">11</a></li>
-                            <li><a id="rib12" href="#">12</a></li>
+                        <ul class="sub-group-items ">
+                            <li><a id="sternum" href="#">Sternum</a></li>
+                            <li><a id="rib1" href="#">Rib 1</a></li>
+                            <li><a id="rib2" href="#">Rib 2</a></li>
+                            <li><a id="rib3" href="#">Rib 3</a></li>
+                            <li><a id="rib4" href="#">Rib 4</a></li>
+                            <li><a id="rib5" href="#">Rib 5</a></li>
+                            <li><a id="rib6" href="#">Rib 6</a></li>
+                            <li><a id="rib7" href="#">Rib 7</a></li>
+                            <li><a id="rib8" href="#">Rib 8</a></li>
+                            <li><a id="rib9" href="#">Rib 9</a></li>
+                            <li><a id="rib10" href="#">Rib 10</a></li>
+                            <li><a id="rib11" href="#">Rib 11</a></li>
+                            <li><a id="rib12" href="#">Rib 12</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="group">
-                    <a id="cranialBones" href="#" class="drop">Cranial Bones</a>
-                    <ul class="group-items">
-                        <li><a id="enthimoid" href="#">Enthimoid</a></li>
-                        <li><a id="frontal" href="#">Frontal</a></li>
-                        <li><a id="occiptal" href="#">Occipital</a></li>
-                        <li><a id="parietal" href="#">Parietal</a></li>
-                        <li><a id="sphenoid" href="#">Sphenoid</a></li>
-                        <li><a id="temporal" href="#">Temporal</a></li>
-                    </ul>
-                </div>
+                
             </div>
-            
-            <div id="nervousSystem" class="system">
-                    
-            </div>
-            <div id="muscularSystem" class="system">
-
-            </div>
+            <div id="nervousSystem" class="system"></div>
+            <div id="muscularSystem" class="system"></div>
         </div>
         <div class="img-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Cervical_vertebrae_lateral2.png/500px-Cervical_vertebrae_lateral2.png" alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Cervical_vertebrae_lateral2.png/500px-Cervical_vertebrae_lateral2.png"
+                alt="">
+            <div class="notes">
+                <p>
+                    put notes here
+                </p>
+            </div>
         </div>
     </main>
-    
+    <article id="myMris">
+        <div class="">
+            <h2>My Mris and docs</h2>
+        </div>
+        <div class="img-container">
+            <div class="mid-sag-imgs">
+                <img id="midSagital" src="myMris/midSagital/mid-sag-1.jpeg" alt="">
+                <!-- <img id="midSagital2" src="myMris/midSagital/mid-sag-2.jpeg" alt=""> -->
+            </div>
+            <img id="axial" src="myMris/axial/axial-1.jpeg" alt="">
+        </div>
+        <div id="myNotes">
+            <p>
+                Put notes here
+            </p>
+        </div>
+    </article>
 </body>
+
 </html>

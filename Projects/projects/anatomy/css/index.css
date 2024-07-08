@@ -50,17 +50,28 @@ main {
     margin-left: 20%;
     font-size: .7rem;
 }
-.img-container{
+main > .img-container{
     flex-basis: 45%;
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    /* align-items: center; */
 }
-.img-container>img {
+main > .img-container>img {
     border: 1px solid black;
     max-height: 200px;
     max-width: 200px;
 }
 .hide{
     display: none;
+}
+#myMris > .img-container  {
+    display: flex;
+    border: 2px solid blue;
+}
+#myMris  img{
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid blue;
 }
