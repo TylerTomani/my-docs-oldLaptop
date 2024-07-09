@@ -31,7 +31,9 @@ document.addEventListener('keydown', e => {
     /** The last step will be going to the next element of a different letter 
      * so if on Vertebral Column, and 'C' is pressed, focus goes to 
      * Cervial Spine, NOT Cranial Bones
-     */
+     *  AND, 
+     * add num selection for c1-c7,t1-12,rib1-rib12, ....
+     */ 
     
     if (letter == currentLetter && letteredArr.length > 0) {
         console.clear();
