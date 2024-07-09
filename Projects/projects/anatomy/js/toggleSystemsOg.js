@@ -148,7 +148,7 @@ function getGroup(parent){
         return null
     }
 }
-function getSubGroup(parent){
+ function getSubGroup(parent){
     if(parent.classList.contains('sub-group')){
         return parent
     } else if (parent.parentElement){
@@ -157,6 +157,8 @@ function getSubGroup(parent){
         return null
     }
 }
+
+
 skeletalSystemBtn.addEventListener('click',e => {
     const skeletalSystem = document.querySelector('#skeletalSystem')
     console.log(skeletalSystem)

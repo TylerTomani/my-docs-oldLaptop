@@ -1,35 +1,65 @@
-document.addEventListener('keydown', function(event) {
-    const key = event.key.toLowerCase();
-    console.log(`Key pressed: ${key}`);
-
+const homelink = document.getElementById('homeLink')
+homelink.addEventListener('click',e => {
+    open(e.target.href)
+})
+let letteredArr =[]
+let iLetter = 0
+let currentLetter
+document.addEventListener('keydown', e => {
+    const letter = e.key.toLowerCase();
+    // console.log(`Key pressed: ${key}`);
+    // We might have to fix the homelinke when stuff begins with the letter 'h' like hyoid
+    if(letter == 'h'){
+        homelink.focus()
+    }
     // Select all elements with an id attribute
     const allElements = document.querySelectorAll('[id]');
-    console.log('All elements with IDs:', allElements);
-
+    // console.log('All elements with IDs:', allElements);
+    
     // Filter elements where id starts with the pressed key
-    const elements = Array.from(allElements).filter(el => 
-        el.id.toLowerCase().startsWith(key)
-    );
-    console.log(`Elements matching "${key}":`, elements);
+    letteredArr = []
+    allElements.forEach(el => {
+        const parent = getParent(el)
 
-    if (elements.length > 0) {
-        let currentFocus = document.activeElement;
-        let nextFocus = null;
-
-        // If the current focus is already on one of the matching elements, move to the next one
-        for (let i = 0; i < elements.length; i++) {
-            if (elements[i] === currentFocus) {
-                nextFocus = elements[(i + 1) % elements.length];
-                // break;
+        if(parent){
+            if(letter == el.id[0] && !el.classList.contains('hide')){
+                letteredArr.push(el)
             }
+            
         }
-
-        // If no element is currently focused or the current focus is not on one of the matching elements
-        if (!nextFocus) {
-            nextFocus = elements[0];
+    })
+    
+    if(letter == currentLetter && letteredArr){
+        allIndex = [...allElements].indexOf[letteredArr[iLetter]]
+        letteredIndex = [...letteredArr].indexOf[letteredArr[iLetter]]
+        console.log('letteredIndex',letteredIndex)
+        console.log('allIndex',allIndex)
+        iLetter = (iLetter + 1) % letteredArr.length
+        letteredArr[iLetter].focus()
+    } else {
+        if(letteredArr.length > 0){
+            // console.log(letteredArr[0])
+            letteredArr[0].focus()
+        } else {
+            return null
         }
-
-        console.log(`Focusing on:`, nextFocus);
-        nextFocus.focus();
     }
+    // if(letteredArr.length > 0){
+    //     if(currentLetter != letter){
+    //         console.log(letteredArr[0])
+    //         letteredArr[0].focus()
+            
+    //     }
+    // }
+    currentLetter = letter   
 });
+
+function getParent(parent){
+    if(parent.classList.contains('group') || parent.classList.contains('sub-group') || parent.classList.contains('systems-btns')){
+        return parent
+    } else if (parent.parentElement){
+        return getParent(parent.parentElement)
+    } else {
+        return null
+    }
+}
