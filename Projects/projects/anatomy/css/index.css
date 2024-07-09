@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 header {
     border-bottom: 1px solid black;
 }
@@ -48,7 +49,7 @@ main {
 }
 .group > .sub-group > ul {
     margin-left: 20%;
-    font-size: .7rem;
+    font-size: .8rem;
 }
 #mainImgContainer{
     flex-basis: 45%;
