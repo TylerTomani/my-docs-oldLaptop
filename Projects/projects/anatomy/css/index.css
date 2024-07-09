@@ -50,18 +50,28 @@ main {
     margin-left: 20%;
     font-size: .7rem;
 }
-main > .img-container{
+#mainImgContainer{
     flex-basis: 45%;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    /* background-color: blue; */
 }
-main > .img-container>img {
+#mainImgContainer>img {
     border: 1px solid black;
-    max-height: 200px;
+    min-height: 200px;
+    max-height: 150px;
+    min-width: 200px;
     max-width: 200px;
+}
+#myImages > .img-container {
+
+}
+#myImages > .img-container img{
+    max-width: 200px;
+    max-height: 200px;
 }
 .hide{
     display: none;

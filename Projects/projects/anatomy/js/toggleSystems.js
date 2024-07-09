@@ -9,6 +9,7 @@ const groupItemsAs = document.querySelectorAll('.group-items > li > a')
 const subGroups = document.querySelectorAll('.sub-group')
 const subGroupsItems = document.querySelectorAll('.sub-group-items')
 const subGroupsItemsAs = document.querySelectorAll('.sub-group-items > li > a')
+
 systems.forEach(el => {
     if(!el.classList.contains('show')){
         el.classList.add('hide')
@@ -172,7 +173,7 @@ function getSubGroup(parent){
 }
 skeletalSystemBtn.addEventListener('click',e => {
     const skeletalSystem = document.querySelector('#skeletalSystem')
-    console.log(skeletalSystem)
+    
     hideSystems()
     if(skeletalSystem.classList.contains('hide')){
         skeletalSystem.classList.remove('hide')
@@ -181,16 +182,22 @@ skeletalSystemBtn.addEventListener('click',e => {
 nervousSystemBtn.addEventListener('click',e => {
     const nervousSystem = document.querySelector('#nervousSystem')
     hideSystems()
-    console.log(nervousSystem)
+    
     if(nervousSystem.classList.contains('hide')){
         nervousSystem.classList.remove('hide')
     }
 })
 muscularSystemBtn.addEventListener('click',e => {
     const muscularSystem = document.querySelector('#muscularSystem')
-    console.log(muscularSystem)
+    
     hideSystems()
     if(muscularSystem.classList.contains('hide')){
         muscularSystem.classList.remove('hide')
     }
+})
+// Add numbered elements here
+subGroupsItems.forEach(el => {
+    el.addEventListener('focusin', e => {
+        // console.log('lkjdf')
+    })
 })

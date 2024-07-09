@@ -32,7 +32,32 @@ document.addEventListener('DOMContentLoaded', () => {
         c2: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/C2_lateral.png/500px-C2_lateral.png",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/C2_from_top_animation_small.gif/240px-C2_from_top_animation_small.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Axis_vertebrae.jpg/440px-Axis_vertebrae.jpg"
+        ],
+        c3: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png",
+            "https://upload.wikimedia.org/wikipedia/commons/5/52/Gray85.png"
 
+        ],
+        c4: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/5/52/Gray85.png"
+        ],
+        c5: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/5/52/Gray85.png"
+        ],
+        c6: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/5/52/Gray85.png"
+        ],
+        c7: [
+            "https://upload.wikimedia.org/wikipedia/commons/c/c2/C7_animation_small.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Cervical_Spine_Anterior_View.png/240px-Cervical_Spine_Anterior_View.png"
         ]
     };
     let currentImages = imageCollections['cranialBones'];
@@ -87,6 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if(key == 37){
             currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        }
+        if(key == 13){
+            currentIndex = (currentIndex + 1) % currentImages.length;
         }
         updateImage()
     })

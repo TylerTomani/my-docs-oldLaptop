@@ -31,12 +31,12 @@ allElements.forEach(el => {
     el.addEventListener('click', e => {
         clickCount++
         if(e.target.tagName != 'IMG'){
-            console.log(e.target.tagName)
+            
             lastElement = e.target
             if(clickCount == 2){
                 mainImg.focus()
             }
-            console.log(clickCount)        
+                    
         }
     })
 })
@@ -86,9 +86,9 @@ document.addEventListener('keydown', e => {
     }
     
     // if(clicked && !e.target.classList.contains('drop')){
-    //     console.log(clicked)
+    //     
     //     lastElement = e.target
-    //     console.log(e.target)
+    //     
     //     // imgContainer.focus()
     // } 
     

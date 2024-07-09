@@ -1,7 +1,7 @@
 const links = document.querySelectorAll('a')
 const axialImg = document.querySelector('#axial')
 // const midSagitalImg = document.getElementById('#midSagital > img')
-const img = document.querySelector('main > .img-container > img')
+// const img = document.querySelector('main > .img-container > img')
 
 const notesP = document.querySelector('.notes > p')
 
@@ -9,9 +9,8 @@ links.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        img.src = e.target.href
+        // img.src = e.target.href
         const id = e.target.id
-
         switch(id){
             case 'c1':
                 axialImg.src = 'myMris/axial/axial-1.jpeg'
