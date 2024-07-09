@@ -13,15 +13,32 @@ document.addEventListener('DOMContentLoaded', () => {
         cranialBones: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Human_skull_side_simplified_%28bones%29.svg/700px-Human_skull_side_simplified_%28bones%29.svg.png",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Sobo_1909_38.png/360px-Sobo_1909_38.png"
-            // "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gray188.png/800px-Gray188.png"
         ],
         ethmoid: [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ethmoid_bone.PNG/640px-Ethmoid_bone.PNG",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Ethmoid_bone_animation2.gif/230px-Ethmoid_bone_animation2.gif"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Rotation_ethmoid.gif/500px-Rotation_ethmoid.gif",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Gray149.png/240px-Gray149.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Gray151.png/240px-Gray151.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Gray152.png/240px-Gray152.png"
         ],
         frontal: [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Frontal_bone_lateral2.png/250px-Frontal_bone_lateral2.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Gray134.png/800px-Gray134.png"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Frontal_bone_lateral3.png/500px-Frontal_bone_lateral3.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Frontal_bone_-_animation_02.gif/500px-Frontal_bone_-_animation_02.gif",
+        ],
+        occipital:[
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Occipital_bone_lateral2.png/500px-Occipital_bone_lateral2.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Occipital_bone_-_animation_02.gif/500px-Occipital_bone_-_animation_02.gif"
+        ],
+        parietal:[
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Parietal_bone_posterior2.png/500px-Parietal_bone_posterior2.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Left_parietal_boen_-_animation.gif/360px-Left_parietal_boen_-_animation.gif"
+        ],
+        sphenoid: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Sphenoid_bone_-_lateral_view.png/600px-Sphenoid_bone_-_lateral_view.png",
+            "https://upload.wikimedia.org/wikipedia/commons/9/97/Sphenoid_bone_-_animation_02.gif",
+        ],
+        temporal: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Temporal_bone_lateral5.png/500px-Temporal_bone_lateral5.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Temporal_bone_-_animation_02.gif/500px-Temporal_bone_-_animation_02.gif"
         ],
         c1: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/C1_lateral.png/500px-C1_lateral.png",
