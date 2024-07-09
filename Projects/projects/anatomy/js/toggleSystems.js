@@ -48,11 +48,15 @@ function hideSubGroups() {
         }
     })
     subGroupsItems.forEach(el => {
+        const subGroup = getSubGroup(el.parentElement)
+        const drop = subGroup.querySelector('.drop')
         if(!el.classList.contains('hide')){
             el.classList.add('hide')
         }
     })
     subGroupsItemsAs.forEach(el => {
+        const subGroup = getSubGroup(el.parentElement)
+        const drop = subGroup.querySelector('.drop')
         if(!el.classList.contains('hide')){
             el.classList.add('hide')
         }
@@ -62,19 +66,28 @@ hideSubGroups()
 hideGroups()
 dropGroups.forEach(el => {
     el.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
         handleGroupShow(e)
     })
 })
 dropSubGroups.forEach(el => {
     el.addEventListener('click', e =>{
-
+        e.preventDefault()
+        e.stopPropagation()
         const subGroup = getSubGroup(el.parentElement)
         const subGroupItems = subGroup.querySelector('.sub-group-items')
         const subGroupItemsAs = subGroup.querySelectorAll('.sub-group-items > li > a')
         handleSubGroupsShow(subGroupItems,subGroupItemsAs)
 
     })
+})
 
+subGroupsItemsAs.forEach(el => {
+    el.addEventListener('click',e  => {
+        e.preventDefault()
+        e.stopPropagation()
+    })
 })
 function handleGroupShow(e){
     const group = getGroup(e.target.parentElement)

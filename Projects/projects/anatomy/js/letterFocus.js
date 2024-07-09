@@ -6,10 +6,38 @@ let letteredArr = [];
 let iLetter = 0;
 let currentLetter;
 let currentIndex = 0
+let clicked = false
+let lastElement
+const mainImg = document.querySelector('#mainImgContainer > img')
 const allElements = document.querySelectorAll('[id]');
+let clickCount = 0
+mainImg.addEventListener('focusout', e => {
+    lastElement.focus()
+})
 allElements.forEach(el => {
     el.addEventListener('focus', e =>{
+        clickCount = 0
+        clicked = false
         currentIndex = [...allElements].indexOf(e.target)
+    })
+    el.addEventListener('focusout', e =>{
+        clickCount = 0
+        clicked = false
+    })
+    el.addEventListener('focusin', e =>{
+        clickCount = 0
+        clicked = false
+    })
+    el.addEventListener('click', e => {
+        clickCount++
+        if(e.target.tagName != 'IMG'){
+            console.log(e.target.tagName)
+            lastElement = e.target
+            if(clickCount == 2){
+                mainImg.focus()
+            }
+            console.log(clickCount)        
+        }
     })
 })
 document.addEventListener('keydown', e => {
@@ -36,15 +64,11 @@ document.addEventListener('keydown', e => {
      */ 
     
     if (letter == currentLetter && letteredArr.length > 0) {
-        console.clear();
         iLetter = (iLetter + 1) % letteredArr.length;
         letteredArr[iLetter].focus();
     } else {
 
         let allIndex = [...allElements].indexOf(letteredArr[iLetter]);
-        console.log(e.target)
-        console.log('currentIndex',currentIndex)
-        console.log('allIndex',allIndex)
         if(allIndex > currentIndex){
             if (letteredArr.length > 0) {
                 letteredArr[0].focus();
@@ -53,10 +77,23 @@ document.addEventListener('keydown', e => {
             if (letteredArr.length > 0 && letteredArr[1]) {
                 letteredArr[1].focus();
             } else {
-                letteredArr[0].focus()
+                if(letteredArr[0]){
+
+                    letteredArr[0].focus()
+                }
             }
         }
     }
+    
+    // if(clicked && !e.target.classList.contains('drop')){
+    //     console.log(clicked)
+    //     lastElement = e.target
+    //     console.log(e.target)
+    //     // imgContainer.focus()
+    // } 
+    
+    // clicked = true
+    
     currentLetter = letter;
 });
 

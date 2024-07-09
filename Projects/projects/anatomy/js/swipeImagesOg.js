@@ -11,9 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif"
         ],
         cranialBones: [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Human_skull_side_simplified_%28bones%29.svg/700px-Human_skull_side_simplified_%28bones%29.svg.png",
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Sobo_1909_38.png/360px-Sobo_1909_38.png"
-            // "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gray188.png/800px-Gray188.png"
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Human_skull_side_simplified_%28bones%29.svg/400px-Human_skull_side_simplified_%28bones%29.svg.png",
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gray188.png/800px-Gray188.png"
         ],
         ethmoid: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ethmoid_bone.PNG/640px-Ethmoid_bone.PNG",
@@ -30,9 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Gray308.png/440px-Gray308.png"
         ],
         c2: [
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/C2_lateral.png/500px-C2_lateral.png",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/C2_from_top_animation_small.gif/240px-C2_from_top_animation_small.gif",
-
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/C2_lateral.png/800px-C2_lateral.png"
         ]
     };
     let currentImages = imageCollections['cranialBones'];

@@ -66,6 +66,9 @@ main > .img-container>img {
 .hide{
     display: none;
 }
+.show {
+    /* display: inline-flex !important; */
+}
 #myMris > .img-container  {
     display: flex;
     border: 2px solid blue;
