@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
             "https://upload.wikimedia.org/wikipedia/commons/5/52/Gray85.png"
         ],
+        c5Nerve: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/PLEXUS_BRACHIALIS.jpg/500px-PLEXUS_BRACHIALIS.jpg"
+        ],
         c6: [
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Cervical_vertebra_english.png/500px-Cervical_vertebra_english.png",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cervical_vertebrae_-_close-up_-_animation2.gif/240px-Cervical_vertebrae_-_close-up_-_animation2.gif",
