@@ -32,6 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
             "myMris/cervicalSpine/axial/c5/c5-3.jpeg",
             "myMris/cervicalSpine/axial/c5/c5-4.jpeg"
         ],
+        c5Nerve: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/PLEXUS_BRACHIALIS.jpg/500px-PLEXUS_BRACHIALIS.jpg",
+            // "myMris/cervicalSpine/axial/c5/c5-2.jpeg",
+            // "myMris/cervicalSpine/axial/c5/c5-3.jpeg",
+            // "myMris/cervicalSpine/axial/c5/c5-4.jpeg"
+        ],
         c6: [
             "myMris/cervicalSpine/axial/c6/c6-1.jpeg",
             "myMris/cervicalSpine/axial/c6/c6-2.jpeg",

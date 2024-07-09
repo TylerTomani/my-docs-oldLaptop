@@ -1,4 +1,5 @@
 const links = document.querySelectorAll('a')
+const notes = document.querySelector('.notes')
 const notesP = document.querySelector('.notes > p')
 links.forEach(el => {
     el.addEventListener('click', e => {
@@ -20,6 +21,14 @@ links.forEach(el => {
                 break;
             case 'c5':
                 notesP.innerText = "C5-C6: Moderate disc osteophyte complex mildly eccentric to the left causes minimal ventral cord impingement on the left. No focal soft disc protrusion/herniation. Moderate central and left lateral recess stenosis. Severe left foraminal narrowing."
+                break;
+            case 'c5Nerve':
+                notes.innerHTML = `
+                <p>The C5 and C6 nerve roots also form the upper trunk of the brachial plexus, a network of nerves that provides movement and feeling to the shoulder, arm, and hand. The brachial plexus branches from the neck and travels under the clavicle, where the axillary nerve travels behind the humerus bone to supply muscles around the shoulde</p>
+                <p><strong>C5</strong> C5 helps control the deltoids (which form the rounded contours of the shoulders) and the biceps (which allow bending of the elbow and rotation of the forearm).1 The C5 dermatome covers the outer part of the upper arm down to about the elbow.</p>
+                <p><strong>C6</strong> C6 helps control the wrist extensors (muscles that control wrist extension) and also provides some innervation to the biceps.1,3 The C6 dermatome covers the thumb side of the hand and forearm.</p>
+
+                `
                 break;
             case 'c6':
                 notesP.innerText = "C6-C7: Mild disc osteophyte complex mildly eccentric to the right without cord impingement or focal soft disc protrusion/herniation. Mild central and right lateral recess stenosis. Mild foraminal narrowing."

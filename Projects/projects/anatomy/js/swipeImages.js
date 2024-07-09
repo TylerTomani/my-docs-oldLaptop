@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         c7: [
             "https://upload.wikimedia.org/wikipedia/commons/c/c2/C7_animation_small.gif",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Cervical_Spine_Anterior_View.png/240px-Cervical_Spine_Anterior_View.png"
+        ],
+        nervousSystem: [
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/TE-Nervous_system_diagram.svg/500px-TE-Nervous_system_diagram.svg.png"
         ]
     };
     let currentImages = imageCollections['cranialBones'];

@@ -9,7 +9,7 @@ const groupItemsAs = document.querySelectorAll('.group-items > li > a')
 const subGroups = document.querySelectorAll('.sub-group')
 const subGroupsItems = document.querySelectorAll('.sub-group-items')
 const subGroupsItemsAs = document.querySelectorAll('.sub-group-items > li > a')
-
+const mainImg = document.querySelector('#mainImgContainer > img')
 systems.forEach(el => {
     if(!el.classList.contains('show')){
         el.classList.add('hide')
@@ -173,7 +173,7 @@ function getSubGroup(parent){
 }
 skeletalSystemBtn.addEventListener('click',e => {
     const skeletalSystem = document.querySelector('#skeletalSystem')
-    
+    mainImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Appendicular_skeleton_diagram.svg/500px-Appendicular_skeleton_diagram.svg.png'
     hideSystems()
     if(skeletalSystem.classList.contains('hide')){
         skeletalSystem.classList.remove('hide')
@@ -186,6 +186,7 @@ nervousSystemBtn.addEventListener('click',e => {
     if(nervousSystem.classList.contains('hide')){
         nervousSystem.classList.remove('hide')
     }
+    mainImg.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/TE-Nervous_system_diagram.svg/500px-TE-Nervous_system_diagram.svg.png'
 })
 muscularSystemBtn.addEventListener('click',e => {
     const muscularSystem = document.querySelector('#muscularSystem')
