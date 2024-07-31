@@ -31,6 +31,7 @@ function animate(e){
         el.classList.remove('decopied')
     }
     el.classList.add('copied')
+    // console.log(el.parentElement)
     setTimeout(() =>{
         el.classList.remove('copied')
         el.classList.add('decopied')
@@ -38,8 +39,7 @@ function animate(e){
     let txt = e.target.innerText
     copyToClip(txt)
 }
-function copyToClip(txt){
-
+function copyToClip(txt){ 
     async function copyTextToClipboard(text) {
         try {
           await navigator.clipboard.writeText(text);

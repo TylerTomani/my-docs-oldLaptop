@@ -47,6 +47,7 @@ addEventListener('keydown', e => {
         }
         if(letterEls[iLetter]){
             letterEls[iLetter].focus()
+            letterEls[iLetter].scrollIntoView()
         }
         lastIndex = currentIndex
     }

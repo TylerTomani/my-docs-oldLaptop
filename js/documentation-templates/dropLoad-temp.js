@@ -1,12 +1,12 @@
 import { stepTxtListeners } from "./lesson-temp.js"
-
+import { addCopyCodes } from "./copy-code.js"
 const backlink = document.getElementById("backlink")
 const homelink = document.getElementById("homelink")
 const regexCmds = document.getElementById("regexCmds")
 const programShorcuts = document.getElementById("programShorcuts")
 export const mainAside = document.querySelector('main > aside')
 const tutorialLink = document.getElementById("tutorialLink")
-const targetDiv = document.getElementById('targetDiv')
+export const targetDiv = document.getElementById('targetDiv')
 const sections = document.querySelectorAll('main > aside > ul > li > a')
 const subSections = document.querySelectorAll('main > aside > ul > li > ul')
 const lessons = document.querySelectorAll('main > aside > ul > li > ul > li > a')
@@ -16,6 +16,21 @@ let sectionsFocused = true
 let lessonsFocused = false
 let iSection = 0
 
+targetDiv.addEventListener('focus', e => {
+    lessonsFocused = false;
+    sectionsFocused = false
+    
+});
+mainAside.addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(letter == 's' && currentLink){
+        currentLink.focus()
+    } else if(letter == 's' ){
+        sections[0].focus()
+    }
+    
+    
+})
 function hideSubSections(){
     subSections.forEach(el =>{
         if(!el.classList.contains('show')){
@@ -99,7 +114,18 @@ function lessonsFocus(e,letter){
 sections.forEach(el =>{
     if(el.hasAttribute('autofocus')){
         iSection = [...sections].indexOf(el)
+        fetchPage(el.href)
     }
+    el.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        fetchPage(e.target.href)
+        currentSelection = e.target
+        currentLink = currentSelection.href
+        if(iSection == [...sections].indexOf(e.target)){
+            iSection++       
+        }
+    })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         if(letter == 'enter'){
@@ -117,14 +143,67 @@ sections.forEach(el =>{
         lessonsFocused = false
     })
 })
-
+sections.forEach(el => {
+    
+    el.addEventListener('click', e => {
+        // e.preventDefault()
+        // e.stopPropagation()
+        // toggleSection(e)
+        // fetchPage(e.target.href)
+    })
+    el.addEventListener('keydown', e => {
+        let key = e.keyCode
+        // e.preventDefault()
+        // e.stopPropagation()
+        if(key == 13){
+            fetchPage(e.target.href)
+            toggleSection(e)
+        }
+    })
+})
+lessons.forEach(el => {
+    if(el.hasAttribute('autofocus')){
+        fetchPage(el.href)
+    }
+    el.addEventListener('focus', e => {
+        sectionsFocused = false
+        lessonsFocused = true
+    })
+    
+    el.addEventListener('click',e => {
+        e.preventDefault()
+        e.stopPropagation()
+        fetchPage(e.target.href)
+    })
+    el.addEventListener('keydown',e => {
+        let letter = e.key.toLowerCase()
+        if(letter == 'enter'){
+            e.preventDefault()
+            // e.stopPropagation()
+            if(currentLink == e.target.href){
+                targetDiv.focus()
+                scrollTo(0,0)
+            }
+            fetchPage(e.target.href)
+            currentSelection = e.target
+            currentLink = currentSelection.href
+        }
+        if(letter == 's'){
+            sectionsFocused =true
+            const sectionContainer = getSectionContainer(e.target.parentElement)
+            const section = sectionContainer.querySelector('.section')
+            section.focus()
+            console.log(section)
+        }
+    })
+})
 function fetchPage(href){
     fetch(href)
     .then(response => response.text())
     .then(html => {
         targetDiv.innerHTML = html
         stepTxtListeners()
-        // addCopyCodes()
+        addCopyCodes()
     })
 }
 
@@ -174,60 +253,4 @@ addEventListener('keydown', e => {
 
     }
     
-})
-sections.forEach(el => {
-    if(el.hasAttribute('autofocus')){
-        fetchPage(el.href)
-    }
-    el.addEventListener('click', e => {
-        e.preventDefault()
-        e.stopPropagation()
-        // toggleSection(e)
-        // fetchPage(e.target.href)
-    })
-    el.addEventListener('keydown', e => {
-        let key = e.keyCode
-        // e.preventDefault()
-        // e.stopPropagation()
-        if(key == 13){
-            fetchPage(e.target.href)
-            toggleSection(e)
-        }
-    })
-})
-lessons.forEach(el => {
-    if(el.hasAttribute('autofocus')){
-        fetchPage(el.href)
-    }
-    el.addEventListener('focus', e => {
-        sectionsFocused = false
-        lessonsFocused = true
-    })
-    
-    el.addEventListener('click',e => {
-        e.preventDefault()
-        e.stopPropagation()
-        fetchPage(e.target.href)
-    })
-    el.addEventListener('keydown',e => {
-        let letter = e.key.toLowerCase()
-        if(letter == 'enter'){
-            e.preventDefault()
-            // e.stopPropagation()
-            if(currentLink == e.target.href){
-                targetDiv.focus()
-                scrollTo(0,0)
-            }
-            fetchPage(e.target.href)
-            currentSelection = e.target
-            currentLink = currentSelection.href
-        }
-        if(letter == 's'){
-            sectionsFocused =true
-            const sectionContainer = getSectionContainer(e.target.parentElement)
-            const section = sectionContainer.querySelector('.section')
-            section.focus()
-            console.log(section)
-        }
-    })
 })

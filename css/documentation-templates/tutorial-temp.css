@@ -2,13 +2,22 @@ main {
     border-top: 1px solid blue;
     display: flex
 }
-
-main > aside{
+aside {
+    word-wrap: break-word;
+    /* Ensure long words or URLs break and do not overflow */
+    overflow-wrap: break-word;
+    /* Ensure text wraps within the container */
     border-right: 1px solid black;
     height: 100vmax;
     flex-basis: 15%;
 }
 
+aside a {
+    display: block;
+    /* Make links block-level elements to control wrapping */
+    word-break: break-all;
+    /* Break words if necessary */
+}
 aside > ul {
     margin-left: 4%;
     margin-top: 10%;
@@ -17,12 +26,23 @@ aside > ul {
 aside > ul > li {
     margin-bottom: 5%;
 }
+aside > ul > li:nth-child(2) {
+    margin-bottom: 0%;
+}
 aside > ul > li > ul{
     margin-left: 15%;
     margin-top: 5%;
 }
+aside > ul > li:nth-child(2) > ul{
+    margin-left: 0%;
+    margin-top: 5%;
+}
 aside > ul > li > ul> li{
     margin: 5% 0;
+    white-space: wrap;
+}
+aside > ul > li > ul> li a{
+    text-decoration: none;
 }
 #targetDiv{
     width: 100vmax;

@@ -1,6 +1,8 @@
 import { currentSelection } from "./dropLoad-temp.js"
 import { getSubSection } from "./dropLoad-temp.js"
 import { mainAside } from "./dropLoad-temp.js"
+import { targetDiv } from "./dropLoad-temp.js"
+export let targetDivFocused = false
 export function stepTxtListeners(){
 const navbar = document.querySelector('.section-lesson-title')
 const stepTxts = document.querySelectorAll('.step-txt')
@@ -9,13 +11,15 @@ const allVideos = document.querySelectorAll(".step-vid > video")
 const allStepTxtPAs = document.querySelectorAll('.step-txt > p > a')
 const copyCodes = document.querySelectorAll('.step-txt > .code-container > .copy-code')
 const nxtLesson = document.getElementById('nxtLesson') ? document.getElementById('nxtLesson') : null
-const targetDiv = document.getElementById('targetDiv')
-let targetDivFocus = false
 let playing = false
-targetDiv.addEventListener('focusin', e => {targetDivFocus = true})
+targetDiv.addEventListener('focusin', e => {
+    targetDivFocused = true
+})
 targetDiv.addEventListener('focusout', e => {
-    targetDivFocus = false
     denlargeAllImages()    
+})
+mainAside.addEventListener('focusin', e => {
+    targetDivFocused = false
 })
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -23,20 +27,15 @@ targetDiv.addEventListener('keydown', e => {
         if(nxtLesson){
             nxtLesson.focus()
         }
-    }
-    
+    }    
 })
-
 navbar.addEventListener('keydown',e =>{
     let letter = e.key.toLowerCase()
     if(letter == 'e'){
         if(nxtLesson){
             nxtLesson.focus()
-        }
-        
+        }      
     }
-    
-
 })
 function handleCopyCodes(e){
     const step = getStep(e.target.parentElement)
@@ -76,7 +75,7 @@ stepTxts.forEach(el => {
     })
     el.addEventListener('click', e => {
         e.preventDefault()
-        // toggleImgSize(e)
+        toggleImgSize(e)
         // handleVideoKeydown(e)
         
     })
@@ -96,7 +95,7 @@ stepTxts.forEach(el => {
 addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     let key = e.keyCode
-    if(targetDivFocus){
+    if(targetDivFocused){
         if(!isNaN(letter) && key != 32 ){
             let intLetter = parseInt(letter)
             if(intLetter > stepTxts.length){
@@ -230,17 +229,18 @@ if(nxtLesson){
 }
 if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
-        const subSection = getSubSection(lastFocusedElement)
+        const subSection = getSubSection(currentSelection)
+        console.log(currentSelection)
         if(subSection){
             if(mainAside.classList.contains('hide')){
                 mainAside.classList.remove('hide')
             }
             const lessons = subSection.querySelectorAll('li > a')
-            let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
+            let iLesson = [...lessons].indexOf(currentSelection) + 1
             if(lessons[iLesson]){
                 lessons[iLesson].focus()
             } else {
-                lastFocusedElement.focus()
+                currentSelection.focus()
             }
             
         } else {
@@ -249,7 +249,7 @@ if(nxtLesson){
     nxtLesson.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         if(letter == 'a'){
-            lastFocusedElement.focus()
+            currentSelection.focus()
         }
     })
 }

@@ -126,9 +126,7 @@ body {
     overflow-x: scroll;
     padding-top: 1.5%;
 }
-.smtxt{
-    font-size: 50% !important;
-}
+
 .copy-code:active,
 .copy-code:focus {
     box-shadow: 0 0 6px 6px lightseagreen;
