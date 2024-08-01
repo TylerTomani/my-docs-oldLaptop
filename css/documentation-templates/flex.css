@@ -1,5 +1,5 @@
 .fcol {
-    flex-direction: column;
+    flex-direction: column !important;
 }
 
 .ac {align-items: center !important;}
@@ -8,6 +8,7 @@
 .asc {align-self: center !important;
 /* background-color: yellow; */
 }
+.asc {align-self: center!important;}
 .ass {align-self: flex-start !important;}
 .ase {align-self: flex-end !important;}
 .jc {justify-content: center !important;}

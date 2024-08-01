@@ -5,6 +5,7 @@ const homelink = document.getElementById("homelink")
 const regexCmds = document.getElementById("regexCmds")
 const programShorcuts = document.getElementById("programShorcuts")
 export const mainAside = document.querySelector('main > aside')
+export const nav = document.querySelector('nav.section-lesson-title')
 const tutorialLink = document.getElementById("tutorialLink")
 export const targetDiv = document.getElementById('targetDiv')
 const sections = document.querySelectorAll('main > aside > ul > li > a')
@@ -16,15 +17,11 @@ let sectionsFocused = true
 let lessonsFocused = false
 let iSection = 0
 
-targetDiv.addEventListener('focus', e => {
-    lessonsFocused = false;
-    sectionsFocused = false
-    
-});
+
 mainAside.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    if(letter == 's' && currentLink){
-        currentLink.focus()
+    if ((letter == 's' || letter == 'a') && currentLink){
+        currentSelection.focus()
     } else if(letter == 's' ){
         sections[0].focus()
     }
@@ -65,12 +62,15 @@ function getSectionContainer(parent){
     }
 }
 export function getSubSection(parent){
-    if(parent.classList.contains('sub-section')){
-        return parent
-    } else if(parent.parentElement){
-        return getSubSection(parent.parentElement)
-    }else{
-        return null
+    if(parent){
+
+        if(parent.classList.contains('sub-section')){
+            return parent
+        } else if(parent.parentElement){
+            return getSubSection(parent.parentElement)
+        }else{
+            return null
+        }
     }
 }
 
@@ -238,6 +238,10 @@ addEventListener('keydown', e => {
             targetDiv.focus()
             scrollTo(0,0)
             break
+        case 'n':
+            nav.focus()
+            scrollTo(0,0)
+            break
         case 'p':
             programShorcuts.focus()
             break
@@ -254,3 +258,51 @@ addEventListener('keydown', e => {
     }
     
 })
+nav.addEventListener('click', e => {
+    toggleAside()
+})
+nav.addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(letter == 'enter'){   
+        toggleAside()
+    }
+    if(letter == 'a'){
+        showSide()
+        if(currentLink){
+            currentLink.focus()
+        }
+        
+    }
+})
+// nav.addEventListener('focusout', e => {showSide()})
+
+
+targetDiv.addEventListener('focus', e => {
+    lessonsFocused = false;
+    sectionsFocused = false
+
+});
+targetDiv.addEventListener('click', e => {
+    // toggleAside()
+});
+targetDiv.addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    if(letter == 'enter'){
+        if(mainAside.classList.contains('hide')){
+            mainAside.classList.remove('hide')
+        }
+    }
+});
+
+export function showSide() {
+    if (mainAside.classList.contains('hide')) {
+        mainAside.classList.remove('hide')
+    }
+}
+export function toggleAside() {
+    if(!mainAside.classList.contains('hide')){
+        mainAside.classList.add('hide')
+    } else{
+        mainAside.classList.remove('hide')
+    }
+}

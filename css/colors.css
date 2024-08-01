@@ -1,3 +1,4 @@
+.bl {color: black;}
 .b {color: blue;}
 .lb {color: lightblue;}
 .r {color: red}
@@ -6,3 +7,7 @@
 .lsg {color: lightseagreen}
 .g {color: green}
 .o {color: orange}
+
+.rb1 {border: 1px solid red !important;}
+.rb2 {border: 2px solid red !important;}
+.rb3 {border: 3px solid red !important;}

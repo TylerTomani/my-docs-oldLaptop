@@ -1,4 +1,4 @@
-import { currentSelection } from "./dropLoad-temp.js"
+import { currentSelection, toggleAside,showSide } from "./dropLoad-temp.js"
 import { getSubSection } from "./dropLoad-temp.js"
 import { mainAside } from "./dropLoad-temp.js"
 import { targetDiv } from "./dropLoad-temp.js"
@@ -156,6 +156,7 @@ function toggleImgSize(e){
             if(!img.classList.contains('enlarge-vid')){
                 img.classList.add('enlarge-vid')
                 img.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" });
+                img.play()
             } else{
                 img.classList.remove('enlarge-vid')
             }   
@@ -171,8 +172,8 @@ function toggleImgSize(e){
                     img.classList.remove('enlarge')
                 }   
             }
+            
         }
-
     }
 }
 function handleVideoKeydown(e){
@@ -226,32 +227,35 @@ if(nxtLesson){
         removeAllTabIndex()
         pauseAllVideo()
     })
-}
-if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
-        const subSection = getSubSection(currentSelection)
-        console.log(currentSelection)
-        if(subSection){
-            if(mainAside.classList.contains('hide')){
-                mainAside.classList.remove('hide')
-            }
-            const lessons = subSection.querySelectorAll('li > a')
-            let iLesson = [...lessons].indexOf(currentSelection) + 1
-            if(lessons[iLesson]){
-                lessons[iLesson].focus()
-            } else {
-                currentSelection.focus()
-            }
-            
-        } else {
-        }        
+        
+        getNextLesson()
     })
     nxtLesson.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
-        if(letter == 'a'){
-            currentSelection.focus()
+        if (letter == 'a' || letter == 's' || letter == 'enter') {
+            if(currentSelection){
+                currentSelection.focus()
+            }
+        }
+        if(letter == 'enter'){
+            getNextLesson()
         }
     })
+}
+function getNextLesson(){
+    const subSection = getSubSection(currentSelection)
+    if (subSection) {
+        const lessons = subSection.querySelectorAll('li > a')
+        let iLesson = [...lessons].indexOf(currentSelection) + 1
+        console.log(iLesson)
+        if (lessons[iLesson]) {
+            lessons[iLesson].focus()
+        } else {
+            currentSelection.focus()
+        }
+
+    }
 }
 allStepTxtPAs.forEach(el =>{
     el.addEventListener('focus', () =>{

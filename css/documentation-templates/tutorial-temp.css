@@ -30,7 +30,8 @@ aside > ul > li:nth-child(2) {
     margin-bottom: 0%;
 }
 aside > ul > li > ul{
-    margin-left: 15%;
+    margin-left: 1%;
+    /* white-space: wrap; */
     margin-top: 5%;
 }
 aside > ul > li:nth-child(2) > ul{
@@ -39,20 +40,43 @@ aside > ul > li:nth-child(2) > ul{
 }
 aside > ul > li > ul> li{
     margin: 5% 0;
-    white-space: wrap;
+    /* white-space: nowrap; */
+    white-space: nowrap;
+    text-wrap: pre-wrap;
 }
 aside > ul > li > ul> li a{
     text-decoration: none;
 }
 #targetDiv{
-    width: 100vmax;
     height: 100vmax;
-    /* border: 20px solid blue; */
+    width:  100vmax;
+    padding: 0 1%;
 }
 #targetDiv:active,#targetDiv:focus,
-main > aside:active,main > aside:focus{
-    box-shadow: 0 0 4px 4px lightseagreen;
+main > aside:active,main > aside:focus{box-shadow: 0 0 4px 4px lightseagreen;}
+.hide {display: none;}
+
+
+
+@media  screen and (max-width: 1400px) {
+    aside {
+        font-size: 80%;
+    }
 }
-.hide {
-    display: none;
+@media  screen and (max-width: 1050px) {
+    aside {
+        font-size: 80%;
+    }
+}
+@media  screen and (max-width: 800px) {
+    aside {
+        flex-basis: 30% ;
+        font-size: 80%;
+    }
+}
+@media  screen and (max-width: 600px) {
+    aside {
+        flex-basis: 50% ;
+        font-size: 80%;
+    }
 }
