@@ -1,0 +1,30 @@
+<!-- <link rel="stylesheet" href="css/lesson-temp.css"> -->
+<h1>Section 1 - Scrape Basic Html with <code>open()</code></h1>
+    <div class="step-col">
+        <div tabindex="1" class="step-txt enlarge-first-img">
+            <div class="code-container w-80 h-20">
+                <pre tabindex="1" class="copy-code lgtxt enlarge-first-img">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content,'html.parser')
+course_cards = soup.find_all('div',class_='card')
+for card in course_cards:
+    course_title = card.h5.text
+    course_price = card.a.text.split()[-1]
+    print(f'{course_title} cost {course_price}')</pre>
+            </div>
+        </div>
+        <div class="img-2-container">
+            <div class="step-img">
+                <img         src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/images/01-03.png">
+            </div>
+            <div class="step-img">
+            <img tabindex="1" class="lg-enlarge"
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/images/01-01.png">
+            </div>
+        </div>
+    </div>
+    
+
+    

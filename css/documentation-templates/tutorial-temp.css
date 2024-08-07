@@ -49,7 +49,7 @@ aside > ul > li > ul> li a{
 }
 #targetDiv{
     height: 100vmax;
-    width:  100vmax;
+    width:  90vmax;
     padding: 0 1%;
 }
 #targetDiv:active,#targetDiv:focus,
@@ -58,6 +58,14 @@ main > aside:active,main > aside:focus{box-shadow: 0 0 4px 4px lightseagreen;}
 
 
 
+@media  screen and (min-width: 1400px) {
+    #targetDiv {
+     /* flex-basis: 90%; */
+    }
+    aside {
+        /* flex-basis: 10%; */
+       }
+}
 @media  screen and (max-width: 1400px) {
     aside {
         font-size: 80%;

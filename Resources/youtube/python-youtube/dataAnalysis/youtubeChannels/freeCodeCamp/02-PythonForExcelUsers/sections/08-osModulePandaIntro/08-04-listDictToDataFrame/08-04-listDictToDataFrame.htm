@@ -1,0 +1,100 @@
+<h1>Section 08-02-pandas without numpy</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - os methods -->
+        <div class="part">
+            <h3><a id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - array <code>list[]</code> and <code>dict{}</code> to data frame</a>
+            </h3>
+            <div class="steps-container show ">
+                <!-- 01-00 -->
+                <div class="step-col">
+                    <div class="img-2-container">
+                        <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-04-listDictToDataFrame/images/01-00.png">
+                        </div>
+                        <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-02-pandasNumpyIntro/images/01-03.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <p>
+                            Make a DataFrame without <code class="b">numpy</code> for a data frame with a nested list, (each inner list are the values for rows left to right)
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+data = [[1,4],[2,5],[3,6]]
+df = pd.DataFrame(data, index=['row1','row2','row3'],
+        columns=['col1','col2'])
+df</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img 
+                    src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-04-listDictToDataFrame/images/01-01.png">
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <h4><code>list []</code> to <code>pd.DataFrame</code></h4>
+                        <p>
+                            Make a dict from two list
+                            the following way,
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+states = ['California','Texas','Florida','New York']
+population = [39613493, 29730311, 21944577, 19299981]
+dict_states = {'States': states,'Population': population}
+print(dict_states.items())
+print(dict_states.keys())
+print(dict_states.values())</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img 
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-04-listDictToDataFrame/images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <h4><code>dict {}</code> to <code>pd.DataFrame</code></h4>
+                        <p>
+                            The 'keys' will be the name of the column, the list value for the key will be that columns values
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+states = ['California','Texas','Florida','New York']
+population = [39613493, 29730311, 21944577, 19299981]
+dict_states = {'States': states,'Population': population}
+df = pd.DataFrame(dict_states)
+df</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-04-listDictToDataFrame/images/01-03.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</main>
+

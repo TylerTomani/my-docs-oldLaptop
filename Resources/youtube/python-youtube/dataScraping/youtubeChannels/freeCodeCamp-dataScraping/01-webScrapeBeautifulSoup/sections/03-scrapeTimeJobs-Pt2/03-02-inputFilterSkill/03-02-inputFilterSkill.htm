@@ -1,0 +1,41 @@
+<h1>03-02 - <code>filtered_skill = input('>')</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->    
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>01</h4>
+            <p>
+                Use the <span class="gr">input()</span> to insert a term to filter out of the results
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests 
+
+print('enter skill to filter')
+<span class="gr">filtered_skill</span> = <span class="gr">input</span>('>')
+print('filtering skill ...')
+
+html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+jobs = soup.find_all('li',class_='clearfix job-bx wht-shd-bx')
+for job in jobs:
+    date_published = job.find('span',class_='sim-posted').span.text
+    if 'few' in date_published:
+        company_name = job.find('h3',class_='joblist-comp-name').text.replace(' ','')
+        skills = job.find('span',class_='srp-skills').text.replace(' ','')
+        if <span class="gr">filtered_skill</span> not in skills:
+            print(f'company name: {company_name.strip()}')          
+            print(f'skills: {skills.strip()}')</pre>
+            </div>
+            <p class="r"> none of the results will contain 'linux'</p>
+            
+        </div>
+        <div class="step-vid">
+            <video src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/03-scrapeTimeJobs-Pt2/03-02-inputFilterSkill/images/01-01.mov">
+        </div>
+    </div>
+
+</div>
+

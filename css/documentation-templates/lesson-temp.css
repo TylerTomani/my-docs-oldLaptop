@@ -93,17 +93,19 @@ body {
 .step>.step-vid {
     display: flex;
     justify-content: center;
+    /* align-items: center; */
 }
 
 .step>.step-img>img,
 .step>.step-vid>video {
-    width: 80%;
-    min-height: 150px;
+    /* width: 60%; */
+    min-height: 250px;
     max-height: 250px;
 }
 
 .step>.step-vid>video {
     border: 2px solid blue;
+    /* width: 80%; */
 }
 
 .step-txt:active,

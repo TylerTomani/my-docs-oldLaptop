@@ -1,0 +1,39 @@
+<h1>02-02 - find_all jobs</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->    
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                change <code class="gr">job</code> to <code class="gr">jobs</code> from the previous code and use 
+                <code class="m">find_all</code>, then 
+                place the code the queries the <code class="gr">job</code> variable within a loop
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+html =
+requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+<span class="gr">jobs</span> = soup.<span class="m">find_all</span>('li',class_='clearfix job-bx wht-shd-bx')
+for job in jobs:
+    company_name = job.find('h3',class_='joblist-comp-name').text
+    skills = job.find('span',class_="srp-skills").text.replace(' ','')
+    data_published = job.find('span',class_='sim-posted').span.text
+    print(company_name)
+    print(skills)
+    print(data_published)
+    <span class="r">break</span>
+</pre>
+            </div>
+            <p class="r"> add the <code>break</code> so it only gets the first instance</p>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-02-findAllJobs/images/01-01.png">
+        </div>
+    </div>
+</div>
+

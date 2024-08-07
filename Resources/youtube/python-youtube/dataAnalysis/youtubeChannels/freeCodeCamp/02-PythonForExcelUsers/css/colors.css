@@ -1,0 +1,57 @@
+pre.online {
+    background-color: white !important;
+    color: black !important;
+    font-style: bold;
+}
+
+
+.question {
+    box-shadow: 0 0 20px 5px rgb(255, 0, 0, .8);
+}
+.rbshadow {
+    box-shadow: 0 0 2px 2px red;
+    max-width: fit-content;
+}
+.bbshadow {
+    box-shadow: 0 0 2px 2px blue;
+    max-width: fit-content;
+}
+.rbshadow:focus{
+    color: red !important;
+    box-shadow:0 0 3px 3px red !important;
+}
+.lb { color: cyan; font-style: bold; font-weight: 999;}
+.b { color: blue}
+.bl,.black{ color: black}
+.g { color: green}
+.gr { color: goldenrod}
+.m { color: rgb(233, 88, 233);font-weight: 999; }
+.mdblue,
+.md-blue { 
+    color: rgb(0,180,240);
+    font-weight: 900 !important;
+}
+.r { color:rgb(180, 80, 80);font-weight: 999;}
+
+.rbshadow:active,.rbshadow:focus{
+        box-shadow: 2px 0 10px 4px blue !important;
+}
+
+.question {
+    color: red;
+    display: inline-block;
+    font-weight: 999;
+    font-size: 110%;
+    margin-top: .5% ;
+    margin-bottom: 1.25% ;
+}
+
+.vs-code {
+    background-color: black;
+    color:white;
+}
+
+/* borders */
+.bb1 {
+        border: 1px solid black !important;
+}

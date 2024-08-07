@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jupyterShortcuts</title>
+    <link rel="stylesheet" href="../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../css/flex.css">
+    <link rel="stylesheet" href="../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <link rel="stylesheet" href="../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../css/copy-code.css">
+    <script src="../../js/letterFocus-docs.js" defer></script>
+    <script src="../../../js/copy-code.js" defer></script>
+    <script src="../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../js/img-enlarge-v1.js" defer></script>
+    <script type="module" src="../../js/addRemoveTabs-v1.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" href="../python-index.htm">home-python</a>
+        </div>
+        <div class="title-container">
+            <h1>jupyterShortcuts</h1>
+            
+            
+        </div>
+        <div class="page-logo">
+            <a tabindex="1" id="documentationLink" id="mainHomeLink" href="../../../../../index.html">Documentation Home</a>
+            <img
+                src="data:image/png;base64,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">
+            
+        </div>
+    </header>
+    <main>
+        <!-- Part 1 - Start script with requests and sitemap url -->
+        <div class="part">
+            <a id="part01" tabindex="1" href="#" class="dropPart">
+                <h3>Part 1 - Start script with requests and sitemap url</h3>
+            </a>
+            <div class="steps-container  show">
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt rbshadow">
+                        <h4>01</h4>
+                        <p>
+                            <span class="r">** Important Note</span> if <span class="r">requests</span> isn't begin recognized,
+                            change into your <code>venv</code>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+source ./venv/bin/activate</pre>
+                        </div>
+                        <p>
+                            Then install
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+pip install jupyter
+                            </pre>
+                        </div>
+                        <p>
+                            Run the following command
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+ipython kernel install --user --name=venv</pre>
+                        </div>
+        
+                        <p>
+                            Run jupyter and you should be good, restart vs code if neccesary
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+jupyter notebook</pre>
+                        </div>
+        
+        
+                    </div>
+                    <div class="step-img">
+                        <img src="images/01-01.png">
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <p>
+                            Pass the <code>response.text</code> into a beautful soup object with the 2nd argument <code
+                                class="r">'xml'</code>
+                            instead of <code>'html.parser'</code>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(site_map)
+xml = response.text
+soup = BeautifulSoup(xml,<span class="r">'xml'</span>)
+                            </pre>
+                        </div>
+                        <p>
+                            <code class="r">'xml'</code> will produce this error
+                        </p>
+                
+                    </div>
+                    <div class="step-img">
+                        <img src="images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <p>
+                            Quit jupyter server and install the following package
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+pip install lxml</pre>
+                        </div>
+                
+                    </div>
+                    <div class="step-img">
+                        <img src="images/01-03.png">
+                    </div>
+                </div>
+                <!-- 01-04 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>04</h4>
+                        <p>
+                            Replace the second argument in <code class="mdblue">BeautifulSoup</code> <code>'xml'</code> to <code
+                                class="gr">'lxml</code>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(site_map)
+xml = response.text
+soup = BeautifulSoup(xml,<span class="gr">'lxml'</span>)
+soup</pre>
+                    </div>
+                    <p>
+                        If you receive an error message change the 2nd argument back to <code>'xml'</code> from <code
+                            class="gr">'lxml'</code>
+                    </p>
+                </div>
+                <div class="step-img">
+                    <img src="images/01-04.png">
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- part 2 shortcuts` -->
+        <div class="part">
+            <a tabindex="1" href="#" class="dropPart"><h3>Part 2 shortcuts</h3></a>
+            <div class="steps-container show">
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <h5>exporting</h5>
+                        <p tabindex="1" class="copy-code">
+                            You can export jupyter.ipyn files to different formats, including
+                            HTML
+                        </p>
+                    </div>
+                    <div class="step-img">
+                        <img class="right-img" src="images/02.png">
+                    </div>
+                </div>
+            </div>
+            <div class="step">
+                <div tabindex="1" class="step-txt">
+                        <h4>Working with Cells</h4>
+                        <p class="copy-code">
+                            Each box is a cell and contains multiple lines of code
+                        </p>
+                </div>
+        
+                <div class="step-img">
+                    <img class="right-img" src="images/03.png">
+                </div>
+            </div>
+        </div>
+            <h4>make a new cell</h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc ">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                To make a new cell press
+                            </p>
+                            <code class="asc"><span class="lgtxt">⇧</span> + Enter </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/04.png">
+                </div>
+            </div>
+            <h4>delete cell</h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc ">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Delete a cell by selecting it, it will turn blue,
+                                press
+                            </p>
+                            <code class="asc">d twice </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/05.png">
+                </div>
+            </div>
+            <!-- Enter Shortcut Edit mode -->
+            <h4>Enter Shortcut Edit mode</h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Hit the enter key to enter the current selected cell
+                            </p>
+                            <code class="asc"><span class="lgtxt">↩︎</span> + Enter </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/06.png">
+                </div>
+            
+            </div>
+            <h4>Run code inside cell</h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Run code inside a cell by clicking the cell, it will turn green
+                                then pres
+                            </p>
+                            <code class="asc"><span class="lgtxt">⇧</span> + Enter </code>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/07.png">
+                </div>
+            </div>
+            <h4> Add cell above <code>A</code></h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Select the sell, it turn blue "command mode",
+                                Hit,
+                            </p>
+                            <code class="asc">A</code>
+                            <p>
+                                To add cell above
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/08.png">
+                </div>
+            </div>
+            
+            <h4>Add cell Below <code>B</code></h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Press
+                            </p>
+                            <code class="asc">B</code>
+                            <p>
+                                To add cell below
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/09.png">
+                </div>
+            </div>
+            
+            <h4>Add titles in <q>Markdown mode</q></h4>
+            <div class="step">
+                <div class="fi">
+                    <div class="code-container asc">
+                        <div tabindex="1" class="copy-code fcol">
+                            <p>
+                                Make sure cell is in command mode and press
+                            </p>
+                            <code class="asc">M</code>
+                            <p>
+                                Use <code>#</code> for titles
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <img class="right-img" src="images/11.png">
+                </div>
+            </div>
+            <!-- Press Shift + Enter to create the titles -->
+            <div class="fcol">
+                <div class="fi fcol">
+                    <p>
+                        Press Shift + Enter to create the titles
+                    </p>
+                    <code class="asc"><span class="lgtxt">⇧</span> + Enter </code>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="fi">
+                    <img tabindex="1" class="left-img" src="images/12a.png">
+                </div>
+                <div class="fi">
+                    <img tabindex="1" class="left-img" src="images/12b.png">
+                </div>
+            </div>
+            <!-- Use more hash tags -->
+            <div class="fcol">
+                <div class="fi">
+                    <p>
+                        Use more hash tags <code>##</code> to make it smaller
+                    </p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="fi">
+                    <img tabindex="1" class="left-img" src="images/13a.png">
+                </div>
+                <div class="fi">
+                    <img tabindex="1" class="right-img" src="images/13b.png">
+                </div>
+            </div>
+    </main>
+    
+</body>
+</html>

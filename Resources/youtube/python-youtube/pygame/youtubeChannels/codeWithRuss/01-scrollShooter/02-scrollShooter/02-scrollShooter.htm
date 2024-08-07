@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-HowToMakeMoney</title>
+    <link rel="stylesheet" href="../../../../../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../../../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../../../../../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../../../../../css/copy-code.css">
+    <script src="../../../../../../js/letterFocus-tutorial.js" defer></script>
+    <script src="../../../../../../../js/copy-code.js" defer></script>
+    <script src="../../../../../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../../../../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../../../../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../../../../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../../../../../js/img-enlarge-v1.js" defer></script>
+    <script type="module" src="../../../../../../js/addRemoveTabs-v1.js" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" tabindex="1" href="../../makeDataUseful.htm">(home)gmail-api-makeDataUseful</a>
+        </div>
+        <div class="title-container">
+            <h1>Make Data Useful</h1>
+            <h2>2. Python Upwork web scraper - Easy step by step guide | How to make money with Python Episode 2</h2>
+            <a id="jupyterShortcuts" tabindex="1" target="_blank" href="../../../../../jupyterShortcuts/jupyterShortcuts.htm">jupyter shortcuts</a>
+        </div>
+        <div class="page-logo">
+            <img src="data:image/jpeg;base64,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t+uS92vxp0G2/XJe7X41XnSdqvXW7uL5adJ2q9dbu4vlp2fKv1m3fik2blYfQbb9cl7tfjToNt+uS92vxqvOk7Veut3cXy06TtV663dxfLU9nyr9Zt34pNm5dG6DpgtLeC3ViwiQIGIwSB6SKz65j6TtV663dxfLTpO1Xrrd3F8ta52QqS4lxc2Z88FXWhdOUrmPpO1Xrrd3F8tOk7Veut3cXy1HcFI4m9TglaF05SuY+k7Veut3cXy06TtV663dxfLTuCkcTepwStC6cpXMfSdqvXW7uL5adJ2q9dbu4vlp3BSOJvU4JWhdOUrmPpO1Xrrd3F8tOk7Veut3cXy07gpHE3qcErQunKVzH0nar11u7i+WnSdqvXW7uL5adwUjib1OCVoXTlK5j6TtV663dxfLTpO1Xrrd3F8tO4KRxN6nBK0Lpylcx9J2q9dbu4vlp0nar11u7i+WncFI4m9TglaF05SuY+k7Veut3cXy0p3BSOJvU4JWhQ6lKV1qx0pSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpREpSlESlKURKUpRF/9k=">
+            <a id="tutorialLink" tabindex="1" target="_blank"
+                href="https://www.youtube.com/watch?v=Al20Pyuc5Ck&list=PLq1YsG1H2jMWSjtGMsfGH48DvPQX1VP-I&index=2">tutorial</a>
+        </div>
+    </header>
+    <main>
+        <div class="parts-container">
+            <!-- Part 1 - Job Example -->
+            <div class="part">
+                <a id="part01" tabindex="1" href="#" class="dropPart"><h3>Part 1 - Job Example</h3></a>
+                <div class="steps-container ">
+                    <!-- 01-01 -->
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt w-80">
+                            <h4>01</h4>
+                            <p>
+                                This is the explanation of the job from upwork,
+                            </p>
+                            <div class="code-container asc">
+                                <pre class="copy-code wrap online">
+I need all the images in png format on the following website:
+http://www.pngmart.com/
+Thanks. This project is for machine learning
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 01-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                this is the site to work from,
+                                <a target="_blank" href="http://www.pngmart.com/">http://www.pngmart.com/</a>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-02.png">
+                        </div>
+                    </div>
+                    <!-- 01-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                Figure out how many images are on site. The machine learning in job description assumes to get meta data such as alt text to help ai gather info on image content.
+                            </p>
+                            <p>
+                                Scroll to bottom of the page, 11,923 pages listed with about 50 images each.
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-03.png">
+                        </div>
+                    </div>
+                    <!-- 01-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>04</h4>
+                            <p>
+                                Click on an images and click on the download link to get an example
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-04.mov">
+                        </div>
+                    </div>
+                    <!-- 01-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>05</h4>
+                            <p>
+                                Find the <q>Site map</q> if one. Click on it
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-05.mov">
+                        </div>
+                    </div>
+                    <!-- 01-06 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>06</h4>
+                            <p>
+                                The sitemap contains xml containing the text 'post'
+                                <br>
+                                <a target="_blank" href="https://www.pngmart.com/sitemap.xml">https://www.pngmart.com/sitemap.xml</a>
+                                
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img class="lg-enlarge" src="imagesVideos/01-06.png">
+                        </div>
+                    </div>
+                    <!-- 01-07 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>07</h4>
+                            <p>
+                                Copy and paste one of the links to see
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-07.mov">
+                        </div>
+                    </div>
+                    <!-- 01-08 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>08</h4>
+                            <p>
+                                Here are the images.
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-08.png">
+                        </div>
+                    </div>
+                    <!-- 01-09 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>09</h4>
+                            <p>
+                                Copy a link from the step above into the browser to 
+                                check image
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-09.mov">
+                        </div>
+                    </div>
+                    <!-- 01-10 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>10</h4>
+                            <p>
+                                Copy link from download button to get full url
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-10.mov">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 2 - Get images id and name-->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 2 - Get image id and name</h3></a>
+                <div class="steps-container ">
+                    <!-- 02-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                This page 
+                                <br>
+                                <a target="_blank" href="https://www.pngmart.com/sitemap-posts-1.xml">https://www.pngmart.com/sitemap-posts-1.xml</a>
+                                contains all the xml for each image, as you can see it says this at the top with the <span class="m">number</span>
+                            </p>
+                            <p>
+                                there are currently 1000 xml images
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-01.png">
+                        </div>
+                    </div>
+                    <!-- 02-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>02</h4>
+                            <p>
+                                Clicking on one of the image links will direct to the images page, 
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/02-02.mov">
+                        </div>
+                    </div>
+                    <!-- 02-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                the <code class="m">id</code>
+                                will be in the url.
+                                
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-03.png">
+                        </div>
+                    </div>
+                    <!-- 02-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>04</h4>
+                            <p>
+                                If you copy the link for the download buttton, paste it to see full link with <span class="m">name</span>
+                                to image
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/02-04.mov">
+                        </div>
+                    </div>
+                    <!-- 02-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                This is the <span class="m">name</span>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-05.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 3 - Start script with requests and sitemap url -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 3 - Start script with requests and sitemap url</h3></a>
+                <div class="steps-container ">
+                    <!-- 03-00 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt rbshadow">
+                            <h4>00</h4>
+                            <p>
+                                <span class="r">** Important Note</span> if <span class="r">requests</span> isn't begin recognized, 
+                                change into your <code>venv</code>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+source ./venv/bin/activate</pre>
+                            </div>
+                            <p>
+                            Then install
+                            </p>  
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install jupyter
+                                </pre>
+                            </div>
+                            <p>
+                                Run the following command
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+ipython kernel install --user --name=venv</pre>
+                            </div>
+                            
+                            <p>
+                                Run jupyter and you should be good, restart vs code if neccesary
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+jupyter notebook</pre>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-00.png">
+                        </div>
+                    </div>
+                    <!-- 03-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                pass the sitemap.index url 
+                                <br>
+                                <a target="_blank" href="https://www.pngmart.com/sitemap.xml">https://www.pngmart.com/sitemap.xml</a>
+                                <br>
+                                into the <code class=""><span class="mdblue">get</span>()</code> method on the <code class="m">requests</code>
+                                object
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response =  <span class="m">requests</span>.<span class="mdblue">get</span>(site_map)
+print(response)
+print(response.text)
+                                </pre>
+                            </div>
+                            <p> 
+                                The response should be 200 and return the xml
+                            </p>         
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-01.png">
+                        </div>
+                    </div>
+                    <!-- 03-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Pass the <code>response.text</code> into a beautful soup object with the 2nd argument <code class="r">'xml'</code>
+                                instead of <code>'html.parser'</code>
+                            </p>
+<div class="code-container">
+    <pre tabindex="1" class="copy-code">
+import requests 
+from bs4 import BeautifulSoup
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(site_map)
+xml = response.text
+soup = BeautifulSoup(xml,<span class="r">'xml'</span>)
+    </pre>
+</div>
+                        <p>
+                            <code class="r">'xml'</code> will produce this error
+                        </p>
+
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-02.png">
+                        </div>
+                    </div>
+                    <!-- 03-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                Quit jupyter server and install the following package
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install lxml</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-03.png">
+                        </div>
+                    </div>
+                    <!-- 03-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>04</h4>
+                            <p>
+                                Replace the second argument in <code class="mdblue">BeautifulSoup</code> <code>'xml'</code> to <code class="gr">'lxml</code>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(site_map)
+xml = response.text
+soup = BeautifulSoup(xml,<span class="gr">'lxml'</span>)
+soup</pre>
+                            </div>
+                            <p>
+                                If you receive an error message change the 2nd argument back to <code>'xml'</code> from <code class="gr">'lxml'</code>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-04.png">
+                        </div>
+                    </div>
+                    <!-- 03-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                We want to extract the <code>sitemap-post</code> links contained within <code>&larr;sitemap></code> <code>&larr;loc></code>.
+                                So target those with the <code class="gr">find_all</code> method
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+site_map = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(site_map)
+xml = response.text
+soup = BeautifulSoup(xml,'lxml')
+soup.<span class="gr">find_all</span>('loc')
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-05.png">
+                        </div>
+                    </div>
+                    <!-- 03-06 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>06</h4>
+                            <p>
+                                We now have the url from each <code>&larr;loc></code> element, attach each one but make sure you target the 
+                                one with <code class="m">posts</code>, that is where the images are. Not <span class="r">catagories </span>
+                                or <span class="r">tags</span>...
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+site_maps =[]
+for loc in soup.find_all('loc'):
+    print(loc.txt)
+    site_map</pre>
+                            </div>
+                        </div>
+                        
+                        <div class="step-img">
+                            <img src="imagesVideos/03-06.png">
+                        </div>
+                    </div>
+                    <!-- 03-07 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>07</h4>
+                            <p>
+                                Check if url contains 'posts', add to <code>site_maps</code> list. These urls have the images
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+site_maps = []
+for loc in soup.find_all('loc'):
+    url = loc.text
+    if 'posts' in url:
+        site_maps.append(url)
+site_maps[0:4]</pre>
+                            </div>
+                            <p>
+                                site_maps[0:4] shows the first 4 urls
+                            </p>               
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-07.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 4 - put site_maps url into soup again -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 4 - put site_maps url into soup again</h3></a>
+                <div class="steps-container">
+                    <!-- 04-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>01</h4>
+                            <p>
+                                If you click on a url from the <code>site_maps</code> list it will take you the url full of all the image urls.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://www.pngmart.com/sitemap.xml'
+
+response = requests.get(url)
+xml = response.text
+soup = BeautifulSoup(xml,'xml')
+
+site_maps = []
+for loc in soup.find_all('loc'):
+    url = loc.text
+    if 'posts' in url:
+        site_maps.append(url)
+site_maps[0]
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/04-01.mov">
+                        </div>
+                    </div>
+                    <!-- 04-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Do the same process on the <code>site_maps</code> urls. Do one at a time <code class="m">img_urls[0]</code> , because there are thousands of images
+                                on each <code>site_map-post</code> url page. We can see the firs 4 images, but it seems it displays the 
+                                id at the end then the name.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+response = requests.get(<span class="m">site_maps[0]</span>)
+soup = BeautifulSoup(response.text,'xml')
+
+img_urls = []
+for xml_url in soup.find_all('loc'):
+    img_urls.append(xml_url.text)
+img_urls[0:5]
+
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/04-02.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 5 - visit each img_url and download images -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 5 - visit each img_url and download images</h3></a>
+                    <div class="steps-container ">
+                    <!-- 05-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                There are 2000 image url on the site-map-post-1.xml page
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+response = requests.get(site_maps[0])
+soup = BeautifulSoup(response.text,'xml')
+
+img_urls = []
+for xml_url in soup.find_all('loc'):
+    img_urls.append(xml_url.text)
+print(site_maps[0])
+len(img_urls)</pre>
+                            </div>                
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-01.png">
+                        </div>
+                    </div>
+                    <!-- 05-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Loop throught the img_urls and place the first image to a response, 
+                                the <code class="g">break</code> keyword stops the loop from running 
+                                after 1 iteration, (great for testing large amount of data)
+                            </p>
+                            <p>
+                                When a loop only runs 1 time, the last variable <code class="r">response</code>
+                                is usually available outsite the loop
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+for img_url in img_urls:
+    print(img_url)
+    <span class="r">response</span> = requests.get(img_url)
+    <span class="g">break</span>
+<span class="r">response</span>
+</pre>
+                            </div>
+                        
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-02.png">
+                        </div>
+                    </div>
+                    <!-- 05-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                The text in the response for the img_url, contains all the html.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+response.text</pre>
+                            </div>               
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-03.png">
+                        </div>
+                    </div>
+                    <!-- 05-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>04</h4>
+                            <p>
+                                Go to the img download button and inspect the html to see where the image resides
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/05-04.mov">
+                        </div>
+                    </div>
+                    <!-- 05-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                Notice the 'download' class on the image, use this in soup to find all the images
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-05.png">
+                        </div>
+                    </div>
+                    <!-- 05-06 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>06</h4>
+                            <p>
+                                Pass <span class="r">'html.parser'</span> to soup, and look for all <code>'a'</code>
+                                elements with a class of <span class="gr">'download'</span>.
+                            </p>
+                            <p>
+                                Here print the first element in find_all of soup [0]
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+for img_url in img_urls:
+    print(img_url)
+    response = requests.get(img_url)
+    break
+soup = BeautifulSoup(response.text,'html.parser')
+soup.find_all('a',{'class':'download'})[0]</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-06.png">
+                        </div>
+                    </div>
+                    <!-- 05-07 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>07</h4>
+                            <p>
+                                use <code class="mblue">find</code> instead of find all and remove <code class="g">break</code>
+                                with the soup object available outside the loop you can spit one img url and img at a time
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+for img_url in img_urls:
+    print(img_url)
+    response = requests.get(img_url)
+    # break
+soup = BeautifulSoup(response.text,'html.parser')
+soup.<span class="mdblue">find</span>('a',{'class':'download'})</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/05-08.mov">
+                        </div>
+                    </div>
+                    <!-- 05-08 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>08</h4>
+                            <p>
+                                We want the <code class="gr">href</code> from the a with a class of download, save it to a png within the loop
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+for img_url in img_urls:
+    response = requests.get(img_url)
+    soup = BeautifulSoup(response.text,'html.parser')
+    png = soup.find('a',{'class':'download'})['href']
+    break
+png</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-08.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 6 - get images -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 6 - get images</h3></a>
+                <div class="steps-container">
+                    <!-- 06-01-->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Name the png <code class="gr">png</code>, <span class="r">** Remember</span>
+                                the <code class="g">break</code> keyword allows for the last variable in the loop to be
+                                available outside the loop
+                            </p>
+                            <p>
+                                make a request to the png_url, if we look at the text, it's super long and in htmml format
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+for img_url in img_urls:
+    response = requests.get(img_url)
+    soup = BeautifulSoup(response.text,'html.parser')
+    <span class="gr">png_url</span> = soup.find('a',{'class':'download'})['href']
+    <span class="g">break</span>
+response = requests.get(png_url)
+response.text
+</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/06-01.png">
+                        </div>
+                    </div>
+                    <!-- 06-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                The image binary data is in <code>response.content</code> of <code>png_url</code> request,
+                                change the response name to <code class="gr">image</code>
+                            </p>
+                            <p>
+                                Use split to get the last index, of <code>img_url</code> and <code>png_url</code> 
+                                and save the values to a variable <span class="m">image_title</span>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+<span class="gr">image</span> = requests.get(png_url)
+img_title = img_url.split('/')[-1] + "-" + png_url.split('/')[-1]</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/06-02.png">
+                        </div>
+                    </div>
+                    <!-- 06-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                Then write names to the disk with <code>image.<span class=" mdbue">content</span></code>.
+                                The image will now appear in the same directory as the script
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+image = requests.get(png_url)
+image_title = img_url.split('/')[-1] + "-" + png_url.split('/')[-1]
+with open(image_title,'wb') as file:
+    file.write(image.content)</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/06-03.png">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 7 full script</h3></a>
+                <div class="steps-container show">
+                    <div class="step">
+                        <div id="fullScript" tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <h4>Not Working</h4>
+                            <p>
+                                I'm struggling completing this script Go back and do after other examples
+                            </p>
+                            <p>
+                                Replace the <code class="m">img_urls</code> loop for only 10 images
+                                <code class="m">img_url[0:10]</code>, so you don't download 2000
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+
+                                    NOT WORKING
+import requests
+from bs4 import BeautifulSoup
+url = 'https://www.pngmart.com/sitemap.xml'
+response = requests.get(url)
+xml = response.text
+soup = BeautifulSoup(xml.text,'xml')
+
+</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</body>
+</html>

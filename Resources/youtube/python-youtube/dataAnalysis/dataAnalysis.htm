@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>python-youtube-datascraping</title>
+            <link rel="stylesheet" href="../../css//doc-topic-v2.css">
+    <link rel="stylesheet" href="../../css/resource-header-temp.css">
+    <script src="../../js/letterFocus-docs.js" defer></script>
+</head>
+<body>
+    <header>
+        <a tabindex="1" id="homeLink" href="../python-index.htm">&larr;home-documentation-python-apis</a>
+        <div class="fi page-title">
+            <h1>Python - Youtube - data scraping</h1>
+        </div>
+        <div class="page-logo">
+            <a tabindex="1" id="documentationIndex mainHomeLink" href="../../documentation.html">Documentation main</a>
+            <img src="../../../../images/gmail.png" alt="">
+        </div>
+    </header>
+    <main>
+        <h2>Resources</h2>        
+        <!-- Youtube dataScraping Tutorials -->
+        <div class="resources-container">
+            <div class="resource-container">
+                <header tabindex="1" id="youtube" class="resource">
+                    <h3>Youtube Python API Tutorials</h3>
+                    <img src="data:image/png;base64,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"
+0                        alt="">
+                </header>
+                <div class="sub-resources-container show">
+                    <!-- Make Data Useful -->
+                    <h4 class="sub-resource-container">
+                        Make Data Useful
+                        <a tabindex="1" id="makeDataUsefu" class="sub-resource subject"  href="youtubeChannels/makeDataUseful/makeDataUseful.htm"
+                            ><img src="https://yt3.googleusercontent.com/mEbymvSLiZaL_QYFY5-OEGZ0n6xXf19RMXtPuLk9y3kJFk1roizIzQ9s9JAEB_QWkBt30YPp=s176-c-k-c0x00ffffff-no-rj">
+                        </a>
+                    </h4>                        
+                    <!-- Make Data Useful -->
+                    <a tabindex="1" id="freeCodeCampDataScraping" class="resource"
+                        href="dataScraping/youtubeChannels/freeCodeCamp-dataScraping/freeCodeCamp-dataScraping.htm">
+                    </a>
+                    <h4 class="sub-resource-container">
+                        freeCodeCamp
+                        <a tabindex="1" id="freeCodeCamp" class="sub-resource subject"  href="youtubeChannels/freeCodeCamp-dataScraping/freeCodeCamp-dataScraping.htm"
+                            ><img src="data:image/png;base64,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">
+                        </a>
+                    </h4>                        
+                    <!-- <h4 class="sub-resource-container">
+                        CodeTops
+                        <a tabindex="1" id="codeTops" class="sub-resource subject"  href="youtubeChannels/codeTops/codeTops-gmail.htm
+                            "><img src="../../../../images/codeTops.jpeg">
+                        </a>
+                    </h4>                         -->
+                </div>
+            </div>
+            
+        </div>
+
+    </main>
+
+</body>

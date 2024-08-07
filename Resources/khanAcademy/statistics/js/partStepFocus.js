@@ -1,6 +1,8 @@
 export function partStepsEventListeners(){
 const dropParts = document.querySelectorAll('.dropPart')
     const stepsContainers = document.querySelectorAll('.steps-container')
+    const homelink = document.getElementById('homelink')
+    const tutorialLink = document.getElementById('tutorialLink')
     const part01 = document.getElementById('part01')
     let partsFocused = false
     let stepsFocused = false
@@ -77,6 +79,7 @@ const dropParts = document.querySelectorAll('.dropPart')
 
     addEventListener('keydown', e => {
         let key = e.key.toLowerCase()
+        if(key == 'h')
         if(partsFocused){
             dropParts.forEach(el => {
                 if(key == el.innerText[5]){

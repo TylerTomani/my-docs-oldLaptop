@@ -1,0 +1,159 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>03-01  - <code class="dc">import requests</code>  <code>get('url)</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step-col">
+        <div tabindex="1" class="step-txt enlarge-first-img">
+            <h4>01</h4>
+            <p>
+                use request to get this url <a target="_blank" href="https://remoteok.com/">https://remoteok.com/</a> html, include
+                header
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code w-80">
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://remoteok.com/'
+req = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+print(req.text)
+# web_byte = urlopen(req).read()
+# print(web_byte)
+# web_page = web_byte.decode('latin-1') # utf-8
+# soup = BeautifulSoup(web_page,'html.parser')
+# print(soup)</pre>
+            </div>
+            <p class="r lgtxt">
+                I still don't understand headers and the commeneted out code is from lesson, and doesn't work
+            </p>
+            
+        </div>
+        <div class="img-2-container">
+            <div class="step-img">
+                <img class="xlg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-01.png">
+            </div>
+            <div class="step-img">
+                <img class="xlg-enlarge"
+                    src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-01b.png">
+            </div>
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>02</h4>
+            <p>
+                Inspect page and get structure of the job container, get the 
+            </p>
+            <ul>
+                <li>job</li>
+                <li>company</li>
+                <li>role</li>
+            </ul>
+        </div>
+        <div class="step-vid">
+            <video src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-02.mov">
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                Create a <code>jobs</code> [] empty list,
+                loop throug every <code>&lt;tr></code> with a class <code>'job'</code>, 
+                and query the <code class="m">a</code> tag with <code class="xlgtxt">.</code> notation
+                to get the roll within the <code>&lt;td></code> tag with a class <code>'company'</code>.
+                Append both roll and company, add dicto to <code>job[]</code> list
+            </p>
+            <ul>
+                <li>roll</li>
+                <li>Company</li>
+            </ul>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code h-100">
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://remoteok.com/'
+req = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+soup = BeautifulSoup(req.text,'html.parser')
+
+jobs = []
+
+for tr in soup.find_all('tr','job'):
+    job = {}
+    job['roll'] = tr.find('td','company').<span class="lgcode m">a</span>.text.strip()
+    job['company'] = tr.find('td','company').span.text.strip()
+    print(job.items())
+    break</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="xlg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-03.png">
+        </div>
+    </div>
+    <!-- 01-04 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>04</h4>
+            <p>
+                Take not the skills dissapear on smaller window sizez
+            </p>
+        </div>
+        <div class="step-vid">
+            <video
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-04.mov">
+        </div>
+    </div>
+    <!-- 01-05 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>05</h4>
+            <p>
+                Get the skills from within the <code>&lt;td></code> with class <code>'tags'</code>, 
+                inside an <code>&lt;a></code> class <code>'tooltip-set</code>, <code>&lt;div></code> class <code>'tag'</code>
+            </p>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-05.png">
+        </div>
+    </div>
+    <!-- 01-06 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>06</h4>
+            <p>
+                append the tags to list, 
+                add list to <code class="m">job['tags']</code> dict
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+url = 'https://remoteok.com/'
+req = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+soup = BeautifulSoup(req.text,'html.parser')
+jobs = []
+for tr in soup.find_all('tr','job'):
+    job = {}
+    job['roll'] = tr.find('td','company').a.h2.text.strip()
+    job['company'] = tr.find('span','companyLink').h3.text.strip()
+    <span class="m"></span>job['tags']</span> = []
+    for tag in tr.find_all('div','tag'):
+        job['tags'].append(tag.h3.text.replace('\n',''))
+    print(job['roll'])
+    print(job['company'])
+    print(job['tags'])
+    break</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge"
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/images/01-05.png">
+        </div>
+    </div>
+</div>
+

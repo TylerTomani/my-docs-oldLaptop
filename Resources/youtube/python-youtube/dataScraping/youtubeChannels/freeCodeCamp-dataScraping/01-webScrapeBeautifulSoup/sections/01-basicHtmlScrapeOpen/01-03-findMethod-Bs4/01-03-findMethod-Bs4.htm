@@ -1,0 +1,109 @@
+<h1>01-03 - <code>find()</code> and <code>find_all()</code> - BeautifulSoup</h1>
+<div class="steps-container show">
+    <!-- 01-01-find() -->    
+    <div class="step-col">
+        <div tabindex="1" class="step-txt w-80">
+            <h4>01</h4>
+            <h5><code>find()</code></h5>
+            <p>
+                <code class="m">find()</code> will get the first instance of the searched tag
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+
+with open('home.htm', 'r') as f:
+content = f.read()
+soup = BeautifulSoup(content,'html.parser')
+tags = soup.find('h5')</pre>
+            </div>
+        </div>
+        <div class="img-2-container">
+            <div class="step-img">
+                <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-01.png"
+                alt="placeholder image">
+            </div>
+            <div class="step-img">
+                <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-01b.png"
+                alt="placeholder image">
+            </div>
+        </div>
+    </div>
+    <!-- 01-02-find_all() -->
+    <div class="step-col">
+        <div tabindex="1" class="step-txt w-80">
+            <h4>02</h4>
+            <h5><code>find_all()</code></h5>
+            <p>
+                Use find all to get every instance of the element
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content,'html.parser')
+tags = soup.find_all('h5')</pre>
+            </div>
+        </div>
+        <div class="img-2-container">
+            <div class="step-img">
+                <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-02.png">
+            </div>
+            <div class="step-img">
+                <img
+                    src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-02b.png">
+            </div>
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                print each <code>&lt;h5></code> tag containing the course name
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,'html.parser')
+    courses_html_tags = soup.find_all('h5')
+    for course in courses_html_tags:
+        print(course)</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-03.png">
+        </div>
+    </div>
+    <!-- 01-04 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>04</h4>
+            <p>
+                print only the <code class="m">text</code> of each <code>&lt;h5></code> course name in a for loop
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,'html.parser')
+    courses_html_tags = soup.find_all('h5')
+    for course in courses_html_tags:
+        print(course.<span class="m">text</span>)</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/images/01-04.png">
+        </div>
+    </div>
+    
+    
+</div>
+

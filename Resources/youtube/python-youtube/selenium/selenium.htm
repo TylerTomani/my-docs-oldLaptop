@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selenium</title>    
+    <link rel="stylesheet" href="../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../../css/flex.css">
+    <link rel="stylesheet" href="../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../css/colors.css">
+    <link rel="stylesheet" href="../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../css/doc-topic-v2.css">
+    <link rel="stylesheet" href="../../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../css/copy-code.css">
+    <script src="../../js/letterFocus-tutorial.js" defer></script>
+    <script src="../../js/letterFocus-docs.js" defer></script>
+    <script src="../../../js/copy-code.js" defer></script>
+    <script src="../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../js/img-enlarge-v1.js" defer></script>
+    <script type="module" src="../../js/addRemoveTabs-v1.js" defer></script>
+    <script type="module" src="../../js/dropResource-docs.js" defer></script>
+    
+    <script src="../.././../../../js/chatGpt-drop-topics.js" defer></script>
+    <link rel="stylesheet" href="../../../../../css/chatGpt-questions.css" />
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" tabindex="1" href="../python-index.htm">(home)python docs</a>
+        </div>
+
+        <div class="page-logo">
+            <a tabindex="1" id="documentationLink" id="mainHomeLink" href="../../../../../index.html">Documentation Home</a>
+            <img src="data:image/jpeg;base64,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">
+        </div>
+    </header>
+    <main>
+        <!-- Youtube dataScraping Tutorials -->
+        <div class="resources-container">
+            <div class="resource-container">
+                <header tabindex="1" id="youtube" class="resource">
+                    <h3>Youtube Python API Tutorials</h3>
+                    <img src="data:image/png;base64,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"
+                        0 alt="">
+                </header>
+                <div class="sub-resources-container show">
+                    <!--Tech With Tim -->
+                    <h4 class="sub-resource-container">
+                        Tech With Tim
+                        <a tabindex="1" id="techWithTim" class="sub-resource subject"
+                            href="youtubeChannels/techWithTim/techWithTim.htm"><img
+                                src="https://yt3.ggpht.com/ytc/AIf8zZTg5CwP4xqseAoW15z6_zafurgiauJSBZCVpf430g=s88-c-k-c0x00ffffff-no-rj">
+                        </a>
+                    </h4>
+                    <!-- <h4 class="sub-resource-container">
+                                CodeTops
+                                <a tabindex="1" id="codeTops" class="sub-resource subject"  href="youtubeChannels/codeTops/codeTops-gmail.htm
+                                    "><img src="../../../../images/codeTops.jpeg">
+                                </a>
+                            </h4>                         -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="parts-container">
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 0</h3></a>
+                <div class="steps-container ">
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>00</h4>
+                            <p>
+                                Compare versions of driver and seleneium
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip show selenium</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip show webdriver-manager</pre>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/00-00.png">
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Find how to see what chrome driver you and the venv are using, chatGpt says
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+chromedriver --version</pre>
+                            </div>      
+                            <p class="r">
+                                This doesn't work for me 
+                            </p>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Part 1 - Job Example -->
+            <div class="part">
+                <a id="part01" tabindex="1" href="#" class="dropPart"><h3>Part 1 - Install selenium <span class="r">YES!</span> </h3></a>
+                <div class="steps-container">
+                    <!-- 01-01 -->              
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt xxmd-txt-p">
+                            <h4>01</h4>
+                            <p>
+                                First check the version of the chrome browser you have, you can 
+                                type,
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+chrome://version/</pre>
+                            </div>
+                            <p>
+                                into you chrome url or go to about
+                            </p>
+                        </div>
+                        <div class="img-2-container">
+                            <div class="step-img">
+                                <img src="imagesVideos/01-01.png">
+                            </div>
+                            <div class="step-vid">
+                                <video src="imagesVideos/01-01b.mov">
+                            </div>
+                        </div>
+                    </div>      
+                    <!-- 01-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>02</h4>
+                            <p>
+                                Visit
+                                <br>
+                                <a target="_blank"
+                                    href="https://chromedriver.chromium.org/downloads">https://chromedriver.chromium.org/downloads</a>
+                                I think i chose 112.5615.49
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-02.mov">
+                        </div>
+                    </div>
+                    <!-- 01-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                Make sure you unpack the file and move it to 
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+/usr/local/bin</pre>
+                            </div>
+                            <p>
+                                By changing into the directory of the download <strong></strong>
+                            </p>        
+                            <p>
+                                change the name to <strong><code class="m">chromedriver</code></strong>
+                                when moving it
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+mv chromedriver_mac64 /usr/local/bin/<span class="m">chromedriver</span> </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-03.png">
+                        </div>
+                    </div>
+                    <!-- 01-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>04</h4>
+                            <p>
+                                Made a new directory on desktop named <strong><code>SeleniumScripts</code></strong>
+                                and created a venv and installed selenium
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install selenium</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-04.png">
+                        </div>
+                    </div>
+                    <!-- 01-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                Make sure you install 
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install webdriver-manager</pre>
+                            </div>
+                             <p>
+                                and upgrade selenium
+                             </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install --upgrade selenium</pre>
+                            </div>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-05.png">
+                        </div>
+                    </div>
+                    <!-- 01-06 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>06</h4>
+                            <p>
+                                Run the following script and Boo yah! it runs for two seconds
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+from selenium import webdriver
+import time
+# Initialize the Chrome driver without specifying the executable path
+driver = webdriver.Chrome()
+
+# Rest of your Selenium script...
+
+driver.get('https://www.google.com')
+
+time.sleep(2)
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-06.mov">
+                        </div>
+                    </div>
+           
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html>

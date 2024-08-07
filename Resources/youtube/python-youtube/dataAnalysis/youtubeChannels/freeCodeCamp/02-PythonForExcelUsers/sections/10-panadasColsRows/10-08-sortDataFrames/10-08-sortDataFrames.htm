@@ -1,0 +1,148 @@
+<h1>Section 10-08- Sort DataFrames</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 -  -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - <code>.sort_values(by=)</code> method</a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-00 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>00</h4>
+                        <p>
+                            Current csv file
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code ">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.head())</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-05-mathOperationsDataFrame/images/01-00.png">
+                    </div>
+                </div>
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt playVid-click">
+                        <h4>01</h4>
+                        <h5><code>.sort_values(by=)</code></h5>
+                        <p class="r lgtxt">
+                            Remember, hit shift tab in a method or function to see the paramters,
+                        </p>
+                        <p>
+                            <code class="m">sort()</code> has no value for it, meaning it is required, 
+                            the argument is the column to sort 'by'
+                        </p>
+                    </div>
+                    <div class="step-vid">
+                        <video   src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-01.mov">
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <h5>ascending=false</h5>
+                        <p>
+                            You can omit the 'by' arguement' and just provide the column name. By default, the <code>sort_values</code>
+                            will sort rows from lowest to hightest. Assign the <code class="m">ascending</code> paramater to false to change it
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams.sort_values('math score', <span class="m">ascending</span>=false)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <p>
+                            Sort by two different columns with the columns in a list, the first listed takes precedence
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams.sort_values(['math score','writing score'], ascending=False)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-03.png">
+                    </div>
+                </div>
+                <!-- 01-04 -->
+                <div class="step-col">
+                    <div tabindex="1" class="step-txt xxmd-txt-p">
+                        <h4>04</h4>
+                        <p>
+                            Everything we have done so far doens't change the original DataFrame, but instead makes a copy,
+                            setting the <code class="m">inplace</code> argument to true, changes the DataFrame.
+                        </p>
+                        <div class="code-container w-80">
+                            <pre tabindex="1" class="copy-code w-80">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams.sort_values(['math score', 'writing score'], ascedning=false, <span class="m">inplace</span>=True)
+                            </pre>
+                        </div>
+                        <p>
+                            We can also reasign it to the same variable
+                        </p>
+                    </div>
+                    <div class="img-2-container">
+                        
+                        <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-04.png">
+                        </div>
+                        <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-04b.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- 01-05 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt rbshadow">
+                        <h4>05</h4>
+                        <p>
+                            <span class="r">This on is confusing</span>, it will work without the <code class="g">lambda</code>
+                            function, but you can also sort columns alphabetically
+                        </p>
+                        <p class="lgtxt r">
+                            This doesn't work 
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams.sort_values('race/ethnicity', ascending=True, key 
+            <span class="g">lamda</span> col:col.str.lower() )
+                            </pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+<img
+    src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-08-sortDataFrames/images/01-05.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+

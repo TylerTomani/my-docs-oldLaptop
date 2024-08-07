@@ -1,0 +1,124 @@
+    <h1>Section 09-02- Attributes</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - Attribute shape, columns -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - <code>.shape</code> , <code>.index</code> , <code>.columns</code></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-01- -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <h3>csv data frame we are working with</h3>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+pd.set_option('display.max_rows',1000)
+print(df_exams)</pre>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-02-attributes/images/01-01.png">                            
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <h3><code>.shape</code></h3>
+                        <p>
+                            We'ves seen <code class="m">shape</code>, it gives us the number of rows and columns
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.<span class="m">shape</span>)
+                            </pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img 
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-01-shape/images/01-01.png">                            
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <h3><code>.index</code></h3>
+                        <p>
+                            <code>.<span class="m">index</span></code> will return a <strong><code>RangeIndex</code></strong> with <strong>min</strong>, <strong>max</strong>
+                            and <strong>step</strong> which is the increment of the rows.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.<span class="m">index</span>)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-02-attributes/images/01-03.png">                            
+                    </div>
+                </div>
+                <!-- 01-04 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>04</h4>
+                        <h3><code>.columns</code></h3>
+                        <p>
+                            <code>.<span class="m">columns</span></code>
+                            will return a list containing the names of the columns
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.<span class="m">columns</span>)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-02-attributes/images/01-04.png">                            
+                    </div>
+                </div>
+                <!-- 01-05 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>05</h4>
+                        <h3><code>.dtypes</code></h3>
+                        <sup>dataTypes of columns</sup>
+                        <p>
+                            <code>.<span class="m">dtypes</span></code>
+                            This returns the data types of the values contained in the columns
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd 
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.<span class="m">dtypes</span>)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-02-attributes/images/01-05.png">                            
+                    </div>
+                </div>
+
+                
+        </div>
+    </div>
+</main>
+

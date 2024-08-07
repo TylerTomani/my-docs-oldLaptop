@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-opportunityLap</title>
+    <link rel="stylesheet" href="../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../css/copy-code.css">
+    <link rel="stylesheet" href="../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../../css/chatGpt-questions-temp.css" />
+    <link rel="stylesheet" href="css/sideBar-header-temp.css">
+    <link rel="stylesheet" href="css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="css/index-header.css">
+    <link rel="stylesheet" href="css/sideBar-temp.css">
+    <link rel="stylesheet" href="css/lesson-temp.css">
+    
+    <script type="module" src="js/chatGpt-drop-topics.js" defer></script>
+    <script type="module" src="js/toggleBars.js" dfefer></script>
+    <script type="module" src="js/sectionFocusLessonLoad.js" defer></script>
+    <script type="module" src="js/partStepFocus.js" defer></script>
+</head>
+<body>
+    <header>
+        <a tabindex="1" href="../freeCodeCamp-dataScraping.htm" id="homelink">home freeCodeCamp</a>
+        <div class="page-title">
+            <h1>2. How to make opportunities fall into your lap (with web scraping)</h1>
+            <!-- <a id="jupyterLink" target="_blank" href="../../../../jupyterShortcuts/jupyterShortcuts.htm"><img src="data:image/png;base64,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"></a> -->
+            <h2 class="xlgtxt r">Fix this version:</h2>
+            <p class="lgtxt r">
+                This site only works when running on live server in vs code, I don't know why??
+            </p>
+        </div>
+        <div class="page-logo">
+            <a tabindex="1" id="documentationLink" id="mainHomeLink" href="../../../../../../index.html">Documentation Home</a>
+            <img src="02-opportunitiesLap.png">
+            <a tabindex="1" target="_blank" id="tutorialLink" href="https://www.youtube.com/watch?v=4sWfYxrKIfI">tutorial</a>
+        </div>
+    </header>
+    <main class="main">
+        <nav tabindex="1" id="navMain" class="nav-main">
+            <p>
+                <span id="displayCurrentSection">Section</span>&rarr;
+                <span id="displayCurrentLesson"></span>
+            </p>
+        </nav>
+        <div class="main-container">
+            <aside tabindex="1" id="asideMain" class="aside-main">
+                <!-- Section 1 - robots.txt -->
+                <section class="section">
+                    <a tabindex="1" id="section01" href="sections/01-RobotsTxtAndBs4Methods/01.htm" class="dropSection">
+                        <h4>Section 1 - robots.txt </h4>
+                    </a>
+                    <ul class="show">
+                        <li><a href="sections/01-RobotsTxtAndBs4Methods/01-01-robotsTxt/01-01-robotsTxt.htm">1. robots.txt <code>home.html</code></a></li>
+                    </ul>
+                </section>
+                <!-- Section 2 - BeautifulSoup Methods() -->
+                <section class="section">
+                    <a tabindex="1" id="" href="sections/02-bs4Methods/02.htm" class="dropSection">
+                        <h4>Section 2 -  <code class="dc">BeautifulSoup</code> Methods()</h4>
+                    </a>
+                    <ul class="">
+                        <li><a  href="sections/02-bs4Methods/02-01-importBs4Soup/02-01-importBs4Soup.htm">1. <code>import BeautifulSoup4</code> & <code>soup</code> class</a></li>
+                        <li><a   href="sections/02-bs4Methods/02-02-methods/02-02-methods.htm">2. <code>BeautifulSoup4</code> methods()</a>
+                            <ul>
+                                <li><code>find</code></li>
+                                <li><code>find_all</code></li>
+                                <li><code>.&lt;tag></code> name ex <code> .title</code></li>
+                            </ul>
+                        </li>
+                        <li><a href="sections/02-bs4Methods/02-03-methodsPt2/02-03-methodsPt2.htm">3. <code>BeautifulSoup4</code> methods() Part 2</a>
+                            <ul>
+                                <li><code>.text</code> and 
+                                <br><code>['attrib']</code> attributes</li>
+                                <li><code>search</code> - 
+                                    <br>css selectors</li>
+                                <li></li>
+                                
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </section>
+                <!-- Section 3 - scrape https://remoteok.com/ -->
+                <section class="section">
+                    <a tabindex="1" id="" href="sections/03-scrapeRemoteOkSite/03.htm" class="dropSection">
+                        <h4>Section 3 -  scrape <code class="dc">https://remoteok.com/</code> </h4>
+                    </a>
+                    <ul class="">
+                        <li><a href="sections/03-scrapeRemoteOkSite/03-01-importRequestsGetUrl/03-01-importRequestsGetUrl.htm">1. <code class="dc">import requests</code> <code>get('url)</code>
+                        <br><code>soup.find</code></a>
+                            <ul>
+                                <li><code>'roll'</code></li>
+                                <li><code>'company'</code></li>
+                                <li><code>'tags'</code></li>
+                            </ul>
+                        </li>
+                        <li><a href="sections/03-scrapeRemoteOkSite/03-02-findLink/03-02-findLink.htm">2. <code>find</code> <code>['link']</code></a></li>
+                        <li><a href="sections/03-scrapeRemoteOkSite/03-03-filterJobs/03-03-filterJobs.htm">3. filter jobs</a></li>
+                    </ul>
+                </section>
+                <!-- Section 4 - scrape we work remotely -->
+                <section class="section">
+                    <a tabindex="1" id="" href="sections/04-scrapeWeworkremotely/04.htm" class="dropSection">
+                        <h4>Section 4 -  scrape <code class="dc">https://weworkremotely.com/</code> </h4>
+                    </a>
+                    <ul class="show">
+                    </ul>
+                </section>
+                
+            </aside>
+             <div tabindex="1" id="mainTargetDivContainer" id="" class="target-div-container">
+                
+                <div class="step-col">
+                    <div tabindex="1" class="step-txt">
+                        <h1>2. Data Analysis with Python for Excel Users - Full Course</h1>
+                    </div>
+                    <div class="step-img">
+                        <img src="02-opportunitiesLap.png" alt="placeholder image">
+                    </div>
+                </div>
+
+    
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+</html>

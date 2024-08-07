@@ -1,0 +1,107 @@
+<h1>01-02 - <code>pip install beautifulsoup4 lxml</code>, start script</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                Install <code>beautifulsoup4</code> and <code>lxml</code> in <code>venv</code> or default.
+                <br>
+                <div class="code-container">
+                    <pre tabindex="1" class="copy-code">
+pip install beautifulsoup4 lxml</pre>
+                </div>
+                Each one seperate,
+                <div class="code-container">
+                    <pre tabindex="1" class="copy-code">
+pip install beautifulsoup4</pre>
+                </div>
+                <div class="code-container">
+                    <pre tabindex="1" class="copy-code">
+pip install lxml</pre>
+                </div>
+            </p>
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-02-pipInstallMods/images/01-01.png"
+                alt="placeholder image">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt xxmd-txt-p rbshadow">
+            <h4>02</h4>
+            <p>
+                import libraries, and use <code class="dc">open</code> to read content of .html file into a 
+                <code class="m">soup</code> object, and use the <code class="gr">lxml</code> parser
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+
+with <span class="dc">open</span>('home.htm','r') as f:
+    content = f.read()
+    <span class="m">soup</span> = BeautifulSoup(content,'<span class="gr">lxml</span>')
+    print(soup.prettify())</pre>
+            </div>
+            <p class="lgtxt r">
+                Error occured
+            </p>            
+        </div>
+        <div class="step-img">
+            <img class="rbshadow" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-01-downloadHomeHtml/images/01-02.png">
+        </div>
+
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                Don't use <span class="r">lxml</span> just use 
+                <code class="gr">'html.parser'</code>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+
+with open('home.htm','r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,<span class="gr">'html.parser'</span>)
+    print(soup.prettify())</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-02-pipInstallMods/images/01-03.png">
+        </div>
+    </div>
+</div>
+<div class="part">
+    <a tabindex="1" href="#" class="dropPart"><h3>Part 1</h3></a>
+    
+    <div class="steps-container">
+        <div class="step">
+            <div tabindex="1" class="step-txt">
+                <h4>01</h4>
+                <p>
+                    
+                </p>
+            </div>
+            <div class="step-img">
+                <!-- <img src="imagesVideos/"> -->
+            </div>
+        </div>
+        <div class="step">
+            <div tabindex="1" class="step-txt">
+                <h4>02</h4>
+                <p>
+                    
+                </p>
+            </div>
+            <div class="step-img">
+                <!-- <img src="imagesVideos/"> -->
+            </div>
+        </div>
+    </div>    
+</div>

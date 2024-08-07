@@ -1,0 +1,90 @@
+<!-- <link rel="stylesheet" href="css/lesson-temp.css"> -->
+<h1>Section 3 - Scrape TimeJobs Part 2</h1>
+<div class="step">
+        <div tabindex="1" class="step-txt">
+            <p class="r">
+                Adjust code to accept multiple skills in filder in the <code class="gr">input()</code>, add the script below this one
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests 
+import time
+print('enter skill to filter')
+filtered_skill = <span class="gr">input(</span>'>'<span class="gr">)</span>
+print('filtering skill ...')
+def get_jobs():
+    html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+    html_text = html.text
+    soup = BeautifulSoup(html_text,'html.parser')
+    jobs = soup.find_all('li',class_='clearfix job-bx wht-shd-bx')
+    for i,job in enumerate(jobs):
+        date_published = job.find('span',class_='sim-posted').span.text
+        if 'few' in date_published:
+            company_name = job.find('h3',class_='joblist-comp-name').text.replace(' ','')
+            skills = job.find('span',class_='srp-skills').text.replace(' ','')
+            if filtered_skill not in skills:
+                with open(f'results/{i}.txt','w') as f:
+                    f.write(f'company name: {company_name.strip()} \n ')          
+                    f.write(f'skills: {skills.strip()} \n')
+if __name__ == '__main__':
+    while True:
+        get_jobs()
+        time_wait= 1
+        print(f'waiting {time_wait} minute not 10 mins')
+        time.sleep(time_wait * 60)
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="xlg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/03-scrapeTimeJobs-Pt2/03-04-writeAndEnumerate/images/01-03.png">
+        </div>
+</div>
+<div class="step">
+        <div tabindex="1" class="step-txt">
+            <p class="r">
+                <code class="gr">input</code> accepts list comma seperated
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+import time
+
+def get_jobs(filtered_skills):
+    html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+    html_text = html.text
+    soup = BeautifulSoup(html_text, 'html.parser')
+    jobs = soup.find_all('li', class_='clearfix job-bx wht-shd-bx')
+    for i, job in enumerate(jobs):
+        date_published = job.find('span', class_='sim-posted').span.text
+        if 'few' in date_published:
+            company_name = job.find('h3', class_='joblist-comp-name').text.replace(' ', '')
+            skills = job.find('span', class_='srp-skills').text.replace(' ', '')
+            if any(skill.lower() in skills.lower() for skill in filtered_skills):
+                with open(f'results/{i}.txt', 'w') as f:
+                    f.write(f'company name: {company_name.strip()} \n ')
+                    f.write(f'skills: {skills.strip()} \n')
+
+if __name__ == '__main__':
+    print('Enter skills to filter (comma-separated):')
+    filtered_skills = [skill.strip() for skill in <span class="lgtxt gr">input('>')</span>.split(',')]
+    
+    while True:
+        get_jobs(filtered_skills)
+        time_wait = 1
+        print(f'Waiting {time_wait} minute, not 10 minutes.')
+        time.sleep(time_wait * 60)
+        
+                </pre>
+            </div>        
+        </div>
+        <div class="step-img">
+            <img class="xlg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/03-scrapeTimeJobs-Pt2/03-04-writeAndEnumerate/images/01-03.png">
+        </div>
+</div>
+
+    
+
+    

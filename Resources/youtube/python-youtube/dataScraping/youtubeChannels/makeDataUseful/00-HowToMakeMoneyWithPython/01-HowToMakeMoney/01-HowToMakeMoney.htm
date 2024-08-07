@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-HowToMakeMoney</title>
+    <link rel="stylesheet" href="../../../../../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../../../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../../../../../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../../../../../css/copy-code.css">
+    <script src="../../../../../../js/letterFocus-tutorial.js" defer></script>
+    <script src="../../../../../../../js/copy-code.js" defer></script>
+    <script src="../../../../../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../../../../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../../../../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../../../../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../../../../../js/img-enlarge-v1.js" defer></script>
+     <script type="module" src="../../../../../../js/addRemoveTabs-v1.js" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" tabindex="1" href="../../makeDataUseful.htm">(home)gmail-api-makeDataUseful</a>
+        </div>
+        <div class="title-container">
+            <h1>Make Data Useful</h1>
+            <h2>1. Python web scraper $$$ - Easy step by step guide | How to make money with Python Episode 1</h2>
+            <a id="jupyterShortcuts" tabindex="1" target="_blank" href="../../../../../../jupyterShortcuts/jupyterShortcuts.htm">jupyter shortcuts</a>
+        </div>
+        <div class="page-logo">
+            <img src="../01-HowToMakeMoney/01.png">
+            <a id="tutorialLink" tabindex="1" target="_blank"
+                href="https://www.youtube.com/watch?v=awoEELnQzVg&list=PLq1YsG1H2jMWSjtGMsfGH48DvPQX1VP-I&index=1">tutorial</a>
+        </div>
+    </header>
+    <main>
+        <div class="parts-container">
+            <!-- Part 1 - Install Jupyter and Anaconda / Job Example -->
+            <div class="part">
+                <a id="part01" tabindex="1" href="#" class="dropPart"><h3>Part 1 - Install Jupyter and Anaconda</h3></a>
+                <div class="steps-container ">
+                    <!-- 01-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Review <a target="_blank" href="../../../../../../../linkedin/python/01-pythonEssentialTraining/index.html">ryanMitchell-pythonEssentialTraining</a>
+                                to install and run jupyter
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="../../../../../../linkedin/python/01-pythonEssentialTraining/pythonEssentialTraining.png" alt="">
+                        </div>
+                    </div>
+                    <!-- 01-02 -->
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                This is the explanation of the job from upwork,
+                            </p>
+                            <div class="code-container asc">
+                                <pre class="copy-code wrap online">
+Write a python algorithm that finds the websites with the for format
+https://12693.portal.athenahealth.com/ and that runs through the different variations of 
+that and then pulls the practice name on the site.
+
+Every site has the same format "welcome to the ___ patient portal" - so we just need 
+the algorithm to run through all the different available number variations of the URL 
+format and pull the URL and the ___ "Welcome to the ___ patient portal" part of the 
+site into an excel file.
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="step-img">
+                            <!-- <img src="../00-HowToMakeMoneyWithPython.png"> -->
+                        </div>
+                    </div>
+                    <!-- 01-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                this is the site to work from,
+                                <a target="_blank" href="https://12693.portal.athenahealth.com/">https://12693.portal.athenahealth.com/</a>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-03.png">
+                        </div>
+                    </div>
+                    <!-- 01-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>04</h4>
+                            <p>
+                                If we change the <span class="gr">number</span> at the beggining of the URL, we should see a different <span class="m">name</span> appear
+                                <br>
+                                <a href="https://10693.portal.athenahealth.com/">https://<span class="gr">10693</span>.portal.athenahealth.com/</a>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-04.png">
+                        </div>
+                    </div>
+                    <!-- 01-05 -->
+                    <div class="step">
+                        <div  tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                Take note that not every practice ends with <q>Patient Portal</q>,
+                                so we should extract the entire text within the html element
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-05.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 2 - Beautiful Soup & Extract <h1> text -->
+            <div class="part">
+                <a id="" tabindex="1" href="#" class="dropPart"><h3>Part 2 - Beautiful Soup & Extract &lt;h1> text </h3></a>
+                <div class="steps-container">
+                    <!-- 02-01 -->
+                    <div class="step">
+                        <div   tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                This is the starting link
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+https://12693.portal.athenahealth.com/</pre>
+                            </div>
+                            <p>
+                                Import the <code class="md-blue">request</code> library, and the <code class="m">BeautifulSoup</code> 
+                                class from the <code class="md-blue">bs4</code> library, we should recieve a <code class="gr">200</code>
+                                response if it works, and we can see the text from the page by using the <code class="g">text</code> method 
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+import <span class="mdblue">requests</span>
+from <span class="mdblue">bs4</span> import <span class="m">BeautifulSoup</span>
+
+url = 'https://12693.portal.athenahealth.com/'
+response = requests.get(url)
+print(response)
+print(response.<span class="g">text</span>)
+                                </pre>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-01.png">
+                        </div>
+                    </div>
+                    <!-- 02-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Assign the return text to a varaiable, we can see that the type is 'str'
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+html = response.text
+print(type(html))
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-02.png">
+                        </div>
+                    </div>
+                    <!-- 02-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                Now create a <code class="m">soup</code> object, which take the url and a second argument
+                                <code class="r">'html.parser'</code>(<span class="r">** Note</span> <code>html.parser</code> only works 
+                                if the site is properly formatted )
+                            </p>
+                            <p>
+                                This code shows the <code class="gr">title</code> page or the url, we can clean it up by using the <code class="g">text</code>
+                                method and then the <code class="mdblue">strip()</code> method
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+<span class="m">soup</span> = BeautifulSoup(html,<span class="r">'html.parser'</span>)
+soup.<span class="gr">title</span>
+                                </pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+soup.title.text
+                                </pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+soup.title.text.<span class="mdblue">strip()</span>
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-03.png">
+                        </div>
+                    </div>
+                    <!-- 02-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>04</h4>
+                            <p>
+                                To find all the <code>&lt;h1></code>'s use the <span class="m">find_all</span> method.
+                                Here we have <code class="mdblue">3</code> .
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+soup.<span class="m">find_all</span>('h1')
+<span class="mdblue">len</span>(soup.find_all('h1'))
+                                </pre>
+                            </div>
+                            
+                        </div>
+
+                        <div class="step-img">
+                            <img src="imagesVideos/02-04.png">
+                        </div>
+                    </div>
+                    <!-- 02-05 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>05</h4>
+                            <p>
+                                the last h1s from above <code>soup.find_all('h1')[1]</code> & <code>soup.find_all('h1')[2]</code>
+                                Contain the text '<span class="m">Welcome to the Altamonte Family Practice Patient Portal</span>'
+                                and Altamonte Family Practice Patient
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+soup = BeautifulSoup(html,'html.parser')
+soup.find_all('h1')[1]</pre>
+                            </div>
+                            <p>
+                                We can use the syntax <code>[<span class="m">-1</span>]</code> to get the 
+                                last list item
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code online">
+soup.find_all('h1')[<span class="m">-1</span>]
+                                </pre>
+                            </div>
+                            
+
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-05.png">
+                        </div>
+                    </div>
+                    <!-- 02-06 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>06</h4>
+                            <p>
+                                but ('h1')[2] but it not visible on the page
+                            </p>
+                            <p>
+                                Get just the text with <code><span class="mdblue">text</span>.<span class="mdblue">strip</span>()</code>.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+soup.find_all('h1')[-1].<span class="mdblue">text</span>.<span class="mdblue">strip</span>()
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-06.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 3 - Loop through clinic ids in url -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 3 - Loop through clinic ids in url</h3></a>
+                <div class="steps-container ">
+                    <!-- 03-00 -->
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt w-80">
+                            <h4>0</h4>
+                            <p>
+                                Url       
+                            </p>
+                            <div class="code-container ">
+                                <pre tabindex="1" class="copy-code online">
+https://12693.portal.athenahealth.com/</pre>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- 03-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Put the name into a variable like, <code>clinic_name</code>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+url = 'https://12693.portal.athenahealth.com/'
+response = requests.get(url)
+html = response.text
+soup = BeautifulSoup(html,'html.parser')
+clinic_name = soup.find_all('h1')[-1].text.strip()</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-01.png">
+                        </div>
+                    </div>
+                    <!-- 03-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Create a function to loop the clinic_ids in the url so we can get each name from each page
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+def get_clinic_name(clinic_id):
+    url = f'https://{clinic_id}.portal.athenahealth.com/'
+    response = requests.get(url)
+    html = response.text
+    soup = BeautifulSoup(html,'html.parser')
+    clinic_name = soup.find_all('h1').text.strip()
+    return clinic_name
+get_clinic_name(12693)</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-02.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 4 - find maximum id number -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 4 - find maximum id number</h3></a>
+                <div class="steps-container ">
+                    <!-- 04-00 -->
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt w-80">
+                            <h4>0</h4>
+                            <p>
+                                Url
+                            </p>
+                            <div class="code-container ">
+                                <pre tabindex="1" class="copy-code online">
+                                    https://12693.portal.athenahealth.com/</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 04-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Enter numbers in url to find min and max, here is around, not sure what is 
+                                maybe like 15000??
+                                <span class="r">We'll be using that message to filter result to excel cells</span>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/04-01.png">
+                        </div>
+                    </div>
+                    <!-- 04-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                For just loop though a section with the following code
+                                make sure to add <span class="r">1</span> at the end.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+start = 12690
+end = 12700
+for i in range(start,end + span.<span class="r">1</span>):
+    print(i)</pre>
+                            </div>            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/04-02.png">
+                        </div>
+                    </div>
+                    <!-- 04-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt playVid-click">
+                            <h4>03</h4>
+                            <p>
+                                Fill a list with dictionaries with the ids and the names using the loop with
+                                Pass <code class="m">clinic_id</code>. Pass into <span class="mdblue">get_clinic_name</span>
+                            </p>
+                            <p>
+                                When you run it, it will display 1 at a time
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+main_list = []
+
+for <span class="m">clinic_id</span> in range(start,end + 1):
+    data_dict = {}
+    data_dict['clinic_id'] = clinic_id
+    data_dict['name'] = <span class="mdblue">get_clinic_name</span>(<span class="m">clinic_id</span>)
+    main_list.append(data_dict)
+    print(data_dict)</pre>
+                            </div>
+                        
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/04-03.mov">
+                        </div>
+                    </div>
+                    <!-- 04-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>04</h4>
+                            <p>
+                                We can see here the 'Sorry ' messages and 'Payment Confirmation', use these types 
+                                of values to filter into the spreadsheet
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/04-04.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 5 - import pandas and insert data to spreadsheet -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 5 - import pandas and insert data to spreadsheet (.csv)</h3></a>
+                <div class="steps-container">
+                    <!-- 05-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Import pandas, standard var name is <q class="m">pd</q>, insert <code class="gr">main_list</code>
+                                into the panda <code class="m">pd</code> method <code class="mdblue">DataFrame</code>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import pandas as <span class="m">pd</span>
+df = <span class="m">pd</span>.<span class="mdblue">DataFrame</span>(<span class="gr">main_list</span>)
+df</pre>
+                            </div>
+                            <p>
+                                We now have a row column format
+                            </p>                          
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-01.png">
+                        </div>
+                    </div>
+                    <!-- 05-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Use the <code class="mdblue">to_csv</code> method on the <code>df</code>
+                                variable, this will write the file to same directory as the script
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+import pandas as pd
+df = pd.DataFrame(main_list)
+df.to_csv('clinic_data.csv',index=False)</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/05-02.png">
+                        </div>
+                    </div>
+                    <!-- 05-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                              Filter out "Payment' and 'Sorry Messages'  
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+main_list = []
+start = 12690
+end = 12700
+for clinic_id in range(start,end+1):
+    data_dict = {}
+    data_dict['clinic_id'] = clinic_id
+    data_dict['name'] = get_clinic_name(clinic_id)
+    if data_dict['name'] != 'Payment Confirmation' and data_dict['name'] != "Sorry, we can't find that practice. Make sure you typed the right address.":
+        main_list.append(data_dict)
+
+import pandas as pd
+df = pd.DataFrame(main_list)
+df.to_csv('clinic_data.csv',index=False)</pre>
+                            
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                </div>
+                <!-- Part 6 Full Script -->
+                <div class="part">
+                    <a  href="#" class="dropPart"><h3>Part 6 - fullScript</h3></a>
+                    <div class="steps-container show">
+                        <div class="step">
+                            <div tabindex="1" class="step-txt">
+                                <h4>0</h4>
+                                <div class="code-container">
+                                    <pre id="fullScript" tabindex="1" class="copy-code">
+import requests
+from bs4 import BeautifulSoup
+
+def get_clinic_name(clinic_id):
+    url = f'https://{clinic_id}.portal.athenahealth.com/'
+    response = requests.get(url)
+    html = response.text
+    soup = BeautifulSoup(html,'html.parser')
+    clinic_name = soup.find_all('h1')[-1].text.strip()
+    return clinic_name
+
+
+main_list = []
+start = 12690
+end = 12700
+for clinic_id in range(start,end+1):
+    data_dict = {}
+    data_dict['clinic_id'] = clinic_id
+    data_dict['name'] = get_clinic_name(clinic_id)
+    if data_dict['name'] != 'Payment Confirmation' and data_dict['name'] != "Sorry, we can't find that practice. Make sure you typed the right address.":
+        main_list.append(data_dict)
+
+import pandas as pd
+df = pd.DataFrame(main_list)
+df.to_csv('clinic_data.csv',index=False)
+                                    </pre>
+                                </div>
+                                
+                            </div>
+                            <div class="step-img">
+                                <!-- <img src="imagesVideos/"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>03-02 <code>find</code> <code>['link']</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                find the link within the job container
+                on <a target="_blank" href="https://remoteok.com/">https://remoteok.com/</a>
+                <code>&lt;td class="source"</code> &rarr; <code>&lt;a></code> tag, but notice 
+                the url in <code class="m">href</code> is only the end of the url.
+            </p>
+        </div>
+        <div class="step-img">
+            <!-- <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-02-findLink/images/01-01.png"> -->
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-02-findLink/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <p>
+                Add the url https://remoteok.com/ to the beggining of the url and create a key in the job {}
+                for <code class="gr">['link']</code>. Make sure to use <code class="m">[]</code> bracket notation to get the 
+                the <code class="m">['href']</code> attribute of the <code>&lt;a></code> tag.
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code mdcode">
+from bs4 import BeautifulSoup
+import requests
+url = 'https://remoteok.com/'
+req = requests.get(url,headers={'User-Agent':'Moziila/5.0'})
+soup = BeautifulSoup(req.text,'html.parser')
+jobs=[]
+for tr in soup.find_all('tr','job'):
+    job = {}
+    job['roll'] = tr.find('td','company').a.h2.text.strip()
+    job['company'] = tr.find('span','companyLink').h3.text.strip()
+    tags = []
+    for tag in tr.find_all('div','tag'):
+        tags.append(tag.text.replace('\n','').strip())
+    job['tags'] = tags
+
+    job<span class="gr">['link']</span> = 'https://remoteok.com/' + tr.find('td','source').a<span class="m">['href']</span>
+    print(job['roll'])
+    print(job['company'])
+    print(job['tags'])
+    print(job['link'])
+    break</pre>
+                
+            </div>
+  
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge"
+            src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-02-findLink/images/01-02.png">
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                Some of the jobs post do not have a link, so your code will fail somtimes, add a conditional to check if link exist, 
+                and put everything inside it
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+url = 'https://remoteok.com/'
+req = requests.get(url,headers={'User-Agent':'Moziila/5.0'})
+soup = BeautifulSoup(req.text,'html.parser')
+jobs=[]
+for tr in soup.find_all('tr','job'):
+    <span class="m">if tr.find('td','source').a['href']:</span>
+        job = {}
+        job['roll'] = tr.find('td','company').a.h2.text.strip()
+        job['company'] = tr.find('span','companyLink').h3.text.strip()
+        tags = []
+        for tag in tr.find_all('div','tag'):
+            tags.append(tag.text.replace('\n','').strip())
+        job['tags'] = tags
+
+        job['link'] = 'https://remoteok.com/' + tr.find('td','source').a['href']
+        print(job['roll'])
+        print(job['company'])
+        print(job['tags'])
+        print(job['link'])
+        break
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-02-findLink/images/01-03.png">
+        </div>
+    </div>
+</div>
+

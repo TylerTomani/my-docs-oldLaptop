@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-WebScrape-BeautifulSoupCrashCourse</title>
+    <link rel="stylesheet" href="../../../../../../css/copy-code.css">
+    <link rel="stylesheet" href="../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../css/chatGpt-questions-temp.css" />
+    <link rel="stylesheet" href="css/sideBar-header-temp.css">
+    <link rel="stylesheet" href="css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="css/index-header.css">
+    <link rel="stylesheet" href="css/sideBar-temp.css">
+    <link rel="stylesheet" href="css/lesson-temp.css">
+    
+    <script type="module" src="../../.././../../js/chatGpt-drop-topics.js" defer></script>
+    <script type="module" src="js/toggleBars.js" dfefer></script>
+    <script type="module" src="js/sectionFocusLessonLoad.js" defer></script>
+    <script type="module" src="js/partStepFocus.js" defer></script>
+</head>
+<body>
+    <header>
+        <a tabindex="1" href="../freeCodeCamp-dataScraping.htm" id="homelink">home freeCodeCamp</a>
+        <div class="page-title">
+            <h1>1. Web Scraping with Python - Beautiful Soup Crash Course</h1>
+            <h2 class="r smtxt">Make this work, apply same format to <a tabindex="1" target="_blank" href="../../../../../khanAcademy/khanAcademy.htm">Khan Academy</a>
+                subjects: Statistics, machine learning, electricalEnginering ...
+            </h2>
+        </div>
+        <div class="page-logo">
+            <a tabindex="1" id="documentationLink" id="mainHomeLink" href="../../../../../index.html">Documentation Home</a>
+            <img src="data:image/jpeg;base64,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">
+            <a tabindex="1" target="_blank" id="tutorialLink" href="https://www.youtube.com/watch?v=XVv6mJpFOb0">tutorial</a>
+        </div>
+    </header>
+    <main class="main">
+        <nav tabindex="1" id="navMain" class="nav-main">
+            <p>
+                <span id="displayCurrentSection">Section</span>&rarr;
+                <span id="displayCurrentLesson"></span>
+            </p>
+        </nav>
+        <div class="main-container">
+            <aside tabindex="1" id="asideMain" class="aside-main">
+                <!-- Section 1 - Scrape Basic Html with <code>open()</code> -->
+                <section class="section">
+                    <a tabindex="1" id="section01" href="sections/01-basicHtmlScrapeOpen/01-basicHtmlScrapeOpen.htm" class="dropSection">
+                        <h4>Section 1 - Scrape Basic Html with <code>open()</code></h4>
+                    </a>
+                    <ul class="">
+                        <li><a href="sections/01-basicHtmlScrapeOpen/01-01-downloadHomeHtml/01-01-downloadHomeHtml.htm">1. download <code>home.html</code></a></li>
+                        <li><a href="sections/01-basicHtmlScrapeOpen/01-02-pipInstallMods/01-02-pipInstallMods.htm">2. <code>pip install bs4 and lxml</code>, start script  </a></li>
+                        <li><a   href="sections/01-basicHtmlScrapeOpen/01-03-findMethod-Bs4/01-03-findMethod-Bs4.htm">3. <code>find()</code> and <code>find_all()</code> bs4  </a></li>
+                        <li><a  href="sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/01-04-findWithElAndClass.htm">4. <code>find </code> by <code>'div': class_</code></a></li>
+                    </ul>
+                </section>
+                <!-- Section 2 - scrape timesjobs.com part 1-->
+                <section class="section">
+                    <a tabindex="1" href="sections/02-scrapeTimeJobs/02-scrapeTimeJobs.htm" class="dropSection">
+                        <h4>Section 2 - scrape timesjobs.com part 1</span></h4>
+                    </a>
+                    <ul class="">
+                        <li><a href="sections/02-scrapeTimeJobs/02-01-importRequest/02-01-importRequest.htm">1. Import <code>requests</code>
+                            <br>
+                            <span class="mdtxt"><code>jobs = soup.find('li',class_=)</code></a>
+                        </li>
+                        <li><a href="sections/02-scrapeTimeJobs/02-02-findAllJobs/02-02-findAllJobs.htm">2. find_all jobs</code>
+                            <br>
+                            <span class="mdtxt"><code>jobs = soup.find_all('li',class_=)</code></a>
+                        </li>
+                        <li><a  href="sections/02-scrapeTimeJobs/02-03-ifFewInDate/02-03-ifFewInDate.htm">3. <code>if data_published</code> condition
+                            <br>
+                            <span class="mdtxt"><code>if 'few' in data_published</code></a>
+                        </li>
+                        
+                    </ul>
+                </section>
+                <!-- Section 3 -->
+                <section class="section">
+                    <a tabindex="1" href="sections/03-scrapeTimeJobs-Pt2/03-scrapeTimeJobs-Pt2.htm" class="dropSection">
+                        <h4>Section 3 - scrape timesjobs.com part 2</h4>
+                    </a>
+                    <ul class="">
+                        <li><a href="sections/03-scrapeTimeJobs-Pt2/03-01-splitRmvWhitespace/03-01-splitRmvWhitespace.htm">1. use <code class="dc">strip()</code> remove extra white space</a></li>
+                        <li><a href="sections/03-scrapeTimeJobs-Pt2/03-02-inputFilterSkill/03-02-inputFilterSkill.htm">2. <code>filtered_skill = input('>')</code></a></li>
+                        <li><a href="sections/03-scrapeTimeJobs-Pt2/03-03-importTimeRun10mins/03-03-importTimeRun10mins.htm">3. <code>import time</code> run every 10 mins</a></li>
+                        <li><a href="sections/03-scrapeTimeJobs-Pt2/03-04-writeAndEnumerate/03-04-writeAndEnumerate.htm">4. write to file name with <code class="dc">enumerate()</code></a></li>
+                                                <ul>
+                                                    <li><a href="sections/02/02-02-01/02-02-01.htm">sub-section-lesson</a></li>
+                                                    <li><a href="sections/02/02-02/02-02-02/02-02-02.htm">sub-section-lesson</a></li>
+                                                    <li><a href="sections/02/02-02/02-02-03/02-02-03.htm"> sub-section-lesson</a></li>
+                                                </ul>
+                                            </li> -->
+                    </ul>
+                </section>
+            </aside>
+             <div tabindex="1" id="mainTargetDivContainer" id="" class="target-div-container">
+                
+                <div class="step-col">
+                    <div tabindex="1" class="step-txt">
+       
+                        <h1>2. Data Analysis with Python for Excel Users - Full Course</h1>
+                    </div>
+                    <div class="step-img">
+                        <img src="01-webScrapeBeautifulSoup.png" alt="placeholder image">
+                    </div>
+                </div>
+
+    
+            </div>
+        </div>
+    </main>
+
+    
+</body>
+</html>

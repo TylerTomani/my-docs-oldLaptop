@@ -1,0 +1,11 @@
+.step {
+    display: flex;
+    width: 100%;
+    /* border: 2px solid magenta; */
+    justify-content: space-evenly;
+}
+
+img {
+    max-height: 120px;
+
+}

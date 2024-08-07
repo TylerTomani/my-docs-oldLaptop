@@ -21,9 +21,9 @@ let iSection = 0
 mainAside.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if ((letter == 's' || letter == 'a') && currentLink){
-        currentSelection.focus()
+        // currentSelection.focus()
     } else if(letter == 's' ){
-        sections[0].focus()
+        // sections[0].focus()
     }
     
     
@@ -73,21 +73,13 @@ export function getSubSection(parent){
         }
     }
 }
-
-
 function sectionsFocus(letter){   
     if(letter == 's'){
-        if(iSection < sections.length){
-            sections[iSection].focus()
-            iSection++
-        } else if(iSection >= sections.length){           
-            iSection = 0
-            sections[iSection].focus()
-        }
-    }   
-    if(!isNaN(letter)){
-        let intLetter = parseInt(letter)
-        sections[intLetter - 1].focus()
+        // sections[iSection].focus()
+        sections[iSection].focus()
+        console.log(iSection)
+        iSection = (iSection + 1 ) % sections.length
+        console.log(sections[iSection])
     }   
 }
 function lessonsFocus(e,letter){
@@ -119,12 +111,13 @@ sections.forEach(el =>{
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        fetchPage(e.target.href)
         currentSelection = e.target
         currentLink = currentSelection.href
-        if(iSection == [...sections].indexOf(e.target)){
-            iSection++       
-        }
+        // if(iSection == [...sections].indexOf(e.target)){
+        //     iSection++       
+        // }
+        fetchPage(e.target.href)
+        toggleSection(e)
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
@@ -132,10 +125,11 @@ sections.forEach(el =>{
             fetchPage(e.target.href)
             currentSelection = e.target
             currentLink = currentSelection.href
+            toggleSection(e)
         }
-        if(iSection == [...sections].indexOf(e.target)){
-            iSection++       
-        }
+        // if(iSection == [...sections].indexOf(e.target)){
+        //     iSection++       
+        // }
     })
     el.addEventListener('focus', e => {
         iSection = [...sections].indexOf(e.target)  
@@ -145,19 +139,14 @@ sections.forEach(el =>{
 })
 sections.forEach(el => {
     
-    el.addEventListener('click', e => {
-        // e.preventDefault()
-        // e.stopPropagation()
-        // toggleSection(e)
-        // fetchPage(e.target.href)
-    })
+    
     el.addEventListener('keydown', e => {
         let key = e.keyCode
         // e.preventDefault()
         // e.stopPropagation()
         if(key == 13){
             fetchPage(e.target.href)
-            toggleSection(e)
+            
         }
     })
 })

@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>02-03 - <code class="dc">BeautifulSoup</code>  methods() Part 2</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                You can use open to read a html file and place it into a soup object,
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code online">
+from bs4 import BeautifulSoup
+with open('example-html.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content, 'html.parser')
+
+print(soup)</pre>
+            </div>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge"
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-02-methods/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <p>
+                Get text with <code class="gr">.text</code> and attributes with <code class="m">['&lt;attrbName>']</code>, 
+                like <code class="m">['href']</code>
+                square brackets
+            </p>
+            <p>
+                Use whatever methods to get the text you want, and, you can specify classes in the 2nd argument
+                of soup.<code><span class="dc">find(</span>'a', '&lt;<span class="dc">classname</span>>')</code>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('example-html.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content, 'html.parser')
+
+title = soup.title
+print(title)
+title = soup.title.<span class="gr">text</span>
+print(title)
+a_link1 = soup.find('a','<span class="c">sister</span> ')
+print(a_link1)
+link = a_link1<span class="m">['href']</span>
+print(link)
+</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-03-methodsPt2/images/01-02.png">
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <h5><code class="dc">.select</code></h5>
+            <p>
+                Allows you to use css selectors
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('example-html.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content, 'html.parser')
+# print(soup)
+
+story_as = soup.<span class="c">select</span>('body > p > a.sister')
+for a in story_as:
+    print(a)    </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+<img
+    src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-03-methodsPt2/images/01-03.png">
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,76 @@
+    <h1>Section 04-04- remove dict elements </h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - dictionaries -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - <code>pop()</code>, <strong><code>del</code></strong>, <code>clear()</code> </a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-01-pop() -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01-pop()</h4>
+                        <p>
+                            We can use <strong><code>pop()</code></strong>, and insert the <code>key</code> we want to remove as it's argument.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+my_dict = { 'name':'Tito', 'age': 34, 'height': 5.11}
+popped_key = my_dict.pop('name')
+print(popped_key)
+print(my_dict)</pre>
+                        </div>
+                        <p class="mdtxt r">
+                            Remember, pop can also return the popped element
+                        </p>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/04-dictionaries/04-04-rmv-dict-elements/images/01-01.png">
+                    </div>
+                </div>
+                <!-- 01-02-del -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02 <strong><code>del</code></strong></h4>
+                        <p>
+                            We can use the <strong><code>del</code></strong> keyword followed by the dict with the key we wish to delete.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+my_dict = { 'name':'Tito', 'age': 34, 'height': 5.11}
+del my_dict['age']
+print(my_dict)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/04-dictionaries/04-04-rmv-dict-elements/images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03-clear() -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03-clear()</h4>
+                        <p>
+                            Use <code>clear()</code> to empty a dict
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+my_dict = { 'name':'Tito', 'age': 34, 'height': 5.11}
+my_dict.<strong>clear()</strong>
+print(my_dict)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/04-dictionaries/04-04-rmv-dict-elements/images/01-03.png">
+                    </div>
+                </div>               
+            </div>
+        </div>
+    </div>
+</main>
+

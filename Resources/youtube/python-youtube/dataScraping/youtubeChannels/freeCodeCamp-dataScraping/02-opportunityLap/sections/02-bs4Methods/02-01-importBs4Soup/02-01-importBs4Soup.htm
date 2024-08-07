@@ -1,0 +1,71 @@
+<h1>02-01 - <code>import BeautifulSoup4</code> & <code>soup</code> class</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->    
+    <div class="step">
+        <div tabindex="1" class="step-txt w-50">
+            <h4>01</h4>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+pip install BeautifulSoup4</pre>
+            </div>
+            <p>
+                into or venv or wherever
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+python -m venv venv</pre>
+            </div>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+source ./venv/bin/activate</pre>
+            </div>
+            
+            
+        </div>
+        <div class="step-img">
+        <img class="lg-enlarge"
+            src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-01-importBs4Soup/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup</pre>
+            </div>
+            <p>
+                Create a <code class="m">soup</code> object and insert the 
+                html by putting into a variable, and using <span class="gr">'html.parser'</span>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+html = ''' 
+&lt;html>&lt;head>&lt;title>The Doormouse's story&lt/title>&lt;/head>
+&lt;body>
+&lt;p class="story">Once upon a time there were three little sisters; and their names
+were
+&lt;a href="https://example.com/elsie class="sister" id="link1">elsie&lt;/a>
+&lt;a href="https://example.com/lacie class="sister" id="link1">lacie&lt;/a> and
+&lt;a href="https://example.com/tillie class="sister" id="link1">tillie&lt;/a>
+and theey lived in a wall &lt;/p>
+&lt;/body>
+&lt;/html>
+'''
+<span class="m">soup</span> = <span class="lc">BeautifulSoup(html, <span class="gr">'html.parser'</span>) 
+print(soup)
+</pre>
+            </div>
+            <p>
+                We can now use the soup to query the html.
+            </p>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-01-importBs4Soup/images/01-02.png">
+        </div>
+    </div>
+
+</div>
+

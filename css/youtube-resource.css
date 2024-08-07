@@ -6,8 +6,10 @@
 /* h2:focus,h2:active{
     box-shadow: 0 0 4px 4px lightseagreen;
 } */
-header { display: flex;
-         justify-content: space-between;}
+header {
+     display: flex;
+         justify-content: space-between;
+        }
 main {   border: 2px solid lightseagreen ;
          margin: 0 1.5%;
          padding: 0 5%;

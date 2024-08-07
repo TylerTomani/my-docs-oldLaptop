@@ -1,0 +1,194 @@
+<h1>02-01 - Import <code>requests</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->    
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>01</h4>
+            <p>
+                Go to <a target="_blank" href="https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation="
+                >timesjobs.com</a> and type in python to search for python jobs
+            </p>
+        </div>
+        <div class="step-vid">
+            <video src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-01.mov">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <p>
+                pip install <code>BeautifulSoup4</code> and <code>requests</code> into a venv or default bin. Then paste the 
+                url from the python jobs page from above into <code><span class="m">request</span>.<span class="gr">get</span>()</code>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+html = <span class="m">requests</span>.<span class="gr">get</span>('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+print(html_text)
+                </pre>
+            </div>
+            <p>
+                We now have the html from the entire first page of results
+            </p>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-02.png">
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>03</h4>
+            <p>
+                Inspect the page and find the container containing the job post. On this page, the jobs are contained within 
+                a <code>&lt;li></code> element with the class <code>'clearfix job-bx wht-shd-bx'</code>
+            </p>
+        </div>
+        <div class="step-vid">
+            <video src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-03.mov">
+        </div>
+    </div>
+    <!-- 01-04 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>04</h4>
+            <p>
+                For now use <code class="m">find()</code> to get the first instance of the <code>&lt;li></code> element with the class of 
+                <code><strong><q>clearfix job-bx wht-shd-bx</q></strong></code>
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+html =
+requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_txt,'html.parser')
+job = soup.<span class="m">find</span>('li',class_='clearfix job-bx wht-shd-bx')
+print(job)
+</pre>
+            </div>
+            
+            <p>
+                We can see in the first instance of the job container the 
+            </p>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-04.png">
+        </div>
+    </div>
+    <!-- 01-05 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt playVid-click">
+            <h4>05</h4>
+            <p>
+                Inspect and find
+                each element and its class for the name, skill sets, and data published. Their classes are,
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+joblist-comp-name
+srp-skills
+sim-posted
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-vid">
+            <video src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-05.mov">
+        </div>
+    </div>
+    <!-- 01-06 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>06</h4>
+            <p>
+                extract the name, skill sets, and data published from the <code class="gr">job</code> variable.
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import request 
+html = request.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+job = soup.find('li', class_='clearfix job-bx wht-shd-bx')
+company_name = <span class="gr">job</span>.find('h3',class_='joblist-comp-name')
+skills = <span class="gr">job</span>.find('span',class_='srp-skills')
+data_published = <span class="gr">job</span>.find('span',class_='sim-posted')
+print(company_name)
+print(skills)
+print(data_published)</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-06.png">
+        </div>
+    </div>
+    <!-- 01-07 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>07</h4>
+            <p>
+                Alter the varialbes to get just the text and remove any white space
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup    
+import requests
+html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+job = soup.find('li', class_='clearfix job-bx wht-shd-bx')
+company_name = job.find('h3',class_='joblist-comp-name').text
+print(company_name)
+skills = job.find('span',class_='srp-skills').split().replace(' ','')
+print(company_name)
+date_published = job.find('span',class_='sim-posted')
+print(date_published)
+
+                </pre>
+            </div>
+            <p class="lgtxt r">
+                Notice that the data_published has a span within the span containing the date
+            </p>
+        </div>
+        <div class="step-img">
+            <img
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-01-importRequest/images/01-07.png">
+        </div>
+    </div>
+    <!-- 01-08 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>08</h4>
+            <p>
+                Use the <code class="xlgtxt m">.</code> notation to access a child element within the element
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+html =
+requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+job = soup.find('li',class_='clearfix job-bx wht-shd-bx')
+company_name = job.find('h3',class_=class_='joblist-comp-name').text
+skills = job.find('span',class_="srp-skills").text.replace(' ','')
+data_published = job.find('span',class_='sim-posted')<span class="xlgtxt m">.</span>span.text</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/">
+        </div>
+    </div>
+    
+</div>
+

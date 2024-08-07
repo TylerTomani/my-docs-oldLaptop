@@ -1,0 +1,84 @@
+<h1>Section 03-06- join & nest<code>list[]</code></h1> 
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - variables -->
+        <div class="part">
+            <h3><a id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - The <code class="lgtxt">+</code> symbol join <code>list[]</code></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-01- -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01 <code>append()</code></h4>
+                        <p>
+                            Use the Addition sign to combine list
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+countries = ['USA','India','China','Brazil']
+countries_2 = ['Italy','Cuba','Germany','Greece']
+print(countries + countries_2)</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/03-variablesAndList/03-06-joinAndNestList/images/01-01.png">
+                    </div>
+                </div>
+           </div>
+        </div>
+    <div class="parts-container">
+        <!-- Part 2 - variables -->
+        <div class="part">
+            <h3><a  tabindex="1" href="#" class="dropPart">
+                Part 2 - Nest list <code>nested_list = [countries, countries_2]</code></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 02-01- -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01 <code>append()</code></h4>
+                        <p>
+                            Assign the list as values to another list
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+countries = ['USA','India','China','Brazil']
+countries_2 = ['Italy','Cuba','Germany','Greece']
+nested_list = [countries,countries_2]
+print(nested_list)</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/03-variablesAndList/03-06-joinAndNestList/images/02-01.png">
+                    </div>
+                </div>
+                <!-- 02-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <p>
+                            You can also <code>append()</code> a list to a variable, <span class="r">The empty </span> <code>nested_list = []</code> <span class="r">
+                                ensures that the countries don't keep being added everytime the cell runs.
+                            </span>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+nested_list = []
+countries = ['USA','India','China','Brazil']
+countries_2 = ['Italy','Cuba','Germany','Greece']
+nested_list.append(countries_2)
+nested_list.append(countries)
+print(nested_list)</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img  src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/03-variablesAndList/03-06-joinAndNestList/images/02-02.png">
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div>
+</main>
+

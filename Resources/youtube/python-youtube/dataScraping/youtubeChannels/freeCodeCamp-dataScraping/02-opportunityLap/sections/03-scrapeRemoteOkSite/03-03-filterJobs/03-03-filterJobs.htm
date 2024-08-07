@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>03-05 <code>find</code> <code>['link']</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                Like in <a target="_blank" href="../../../../01-webScrapeBeautifulSoup/01-webScrapeBeautifulSoup.htm">01-webScrapeBeautifulSoup</a>
+                add a filter condition
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://remoteok.com/'
+req = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+soup = BeautifulSoup(req.text, 'html.parser')
+jobs = []
+filtered_skills = [skill.strip() for skill in input('>').split(',')]
+
+for tr in soup.find_all('tr', 'job'):
+    if tr.find('td', 'source').a['href']:
+        job = {}
+        job['role'] = tr.find('td', 'company').a.h2.text.strip()
+        job['company'] = tr.find('span', 'companyLink').h3.text.strip()
+        job['tags'] = []
+        for tag in tr.find_all('div', 'tag'):
+            job['tags'].append(tag.text.replace('\n', '').strip())
+        job['link'] = 'https://remoteok.com/' + tr.find('td', 'source').a['href']
+        jobs.append(job)
+
+for job in jobs:
+    skill_found = False
+    for tag in job['tags']:
+        if any(skill.lower() in tag.lower() for skill in filtered_skills):
+            skill_found = True
+            break
+
+    if not skill_found:
+        print('Job without filtered skills:')
+        print(job)
+        print('\n')
+
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="xlg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/03-scrapeRemoteOkSite/03-03-filterJobs/images/01-01.png">
+        </div>
+    </div>
+</div>
+

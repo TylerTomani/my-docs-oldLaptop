@@ -1,0 +1,91 @@
+<h1>01-04 - <code>find()</code> with <code>{'div': class_}</code></h1>
+<div class="steps-container show">
+    <!-- 01-01 -->    
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                The Course title, description, and price are all contained within the <code>&lt;div></code> with
+                a class of <strong><q>card</q></strong>. We can select the <strong><q>card</q></strong> elements then
+                search query the card for title,description, and price
+            </p>
+            <p>
+                In <code>find_all</code> add a 1st argument of the element, then a 2nd arguemnet of the selector
+            </p>
+            <p class="r lgtxt">
+                make sure you use <strong><code class="m">class_</code></strong> with a underscore
+            </p>
+            <p>
+                class is a keyword in python
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+
+with open('home.htm', 'r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,'html.parser')
+    course_cards = soup.find_all('div', <span class="m">class_</span>='card')
+    for card in course_cards:
+        print(card.h5.text)
+        print(card.a.text)</pre>
+            </div>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <p>
+                Use <code class="m">split</code> and <code class="gr lgtxt">[-1]</code> index to get the last element, price.
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,'html.parser')
+    course_cards = soup.find_all('div',class_='card')
+    for card in course_cards:
+        print(card.h5.text)
+        print(card.a.text.<span class="m">split</span>()<span class="gr">[-1]</span>)</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/images/01-02.png">
+        </div>
+    </div>
+    <!-- 01-03 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <p>
+                Finish this example by printing assigning the elements to variables and print a sentence
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+with open('home.htm','r') as f:
+    content = f.read()
+    soup = BeautifulSoup(content,'html.parser')
+    course_cards = soup.find_all('div',class_='card')
+    for card in course_cards:
+        course_title = card.h5.text
+        course_price = card.a.text.split()[-1]
+        print(f'{course_title} cost {course_price}')</pre>
+            </div>
+            
+
+        </div>
+        <div class="step-img">
+            <img
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/01-basicHtmlScrapeOpen/01-04-findWithElAndClass/images/01-03.png">
+        </div>
+    </div>
+    
+</div>
+

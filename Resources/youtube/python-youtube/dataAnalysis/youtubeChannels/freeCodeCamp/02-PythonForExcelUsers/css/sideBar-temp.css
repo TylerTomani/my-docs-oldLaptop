@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --asideMaxWith: 15vw;
+}
+#homelink:active,#homelink:focus,
+#navMain:active,#navMain:focus,
+#targetDivContainer:active {
+    box-shadow: 2px 0 8px 6px orange;
+}
+.addOrangeBoxShadowAside{
+    box-shadow: 0 0 4px 4px orange
+}
+
+#mainTargetDivContainer:active,
+#mainTargetDivContainer:focus {
+    box-shadow: 2px 0 8px 6px orange;
+}
+
+#main > #navMain{
+    padding: .25% 1%;
+    border-bottom: 1px solid black;
+    /* background-color: blue; */
+}
+#main > #navMain > p {
+    text-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+}
+#main > #navMain > p {
+    text-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+}
+#main > #mainContainer{
+    display: flex;
+}
+#main > #mainContainer > #asideMain {
+    border-right: 2px dashed red;
+    width: 20%;
+}
+
+
+#asideMain > .section {
+    /* margin: 5%; */
+    margin: 7.5% 0;
+    margin-left: 10%;
+}
+#asideMain > .section > ul {
+    margin-top: 2.5%;
+    margin-left: 10%;
+    margin-bottom: 0;
+}
+#asideMain > .section > ul > li{
+    margin: 5% 0;
+    /* margin-left: 10%; */
+}
+#asideMain > .section > ul > li > ul{
+    margin: 4% 0 ;
+    margin-left: 25%;
+}
+
+.hide {display: none;}
+.show {display: inline-block;}
+.hide-aside {
+    width: 0 !important;
+    opacity: 0;
+    transition: width 350ms;
+}
+.show-aside {
+    width: var(--asideMaxWith);
+    opacity: 1;
+    transition: all 500ms;
+}
+
+#main>#mainContainer>#mainTargetDivContainer {
+    width: 100%;
+    height: 100vmax;
+}
+@media screen and (max-width:900px) {
+    .aside-main section  {
+        font-size: 80% !important;
+    }
+    .aside-main > section > ul   {
+        font-size: 90% !important;
+    }
+    
+}

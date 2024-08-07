@@ -1,0 +1,74 @@
+    <h1>Section 10-07- use <code>value_count()</code> to count values in rows</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 -  -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - <code>.value_counts()</code> method</a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-00 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>00</h4>
+                        <p>
+                            Current csv file
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code ">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.head())</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-05-mathOperationsDataFrame/images/01-00.png">
+                    </div>
+                </div>
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <h5><code>value_count()</code></h5>
+                        <p>
+                            We can use <code>value_count()</code> to get the number of occurances for a value in a column.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code ">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams['gender'].value_counts())
+df_exams['gender'].value_counts(normalize=True)
+</pre>
+                        </div>
+                        <p>
+                            Add the <span class="b">normalize=True</span> parameter  to get the percentage
+                        </p>
+                    </div>
+                    <div class="step-img">
+                        <img 
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-07-value_countMethod/images/01-01.png">
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt playVid-click">
+                        <h4>02</h4>
+                        <p>
+                            pressing shift tab in a function or method shows the arguments for it, if no value is with it, the arugment is a must
+                        </p>
+                    </div>
+                    <div class="step-vid">
+<video
+    src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-07-value_countMethod/images/01-02.mov">
+                    </div>
+                </div>
+                
+                
+            </div>
+
+        </div>
+    </div>
+</main>
+

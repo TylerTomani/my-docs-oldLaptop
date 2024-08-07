@@ -1,0 +1,48 @@
+<h1>03-03 - <code>import time</code> run every 10 mins</h1>
+<div class="steps-container show">
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                import <code class="dc">time</code>, then
+                place the code dealing with extracting the data into a function <span class="m">get_jobs()</span>, then
+                at the bottom, place the function into a <code>if __name__</code>
+                function and run it every 2 seconds to demonstrate
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests 
+import <span class="c">time</span>
+print('enter skill to filter')
+filtered_skill = input('>')
+print('filtering skill ...')
+def get_jobs():
+    html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+    html_text = html.text
+    soup = BeautifulSoup(html_text,'html.parser')
+    jobs = soup.find_all('li',class_='clearfix job-bx wht-shd-bx')
+    for job in jobs:
+        date_published = job.find('span',class_='sim-posted').span.text
+        if 'few' in date_published:
+            company_name = job.find('h3',class_='joblist-comp-name').text.replace(' ','')
+            skills = job.find('span',class_='srp-skills').text.replace(' ','')
+            if filtered_skill not in skills:
+                print(f'company name: {company_name.strip()}')          
+                print(f'skills: {skills.strip()} \n')
+if __name__ == '__main__':
+    while True:
+        get_jobs()
+        time_wait= 1
+        time.sleep(time_wait * 60)
+        print(f'waiting {time_wait} minute not 10 mins')</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge" src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/03-scrapeTimeJobs-Pt2/03-03-importTimeRun10mins/images/01-01.png">
+        </div>
+    </div>
+
+</div>
+

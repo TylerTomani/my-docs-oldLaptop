@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>02-02 - <code class="dc">BeautifulSoup</code>  methods()</h1>
+<div class="steps-container show">
+    <!-- 01-01 -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            <p>
+                You can use open to read a html file and place it into a soup object,
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code online">
+from bs4 import BeautifulSoup
+with open('example-html.htm','r') as f:
+content = f.read()
+soup = BeautifulSoup(content, 'html.parser')
+
+print(soup)</pre>
+            </div>
+        </div>
+        <div class="step-img">
+            <img class="lg-enlarge"
+                src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-02-methods/images/01-01.png">
+        </div>
+    </div>
+    <!-- 01-02-find_all -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>02</h4>
+            <h5><code class="m">find_all</code></h5>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+a_links = soup.<span class="m">find_all</span>('a')
+print(a_links)</pre>
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+<img class="lg-enlarge"
+    src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-02-methods/images/01-02.png">
+        </div>
+    </div>
+    <!-- 01-03-find -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>03</h4>
+            <h5><code class="m">find</code></h5>
+            <p>
+                Will get only the first instance
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+a_link = soup.<span class="m">find</span>('a')
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-02-methods/images/01-03.png">
+        </div>
+    </div>
+    <!-- 01-04-tagnames -->
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>04</h4>
+            <h5><code>.&lt;tagname></code></h5>
+            <p>
+                Get element with <code class="lgcode">.</code> notation 
+            </p>
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+print(soup.title)</pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+<img
+    src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp-dataScraping/02-opportunityLap/sections/02-bs4Methods/02-02-methods/images/01-04.png">
+        </div>
+    </div>
+</div>
+

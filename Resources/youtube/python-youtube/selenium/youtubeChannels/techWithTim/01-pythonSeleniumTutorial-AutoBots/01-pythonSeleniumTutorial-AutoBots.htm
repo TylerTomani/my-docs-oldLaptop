@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-PythonSeleniumTutorial-AutomateWebsitesAndCreateBots</title>
+    <link rel="stylesheet" href="../../../../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../../../../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../../../../css/copy-code.css">
+    <script src="../../../../../js/letterFocus-tutorial.js" defer></script>
+    <script src="../../../../../../js/copy-code.js" defer></script>
+    <script src="../../../../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../../../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../../../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../../../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../../../../js/img-enlarge-v1.js" defer></script>
+    <script type="module" src="../../../../../js/addRemoveTabs-v1.js" defer></script>
+    
+    <script module src="../.././../../../js/chatGpt-drop-topics.js" defer></script>
+    <link rel="stylesheet" href="../../../../../css/chatGpt-questions.css" />
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" tabindex="1" href="../techWithTim.htm">(home)gmail-api-makeDataUseful</a>
+        </div>
+        <div class="title-container">
+            <h1>Tech With Time</h1>
+            <h2>Python Selenium Tutorial - Automate Websites and Create Bots</h2>
+        </div>
+        <div class="page-logo">
+            <img src="https://i.ytimg.com/vi/NB8OceGZGjA/maxresdefault.jpg">
+            <a id="tutorialLink" tabindex="1" target="_blank"
+                href="https://www.youtube.com/watch?v=NB8OceGZGjA">tutorial</a>
+        </div>
+    </header>
+    <main>
+        <div class="parts-container">
+            <!-- Part 1 - Job Example -->
+            <div class="part">
+                <a id="part01" tabindex="1" href="#" class="dropPart"><h3>Part 1 - Create New Project / pip install selenium </h3></a>
+                <div class="steps-container show">
+                    <!-- 01-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Create new project, open the directory in vs code,  install selenium with any of the below that work
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install selenium</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip3 install selenium</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+python3 -m  pip install selenium</pre>
+                            </div>                 
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-01.png">
+                        </div>
+                    </div>
+                    <!-- 01-02 -->
+                    <div class="step rbshadow">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p class="r"> 
+                                THIS WILL NOT WORK DON'T DO THIS
+                                <br>
+                                GO TO PART 2
+                            </p>
+                            <p>
+                                Start the script, we will put the path to the <span class="m">chromdriver</span>.exe as the argument to 
+                                <code class="gr">executable_path</code>. Get the driver in the next step
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+service = Service(executable_path="")
+driver = webdriver.Chrome(service=service)
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                    <!-- 01-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-vid playVid-click">
+                            <h4>03</h4>
+                            <p>
+                                Go to this site, 
+                                <br>
+                                <a target="_blank" href="https://sites.google.com/chromium.org/driver/">https://sites.google.com/chromium.org/driver/</a>
+                                <br>
+                                click on <span class="b">the Chrome for Testing availability dashboard</span>
+                            </p>
+                        </div>
+                        <div class="step-vid">
+                            <video src="imagesVideos/01-03.mov">
+                        </div>
+                    </div>
+                    <!-- 01-04 -->
+                    <div class="step-col">
+                        <div tabindex="1" class="step-txt xxmd-txt-p">
+                            <h4>04</h4>
+                            <p>
+                                Find the version of your chrome browser by going to <strong>about</strong>
+                                or enter this link into the url of chrome,
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+chrome://version/</pre>
+                            </div>
+                            <p>
+                                Click on the <code class="b">Stable</code> version of the driver closest before yours
+                            </p>
+                            <p>
+                                My current version is 121.0.6167.139, i chose the 122.0.6261.18 version which was stable and on below
+                            </p>
+                            <p>
+                                copy and paste the <strong>x64</strong> into a url to download, <strong>x64</strong>
+                                is for the <strong>'intel'</strong> chip
+                            </p>
+                        </div>
+                        <div class="img-2-container">
+                            <div class="step-vid">
+                                <video src="imagesVideos/01-04.mov"></video>
+                            </div>
+                            <div class="step-vid">
+                                <video src="imagesVideos/01-04b.mov">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 2 - chrome driver in script</h3></a>
+                <div class="steps-container">
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                The Chrome driver is working, currently located in usr/local/bin, just do the following and the script will run, as long as 
+                                all the right pip installs are correct
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
+
+import time
+
+# Initialize Chrome WebDriver
+driver = webdriver.Chrome()
+
+# Navigate to a webpage
+driver.get('https://www.google.com')
+# print(dir(webdriver.Chrome().find_elements()))
+search_bar = driver.find_element(By.CLASS_NAME,'gLFyf')
+search_bar.send_keys('Is this working')
+
+
+time.sleep(100)
+driver.quit()
+
+                                </pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-01.mov">
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Continuet with web scraping with the above code as the base 
+                                <a target="_blank" href="../../../../dataScraping/youtubeChannels/makeDataUseful/00-HowToMakeMoneyWithPython/03-HowToMakeMoney/03-HowToMakeMoney.htm">
+                                    03-HowToMakeMoney (make data useful)
+                                </a>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html>

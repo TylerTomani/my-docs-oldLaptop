@@ -1,0 +1,126 @@
+    <h1>Section 09-04- Functions()</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - dictionaries -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - <code>len()</code>, <code>max()</code>, <code>max(df.index)</code> <code>min()</code>, <code>round()</code></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-01- -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <h5><code>len()</code></h5>
+                        <p>
+                            The <code class="m">len()</code> function will return the number of rows
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(len(df_exams))</pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-04-functions/images/01-01.png">                            
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <h5><code>max()</code></h5>
+                        <p>
+                            Will return the the highest numerical or alphabetic value of a a column.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(max(df_exams))</pre>
+                        </div>           
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-04-functions/images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <h5><code>max(df.index)</code></h5>
+                        <p>
+                            Adding the <code class="m">.index</code> seen in <a target="_blank" href="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-02-attributes/09-02-attributes.htm"../09-02-attributes/09-02-attributes.htm">Section 9-2. Attribute</a> attribute to the DataFrame will give us the highest row value
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.index)
+print(max(df_exams.<span class="m">index</span>))</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-04-functions/images/01-03.png">                            
+                    </div>
+                </div>
+                <!-- 01-04 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>04</h4>
+                        <h5><code>min()</code></h5>
+                        <p>
+                            You can do the same with minimum as maximum
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.index)                                
+print(min(df_exams))                                
+print(min(df_exams.index))</pre>
+                        </div>
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-04-functions/images/01-04.png">
+                    </div>
+                </div>
+                <!-- 01-05 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>05</h4>
+                        <h5><code>round()</code></h5>
+                        <p>
+                            Use the <code class="m">round()</code> to round, the 2nd argument is the decimal place to round to,
+                        </p>
+                        <p class="r">
+                            This csv file only has ints, make a quick DataFrame with floats
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+float_nums = [3.1, 8.8882, 5.72, 9.9999999]
+my_dict = {'floatNumbers': float_nums}
+df = pd.DataFrame(my_dict)
+print(df)
+print(round(df, 2))</pre>
+                        </div>
+                        
+
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/09-pandas/09-04-functions/images/01-05.png">
+                    </div>
+                </div>
+
+
+                
+        </div>
+    </div>
+</main>
+

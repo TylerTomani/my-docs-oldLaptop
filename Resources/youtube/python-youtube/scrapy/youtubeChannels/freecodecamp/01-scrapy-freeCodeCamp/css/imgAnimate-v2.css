@@ -1,0 +1,76 @@
+.background-color {
+    background-color: blue !important;;
+}
+:root {
+    --img-scale: 1.9;
+}
+.animate {
+    position: relative;
+    margin-right: 50%;
+    transform: scale(3.05);
+    transition: all 1.3s;
+    z-index: 1;
+}
+.deanimate {
+    position: static;
+    margin-right: 0;
+    transform: scale(1);
+    transition: all 1.3s;
+    z-index: 0;
+}
+
+.sm-enlarged {
+    position: relative;
+    margin-right: 50%;
+    transform: scale(1.65) !important;
+    /* height: 140px !important; */
+    /* border: 20px solid blue; */
+    transition: all .3s !important;
+    z-index: 1;
+}
+.lg-enlarged{
+    position: relative;
+    margin-right: 50%;
+    transform: scale(2.5) !important;
+    transition: all .3s;
+    z-index: 1;
+}
+.xlg-enlarged {
+    position: relative;
+    margin-right: 50%;
+    transform: scale(3.5) !important;
+    border: 3px solid royalblue;
+    /* height: 60vh !important; */
+    /* width: 75vh !important; */
+    transition: all .3s;
+    z-index: 1;
+}
+.enlarge {
+    position: relative;
+    margin-right: 50%;
+    transform: scale(2.05);
+    transition: all .3s;
+    z-index: 1;
+}
+.l-enlarge {
+    position: relative;
+    /* margin-left: 50%; */
+    transform: scale(var(--img-scale));
+    left: 20%;
+    transition: all .3s;
+    z-index: 1;
+}
+.r-enlarge {
+    position: relative;
+    transform: scale(var(--img-scale));
+    right: 20%;
+    transition: all .3s;
+    z-index: 1;
+}
+.denlarge {
+    position: static;
+    margin-right: 0;
+    transform: scale(1);
+    transition: all .3s;
+    z-index: 0;
+}

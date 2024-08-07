@@ -11,6 +11,11 @@ addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     idEls = []
     letterEls = []
+    if(letter == 'h'){
+        scrollTo(0,0)
+        
+    }
+    
     allEls.forEach(el =>{
         if(el.hasAttribute('id') && !el.classList.contains('hide')){
             idEls.push(el)
@@ -39,7 +44,6 @@ addEventListener('keydown', e => {
             // console.log('currentIndex',currentIndex)
             // console.log(idEls[currentIndex].id)
             if(currentIndex < lastIndex && letterEls.length > 1){
-                console.log('yes')
                 // if(idEls[iLetter + 1]){
                 //     iLetter +=1
                 // }
@@ -47,7 +51,7 @@ addEventListener('keydown', e => {
         }
         if(letterEls[iLetter]){
             letterEls[iLetter].focus()
-            letterEls[iLetter].scrollIntoView()
+            // letterEls[iLetter].scrollIntoView()
         }
         lastIndex = currentIndex
     }

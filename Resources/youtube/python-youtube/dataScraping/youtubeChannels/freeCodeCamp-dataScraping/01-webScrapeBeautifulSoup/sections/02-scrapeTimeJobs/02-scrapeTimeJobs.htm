@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="css/lesson-temp.css">
+<h1>Section 2 - scrape timesjobs.com part 1</h1>
+<div class="steps-container show">
+    <div class="step">
+        <div tabindex="1" class="step-txt">
+            <h4>01</h4>
+            
+            <div class="code-container">
+                <pre tabindex="1" class="copy-code">
+from bs4 import BeautifulSoup
+import requests
+html = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&searchTextSrc=&searchTextText=&txtKeywords=python&txtLocation=')
+html_text = html.text
+soup = BeautifulSoup(html_text,'html.parser')
+jobs = soup.find_all('li',class_='clearfix job-bx wht-shd-bx')
+for job in jobs:
+    data_published = job.find('span',class_='sim-posted').span.text
+    if 'few' in data_published:
+        company_name = job.find('h3',class_='joblist-comp-name').text.replace(' ','')
+        skills = job.find('span',class_="srp-skills").text.replace(' ','')
+        print(company_name)
+        print(skills)
+        print(data_published)
+                </pre>
+            </div>
+            
+        </div>
+        <div class="step-img">
+            <img src="/documentation/python/dataScraping/youtubeChannels/freeCodeCamp/01-webScrapeBeautifulSoup/sections/02-scrapeTimeJobs/02-03-ifFewInDate/images/01-01.png">
+        </div>
+    </div>
+
+
+
+</div>
+

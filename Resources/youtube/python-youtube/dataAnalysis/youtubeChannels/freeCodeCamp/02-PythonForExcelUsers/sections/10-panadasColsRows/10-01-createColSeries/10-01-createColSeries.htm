@@ -1,0 +1,103 @@
+    <h1>Section 10-01-create column with series <code>list[]</code></h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 -  -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - create column with list <span class="gr">['new col']</span></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <p>
+                           Get an array with <code>df[<span class="gr">'math score</span>]</code> square bracket notation, 
+                           This will return a 1d series column.
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+print(df_exams.head(3))
+print(df_exams[<span class="gr">'math score'</span>])</pre>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-01-createColSeries/images/01-01.png">                            
+                    </div>
+                </div>
+                <!-- 01-02- -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <h3>Create a series column as with a list</h3>
+                        <p>
+                            We can see the type that is it a series. When entering columns as a single list in a DataFrame,
+                            if is a 2d series
+                        </p>
+                        <p>
+                            Add a column by adding new name in square brackets <code>[]</code>,
+                            setting a value for it will assigne each row the same value
+                        </p>
+                        
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams[<span class="gr">'language score'</span>] = 80
+print(type(df_exams['language']))
+print(df_exams.head())
+
+</pre>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-01-createColSeries/images/01-02.png">                            
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+        <!-- Part 2 -  -->
+        <div class="part">
+            <h3><a   id="part01" tabindex="1" href="#" class="dropPart">
+                Part 2 - attributes & methods</span></a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 02-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <h3><code>.index</code> attribute & <code>.head()</code> method</h3>
+                        <p>
+                           
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+df_exams = pd.read_csv('StudentsPerformance.csv')
+df_exams['language score'] = 80
+print(df_exams.index)
+print(df_exams.head())</pre>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="step-img">
+                        <img
+src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/10-panadasColsRows/10-01-createColSeries/images/02-01.png">                            
+                    </div>
+                </div>
+
+                
+        </div>
+    </div>
+</main>
+

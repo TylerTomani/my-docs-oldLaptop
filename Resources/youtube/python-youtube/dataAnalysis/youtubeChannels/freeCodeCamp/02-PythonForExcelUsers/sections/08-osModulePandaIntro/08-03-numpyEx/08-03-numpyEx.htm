@@ -1,0 +1,198 @@
+<h1>Section 08-03- numPy Examplej</h1>
+<main>    
+    <div class="parts-container">
+        <!-- Part 1 - series [] list array in to dataframe -->
+        <div class="part">
+            <h3><a id="part01" tabindex="1" href="#" class="dropPart">
+                Part 1 - series [] list array in to data frame</a>
+            </h3>
+            <div class="steps-container show">
+                <!-- 01-00 -->
+                <div class="step-col">                    
+                    <div class="img-2-container">
+                        <div class="step-img">
+                            <img 
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-02-pandasNumpyIntro/images/02-02.png">
+                        </div>
+                        <div class="step-img">
+                            <img 
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-02-pandasNumpyIntro/images/01-03.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- 01-01 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>01</h4>
+                        <p>
+                            Basic example
+                        </p>
+                        <p class="r">Remember to install jupyter and panda in venv of directory of that jupyter is running </p>
+                    <div class="code-container">
+                        <pre tabindex="1" class="copy-code">
+import pandas as pd
+import numpy as np
+
+data = np.array([[1,4],[2,5],[3,6]])
+pd.DataFrame(data)</pre>
+                    </div>
+                    </div>
+                    <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numpyEx/images/01-01.png">
+                    </div>
+                </div>
+                <!-- 01-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <p>
+                            Rename the <span class="r">row</span> name values as values to the parameter <code class="m">index</code> as a <span class="gr">list []</span>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+import numpy as np
+
+data = np.array([[1,4],[2,5],[3,6]])
+pd.DataFrame(data, <span class="m">index</span>=<span class="gr">['row1','row2','row3'])</span> </pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img 
+                        src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numpyEx/images/01-02.png">
+                    </div>
+                </div>
+                <!-- 01-03 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>03</h4>
+                        <p>
+                            Add column names with the parameter <code class="m">columns</code> with values as a list
+                        </p>
+                        <p> 
+                            It common to assign the <code>DataFrame</code> to a variable <code class="b">df</code>
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+import pandas as pd
+import numpy as np
+data = np.array([[1,4],[2,5],[3,6]])
+<span class="b">df</span> = pd.DataFrame(data, index=['row1','row2','row3'],
+        <span class="m">columns</span>=['col1','col2')
+<span class="b">df</span></pre>
+                        </div>
+                        
+                    </div>
+                    <div class="step-img">
+                        <img 
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numpyEx/images/01-03.png">
+                    </div>
+                </div>
+                <!-- 01-04 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>04</h4>
+                        <p>
+                            Import panadas in to venv in project,
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+python -m venv venv </pre>
+                        </div>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+source ./venv/bin/activate</pre>
+                        </div>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+pip install pandas</pre>
+                        </div>
+                        <p class="lgtxt r">
+                            Remember to reactivate jupyter notebook
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+jupyter notebook</pre>
+                        </div>
+                        <p>
+                            run jupyter
+                        </p>
+                    </div>
+                    <div class="step-img">
+                        <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numpyEx/images/01-04.png">
+                    </div>
+                </div>
+                <!-- 01-05 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt rbshadow playVid-click">
+                        <h4>05</h4>
+                        <p>
+                            Ran into trouble remember,
+                        </p>
+                        <p class="bl">
+                            install jupyter and pandas in same venv within directory of project
+                        </p>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+pip install jupyter</pre>
+                        </div>
+                        <div class="code-container">
+                            <pre tabindex="1" class="copy-code">
+pip install pandas</pre>
+                        </div>      
+                        <p>
+                            Then run jupyter in same directory
+                        </p>
+                    </div>
+                    <div class="step-vid">
+                        <video
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numpyEx/images/01-05.mov">
+                    </div>
+                </div>
+            </div>                
+        </div>
+        <!-- Part 2 - dictionary [] in to dataframe -->
+        <div class="part">
+            <h3><a id="" tabindex="1" href="#" class="dropPart">
+                Part 2 - dictionary [] in to dataframe</a>
+            </h3>
+            <div class="steps-container ">
+                <!-- 02-01 -->
+                <div class="step-col">
+                    <div tabindex="1" class="step-txt xxmd-txt-p">
+                        <h4>01</h4>
+                        <p>
+                            A dictionary can be turned into a series column in a dataframe
+                        </p>
+                    </div>
+                    <div class="img-2-container">
+                        <div class="step-img">
+                            <img src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numPyIntro/images/02-01.png">
+                        </div>
+                        <div class="step-img">
+                            <img
+                                src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numPyIntro/images/02-01b.png">
+                        </div>
+                    </div>
+                </div>
+                <!-- 02-02 -->
+                <div class="step">
+                    <div tabindex="1" class="step-txt">
+                        <h4>02</h4>
+                        <p>
+                            csv files convert as is to dataframes(i think)
+                        </p>
+                    </div>
+                    <div class="step-img">
+                        <img
+                            src="/documentation/python/dataAnalysis/youtubeChannels/freeCodeCamp/02-PythonForExcelUsers/sections/08-osModulePandaIntro/08-03-numPyIntro/images/02-02.png">
+                    </div>
+                </div>
+                
+            </div>                
+        </div>
+    </div>
+</main>
+

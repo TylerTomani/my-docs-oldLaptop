@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-scrapyforBeginners</title>    
+    <!-- <link rel="stylesheet" href="../../../../../../css/resource-header-temp.css"> -->
+    <link rel="stylesheet" href="../../../../../css/resource-header-temp.css">
+    <link rel="stylesheet" href="../../../../../../css/flex.css">
+    <link rel="stylesheet" href="../../../../../../css/font-sizes.css">
+    <link rel="stylesheet" href="../../../../../../css/colors.css">
+    <link rel="stylesheet" href="../../../../../css/tutorial-temp-v2.css">
+    <link rel="stylesheet" href="../../../../../../css/imgAnimate-v2.css">
+    <link rel="stylesheet" href="../../../../../../css/copy-code.css">
+    <script src="../../../../../js/letterFocus-tutorial.js" defer></script>
+    <script src="../../../../../../js/copy-code.js" defer></script>
+    <script src="../../../../../js/dropPartStepFocus-v2.js" defer></script>
+    <script src="../../../../../js/loadpageNewTab.js" defer></script>
+    <script type="module" src="../../../../../js/play-enlarge-video.js" defer></script>
+    <script type="module" src="../../../../../js/autofocusLoad.js" defer></script>
+    <script type="module" src="../../../../../js/img-enlarge-v1.js" defer></script>
+    <script type="module" src="../../../../../js/addRemoveTabs-v1.js" defer></script>
+    <script  src="../../.././../../../js/chatGpt-drop-topics.js" defer></script>
+    <link rel="stylesheet" href="../../../../../css/chatGpt-questions.css" />
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <a id="homeLink" tabindex="1" href="../JohnWatsonRooney.htm">home JohnWatsonRooney scrapy </a>
+        </div>
+        <div class="title-container">
+            <h1>johnWatsonRooney</h1>
+            <h2>Scrapy for Beginners - A Complete How To Example Web Scraping Project</h2>
+        </div>
+        <div class="page-logo">
+            <img src="data:image/jpeg;base64,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"
+            ><a id="tutorialLink" tabindex="1" target="_blank"
+                href="https://www.youtube.com/watch?v=s4jtkzHhLzY">tutorial</a>
+        </div>
+    </header>
+    <main>
+        <p class="r">Go back and do after two free code camp scrape videos, and free code camp scrapy video</p>
+        <div class="parts-container">
+            <!-- Part 1 - Job Example -->
+            <div class="part">
+                <a id="part01" tabindex="1" href="#" class="dropPart"><h3>Part 1 - Job Example </h3></a>
+                <div class="steps-container show">
+                    <!-- 01-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Go to <a target="_blank" href="https://www.whiskyshop.com/scotch-whisky">https://www.whiskyshop.com/scotch-whisky</a>
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/01-01.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Part 2 - install scrapy  -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 2 Install scrapy into venv Create scrapy project</h3></a>
+                <div class="steps-container ">
+                    <!-- 02-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                Install scrapy into a venv
+                            </p>
+                            <p class="r">do pip install scrapy last</p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+pip install scrapy</pre>
+                            </div>          
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+python -m venv venv</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+source venv/bin/activate</pre>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-01.png">
+                        </div>
+                    </div>
+                    <!-- 02-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Create at scrapy project, last argument is the name, go into the folder once created and use the tree command to see the project
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+scrapy startproject whiskyscraper</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+cd whiskyscraper</pre>
+                            </div>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+tree </pre>
+                            </div>
+                            <p>
+                                we now have a scrapy project 
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/02-02.png">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Part 3 - scrapy shell -->
+            <div class="part">
+                <a tabindex="1" href="#" class="dropPart"><h3>Part 3 scrapy shell</h3></a>
+                <div class="steps-container show">
+                    <!-- 03-01 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>01</h4>
+                            <p>
+                                In the console in the directory of the scrapy project created in the previous part,
+                                type scrapy, then past the url of the site to scrape
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">scrapy shell</pre>
+                            </div>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-01.png">
+                        </div>
+                    </div>
+                    <!-- 03-02 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>02</h4>
+                            <p>
+                                Use the <code class="m">fetch()</code> command the url to the page as an arugment, you should see a 200 response for 
+                                <strong><code><q>crawled</q></code></strong>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+fetch('https://www.whiskyshop.com/scotch-whisky')</pre>
+                            </div>
+                            <p class="lgtxt r">
+                                There is a 404 error, i'm not sure if i'm suppose to scrape this
+                            </p>
+                            
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-02.png">
+                        </div>
+                    </div>
+                    <!-- 03-03 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt">
+                            <h4>03</h4>
+                            <p>
+                                The response will automatically be saved in a response variable from fetch
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="1" class="copy-code">
+response</pre>
+                            </div>
+                            <p class="lgtxt r">
+                                I'm getting a 404 error
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/03-03.png">
+                        </div>
+                    </div>
+                    <!-- 03-04 -->
+                    <div class="step">
+                        <div tabindex="1" class="step-txt rbshadow">
+                            <h4>04</h4>
+                            <p>
+                                Scraping is not allowed on this site, I'm going to move on to bs4 soup freecodecamp 
+                                <a target="_blank" href="../../../../dataScraping/youtubeChannels/freeCodeCamp/freeCodeCamp.htm">dataScraping freecodecamp</a> then find a newer scrapy 
+                                tutorial
+                            </p>
+                        </div>
+                        <div class="step-img">
+                            <img src="imagesVideos/">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html>
