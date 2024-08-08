@@ -16,7 +16,9 @@ hideSubResources()
 dropTopics.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
-        subResourcesToggle(e)
+        // subResourcesToggle(e)
+        toggleResources(e)
+        console.log(e.target)
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
