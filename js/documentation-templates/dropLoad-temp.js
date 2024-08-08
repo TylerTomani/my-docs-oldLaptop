@@ -117,8 +117,7 @@ sections.forEach(el =>{
         //     iSection++       
         // }
         fetchPage(e.target.href)
-        toggleSection(e)
-    })
+        toggleSection(e)+}<   })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         if(letter == 'enter'){

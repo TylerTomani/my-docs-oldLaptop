@@ -55,16 +55,22 @@ main {
     flex-basis: 10%;
     /* border: 1px solid black; */
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     max-height: 90px;
     max-width: 90px;
 }
-.sub-resources-container > ul > li > a.resource {
+a.resource{
     display: inline-flex;
+    text-decoration: none;
     flex-direction: column;
     background-color: white;
     border: 1px solid black;
+    padding: 0 1%;
+    padding-left:  2%;
+}
+a.resource:visited{
+    color: blue;
 }
 .sub-resources-container > ul > li > .resource > img{
     width: 100%;

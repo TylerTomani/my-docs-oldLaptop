@@ -52,7 +52,9 @@ function resourcesFocus(e,letter){
         })
     } else if(!isNaN(letter)){
         const intlet = parseInt(letter)
-        resources[intlet - 1].focus()
+        if(resources){
+            resources[intlet - 1].focus()
+        }
     }
     // console.log(resources[0])
 }

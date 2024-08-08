@@ -3,13 +3,20 @@
     padding:0;
     box-sizing: border-box;
 }
-
 header {
     display: flex;
     justify-content: space-between;
     padding: 2.5%;
     border-bottom: 1px solid black;
     align-items: center;
+}
+header > .img-container {
+    max-height: 50px;
+    flex-basis: 20%;
+}
+header > .img-container > img {
+    height: 50%;
+    width: 60%;
 }
 #homelink {
     border: 1px solid black;
@@ -71,13 +78,14 @@ main h2 {
 }
 
 .topics-container > .topic{
-    flex-basis: 10%;    
+    flex-basis: 20%;    
     border: 1px solid black;
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    white-space: nowrap;
-    text-wrap: nowrap;
+    max-width: 300px;
+    /* white-space: wrap; */
+    /* text-wrap: wrap; */
     /* margin-bottom: 2.5%; */
 }
 .sub-topics-container > .topic > a{
