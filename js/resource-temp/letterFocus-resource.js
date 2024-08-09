@@ -10,7 +10,6 @@ addEventListener('DOMContentLoaded', e  => {
     
     
 });
-
 resources.forEach(el => {
     el.addEventListener('focus', e => {
         rFocus = true
@@ -21,9 +20,7 @@ resources.forEach(el => {
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
-        if(key === 13){
-             
-            
+        if(letter == 'enter'){   
             toggleTopics(e)
         }
     })
@@ -34,91 +31,59 @@ topics.forEach(el => {
         // tFocus = true
     })
 })
-addEventListener('keydown', e => {
-    // console.log('rFocus', rFocus)
-    // console.log('tFocus', tFocus)
-    let letter = e.key.toLowerCase()
-    switch (letter){
-        case 'h':
-            const homelink = document.querySelector('#homelink')
-            homelink.focus()
-            break
-        case 'b':
-            const backlink = document.querySelector('#backlink')
-            backlink.focus()
-            break
-        case 't':
-            const tutorialLink = document.querySelector('#tutorialLink')
-            tutorialLink.focus()
-            break
-    }
-    
-    
-    if(rFocus){
-        resourcesFocus(e,letter)
-    }
-    if (currentResourceFocus) {
-        topicsFocus(e,letter)
-    }    
-});
-// addEventListener('click', e => {
-//     // e.preventDefault()
-//     console.log('click')
-//     // // console.log('rFocus', rFocus)
-//     // // console.log('tFocus', tFocus)
-//     // if(rFocus){
-//     //     resourcesFocus(e)
-//     // }
-//     // if (currentResourceFocus) {
-//     //     topicsFocus(e)
-//     // }    
-// });
 function resourcesFocus(e,letter){
     if(isNaN(letter)){
         resources.forEach(el => {
             if(letter == el.id[0]){
                 el.focus()
             }
-            
         })
     } else if(!isNaN(letter)){
-        const intlet = parseInt(letter)
-        if(resources){
-            resources[intlet - 1].focus()
+        const intLet = parseInt(letter)
+        if(resources && intLet > 0){
+            resources[intLet - 1].focus()
         }
     }
     // console.log(resources[0])
 }
 function topicsFocus(e,letter){
     // When dropResource has focus, allow numbers to focus to numbered topic
-    // console.log(currentFocused)
     const rContainer = getResourceContainer(e.target.parentElement)
+    console.log(rContainer)
     if(rContainer){
         const topics = rContainer.querySelectorAll('.topics-container > .topic')
         if (!isNaN(letter)) {
             const intLet = parseInt(letter)
             console.log(intLet)
-            if (topics && !topics[intLet - 1].classList.contains('hide') 
-                && intLet <= topics.length){
-                topics[intLet - 1].focus()
+            if(intLet){
+                if (topics && !topics[intLet - 1].classList.contains('hide') 
+                    && intLet <= topics.length){
+                    topics[intLet - 1].focus()
+                }
             }
-            
         }
     }
-
 }
 function toggleTopics(e){
     const resourceContainer = getResourceContainer(e.target.parentElement)
     const topicsContainer = resourceContainer.querySelector('.topics-container')
+    const topics = topicsContainer.querySelectorAll('.topic')
     if(topicsContainer.classList.contains('hide')){
         topicsContainer.classList.remove('hide')
     } else {
         topicsContainer.classList.add('hide')
     }
+    topics.forEach(el => {
+        if(el.classList.contains('hide')){
+            el.classList.remove('hide')
+        } else {
+            el.classList.add('hide')
+        }
+    })
 }
 resources.forEach(el => {
     // add focus listener, when currentResourceFocus is true, num pad goes to numbered topic
-    el.addEventListener('focusin', e =>{
+    el.addEventListener('focus', e =>{
         currentResourceFocus = true
         currentFocused = e.target
 
@@ -134,3 +99,27 @@ function getResourceContainer(parent){
         return null
     }
 }
+addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    switch (letter) {
+        case 'h':
+            const homelink = document.querySelector('#homelink')
+            homelink.focus()
+            break
+        case 'b':
+            const backlink = document.querySelector('#backlink')
+            backlink.focus()
+            break
+        case 't':
+            const tutorialLink = document.querySelector('#tutorialLink')
+            tutorialLink.focus()
+            break
+    }
+    if (rFocus) {
+        resourcesFocus(e, letter)
+    }
+    if (currentResourceFocus) {
+        console.log('currentResourceFocus','true')
+        topicsFocus(e, letter)
+    }
+});
