@@ -13,6 +13,9 @@
     addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
         letterIds = []
+        if(letter == 'h'){
+            scrollTo(0,0)
+        }
         allIdEls.forEach(el => {
             if (letter == el.id[0].toLowerCase() && !el.classList.contains('hide')) {
                 letterIds.push(el)
