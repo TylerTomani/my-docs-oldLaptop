@@ -38,9 +38,9 @@ function resourcesFocus(e,letter){
                 el.focus()
             }
         })
-    } else if(!isNaN(letter)){
+    } else if(!isNaN(letter) && !currentResourceFocus){
         const intLet = parseInt(letter)
-        if(resources && intLet > 0){
+        if(resources.length >= 0 && intLet > 0){
             resources[intLet - 1].focus()
         }
     }
@@ -49,15 +49,15 @@ function resourcesFocus(e,letter){
 function topicsFocus(e,letter){
     // When dropResource has focus, allow numbers to focus to numbered topic
     const rContainer = getResourceContainer(e.target.parentElement)
-    console.log(rContainer)
     if(rContainer){
         const topics = rContainer.querySelectorAll('.topics-container > .topic')
         if (!isNaN(letter)) {
             const intLet = parseInt(letter)
-            console.log(intLet)
             if(intLet){
                 if (topics && !topics[intLet - 1].classList.contains('hide') 
-                    && intLet <= topics.length){
+                    ){
+                        // console.log(rContainer)
+                        console.log(topics[intLet-1])
                     topics[intLet - 1].focus()
                 }
             }
@@ -119,7 +119,6 @@ addEventListener('keydown', e => {
         resourcesFocus(e, letter)
     }
     if (currentResourceFocus) {
-        console.log('currentResourceFocus','true')
         topicsFocus(e, letter)
     }
 });
