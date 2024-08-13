@@ -26,7 +26,6 @@ function hideTopicsContainers(){
         el.classList.add('hide')
     })
 }
-console.log('kdj')
 dropResources.forEach(el =>{
     el.addEventListener('click', e =>{
         e.preventDefault()

@@ -6,11 +6,9 @@
     let currentEl
     let currentResourceFocus = false
     let letterIds = []
-
     addEventListener('DOMContentLoaded', e => {
 
-    });
-
+    })
     addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
 

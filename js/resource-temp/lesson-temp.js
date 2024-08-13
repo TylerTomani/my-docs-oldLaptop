@@ -1,6 +1,7 @@
-import { lastFocusedElement } from "./dropLoad.js"
-import { getSubSection } from "./dropLoad.js"
-import { mainAside } from "./dropLoad.js"
+import { lastFocusedElement } from "./dropLoad-sections.js"
+import { getSubSection } from "./dropLoad-sections.js"
+import { mainAside } from "./dropLoad-sections.js"
+import { showAside } from "./dropLoad-sections.js"
 export function stepTxtListeners(){
 const navbar = document.querySelector('.section-lesson-title')
 const stepTxts = document.querySelectorAll('.step-txt')
@@ -12,10 +13,17 @@ const nxtLesson = document.getElementById('nxtLesson') ? document.getElementById
 const targetDiv = document.getElementById('targetDiv')
 let targetDivFocus = false
 let playing = false
+
+const keys = {
+    cmd:{
+        pressed: false
+    }
+}
+
 targetDiv.addEventListener('focusin', e => {targetDivFocus = true})
 targetDiv.addEventListener('focusout', e => {
     targetDivFocus = false
-    denlargeAllImages()    
+    // denlargeAllImages()    
 })
 targetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -24,6 +32,9 @@ targetDiv.addEventListener('keydown', e => {
             nxtLesson.focus()
         }
     }
+    console.log('jlsdf')
+    showAside(letter)
+    
     
 })
 
@@ -32,8 +43,11 @@ navbar.addEventListener('keydown',e =>{
     if(letter == 'e'){
         if(nxtLesson){
             nxtLesson.focus()
-        }
-        
+        }  
+    }
+    if(!isNaN(letter)){
+        let intLet = parseInt(letter)
+        stepTxts[intLet - 1].focus()
     }
     
 
@@ -70,9 +84,12 @@ stepTxts.forEach(el => {
     el.addEventListener('focus', e => {
         pauseAllVideo()
         removeAllTabIndex()
-    })
-    el.addEventListener('focusout', e => {
         denlargeAllImages()
+    })
+    el.addEventListener('focusin', e => {
+        /** This is where toggle for command + tab goes */
+        denlargeAllImages()
+        
     })
     el.addEventListener('click', e => {
         e.preventDefault()
@@ -92,45 +109,21 @@ stepTxts.forEach(el => {
         }
     })    
 })
-// Numpad focus to invidiual steps
-addEventListener('keydown', e => {
-    let letter = e.key.toLowerCase()
-    let key = e.keyCode
-    if(targetDivFocus){
-        if(!isNaN(letter) && key != 32 ){
-            let intLetter = parseInt(letter)
-            if(intLetter > stepTxts.length){
-                if(nxtLesson){
 
-                    nxtLesson.focus()
-                }
-            } else {
-                stepTxts[intLetter - 1].focus()
-            }
-        } else {
-            if(letter == 'e'){
-                if(nxtLesson){
-                    nxtLesson.focus()
-                } else {
-                    stepTxts[stepTxts.length - 1 ].focus()
-                }
-            }        
-        }
-    } 
-});
 
 // The playing variable is asscoiated with img size so it is placed in here
 function denlargeAllImages(){
     allVideos.forEach(el => {
-        if(el.classList.contains('enlarge-vid')){
+        if (el.classList.contains('enlarge-vid') || el.classList.contains('sm-enlarge')){
             el.classList.remove('enlarge-vid')
             playing = false
             el.pause()
         }
     })
     allImages.forEach(el => {
-        if(el.classList.contains('enlarge')){
+        if (el.classList.contains('enlarge') || el.classList.contains('enlarge-sm')){
             el.classList.remove('enlarge')
+            el.classList.remove('enlarge-sm')
         }
     })
 }
@@ -163,27 +156,31 @@ function toggleImgSize(e){
             } else{
                 img.classList.remove('enlarge-vid')
             }   
-        } else {
-            if(img){
-
-                if(!img.classList.contains('enlarge')){
-                    img.classList.add('enlarge')
-                    img.style.border = "1px solid black"
-                    img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
-                } else{
-                    img.style.border = "none"
-                    img.classList.remove('enlarge')
-                }   
-            }
+        } 
+        if(img && img.tagName == 'IMG'){
+            /* I don't know why sm-enlarge won't be detected??*/
+            if(img.parentElement.classList.contains('sm-enlarge') && !img.classList.contains('enlarge-sm')){
+                img.classList.add('enlarge-sm')
+            } else if(img.classList.contains('enlarge-sm')){
+                img.classList.remove('enlarge-sm')
+            }else if(!img.classList.contains('enlarge')){
+                img.classList.add('enlarge')
+                img.style.border = "1px solid black"
+                img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+            } else if(img.classList.contains('enlarge')){
+                img.style.border = "none"
+                img.classList.remove('enlarge')
+            }   
+                
+                
         }
-
     }
+
 }
 function handleVideoKeydown(e){
     let key = e.keyCode    
     const step = getStep(e.target.parentElement) 
     const vid = step.querySelector('.step-vid > video')
-    console.log(key)
     if(vid){
         switch(key){
             case 32:
@@ -237,23 +234,24 @@ if(nxtLesson){
             playlistVideoNum.focus()
         }
     })
-}
-if(nxtLesson){
     nxtLesson.addEventListener('click', e => {
         const subSection = getSubSection(lastFocusedElement)
+        if(mainAside.classList.contains('hide')){
+            mainAside.classList.remove('hide')
+        }
         if(subSection){
-            if(mainAside.classList.contains('hide')){
-                mainAside.classList.remove('hide')
-            }
             const lessons = subSection.querySelectorAll('li > a')
             let iLesson = [...lessons].indexOf(lastFocusedElement) + 1
             if(lessons[iLesson]){
                 lessons[iLesson].focus()
+
+                scrollTo(0,0)
             } else {
                 lastFocusedElement.focus()
             }
             
         } else {
+            lastFocusedElement.focus()
         }        
     })
     nxtLesson.addEventListener('keydown', e => {
@@ -263,6 +261,13 @@ if(nxtLesson){
         }
     })
 }
+copyCodes.forEach(el =>{
+    el.addEventListener('focus', () =>{
+        if(!keys.cmd.pressed){
+            denlargeAllImages()
+        }
+    })
+})
 allStepTxtPAs.forEach(el =>{
     el.addEventListener('focus', () =>{
         denlargeAllImages()
@@ -272,4 +277,35 @@ allStepTxtPAs.forEach(el =>{
         open(e.target.href,'_blank')
     })
 })
+// Numpad focus to invidiual steps
+
+addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    let key = e.keyCode
+    if(targetDivFocus){
+        if(!isNaN(letter) && key != 32 ){
+            let intLetter = parseInt(letter)
+            if(intLetter > stepTxts.length){
+                if(nxtLesson){
+
+                    nxtLesson.focus()
+                }
+            } else {
+                stepTxts[intLetter - 1].focus()
+            }
+        } else {
+            if(letter == 'e'){
+                if(nxtLesson){
+                    nxtLesson.focus()
+                } else {
+                    // if(stepTxts){
+                    //     stepTxts[stepTxts.length - 1 ].focus()
+                    // }
+                }
+            }        
+        }
+    } 
+    
+    
+});
 }
