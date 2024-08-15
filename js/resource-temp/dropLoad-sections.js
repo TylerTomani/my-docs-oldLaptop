@@ -64,6 +64,7 @@ header.addEventListener('keydown', e => {
 subSections.forEach(el =>{
     if(!el.classList.contains('show')){
         el.classList.add('hide')
+        el.scrollIntoView()
     }
 })
 function hideSubSections(){
