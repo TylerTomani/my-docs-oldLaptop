@@ -1,13 +1,18 @@
 import {currentSelection} from './sections-new.js'
 import { targetDiv } from './sections-new.js'
-
-
+import { getSubSection } from './sections-new.js'
 export function stepTxtListeners(){    
+    const allImages = document.querySelectorAll('.step-img > img') ? document.querySelectorAll('.step-img > img') : document.querySelectorAll('.step-video > video')
     const stepTxts = document.querySelectorAll('.step-txt')
     const nxtLesson = document.getElementById('nxtLesson')
     const copyCodes = document.querySelectorAll('.copy-code') 
     let indexStepImages = 0
     let targetDivFocusIN = false
+    allImages.forEach(el => {
+        el.addEventListener('click', e => {
+            e.target.classList.toggle('enlarge')
+        })
+    })
     // this redundancy make it work, i think only focus out and keydown is needed but did overkill on this
     targetDiv.addEventListener('focus', e => {
         targetDivFocusIN = true
@@ -47,10 +52,7 @@ export function stepTxtListeners(){
 
     }    
         
-    nxtLesson.addEventListener('click', e => {
-        currentSelection.focus()
-
-    })
+    
     // The code below handle img enlarge and code within step txt
     stepTxts.forEach(el => {
         el.addEventListener('focus', e => {
@@ -157,10 +159,11 @@ export function stepTxtListeners(){
             return null
         }
     }
-    const allImages = document.querySelectorAll('.step-img > img') ? document.querySelectorAll('.step-img > img') : document.querySelectorAll('.step-video > video')
+    
     function denlargeAllImages() {
         allImages.forEach(el => {
             if(el.classList.contains('enlarge')){
+                
                 el.classList.remove('enlarge')
             }
             if(el.classList.contains('enlarge-col')){
@@ -168,6 +171,23 @@ export function stepTxtListeners(){
             }
         })
     }
+    nxtLesson.addEventListener('click', e => {
+        const subSection = getSubSection(currentSelection)
+        console.log(subSection)
+        const lessons = subSection.querySelectorAll('li > a')
+        if(subSection){
+            console.log(subSection)
+            let index = [...lessons].indexOf(currentSelection)
+            console.log(index)
+            lessons[index + 1].focus()
+            lessons[index + 1].click()
+            
+        } else {
+            currentSelection.focus()
+        }
+
+    })
+    
 }
 
 

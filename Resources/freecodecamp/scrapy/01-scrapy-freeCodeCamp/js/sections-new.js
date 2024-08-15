@@ -249,7 +249,7 @@ function getSectionContainer(parent){
         return null
     }
 }
-function getSubSection(parent){
+export function getSubSection(parent){
     if(parent.classList.contains('sub-section')){
         return parent
     } else if (parent.parentElement){
