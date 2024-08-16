@@ -6,9 +6,7 @@ export function stepTxtListeners(){
     const stepTxts = document.querySelectorAll('.step-txt')
     const nxtLesson = document.getElementById('nxtLesson')
     const copyCodes = document.querySelectorAll('.copy-code') 
-    const codesStepTxtCol = document.querySelectorAll('.step-txt > .code-container .copy-code ')
     const pAs = document.querySelectorAll('p a') 
-    let colCodesFocused = false
     let indexStepImages = 0
     let targetDivFocusIN = false
     allImages.forEach(el => {
@@ -20,13 +18,6 @@ export function stepTxtListeners(){
     function openNewTab(e){
         open(e.target.href,'_blank')
     }
-
-    codesStepTxtCol.forEach(el => {
-        el.addEventListener('focus', () => colCodesFocused = true)
-
-    })
-    codesStepTxtCol.forEach(el => { el.addEventListener('focus', () => colCodesFocused = true)})
-    codesStepTxtCol.forEach(el => {el.addEventListener('focusout',() =>  colCodesFocused = false)})
     // this redundancy make it work, i think only focus out and keydown is needed but did overkill on this
     targetDiv.addEventListener('focus', e => {
         targetDivFocusIN = true
@@ -63,7 +54,6 @@ export function stepTxtListeners(){
     }
     function stepNumberFocus(intLetter) {
         stepTxts[intLetter - 1].focus()
-        e.target.scrollIntoView({ behavior: "smooth", block: "end" })
 
     }    
         
@@ -76,6 +66,7 @@ export function stepTxtListeners(){
         })
         el.addEventListener('keydown', e => {
             let letter = e.key.toLowerCase()
+            e.target.scrollIntoView({ behavior: "smooth", block: "end"})
             if(letter == 'enter'){
                 handleImgSize(e)
                 handleStepTabIndex(e)
@@ -109,7 +100,7 @@ export function stepTxtListeners(){
         const images = imgContainer.querySelectorAll('.step-img > img')
         console.log(indexStepImages)
         const img = images[indexStepImages]
-        if(indexStepImages < 2 ){
+        if(indexStepImages < 2){
             // img.style.maxWidth = '100px'
             switch (indexStepImages){
                 case 0:
@@ -130,13 +121,17 @@ export function stepTxtListeners(){
             stepCol.scrollIntoView()
         }
         indexStepImages = (indexStepImages + 1) % (images.length + 1)
+
+        
+
     }
+    
     function toggleStepImgSize(step){
         const stepImg = step.querySelector('.step-img')
         const img = stepImg.querySelector('img')
         img.classList.toggle('enlarge')
-        img.scrollIntoView()
     }
+    
     function handleStepTabIndex(e){
         // const stepTxt = getStepTxt(e.target.parentElement)
         const copyCodes = e.target.querySelectorAll('.code-container > .copy-code')
@@ -204,7 +199,8 @@ export function stepTxtListeners(){
             currentSelection.focus()
         }
 
-    })    
+    })
+    
 }
 
 

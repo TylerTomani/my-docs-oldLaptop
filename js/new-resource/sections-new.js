@@ -164,6 +164,7 @@ lessons.forEach(el => {
         sectionsFocus = false
         lessonsFocus = true
         targetDivFocus = false
+        e.target.scrollTo(0,0)
     })
     el.addEventListener('click', e => {
         e.preventDefault()
