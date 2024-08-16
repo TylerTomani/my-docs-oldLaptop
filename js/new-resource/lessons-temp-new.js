@@ -6,6 +6,7 @@ export function stepTxtListeners(){
     const stepTxts = document.querySelectorAll('.step-txt')
     const nxtLesson = document.getElementById('nxtLesson')
     const copyCodes = document.querySelectorAll('.copy-code') 
+    const pAs = document.querySelectorAll('p a') 
     let indexStepImages = 0
     let targetDivFocusIN = false
     allImages.forEach(el => {
@@ -13,6 +14,10 @@ export function stepTxtListeners(){
             e.target.classList.toggle('enlarge')
         })
     })
+    pAs.forEach(el => el.addEventListener('click', openNewTab))
+    function openNewTab(e){
+        open(e.target.href,'_blank')
+    }
     // this redundancy make it work, i think only focus out and keydown is needed but did overkill on this
     targetDiv.addEventListener('focus', e => {
         targetDivFocusIN = true
@@ -61,9 +66,10 @@ export function stepTxtListeners(){
         })
         el.addEventListener('keydown', e => {
             let letter = e.key.toLowerCase()
+            e.target.scrollIntoView({ behavior: "smooth", block: "end"})
             if(letter == 'enter'){
                 handleImgSize(e)
-                handleTabIndex(e)
+                handleStepTabIndex(e)
             }
             if(letter == 'tab'){
                 denlargeAllImages()
@@ -100,15 +106,16 @@ export function stepTxtListeners(){
                 case 0:
                     denlargeAllImages()
                     img.classList.add('enlarge-col')
-                    img.scrollIntoView()
+                    img.scrollIntoView({ behavior: "smooth", block: "end" })
                     break
                 case 1:
                     denlargeAllImages()
                     img.classList.add('enlarge-col')
-                    img.scrollIntoView()
+                    img.scrollIntoView({ behavior: "smooth", block: "end" })
                 break
             }
         } else {
+            stepCol.scrollIntoView({ behavior: "smooth", block: "start" })
             denlargeAllImages()
             stepCol.scrollIntoView()
         }
@@ -124,8 +131,14 @@ export function stepTxtListeners(){
         img.classList.toggle('enlarge')
     }
     
-    function handleTabIndex(e){
+    function handleStepTabIndex(e){
         // const stepTxt = getStepTxt(e.target.parentElement)
+        const copyCodes = e.target.querySelectorAll('.code-container > .copy-code')
+        const as = e.target.querySelectorAll('p a')
+        copyCodes.forEach(el => addTabs(el))
+        as.forEach(el => addTabs(el))
+    }
+    function handleStepCOLTabIndex() {
         const copyCodes = e.target.querySelectorAll('.code-container > .copy-code')
         copyCodes.forEach(el => addTabs(el))
     }
@@ -136,10 +149,8 @@ export function stepTxtListeners(){
         el.removeAttribute('tabindex')
     }
     function removeAllTabs() {
-        copyCodes.forEach(el => {
-            el.removeAttribute('tabindex')
-            // el.setAttribute('tabindex', '-1')
-        })
+        copyCodes.forEach(el => {el.removeAttribute('tabindex')})
+        pAs.forEach(el => {el.removeAttribute('tabindex')})
     }
     function getStepContainer(parent){
         if(parent.classList.contains('step')){
