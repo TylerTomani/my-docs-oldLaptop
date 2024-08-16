@@ -163,11 +163,12 @@ export function stepTxtListeners(){
     function denlargeAllImages() {
         allImages.forEach(el => {
             if(el.classList.contains('enlarge')){
-                
+                el.style.zIndex = "0"
                 el.classList.remove('enlarge')
             }
             if(el.classList.contains('enlarge-col')){
                 el.classList.remove('enlarge-col')
+                el.style.zIndex = "0"
             }
         })
     }
