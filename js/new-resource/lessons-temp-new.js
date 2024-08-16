@@ -99,8 +99,8 @@ export function stepTxtListeners(){
         const imgContainer = stepCol.querySelector('.img-container')
         const images = imgContainer.querySelectorAll('.step-img > img')
         console.log(indexStepImages)
+        const img = images[indexStepImages]
         if(indexStepImages < 2){
-            const img = images[indexStepImages]
             // img.style.maxWidth = '100px'
             switch (indexStepImages){
                 case 0:
@@ -112,10 +112,11 @@ export function stepTxtListeners(){
                     denlargeAllImages()
                     img.classList.add('enlarge-col')
                     img.scrollIntoView({ behavior: "smooth", block: "end" })
-                break
-            }
-        } else {
-            stepCol.scrollIntoView({ behavior: "smooth", block: "start" })
+                    break
+                }
+            } else {
+            stepCol.scrollIntoView(({ behavior: "smooth", block: "start" }))
+            scrollTo(0,0)
             denlargeAllImages()
             stepCol.scrollIntoView()
         }
