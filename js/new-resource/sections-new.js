@@ -1,6 +1,7 @@
 
 import {header,nav, mainTargetDiv, targetDivFocusIN} from "./lessons-temp-new.js"
 import { stepTxtListeners } from "./lessons-temp-new.js"
+import { addCopyCodes } from "./copy-code.js"
 const aside = document.querySelector('aside')
 const backlink = document.querySelector('#backlink')
 const homelink = document.querySelector('#homelink')
@@ -15,7 +16,7 @@ let lessonsFocused = false
 // let targetDivFocus = false
 let pageStarted = false
 let iSection = 0
-let lastFocusedSelection
+export let lastFocusedSelection
 export let currentClickedSelection
 const keys = {
     shift: {
@@ -29,18 +30,24 @@ function hideSubSections(){
         const subSection = sectionContainer.querySelector('.sub-section')
         if(!subSection.classList.contains('show')){
             subSection.classList.add('hide')
-        }
+        } 
     })
 }
 function toggleSubSection(e){
     const sectionContainer = getSectionContainer(e.target.parentElement)
     const el = sectionContainer.querySelector('.sub-section')
+    
     if(el.classList.contains('show')){
         el.classList.remove('show')
-    } else  if(!el.classList.contains('hide')){
+    } 
+     else  if(!el.classList.contains('hide')){
         el.classList.add('hide')
+    } else if(el.classList.contains('hide') && el.classList.contains("show")) {
+        el.classList.remove('show')
+        el.classList.remove('hide')
     } else {
         el.classList.remove('hide')
+
     }
 }
 hideSubSections()
@@ -78,9 +85,23 @@ nav.addEventListener('keydown', e => {
             lastFocusedSelection.focus()
         }
     }
+    if(letter == 'a'){
+        if(aside.classList.contains('hide')){
+            aside.classList.remove('hide')
+        }
+        if(!currentClickedSelection ){
+            lastFocusedSelection.focus()
+        } else if (currentClickedSelection ){
+            currentClickedSelection.focus()
+        }
+    }
     if(letter == 'enter'){
         aside.classList.toggle('hide')
-        
+        if (!currentClickedSelection) {
+            lastFocusedSelection.focus()
+        } else if (currentClickedSelection) {
+            currentClickedSelection.focus()
+        }
     }
     
 
@@ -117,6 +138,7 @@ function handleLessonsFocus(e,letter){
 sections.forEach(el => {
     if (el.hasAttribute('autofocus')) {
         fetchLessonHref(el.href)
+        sectionsFocused = true
     }
     el.addEventListener('focus', e => {
         sectionsFocused = true
@@ -137,6 +159,7 @@ sections.forEach(el => {
             return
         }
         if(letter == 'enter'){
+            hideSubSections()
             toggleSubSection(e) 
             fetchLessonHref(e.target.href)           
         }
@@ -146,6 +169,8 @@ sections.forEach(el => {
 lessons.forEach(el => {
     if(el.hasAttribute('autofocus')){
         fetchLessonHref(el.href)
+        lessonsFocused = true
+        currentClickedSelection = el
     }
     el.addEventListener('focus', e => {
         sectionsFocused = false
@@ -168,8 +193,8 @@ lessons.forEach(el => {
             if (e.target == currentClickedSelection) {
                 mainTargetDiv.focus()
             }
+            currentClickedSelection = e.target
         }
-        currentClickedSelection = e.target
     })
 })
 function handleSectionsFocus(letter) {
@@ -225,10 +250,20 @@ addEventListener('keydown', e => {
     if (letter == 'shift') {
         keys.shift.pressed = true
     }
+
     if (!pageStarted && letter == 's') {
         sections[0].focus()
         pageStarted = true
     }
+    if(letter == 'a'){
+        if(currentClickedSelection){
+            currentClickedSelection.focus()
+        } else {
+            lastFocusedSelection.focus()
+        }
+        
+    }
+    
     pageElementsFocus(letter)
 
 });
@@ -259,7 +294,7 @@ function fetchLessonHref(href) {
             mainTargetDiv.innerHTML = html;
             ////////////// This function is located in lesson-temp.js ////////////////////////////////////////////////////////////////////////////////////
             stepTxtListeners()
-            // addCopyCodes()
+            addCopyCodes()
         })
         .catch(error => console.log('Error fetching content.html:', error));
 }
