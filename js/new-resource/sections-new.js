@@ -108,8 +108,9 @@ nav.addEventListener('keydown', e => {
             currentClickedSelection.focus()
         }
     }
-    
-
+})
+nav.addEventListener('click', ()=>{
+    aside.classList.toggle('hide')
 })
 
 addEventListener('keyup', e => {
@@ -154,7 +155,9 @@ sections.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
         e.stopPropagation()
-        // handleSections(e)
+        hideSubSections()
+        toggleSubSection(e)
+        console.log('clicked')
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
