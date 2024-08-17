@@ -1,5 +1,3 @@
-// import {currentSelection} from './sections-new.js'
-// import { mainTargetDiv } from './sections-new.js'
 export const nav = document.querySelector('nav.section-lesson-title')
 export const mainTargetDiv  = document.querySelector('#mainTargetDiv')
 export const aside = document.querySelector('aside')
@@ -19,7 +17,6 @@ export function stepTxtListeners(){
     const pAs = document.querySelectorAll('p a') 
     let colCodesFocused = false
     let currentStepIndex = 0
-    // let indexStepImages = 0
     let imgIndex = 0
     allImages.forEach(el => {
         el.addEventListener('click', e => {
@@ -29,21 +26,27 @@ export function stepTxtListeners(){
     sections.forEach(el => { el.addEventListener('focus', e => { targetDivFocusIN = false }) })
     lessons.forEach(el => { el.addEventListener('focus', e => { targetDivFocusIN = false }) })
     pAs.forEach(el => {el.setAttribute('tabindex','-1')})
-    nxtLesson.addEventListener('click', e => {
-        // console.lg
-        const subSection = getSubSection(currentClickedSelection)
-        const lessons = subSection.querySelectorAll('li > a')
-        let index
-        if (subSection) {
-            if (!currentClickedSelection) {
-                lastFocusedSelection.focus()
-            } else if (currentClickedSelection) {
-                let index = [...lessons].indexOf(currentClickedSelection)
-                lessons[index + 1].focus()
-                // currentClickedSelection.focus()
+    if(nxtLesson){
+        nxtLesson.addEventListener('click', e => {
+            const subSection = getSubSection(currentClickedSelection)
+            const lessons = subSection.querySelectorAll('li > a')
+            let index
+            if (subSection) {
+                if (!currentClickedSelection) {
+                    lastFocusedSelection.focus()
+                } else if (currentClickedSelection) {
+                    let index = [...lessons].indexOf(currentClickedSelection)
+                    if(lessons[index + 1]){
+                        lessons[index + 1].focus()
+                    } else {
+                        // make this so it goes to next section
+                        currentClickedSelection.focus()
+                        
+                    }
+                }
             }
-        }
-    })   
+        })   
+    }
     // This is overkill, target is set to _blank in html
     function openNewTab(e) {open(e.target.href, '_blank')}
     // this redundancy make it work, i think only focus out and keydown is needed but did overkill on this
@@ -200,11 +203,16 @@ export function stepTxtListeners(){
             }
             // const rect = stepTxts[currentStepIndex].getBoundingClientRect()
             // scrollTo(0, rect.y * .5)
-            stepTxts[currentStepIndex].scrollIntoView({block: 'center'})
+            if(stepTxts){
+
+                stepTxts[currentStepIndex].scrollIntoView({block: 'center'})
+            }
         }
 
         if (letter == 'e') {
+
             nxtLesson.focus()
+            nxtLesson.scrollIntoView()
         }
 
     });

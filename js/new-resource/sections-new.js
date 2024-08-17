@@ -74,6 +74,9 @@ mainTargetDiv.addEventListener('keydown', e => {
     } else if (lastFocusedSelection && letter == 's') {
         lastFocusedSelection.focus()
     }
+    if(!currentClickedSelection && letter == 'a'){
+        lastFocusedSelection.focus()
+    }
 })
 nav.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
@@ -300,3 +303,4 @@ function fetchLessonHref(href) {
         })
         .catch(error => console.log('Error fetching content.html:', error));
 }
+

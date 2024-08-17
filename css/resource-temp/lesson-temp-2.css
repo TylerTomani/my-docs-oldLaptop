@@ -7,6 +7,9 @@
     padding: 0;
     font-size: var(--base-size);
 }
+.section-page > .step {
+    padding-top: 5%;
+}
 .steps-container {
     display: flex;
     flex-direction: column;
