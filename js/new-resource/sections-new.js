@@ -64,6 +64,8 @@ header.addEventListener('keydown', e => {
     } else if (lastFocusedSelection && letter == 's') {
         lastFocusedSelection.focus()
     }
+
+    handleSectionsFocus(letter)
 })
 mainTargetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
