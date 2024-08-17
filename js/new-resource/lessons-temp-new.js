@@ -1,7 +1,15 @@
-import {currentSelection} from './sections-new.js'
-import { targetDiv } from './sections-new.js'
+// import {currentSelection} from './sections-new.js'
+// import { targetDiv } from './sections-new.js'
 import { getSubSection } from './sections-new.js'
-export function stepTxtListeners(){    
+export const nav = document.querySelector('nav.section-lesson-title')
+export const mainTargetDiv  = document.querySelector('#mainTargetDiv')
+export const aside = document.querySelector('aside')
+export const header = document.querySelector('header')
+import { sections } from './sections-new.js'
+import { lessons } from './sections-new.js'
+export let targetDivFocusIN = false
+import { currentClickedSelection } from './sections-new.js'
+export function stepTxtListeners(){
     const allImages = document.querySelectorAll('.step-img > img') ? document.querySelectorAll('.step-img > img') : document.querySelectorAll('.step-video > video')
     const stepTxts = document.querySelectorAll('.step-txt')
     const nxtLesson = document.getElementById('nxtLesson')
@@ -10,13 +18,15 @@ export function stepTxtListeners(){
     const pAs = document.querySelectorAll('p a') 
     let colCodesFocused = false
     let indexStepImages = 0
-    let targetDivFocusIN = false
     allImages.forEach(el => {
         el.addEventListener('click', e => {
             e.target.classList.toggle('enlarge')
         })
     })
-    pAs.forEach(el => el.addEventListener('click', openNewTab))
+    pAs.forEach(el => {
+        el.addEventListener('click', openNewTab)
+        removeTabs(el)
+    })
     function openNewTab(e){
         open(e.target.href,'_blank')
     }
@@ -28,16 +38,16 @@ export function stepTxtListeners(){
     codesStepTxtCol.forEach(el => { el.addEventListener('focus', () => colCodesFocused = true)})
     codesStepTxtCol.forEach(el => {el.addEventListener('focusout',() =>  colCodesFocused = false)})
     // this redundancy make it work, i think only focus out and keydown is needed but did overkill on this
-    targetDiv.addEventListener('focus', e => {
+    mainTargetDiv.addEventListener('focus', e => {
         targetDivFocusIN = true
     })
-    targetDiv.addEventListener('focusin', e => {
+    mainTargetDiv.addEventListener('focusin', e => {
         targetDivFocusIN = true
     })
-    targetDiv.addEventListener('keydown', e => {
+    mainTargetDiv.addEventListener('keydown', e => {
         targetDivFocusIN = true
     })
-    targetDiv.addEventListener('focusout', e => {
+    mainTargetDiv.addEventListener('focusout', e => {
         targetDivFocusIN = false
     })
     addEventListener('keydown', e => {
@@ -55,19 +65,24 @@ export function stepTxtListeners(){
     });
     function stepFocus(letter) {
         const intLetter = parseInt(letter)
+        
+        
         if (intLetter <= stepTxts.length) {
             stepNumberFocus(intLetter)
         } else {
-            nxtLesson.focus()
+            if(nxtLesson){
+                nxtLesson.focus()
+            }
         }
     }
     function stepNumberFocus(intLetter) {
+
         stepTxts[intLetter - 1].focus()
-        e.target.scrollIntoView({ behavior: "smooth", block: "end" })
+        // e.target.scrollIntoView({ behavior: "smooth", block: "end" })
 
     }    
         
-    
+
     // The code below handle img enlarge and code within step txt
     stepTxts.forEach(el => {
         el.addEventListener('focus', e => {
@@ -82,9 +97,7 @@ export function stepTxtListeners(){
             }
             if(letter == 'tab'){
                 denlargeAllImages()
-            }
-
-            
+            }            
         })
     })
     copyCodes.forEach(el => {
@@ -107,7 +120,7 @@ export function stepTxtListeners(){
     function toggleStepColImages(stepCol){
         const imgContainer = stepCol.querySelector('.img-container')
         const images = imgContainer.querySelectorAll('.step-img > img')
-        console.log(indexStepImages)
+        
         const img = images[indexStepImages]
         if(indexStepImages < 2 ){
             // img.style.maxWidth = '100px'
@@ -115,16 +128,17 @@ export function stepTxtListeners(){
                 case 0:
                     denlargeAllImages()
                     img.classList.add('enlarge-col')
-                    img.scrollIntoView({ behavior: "smooth", block: "end" })
+                    img.scrollIntoView({ behavior: "smooth", block: "center" })
+                    
                     break
                 case 1:
                     denlargeAllImages()
                     img.classList.add('enlarge-col')
-                    img.scrollIntoView({ behavior: "smooth", block: "end" })
+                    // img.scrollIntoView({ behavior: "smooth", block: "end" })
                     break
                 }
             } else {
-            stepCol.scrollIntoView(({ behavior: "smooth", block: "start" }))
+            // stepCol.scrollIntoView(({ behavior: "smooth", block: "start" }))
             scrollTo(0,0)
             denlargeAllImages()
             stepCol.scrollIntoView()
@@ -135,7 +149,10 @@ export function stepTxtListeners(){
         const stepImg = step.querySelector('.step-img')
         const img = stepImg.querySelector('img')
         img.classList.toggle('enlarge')
-        img.scrollIntoView()
+        const rect = img.getBoundingClientRect()
+        
+        scrollTo(0, rect.height - 5099)
+
     }
     function handleStepTabIndex(e){
         // const stepTxt = getStepTxt(e.target.parentElement)
@@ -176,7 +193,7 @@ export function stepTxtListeners(){
             return null
         }
     }
-    
+
     function denlargeAllImages() {
         allImages.forEach(el => {
             if(el.classList.contains('enlarge')){
@@ -190,21 +207,22 @@ export function stepTxtListeners(){
         })
     }
     nxtLesson.addEventListener('click', e => {
-        const subSection = getSubSection(currentSelection)
-        console.log(subSection)
+        const subSection = getSubSection(currentClickedSelection)
+        console.log(currentClickedSelection)
         const lessons = subSection.querySelectorAll('li > a')
         if(subSection){
-            console.log(subSection)
-            let index = [...lessons].indexOf(currentSelection)
-            console.log(index)
+            
+            let index = [...lessons].indexOf(currentClickedSelection)
+            
             lessons[index + 1].focus()
-            lessons[index + 1].click()
+            // lessons[index + 1].click()
             
         } else {
-            currentSelection.focus()
+            currentClickedSelection.focus()
         }
 
     })    
+
+
+
 }
-
-

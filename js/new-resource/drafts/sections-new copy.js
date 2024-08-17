@@ -1,22 +1,21 @@
-
-import {header,nav, mainTargetDiv, targetDivFocusIN} from "./lessons-temp-new.js"
-import { stepTxtListeners } from "./lessons-temp-new.js"
-const aside = document.querySelector('aside')
+// import {nav} from "./lessons-temp-new.js"
+// import {targetDiv} from "./lessons-temp-new.js"
+// import {aside} from "./lessons-temp-new.js"
+// import {header} from "./lessons-temp-new.js"
+import {header,nav, sections, mainTargetDiv} from "./lessons-temp-new.js"
+import {lessons} from "./lessons-temp-new.js"
+// import { targetDivFocusIN } from "./lessons-temp-new.js"
+// const targetDiv = document.querySelector('#mainTargetDiv')
 const backlink = document.querySelector('#backlink')
 const homelink = document.querySelector('#homelink')
 const regexCmds = document.querySelector('#regexCmds')
 const programShortcuts = document.querySelector('#programShortcuts')
 const tutorialLink = document.querySelector('#tutorialLink')
-
-export const lessons = document.querySelectorAll('.sub-section > li > a')
-export const sections = document.querySelectorAll('.section')
 let sectionsFocused = true
 let lessonsFocused = false
-// let targetDivFocus = false
 let pageStarted = false
 let iSection = 0
 let lastFocusedSelection
-export let currentClickedSelection
 const keys = {
     shift: {
         pressed: false
@@ -35,6 +34,7 @@ function hideSubSections(){
 function toggleSubSection(e){
     const sectionContainer = getSectionContainer(e.target.parentElement)
     const el = sectionContainer.querySelector('.sub-section')
+
     if(el.classList.contains('show')){
         el.classList.remove('show')
     } else  if(!el.classList.contains('hide')){
@@ -47,14 +47,11 @@ hideSubSections()
 header.addEventListener('focus', e => {
     sectionsFocused = true
 })
-// mainTargetDiv.addEventListener('focus', e => {
-//     targetDivFocus = true
-// })
 header.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(!lastFocusedSelection && letter == 's'){
         sections[0].focus()
-    } else if (lastFocusedSelection && letter == 's') {
+    } else if(lastFocusedSelection){
         lastFocusedSelection.focus()
     }
 })
@@ -62,28 +59,17 @@ mainTargetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(!lastFocusedSelection && letter == 's'){
         sections[0].focus()
-    } else if (lastFocusedSelection && letter == 's') {
+    } else if(lastFocusedSelection){
         lastFocusedSelection.focus()
     }
 })
 nav.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
-    if(letter == 's'){
-        if(aside.classList.contains('hide')){
-            aside.classList.remove('hide')
-        }
-        if(!lastFocusedSelection ){
-            sections[0].focus()
-        } else if(lastFocusedSelection ){
-            lastFocusedSelection.focus()
-        }
+    if(!lastFocusedSelection && letter == 's'){
+        sections[0].focus()
+    } else if(lastFocusedSelection){
+        lastFocusedSelection.focus()
     }
-    if(letter == 'enter'){
-        aside.classList.toggle('hide')
-        
-    }
-    
-
 })
 
 addEventListener('keyup', e => {
@@ -92,7 +78,24 @@ addEventListener('keyup', e => {
         keys.shift.pressed = false
     }
 })
-
+lessons.forEach(el => {
+    el.addEventListener('focus', e => {
+        sectionsFocused = false
+        lessonsFocused = true
+        lastFocusedSelection = e.target
+        
+    })
+    el.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+    })
+    el.addEventListener('keydown', e => {
+        let letter = e.key.toLowerCase()
+        if(lessonsFocused){
+            handleLessonsFocus(e,letter)
+        }
+    })
+})
 function handleLessonsFocus(e,letter){
     if (letter === 'tab') {
         return; /* default Tab behavior work naturally Very important, lessons were not working,
@@ -115,9 +118,6 @@ function handleLessonsFocus(e,letter){
 }
 // handle shift key up
 sections.forEach(el => {
-    if (el.hasAttribute('autofocus')) {
-        fetchLessonHref(el.href)
-    }
     el.addEventListener('focus', e => {
         sectionsFocused = true
         lessonsFocused = false
@@ -137,39 +137,10 @@ sections.forEach(el => {
             return
         }
         if(letter == 'enter'){
-            toggleSubSection(e) 
+           toggleSubSection(e) 
             fetchLessonHref(e.target.href)           
         }
         
-    })
-})
-lessons.forEach(el => {
-    if(el.hasAttribute('autofocus')){
-        fetchLessonHref(el.href)
-    }
-    el.addEventListener('focus', e => {
-        sectionsFocused = false
-        lessonsFocused = true
-        lastFocusedSelection = e.target
-
-    })
-    el.addEventListener('click', e => {
-        e.preventDefault()
-        e.stopPropagation()
-        fetchLessonHref(e.target.href)
-    })
-    el.addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        if (lessonsFocused) {
-            handleLessonsFocus(e, letter)
-        }
-        if (letter == 'enter') {
-            fetchLessonHref(e.target.href)
-            if (e.target == currentClickedSelection) {
-                mainTargetDiv.focus()
-            }
-        }
-        currentClickedSelection = e.target
     })
 })
 function handleSectionsFocus(letter) {
@@ -189,6 +160,7 @@ function handleSectionsFocus(letter) {
         sections[iSection].focus()
     }
 }
+
 function pageElementsFocus(letter){
     switch(letter){
         case 'b':
@@ -241,7 +213,7 @@ function getSectionContainer(parent){
         return null
     }
 }
-export function getSubSection(parent){
+function getSubSection(parent){
     if(parent.classList.contains('sub-section')){
         return parent
     } else if (parent.parentElement){
@@ -259,7 +231,7 @@ function fetchLessonHref(href) {
             mainTargetDiv.innerHTML = html;
             ////////////// This function is located in lesson-temp.js ////////////////////////////////////////////////////////////////////////////////////
             stepTxtListeners()
-            // addCopyCodes()
+            addCopyCodes()
         })
         .catch(error => console.log('Error fetching content.html:', error));
 }

@@ -5,17 +5,16 @@
         <div tabindex="1" class="step-txt">
             <h4>01</h4>
             <p>
-                Aftering installing and creating, Create a <strong><q>Spider</q></strong>,
-                change into the <strong>spiders</strong> directory 
+                Make sure you are in the <code>spiders</code> directory
             </p>
             <div class="code-container">
                 <pre tabindex="1" class="copy-code">
-cd bookscraper/bookscraper/spider
+cd bookscraper/bookscraper/spiders
                 </pre>
             </div>
         </div>
         <div class="step-img">
-            <img src="sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-01.png">
+            <img src="sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01.png">
         </div>
     </div>
     <!-- 01-02 -->
@@ -23,23 +22,24 @@ cd bookscraper/bookscraper/spider
         <div tabindex="1" class="step-txt">
             <h4>02</h4>
             <p>
-                Make a spider, go to this site to scrape, 
-                <br>
-                <a target="_blank" class="gr" href="https://books.toscrape.com/">https://books.toscrape.com/</a>
-                Use the <code class="m">genspider</code> command followed by <code class="dc">&lt;name></code> followed by <code class="gr">&lturl></code>
+                Make a spider, in the spiders directory with the command,
             </p>
             <div class="code-container">
                 <pre tabindex="1" class="copy-code">
-scrapy <span class="m">genspider</span> <span class="dc">bookspider</span> <span class="gr">https://books.toscrape.com/</span>
+scrapy <span class="m">genspider</span> <span class="o">bookspider</span> <span class="g">https://books.toscrape.com/</span>
                 </pre>
             </div>
+            <p>
+                provide <span class="o">name</span> for spider alone with <code class="g">baseUrl</code>
+            </p>
             <p> 
-                The spider will be created in the <code>spiders</code> directory
+                This is the page the spider will base it self in
+                <a target="_blank" class="g" href="https://books.toscrape.com/">https://books.toscrape.com/</a>
             </p>
         </div>
-        <div class="img-2-container">
+        <div class="img-container">
             <div class="step-img">
-                <img src="sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/01-02.png">
+                <img src="sections/02-buildScrapy/02-01-startScrapyBookspiderPy/images/02.png">
             </div>
             <div class="step-img">
                 <img
