@@ -1,8 +1,8 @@
-import { lastFocusedElement } from "./dropLoad.js"
-import { getSubSection } from "./dropLoad.js"
-import { mainAside } from "./dropLoad.js"
-import { sections } from "./dropLoad.js"
-import { lessons } from "./dropLoad.js"
+import { lastFocusedElement } from "./sections-sql.js"
+import { getSubSection } from "./sections-sql.js"
+import { mainAside } from "./sections-sql.js"
+import { sections } from "./sections-sql.js"
+import { lessons } from "./sections-sql.js"
 export function stepTxtListeners(){
     const bodyHeader = document.querySelector('body > header')
     const allVideos = document.querySelectorAll(".step-vid > video")
@@ -169,6 +169,14 @@ function toggleImgSize(e){
                     img.style.border = "none"
                     img.classList.remove('enlarge')
                 }   
+                if(img.classList.contains('sm-enlarge')){
+                    img.classList.add('enlarged-sm')
+                    img.style.border = "1px solid black"
+                    img.scrollIntoView({ behavior: "smooth", block: "end", inline: "end" });
+                } else{
+                    img.style.border = "none"
+                    img.classList.remove('enlarged-sm')
+                }   
             }
         }
 
@@ -277,20 +285,23 @@ copyCodes.forEach(el =>{
         open(e.target.href,'_blank')
     })
 })
-function denlargeAllImages(){
-    
-    allVideos.forEach(el => {
-        if(el.classList.contains('enlarge-vid')){
-            el.classList.remove('enlarge-vid')
-            playing = false
-            el.pause()
-        }
-    })
-    allImages.forEach(el => {
-        
-        if(el.classList.contains('enlarge')){
-            el.classList.remove('enlarge')
-        }
-    })
+
+function denlargeAllImages() {
+   allVideos.forEach(el => {
+       if (el.classList.contains('enlarge-vid')) {
+           el.classList.remove('enlarge-vid')
+           playing = false
+           el.pause()
+       }
+   })
+   allImages.forEach(el => {
+
+       if (el.classList.contains('enlarge')) {
+           el.classList.remove('enlarge')
+       }
+       if (el.classList.contains('enlarged-sm')) {
+           el.classList.remove('enlarged-sm')
+       }
+   })
 }
 }

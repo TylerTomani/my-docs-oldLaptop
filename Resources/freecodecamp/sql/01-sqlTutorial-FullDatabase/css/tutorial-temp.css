@@ -6,6 +6,10 @@ body > header>nav#mainLinksContainer>#mainLinks {
     flex-basis: 80%; 
     
 }
+.section-page > .step, 
+.section-page > .step-col{
+    margin-top: 10%;
+} 
 #mainLinks>a {
     flex-basis: 40%;
     border: 1px solid black;

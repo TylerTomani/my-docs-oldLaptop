@@ -1,5 +1,5 @@
-import { addCopyCodes } from "./copy-code.js"
-import { stepTxtListeners } from "./lesson-temp.js"
+import { addCopyCodes } from "./copy-code-sql.js"
+import { stepTxtListeners } from "./lesson-temp-sql.js"
 // import { denlargeAllImages } from "./lesson-temp.js"
 const header = document.querySelector('header')
 const backlink = document.getElementById('backlink')
@@ -123,7 +123,6 @@ lessons.forEach(el => {
 mainAside.addEventListener('focus', e => {
     targetDivFocused = false
     sectionsFocused = false
-    denlargeAllImages()
 })
 mainAside.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()

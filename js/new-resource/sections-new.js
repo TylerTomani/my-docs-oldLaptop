@@ -157,7 +157,7 @@ sections.forEach(el => {
         e.stopPropagation()
         hideSubSections()
         toggleSubSection(e)
-        console.log('clicked')
+        fetchLessonHref(e.target.href)
     })
     el.addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()

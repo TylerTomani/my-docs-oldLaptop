@@ -167,13 +167,13 @@ body {
 
 .enlarge {
     position: relative;
-    transform: scale(2.2);
-    right: 50%;
-}
-.enlarge {
-    position: relative;
     transform: scale(2.65);
     right: 60%;
+}
+.enlarged-sm {
+    position: relative;
+    transform: scale(2.1);
+    right: 50%;
 }
 
 .enlarge-vid {
