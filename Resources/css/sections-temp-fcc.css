@@ -208,6 +208,10 @@ li > code {
         padding-left: 1%;
     }
     .section-lesson-title {padding-left: 2%;}
+    main > aside {
+        min-width: 10%;
+        width: fit-content;
+    }
     main > aside > .sections-container {
         font-size: 60%;
         /* display: flex;
