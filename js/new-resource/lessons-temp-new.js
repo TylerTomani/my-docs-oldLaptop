@@ -201,11 +201,14 @@ export function stepTxtListeners(){
             if (letter == 'e') {
                 nxtLesson.focus()
             }
-            // const rect = stepTxts[currentStepIndex].getBoundingClientRect()
-            // scrollTo(0, rect.y * .5)
-            if(stepTxts){
-
-                stepTxts[currentStepIndex].scrollIntoView({block: 'center'})
+            // console.log(stepTxts.forEach(el => console.log(el)))
+            if(stepTxts.length > 0){
+                
+                // const rect = stepTxts[currentStepIndex].getBoundingClientRect()
+                // scrollTo(0, rect.y * .5)
+                // stepTxts[currentStepIndex].scrollIntoView({behavior: '', block: 'center'})
+                stepTxts[currentStepIndex].scrollIntoView({ block: 'center'})
+                // stepTxts[currentStepIndex].scrollIntoView(true)
             }
         }
 

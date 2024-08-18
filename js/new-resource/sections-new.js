@@ -74,8 +74,8 @@ mainTargetDiv.addEventListener('keydown', e => {
     } else if (lastFocusedSelection && letter == 's') {
         lastFocusedSelection.focus()
     }
-    if(!currentClickedSelection && letter == 'a'){
-        lastFocusedSelection.focus()
+    if(currentClickedSelection && letter == 'a'){
+        currentClickedSelection.focus()
     }
 })
 nav.addEventListener('keydown', e => {
