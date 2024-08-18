@@ -2,6 +2,8 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
+    background-color: black;
+    color:white
 }
 /* h2:focus,h2:active{
     box-shadow: 0 0 4px 4px lightseagreen;
@@ -24,7 +26,7 @@ main h2 {
 .resources-container {  
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black;    */
+    /* border: 1px solid white;    */
     width: 80%;
 
 }
@@ -36,7 +38,8 @@ main h2 {
 }
 .resource-container > h3> .dropResource {
     text-decoration: none;
-    box-shadow: 0 0 1px 1px black; 
+    box-shadow: 0 0 1px 1px white; 
+    /* color: white; */
     border-radius: 5px;
     padding: .5% 0;
     padding-left: 1.5%;
@@ -60,7 +63,7 @@ main h2 {
 
 .topics-container > .topic{
     flex-basis: 10%;    
-    border: 1px solid black;
+    border: 1px solid white;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -69,8 +72,8 @@ main h2 {
     /* margin-bottom: 2.5%; */
 }
 .topics-container > .topic > h4 {
-    font-size: 90%;
-    color: black;
+    font-size: 100%;
+    /* color: black; */
 }
 .topic > img {
     width:  100%;
@@ -91,7 +94,7 @@ a:focus,a:active{
     display: inline-block;
     background-color: rgb(64, 182, 176,.5);
     opacity: .8;
-    color: black;
+    color: yellowgreen;
 }
 
 #toDoList{
@@ -121,6 +124,7 @@ a:focus,a:active{
     border: 1px soid black;
     border-radius: 10px;
     background-color: lightgray;
+    margin-top: 4%;
     padding: 0 1%;
 }
 @media screen and (max-width: 600px){
