@@ -20,6 +20,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 main h2 {
     margin: .5% 0;
@@ -31,8 +32,9 @@ main h2 {
     flex-direction: column;
     border: 1px solid var(--main-bg); 
     width: 80%;
-    background-color: 1px solid var(--main-bg);
-
+    /* background-color: 1px solid var(--main-bg); */
+    background-color: 1px solid white;
+    
 }
 .resource-container {
     display: flex;
@@ -49,8 +51,7 @@ main h2 {
     padding-left: 1.5%;
     margin-bottom: 1%;
     display: inline-block;
-    width: 100%
-    
+    width: 100%;
 }
 .resource-container>.dropResource {
     text-wrap: none;

@@ -29,7 +29,6 @@ function hideTopicsContainers(){
 dropResources.forEach(el =>{
     el.addEventListener('click', e =>{
         e.preventDefault()
-        console.log('l;kjdcf')
         const resourcesContainer = getResourcesContainer(e.target.parentElement)
         const rContainer = getResourceContainer(e.target.parentElement)
         const tContainer = rContainer.querySelector('.topics-container')
@@ -38,9 +37,9 @@ dropResources.forEach(el =>{
     })
     el.addEventListener('keydown', e =>{
         let key = e.keyCode
-        if(key === 13){   
-            toggleTopicsContainer(e)
-        }
+        // if(key === 13){   
+        //     toggleTopicsContainer(e)
+        // }
     })
 })
 function toggleTopicsContainer(e){
