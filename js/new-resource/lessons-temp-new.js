@@ -93,6 +93,9 @@ export function stepTxtListeners(){
             if (el.classList.contains('enlarge-col')) {
                 el.classList.remove('enlarge-col')
             }
+            if (el.classList.contains('enlarged-lg')) {
+                el.classList.remove('enlarge-col')
+            }
         })
     }    
     function handleStepTabIndex(e) {
@@ -188,7 +191,11 @@ export function stepTxtListeners(){
         const stepImg = step.querySelector('.step-img')
         const img = stepImg.querySelector('img')
         img.style.zIndex = "1"
-        img.classList.toggle('enlarge')
+        if(!img.classList.contains('lg-enlarge')){
+            img.classList.toggle('enlarge')
+        } else if(img.classList.contains('lg-enlarge')){
+            img.classList.toggle('enlarged-lg')
+        }
     }
     addEventListener('keydown', e => {
         let letter = e.key.toLowerCase()
@@ -203,8 +210,7 @@ export function stepTxtListeners(){
             }
             // const rect = stepTxts[currentStepIndex].getBoundingClientRect()
             // scrollTo(0, rect.y * .5)
-            if(stepTxts){
-
+            if(stepTxts.length > 0){
                 stepTxts[currentStepIndex].scrollIntoView({block: 'center'})
             }
         }

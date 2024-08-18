@@ -121,6 +121,12 @@
     margin-right: 50%;
     transform: scale(2.5);
 }
+.enlarged-lg {
+    position: relative;
+    z-index: 2;
+    margin-right: 50%;
+    transform: scale(3);
+}
 .enlarge-col {
     position: relative;
     /* z-index: 4; */
