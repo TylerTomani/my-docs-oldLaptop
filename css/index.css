@@ -112,6 +112,17 @@ a:focus,a:active{
     /* flex-direction: column;
     flex-wrap: nowrap; */
 }
+.more-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 80%; */
+    align-self: flex-end;
+    border: 1px soid black;
+    border-radius: 10px;
+    background-color: lightgray;
+    padding: 0 1%;
+}
 @media screen and (max-width: 600px){
     header{
         margin-bottom:5%;
