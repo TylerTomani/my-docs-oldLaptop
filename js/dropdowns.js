@@ -34,7 +34,7 @@ dropResources.forEach(el =>{
         const rContainer = getResourceContainer(e.target.parentElement)
         const tContainer = rContainer.querySelector('.topics-container')
         const topics = tContainer.querySelectorAll('.topic')
-        topics.classList.toggle('hide')
+        toggleTopicsContainer(e)
     })
     el.addEventListener('keydown', e =>{
         let key = e.keyCode
