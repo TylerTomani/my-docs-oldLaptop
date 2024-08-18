@@ -6,6 +6,7 @@
     let currentEl
     let currentResourceFocus = false
     let letterIds = []
+    let lastIndex, nextIndex
     addEventListener('DOMContentLoaded', e => {
 
     })
