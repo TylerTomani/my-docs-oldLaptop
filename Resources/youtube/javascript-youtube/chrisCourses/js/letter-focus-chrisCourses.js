@@ -15,7 +15,9 @@ addEventListener('keydown', e => {
             backlink.focus()
             break
         case 'c':
-            canvas.focus()
+            if(!keys.command.pressed){
+                canvas.focus()
+            }
             break
         case 't':
             tutorialLink.focus()
