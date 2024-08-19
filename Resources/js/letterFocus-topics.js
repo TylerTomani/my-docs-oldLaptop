@@ -26,7 +26,9 @@ addEventListener('keydown', e => {
             }
         })
         console.log(elsLettered)
-        elsLettered[0].focus()
+        if(elsLettered){
+            elsLettered[0].focus()
+        }
     }
     
     if(letter == currentLetter){

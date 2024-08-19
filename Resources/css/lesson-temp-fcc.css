@@ -5,7 +5,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-size: var(--base-size);
 }
 .section-page > .step {
     padding-top: 5%;
@@ -144,4 +143,9 @@
     display: inline-block;
     overflow-x: scroll;
     overflow: scroll;
+}
+@media screen and (max-width: 641px) {
+    .steps-container{
+        width: 100vw !important;
+    }   
 }
