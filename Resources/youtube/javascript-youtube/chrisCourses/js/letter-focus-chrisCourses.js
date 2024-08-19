@@ -1,6 +1,6 @@
 import { keys } from "./handlePage.js";
 const homelink = document.querySelector('#homelink')
-const canvas = document.querySelector('canvas')
+export const canvasEl = document.querySelector('canvas')
 const backlink = document.querySelector('#backlink')
 const tutorialLink = document.querySelector('#tutorialLink')
 const prevBtn = document.querySelector('#prev')
@@ -16,7 +16,7 @@ addEventListener('keydown', e => {
             break
         case 'c':
             if(!keys.command.pressed){
-                canvas.focus()
+                canvasEl.focus()
                 scrollTo(0,0)
             }
             break

@@ -54,12 +54,31 @@ addEventListener('keydown', e => {
     }
 })
 const scriptPath = './scripts-html/part1.html';
+const currentScript = document.getElementById('currentScript')
 function loadScript(scriptPath) {
     // Fetch the JavaScript file content
     fetch(scriptPath)
         .then(response => response.text())
         .then(data => {
             parentCopyCode.innerHTML = data           
+            // Extract
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+            console.log(tempDiv.textContent)
+            const scriptContent = tempDiv.textContent
+
+            // Create a new script element
+            const newScriptElement = document.createElement('script');
+            newScriptElement.type = 'text/javascript';
+            newScriptElement.textContent = scriptContent;
+
+            // Remove the old script element if it exists
+            if (currentScript) {
+                currentScript.parentNode.removeChild(currentScript);
+            }
+
+            // Append the new script element to the document
+            document.body.appendChild(newScriptElement);
         })
         .catch(error => console.error('Error loading script:', error));
 }
