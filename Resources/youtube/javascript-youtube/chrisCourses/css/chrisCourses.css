@@ -1,0 +1,52 @@
+*{
+    position: relative;
+}
+main {
+    display: flex;
+    flex-direction: column;
+}
+canvas {
+    border: 1px solid black;
+    flex-basis: 50%;
+}
+#scriptsContainer{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    border: 1px solid black;
+}
+#scriptsContainer > .btns-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2.5%;
+}
+#scriptsContainer > .btns-container > button {
+    font-size: 1.2rem;
+    padding: .5% 2%;
+}
+
+.code-container {
+    border: 1px solid black;
+    height: 100%;
+    margin: 0 1%;
+}
+.code-container > pre.copy-code {
+    display: block;
+    background-color: black;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    padding: 0 1%;
+    padding-top: 1%;
+}
+#scriptsContainer > .code-container>pre.copy-code:active,#scriptsContainer>.code-container>pre.copy-code:focus,
+.btns-container>button:active,.btns-container>button:focus{
+    box-shadow: 2px 3px 2px 4px yellow;
+}
+.popup {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
