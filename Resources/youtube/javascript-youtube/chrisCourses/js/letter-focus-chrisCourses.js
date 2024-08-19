@@ -1,11 +1,11 @@
 import { keys } from "./handlePage.js";
 const homelink = document.querySelector('#homelink')
+const canvas = document.querySelector('canvas')
 const backlink = document.querySelector('#backlink')
 const tutorialLink = document.querySelector('#tutorialLink')
 const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 addEventListener('keydown', e => {
-    console.log(keys.shift.pressed)
     let letter = e.key.toLowerCase()
     switch (letter){
         case 'h':
@@ -13,6 +13,9 @@ addEventListener('keydown', e => {
             break
         case 'b':
             backlink.focus()
+            break
+        case 'c':
+            canvas.focus()
             break
         case 't':
             tutorialLink.focus()

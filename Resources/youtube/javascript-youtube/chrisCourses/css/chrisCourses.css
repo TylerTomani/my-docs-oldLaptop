@@ -7,7 +7,9 @@ main {
 }
 canvas {
     border: 1px solid black;
-    flex-basis: 50%;
+    /* flex-basis: 50%; */
+    /* width: 100vw;
+    height: 60vh; */
 }
 #scriptsContainer{
     display: flex;
@@ -41,7 +43,11 @@ canvas {
     padding: 0 1%;
     padding-top: 1%;
 }
-#scriptsContainer > .code-container>pre.copy-code:active,#scriptsContainer>.code-container>pre.copy-code:focus,
+canvas:active,canvas:focus,
+#scriptsContainer > .code-container>pre.copy-code:active,#scriptsContainer>.code-container>pre.copy-code:focus{
+    box-shadow: 0px 0px 2px 4px orange;
+
+}
 .btns-container>button:active,.btns-container>button:focus{
     box-shadow: 2px 3px 2px 4px yellow;
 }
