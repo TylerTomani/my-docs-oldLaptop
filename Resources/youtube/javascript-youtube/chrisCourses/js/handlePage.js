@@ -1,5 +1,6 @@
 const scriptsContainer = document.querySelector('#scriptsContainer')
 const parentCopyCode = document.querySelector('.code-container > pre.copy-code')
+const partTitle = document.getElementById('partTitle')
 let scriptHasFocus = false
 const main = document.querySelector('main')
 const nxtBtn = document.getElementById('next')
@@ -65,12 +66,14 @@ nxtBtn.addEventListener('click', e => {
     htmlScript = arrScripts[iScript]
     htmlScript = `./scripts-html/${htmlScript}`
     loadScript(htmlScript)
+    displayPartTitle(iScript)
 })
 prevBtn.addEventListener('click', e => {
     iScript = (iScript + 1 + arrScripts.length) % arrScripts.length
     htmlScript = arrScripts[iScript]
     htmlScript = `./scripts-html/${htmlScript}`
     loadScript(htmlScript)
+    displayPartTitle(iScript)
 })
 function loadScript(injectScript) {
     // Fetch the JavaScript file content
@@ -78,34 +81,36 @@ function loadScript(injectScript) {
         .then(response => response.text())
         .then(data => {
             parentCopyCode.innerHTML = data;
-
-            // Create a temporary container to manipulate content
+            // Extract script content
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = data;
-
-            // Extract and clean the script content
-            let scriptContent = tempDiv.textContent;
-
-            // Remove function wrappers
-            scriptContent = scriptContent.replace(/^\s*function\s*\(\s*\)\s*\{|\}\s*$/g, '');
-
-            // Remove any leading/trailing new lines or spaces
-            scriptContent = scriptContent.trim();
-
-            // Inject cleaned script content into <pre> element
-            parentCopyCode.textContent = scriptContent;
-
+            const scriptContent = parentCopyCode.textContent;
+            
             // Remove old script elements if they exist
             document.querySelectorAll('script[data-dynamic]').forEach(script => script.remove());
-
+    
             // Create and append new script element
             const newScriptElement = document.createElement('script');
             newScriptElement.type = 'text/javascript';
             newScriptElement.textContent = scriptContent;
             newScriptElement.setAttribute('data-dynamic', 'true'); // Optional: mark as dynamic to easily remove later
             document.body.appendChild(newScriptElement);
+
+            // Optional: remove the currentScript element if needed
             
         })
         .catch(error => console.error('Error loading script:', error));
 }
 
+function displayPartTitle(iScript){
+    console.log(iScript)
+    iScript += 1
+    switch (iScript){
+        case 1:
+            partTitle.innerText = 'part 1 - draw player'
+            break
+        case 2:
+            partTitle.innerText = 'part 2 - gravity'
+            break
+    }
+}
