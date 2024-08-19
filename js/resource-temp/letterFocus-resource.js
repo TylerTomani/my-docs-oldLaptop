@@ -1,3 +1,7 @@
+const allIdEls = document.querySelectorAll('[id]')
+let iLetter
+let letterIds = []
+let currentLetter
 const resources = document.querySelectorAll('.dropResource')
 const topics = document.querySelectorAll('.topic')
 let started = false
@@ -15,15 +19,6 @@ resources.forEach(el => {
         currentResourceFocus = true
         currentFocused = e.target
         started = true
-    })
-    el.addEventListener('click', e => {
-        toggleTopics(e)
-    })
-    el.addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        if(letter == 'enter'){   
-            toggleTopics(e)
-        }
     })
 })
 topics.forEach(el => {
@@ -64,24 +59,6 @@ function topicsFocus(e,letter){
         }
     }
 }
-function toggleTopics(e){
-    const resourceContainer = getResourceContainer(e.target.parentElement)
-    const topicsContainer = resourceContainer.querySelector('.topics-container')
-    const topics = topicsContainer.querySelectorAll('.topic')
-    if(topicsContainer.classList.contains('hide')){
-        topicsContainer.classList.remove('hide')
-    } else {
-        topicsContainer.classList.add('hide')
-    }
-    topics.forEach(el => {
-        if(el.classList.contains('hide')){
-            el.classList.remove('hide')
-        } else {
-            el.classList.add('hide')
-        }
-    })
-}
-
 function getResourceContainer(parent){
     if(parent.classList.contains('resource-container')){
         return parent
@@ -131,4 +108,28 @@ addEventListener('keydown', e => {
             currentResourceFocus = true
         }
     })
+    letterIds = []
+    if (letter == 'h') {
+        scrollTo(0, 0)
+    }
+
+
+    allIdEls.forEach(el => {
+        if (letter == el.id[0].toLowerCase() && !el.classList.contains('hide')) {
+            letterIds.push(el)
+        }
+    })
+    console.log(letterIds)
+    if (letterIds) {
+        if (currentLetter == letter) {
+            iLetter = (iLetter + 1) % letterIds.length
+            letterIds[iLetter].focus()
+
+        } else if (letterIds.length > 0) {
+            iLetter = 0
+            letterIds[0].focus()
+        }
+    }
+    currentLetter = letter
+    currentEl = e.target
 });
