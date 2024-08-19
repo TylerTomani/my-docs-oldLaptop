@@ -1,10 +1,13 @@
+<!-- Part 2 -->
 /** @type {HTMLCanvasElement} */
 <div class="code-container"><pre tabindex="0" class="copy-code">
 const canvas = document.querySelector('canvas')
 canvas.width = innerWidth
 canvas.height = innerHeight * .66
 const c = canvas.getContext('2d')
-</pre></div>
+
+const gravity = 1.5</pre>
+</div>
 <div class="code-container"><pre tabindex="0" class="copy-code">
 class Player{
     constructor(){
@@ -22,13 +25,19 @@ class Player{
     draw(){
         c.fillStyle = 'red'
         c.fillRect(this.position.x, this.position.y, this.width, this.height)
-    }    
-} </pre></div><div class="code-container">
-    <pre tabindex="0" class="copy-code">
+    }
+    update(){
+    this.position.y += this.velocity.y
+    if(player.position.y + player.height + player.velocity.y &lt; canvas.height){ this.velocity.y +=gravity } else {
+        this.velocity.y=0 } this.draw() 
+    } 
+} </pre>
+</div>
+<div class="code-container"><pre tabindex="0" class="copy-code">
 const player=new Player() 
 function animate(){ 
     requestAnimationFrame(animate)
     c.clearRect(0, 0, canvas.width, canvas.height) 
-    player.draw() 
+    player.update() 
 } </pre>
 </div>

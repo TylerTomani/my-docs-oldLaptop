@@ -37,8 +37,10 @@ canvas:active,canvas:focus{
     box-shadow: 2px 3px 2px 4px yellow;
 }
 
+#scriptsContainer {
+    margin: 0 5%;
+}
 #scriptsContainer >.code-container {
-    margin: 0 2.5%;
     border: 1px solid black;
     height: 100%;
     margin: 0 1%;
@@ -64,4 +66,5 @@ canvas:active,canvas:focus{
     font-size: 40% !important;
     top: 0;
     right: 0;
+    margin: 0 !important;
 }

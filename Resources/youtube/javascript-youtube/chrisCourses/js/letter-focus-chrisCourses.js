@@ -17,6 +17,7 @@ addEventListener('keydown', e => {
         case 'c':
             if(!keys.command.pressed){
                 canvas.focus()
+                scrollTo(0,0)
             }
             break
         case 't':
