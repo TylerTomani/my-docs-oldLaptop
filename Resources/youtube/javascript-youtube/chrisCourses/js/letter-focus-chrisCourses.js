@@ -22,12 +22,6 @@
             case 'b':
                 backlink.focus()
                 break
-            case 'c':
-                if (!keys.command.pressed) {
-                    canvasEl.focus()
-                    scrollTo(0, 0)
-                }
-                break
             case 't':
                 tutorialLink.focus()
                 break

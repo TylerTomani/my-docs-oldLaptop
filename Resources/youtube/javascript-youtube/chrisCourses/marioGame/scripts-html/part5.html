@@ -78,12 +78,15 @@ platforms.push(new Platform({ x: canvas.width * .4, y: canvas.height * .5 }))
 platforms.push(new Platform({ x: canvas.width * .8, y: canvas.height * .55 }))
 platforms.push(new Platform({ x: canvas.width * 1.1, y: canvas.height * .4 }))</pre></div>
 
-    const player = new Player()
-    function animate() {
-        requestAnimationFrame(animate)
-        c.clearRect(0, 0, canvas.width, canvas.height)
-        player.update()
-        platforms.forEach(platform => {
+<div class="code-container"><pre tabindex="0" class="copy-code">
+const player = new Player()
+function animate() {
+    requestAnimationFrame(animate)
+    c.clearRect(0, 0, canvas.width, canvas.height)
+    player.update()
+    <div class="code-container">
+        <pre tabindex="0" class="copy-code">
+    platforms.forEach(platform => {
             platform.draw()
         })
         // Left Right Direction
@@ -103,61 +106,66 @@ platforms.push(new Platform({ x: canvas.width * 1.1, y: canvas.height * .4 }))</
             platforms.forEach(platform => {
                 platform.position.x += backgroundSpeed
             })
-        }
-
-        // Up Down Direction
-        if (keys.up.pressed && player.position.y > 0) {
-            player.velocity.y = -17
-        } 
-        // Platform collision detections
-        platforms.forEach(platform => {
-            if(player.position.y + player.height <= platform.position.y 
-                && player.position.y + player.height + player.velocity.y >= platform.position.y
-                && player.position.x + player.width >= platform.position.x
-                && player.position.x < platform.position.x + platform.width){
-                player.velocity.y = 0
-            }
-        })
-            if (keys.down.pressed && player.position.y + player.height + player.velocity.y + gravity <= canvas.height ) {
-                player.position.y += 20
-            }
-    }
-    animate()
-    addEventListener('keyup', e => {
-        let letter = e.key.toLowerCase()
-        switch (letter){
-            case 'a':
-                keys.left.pressed = false
-                break
-            case 'w':
-                keys.up.pressed = false
-                break
-            case 'd':
-                keys.right.pressed = false
-                break
-            case 's':
-                keys.down.pressed = false
-                break
+        }</pre></div>
+    <div class="code-container"><pre tabindex="0" class="copy-code">
+    // Up Down Direction
+    if (keys.up.pressed && player.position.y > 0) {
+        player.velocity.y = -17
+    } 
+    // Platform collision detections
+    platforms.forEach(platform => {
+        if(player.position.y + player.height &lt;= platform.position.y 
+            && player.position.y + player.height + player.velocity.y >= platform.position.y
+            && player.position.x + player.width >= platform.position.x
+            && player.position.x &lt; platform.position.x + platform.width){
+            player.velocity.y = 0
         }
     })
-    addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        switch (letter){
-            case 'a':
-                keys.left.pressed = true
-                break
-            case 'w':
-                keys.up.pressed = true
-                break
-            case 'd':
-                keys.right.pressed = true
-                break
-            case 's':
-                keys.down.pressed = true
-                break
-    
+        if (keys.down.pressed && player.position.y + player.height + player.velocity.y + gravity &lt;= canvas.height ) {
+            player.position.y += 20
         }
+                </pre></div>
+}
+animate()
+        </pre>
+</div>
 
-    });
+<div class="code-container"><pre tabindex="0" class="copy-code">
+addEventListener('keyup', e => {
+    let letter = e.key.toLowerCase()
+    switch (letter){
+        case 'a':
+            keys.left.pressed = false
+            break
+        case 'w':
+            keys.up.pressed = false
+            break
+        case 'd':
+            keys.right.pressed = false
+            break
+        case 's':
+            keys.down.pressed = false
+            break
+    }
+})
+addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    switch (letter){
+        case 'a':
+            keys.left.pressed = true
+            break
+        case 'w':
+            keys.up.pressed = true
+            break
+        case 'd':
+            keys.right.pressed = true
+            break
+        case 's':
+            keys.down.pressed = true
+            break
+
+    }
+
+});</pre></div>
 
 }())

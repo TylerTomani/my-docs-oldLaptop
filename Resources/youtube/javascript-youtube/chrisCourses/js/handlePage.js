@@ -2,6 +2,7 @@ const scriptsContainer = document.querySelector('#scriptsContainer')
 const parentCopyCode = document.querySelector('.code-container > pre.copy-code')
 const partTitle = document.getElementById('partTitle')
 let scriptHasFocus = false
+const canvasEl = document.querySelector('canvas')
 const main = document.querySelector('main')
 const nxtBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
@@ -47,6 +48,9 @@ addEventListener('keydown', e => {
     if(letter == 'meta'){keys.command.pressed = true}
     if(letter == 'p' && keys.shift.pressed){
         togglePopup()        
+    }
+    if(letter == 'c' && !keys.command.pressed){
+        canvasEl.focus()
     }
     if(letter == 's' && keys.shift.pressed){parentCopyCode.focus()}
     if(scriptHasFocus){
@@ -117,6 +121,9 @@ function displayPartTitle(iScript){
             break
         case 5:
             partTitle.innerText = 'part 5 - platform(s) & screen move'
+            break
+        case 5:
+            partTitle.innerText = 'part 6 - use Sprites'
             break
     }
 }
