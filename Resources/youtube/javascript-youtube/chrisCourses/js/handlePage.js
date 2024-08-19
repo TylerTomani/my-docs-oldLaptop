@@ -6,17 +6,22 @@ const canvasEl = document.querySelector('canvas')
 const main = document.querySelector('main')
 const nxtBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
-const arrScripts = ['part1.html', 'part2.html', 'part3.html','part4.html','part5.html']
+const arrScripts = ['part1.html', 'part2.html', 'part3.html','part4.html','part5.html','part6.html']
 let iScript = 0
 let injectScript, htmlScript
 const currentScript = document.getElementById('currentScript')
 
-injectScript = `./scripts-html/${arrScripts[4]}`
+injectScript = `./scripts-html/${arrScripts[0]}`
+// loadScript(injectScript);
+
+// Don't use this when not working on it
 addEventListener('DOMContentLoaded', () =>{
-    loadScript(injectScript);
-    iScript = 4
-    displayPartTitle(iScript)    
+    // iScript = 6
+    // injectScript = `./scripts-html/${arrScripts[iScript - 1]}`
+    // loadScript(injectScript);
+    // displayPartTitle((iScript  -1))    
 })
+// ?///////////////////////////////////
 
 const keys = {
     shift :{
@@ -76,7 +81,7 @@ nxtBtn.addEventListener('click', e => {
     displayPartTitle(iScript)
 })
 prevBtn.addEventListener('click', e => {
-    iScript = (iScript + 1 + arrScripts.length) % arrScripts.length
+    iScript = (iScript - 1 + arrScripts.length) % arrScripts.length
     htmlScript = arrScripts[iScript]
     htmlScript = `./scripts-html/${htmlScript}`
     loadScript(htmlScript)
@@ -122,7 +127,7 @@ function displayPartTitle(iScript){
         case 5:
             partTitle.innerText = 'part 5 - platform(s) & screen move'
             break
-        case 5:
+        case 6:
             partTitle.innerText = 'part 6 - use Sprites'
             break
     }
