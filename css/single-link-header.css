@@ -12,7 +12,7 @@ body >header {
     align-items: center;
 }
 .page-title {
-    flex-basis: 50%; */
+    flex-basis: 50%;
 }
 .page-title > img{
     /* border: 1px solid black;
@@ -20,6 +20,13 @@ body >header {
     max-height: 100px;
 }
 body>header>.page-logo>img {
+    /* flex-basis: 5%; */
+    /* max-width: 200px; */
+    max-height: 100px !important;
+    align-self: center;
+    max-height: 124px;
+}
+body>header>.img-container>img {
     /* flex-basis: 5%; */
     /* max-width: 200px; */
     max-height: 100px !important;
