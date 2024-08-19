@@ -30,3 +30,25 @@ addEventListener('keydown', e => {
     }
     
 })
+
+function loadScript(scriptPath) {
+    // Fetch the JavaScript file content
+    fetch(scriptPath)
+        .then(response => response.text())
+        .then(data => {
+            // Inject the content into the <pre> element
+            document.querySelector('#scriptsContainer > .code-container > .copy-code').textContent = data;
+
+            // Reload the script to execute it
+            const scriptElement = document.createElement('script');
+            console.log(scriptElement.src)
+            scriptElement.src = scriptPath;
+            scriptElement.id = 'currentScript';
+            document.body.appendChild(scriptElement);
+        })
+        .catch(error => console.error('Error loading script:', error));
+}
+
+// Example usage
+const scriptPath = './game-scripts/part1.js';
+loadScript(scriptPath);
