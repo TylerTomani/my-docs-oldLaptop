@@ -64,14 +64,24 @@ header.addEventListener('focus', e => {
 // })
 header.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
+    
     if(!lastFocusedSelection && letter == 's'){
+        showAide()
         sections[0].focus()
     } else if (lastFocusedSelection && letter == 's') {
+        showAide()
         lastFocusedSelection.focus()
     }
 
     handleSectionsFocus(letter)
+    
 })
+function showAide(){
+    if(aside.classList.contains('hide')){
+        aside.classList.remove('hide')
+    }
+
+}
 mainTargetDiv.addEventListener('keydown', e => {
     let letter = e.key.toLowerCase()
     if(!lastFocusedSelection && letter == 's'){

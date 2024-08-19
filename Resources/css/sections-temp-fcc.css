@@ -105,7 +105,8 @@ nav:active,nav:focus{box-shadow: 0 0 3px 3px lightseagreen;}
     text-decoration: none;
     white-space: nowrap;
     color: black;
-    font-size: 80%;
+    font-size: 95%;
+    color: blue;
     
 }
 .sub-section > li >a > span {
