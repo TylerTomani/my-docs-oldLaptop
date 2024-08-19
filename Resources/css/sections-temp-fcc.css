@@ -4,16 +4,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{overflow-x: hidden;}
-body>header {
+body>header>nav#mainLinksContainer {
     display: flex;
-    flex-direction: column;
 }
-body > header>nav#mainLinksContainer {display: flex;}
-body > header>nav#mainLinksContainer>#mainLinks {
+
+body>header>nav#mainLinksContainer>#mainLinks {
     display: flex;
-    flex-basis: 80%; 
+    flex-basis: 80%;
+
 }
+
 #mainLinks>a {
     flex-basis: 40%;
     border: 1px solid black;
@@ -23,30 +23,41 @@ body > header>nav#mainLinksContainer>#mainLinks {
     justify-content: center;
     align-items: center;
 }
+
 #tutorialLink>img {
     min-width: 150px;
     max-width: 200px;
     min-height: 60px;
     max-height: 50px;
 }
-body > header a:focus,header a:active {box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);}
-body > header  > h1 {font-size: 120%;}
-body > header > .title-tutorialLink-container{
+
+body>header {
+    display: flex;
+    flex-direction: column;
+}
+
+body>header a:focus,
+header a:active {
+    box-shadow: 0 0 10px 6px rgb(116, 183, 180, 1);
+}
+
+body>header>h1 {
+    font-size: 120%;
+
+}
+
+body>header>.title-tutorialLink-container {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid black;
 }
+
 nav.section-lesson-title {
-    position: sticky;
-    top: 0;
-    background-color: white;
-    opacity: .8;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
-aside:active,aside:focus,
-main:active,main:focus,
-nav:active,nav:focus{box-shadow: 0 0 3px 3px lightseagreen;}
+
+
 
 #mainTargetDiv:active,#mainTargetDiv:focus{box-shadow: 0 0 4px 2px lightseagreen}
 .sections-container{

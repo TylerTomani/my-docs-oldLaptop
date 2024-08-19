@@ -124,7 +124,10 @@ addEventListener('keydown', e => {
     if (letterIds) {
         if (currentLetter == letter) {
             iLetter = (iLetter + 1) % letterIds.length
-            letterIds[iLetter].focus()
+
+            if(letterIds.length>0 && iLetter <= letter.length){
+                letterIds[iLetter].focus()
+            }
 
         } else if (letterIds.length > 0) {
             iLetter = 0

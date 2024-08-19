@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body > header>nav#mainLinksContainer {
     display: flex;
 }
@@ -6,10 +11,7 @@ body > header>nav#mainLinksContainer>#mainLinks {
     flex-basis: 80%; 
     
 }
-.section-page > .step, 
-.section-page > .step-col{
-    margin-top: 10%;
-} 
+
 #mainLinks>a {
     flex-basis: 40%;
     border: 1px solid black;
@@ -25,11 +27,7 @@ body > header>nav#mainLinksContainer>#mainLinks {
     min-height: 60px;
     max-height: 50px;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body > header {
     display: flex;
     flex-direction: column;
@@ -53,6 +51,7 @@ nav.section-lesson-title {
 main {
     display: flex;
 }
+
 aside:active,aside:focus,
 main:active,main:focus,
 nav:active,nav:focus{
@@ -211,4 +210,8 @@ li > code {
         width: 10vmax !important;
         border-bottom: 1px solid black 
     }
+}
+.section-page>.step,
+.section-page>.step-col {
+    margin-top: 10%;
 }
