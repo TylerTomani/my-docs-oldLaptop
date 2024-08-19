@@ -162,7 +162,7 @@ main>aside {
         width: fit-content;
     }
     #mainTargetDiv{       
-        flex-basis: 70%;
+        flex-basis: 100%;
     }
     
 }
