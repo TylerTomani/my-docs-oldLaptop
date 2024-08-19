@@ -5,10 +5,17 @@ let scriptHasFocus = false
 const main = document.querySelector('main')
 const nxtBtn = document.getElementById('next')
 const prevBtn = document.getElementById('prev')
-const arrScripts = ['part1.html','part2.html']
+const arrScripts = ['part1.html', 'part2.html', 'part3.html','part4.html','part5.html']
 let iScript = 0
 let injectScript, htmlScript
 const currentScript = document.getElementById('currentScript')
+
+injectScript = `./scripts-html/${arrScripts[4]}`
+addEventListener('DOMContentLoaded', () =>{
+    loadScript(injectScript);
+    iScript = 4
+    displayPartTitle(iScript)    
+})
 
 const keys = {
     shift :{
@@ -24,7 +31,7 @@ function togglePopup(){
         scrollTo(0,0)
     } else {
         scriptsContainer.classList.remove('popup')
-        scriptsContainer.scrollIntoView()
+        // scriptsContainer.scrollIntoView()
     }
 }
 scriptsContainer.addEventListener('focusout', e => {scriptHasFocus = false})
@@ -57,10 +64,6 @@ addEventListener('keydown', e => {
     }
 })
 
-// injectScript = './scripts-html/part1.html';
-injectScript = `./scripts-html/${arrScripts[0]}`
-loadScript(injectScript);
-
 nxtBtn.addEventListener('click', e => {
     iScript = (iScript + 1) % arrScripts.length
     htmlScript = arrScripts[iScript]
@@ -84,26 +87,20 @@ function loadScript(injectScript) {
             // Extract script content
             const tempDiv = document.createElement('div');
             tempDiv.innerHTML = data;
-            const scriptContent = parentCopyCode.textContent;
-            
+            const scriptContent = parentCopyCode.textContent;            
             // Remove old script elements if they exist
-            document.querySelectorAll('script[data-dynamic]').forEach(script => script.remove());
-    
+
             // Create and append new script element
             const newScriptElement = document.createElement('script');
             newScriptElement.type = 'text/javascript';
             newScriptElement.textContent = scriptContent;
             newScriptElement.setAttribute('data-dynamic', 'true'); // Optional: mark as dynamic to easily remove later
             document.body.appendChild(newScriptElement);
-
-            // Optional: remove the currentScript element if needed
-            
         })
         .catch(error => console.error('Error loading script:', error));
 }
 
 function displayPartTitle(iScript){
-    console.log(iScript)
     iScript += 1
     switch (iScript){
         case 1:
@@ -111,6 +108,15 @@ function displayPartTitle(iScript){
             break
         case 2:
             partTitle.innerText = 'part 2 - gravity'
+            break
+        case 3:
+            partTitle.innerText = 'part 3 - player movement'
+            break
+        case 4:
+            partTitle.innerText = 'part 4 - platform'
+            break
+        case 5:
+            partTitle.innerText = 'part 5 - platform(s) & screen move'
             break
     }
 }

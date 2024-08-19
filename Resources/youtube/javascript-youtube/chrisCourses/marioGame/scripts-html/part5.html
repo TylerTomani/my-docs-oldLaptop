@@ -1,14 +1,16 @@
 (function () {
-    /** @type {HTMLCanvasElement} */
-    const canvas = document.querySelector('canvas')
-    canvas.width = innerWidth
-    canvas.height = innerHeight * .66
-    const c = canvas.getContext('2d')
+/** @type {HTMLCanvasElement} */
+const canvas = document.querySelector('canvas')
+canvas.width = innerWidth
+canvas.height = innerHeight * .66
+const c = canvas.getContext('2d')
 
-    const gravity = 1.5
-    const playerSpeed = 9
-    let backgroundSpeed = 5
-    const keys = {
+<div class="code-container"><pre tabindex="0" class="copy-code">
+const gravity = 1.5
+const playerSpeed = 9
+let <span class="y">backgroundSpeed</span> = 5</pre></div>    
+<div class="code-container"><pre tabindex="0" class="copy-code">
+const keys = {
         left: {
             pressed : false
         },
@@ -21,60 +23,61 @@
         down: {
             pressed : false
         },
+}</pre></div>
+<div class="code-container"><pre tabindex="0" class="copy-code">
+class Player {
+    constructor() {
+        this.position = {
+            x: 100,
+            y: 100
+        }
+        this.velocity = {
+            x: 0,
+            y: 0
+        }
+        this.width = canvas.width * .05
+        this.height = canvas.width * .05
     }
+    draw() {
+        c.fillStyle = 'red'
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    }
+    update() {
+        this.position.x += this.velocity.x
+        this.position.y += this.velocity.y
+        if (player.position.y + player.height + player.velocity.y < canvas.height) { 
+            this.velocity.y += gravity 
+        } else {
+            this.velocity.y = 0
+        } 
+        this.draw()
+    }
+}
+class Platform{
+    constructor({x,y}){
+        // this.position = {
+        //     x: x,
+        //     y: y
+        // }
+        this.position = {
+            x,
+            y
+        }
+        this.width = canvas.width * .23
+        this.height = 20
+    }
+    draw(){
+        c.fillStyle = 'blue'
+        c.fillRect(this.position.x, this.position.y, this.width, this.height)
+    }
+}</pre></div>
+<div class="code-container"><pre tabindex="0" class="copy-code y">
+const platforms = []
+platforms.push(new Platform({ x: canvas.width * .2, y: canvas.height * .4 }))
+platforms.push(new Platform({ x: canvas.width * .4, y: canvas.height * .5 }))
+platforms.push(new Platform({ x: canvas.width * .8, y: canvas.height * .55 }))
+platforms.push(new Platform({ x: canvas.width * 1.1, y: canvas.height * .4 }))</pre></div>
 
-    class Player {
-        constructor() {
-            this.position = {
-                x: 100,
-                y: 100
-            }
-            this.velocity = {
-                x: 0,
-                y: 0
-            }
-            this.width = canvas.width * .05
-            this.height = canvas.width * .05
-        }
-        draw() {
-            c.fillStyle = 'red'
-            c.fillRect(this.position.x, this.position.y, this.width, this.height)
-        }
-        update() {
-            this.position.x += this.velocity.x
-            this.position.y += this.velocity.y
-            if (player.position.y + player.height + player.velocity.y < canvas.height) { 
-                this.velocity.y += gravity 
-            } else {
-                this.velocity.y = 0
-            } 
-            this.draw()
-        }
-    }
-    class Platform{
-        constructor({x,y}){
-            // this.position = {
-            //     x: x,
-            //     y: y
-            // }
-            this.position = {
-                x,
-                y
-            }
-            this.width = canvas.width * .23
-            this.height = 20
-        }
-        draw(){
-            c.fillStyle = 'blue'
-            c.fillRect(this.position.x, this.position.y, this.width, this.height)
-        }
-    }
-
-    const platforms = []
-    platforms.push(new Platform({ x: canvas.width * .2, y: canvas.height * .4 }))
-    platforms.push(new Platform({ x: canvas.width * .4, y: canvas.height * .5 }))
-    platforms.push(new Platform({ x: canvas.width * .8, y: canvas.height * .55 }))
-    platforms.push(new Platform({ x: canvas.width * 1.1, y: canvas.height * .4 }))
     const player = new Player()
     function animate() {
         requestAnimationFrame(animate)
@@ -84,7 +87,7 @@
             platform.draw()
         })
         // Left Right Direction
-        if(keys.right.pressed && player.position.x  < canvas.width * .5){
+        if(keys.right.pressed && player.position.x  &lt; canvas.width * .5){
             player.velocity.x = playerSpeed
         } else if(keys.left.pressed && player.position.x > canvas.width * .1){
             player.velocity.x = -playerSpeed
