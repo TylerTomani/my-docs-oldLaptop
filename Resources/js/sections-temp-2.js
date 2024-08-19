@@ -1,19 +1,18 @@
-
-import {header,nav, mainTargetDiv, targetDivFocusIN} from "./lessons-temp-fcc.js"
-import { stepTxtListeners } from "./lessons-temp-fcc.js"
-import { addCopyCodes } from "./copy-code-fcc.js"
+import {header,nav, mainTargetDiv} from "./lessons-temp-2.js"
+import { stepTxtListeners } from "./lessons-temp-2.js"
+import { addCopyCodes } from "./copy-code-resources.js"
+import { targetDivFocusIN } from "./lessons-temp-2.js"
 const aside = document.querySelector('aside')
 const backlink = document.querySelector('#backlink')
 const homelink = document.querySelector('#homelink')
 const regexCmds = document.querySelector('#regexCmds')
 const programShortcuts = document.querySelector('#programShortcuts')
 const tutorialLink = document.querySelector('#tutorialLink')
-
 export const lessons = document.querySelectorAll('.sub-section > li > a')
 export const sections = document.querySelectorAll('.section')
 let sectionsFocused = true
 let lessonsFocused = false
-// let targetDivFocus = false
+let targetDivFocus = false
 let pageStarted = false
 let iSection = 0
 export let lastFocusedSelection
@@ -23,6 +22,11 @@ const keys = {
         pressed: false
     }
 }
+
+let localTargetDivFocusIN =false
+//  DONT know why i cant targetDivFocusIn from lessons, when it changes it lessons????
+mainTargetDiv.addEventListener('focusin', () => { localTargetDivFocusIN = true })
+mainTargetDiv.addEventListener('focusout', () => { localTargetDivFocusIN = false})
 function hideSubSections(){
     sections.forEach(el => {
         const sectionContainer = getSectionContainer(el.parentElement)
@@ -227,59 +231,7 @@ function handleSectionsFocus(letter) {
         sections[iSection].focus()
     }
 }
-function pageElementsFocus(letter){
-    switch(letter){
-        case 'b':
-            backlink.focus()
-            break
-        case 'h':
-            homelink.focus()
-            break
-        case 'r':
-            regexCmds.focus()
-            break
-        case 'p':
-            programShortcuts.focus()
-            break
-        case 't':
-            tutorialLink.focus()
-            break
-        case 'm':
-            mainTargetDiv.focus()
-            break
-        case 'n':
-            nav.focus()
-            break
-    }
-    scrollTo(0,0)
-}
-addEventListener('keydown', e => {
-    let letter = e.key.toLowerCase()
-    if (letter === 'tab') {
-        return; /* default Tab behavior work naturally Very important, lessons were not working,
-         this makes the tab key work, Not Sure where this is breaking out to.
-        */
-    }
-    if (letter == 'shift') {
-        keys.shift.pressed = true
-    }
 
-    if (!pageStarted && letter == 's') {
-        sections[0].focus()
-        pageStarted = true
-    }
-    if(letter == 'a'){
-        if(currentClickedSelection){
-            currentClickedSelection.focus()
-        } else {
-            lastFocusedSelection.focus()
-        }
-        
-    }
-    
-    pageElementsFocus(letter)
-
-});
 function getSectionContainer(parent){
     if(parent.classList.contains('section-container')){
         return parent
@@ -299,6 +251,70 @@ export function getSubSection(parent){
     }
 }
 
+function pageElementsFocus(letter) {
+    switch (letter) {
+        case 'b':
+            backlink.focus()
+            break
+        case 'h':
+            homelink.focus()
+            break
+        case 'r':
+            regexCmds.focus()
+            break
+        case 'p':
+            programShortcuts.focus()
+            break
+        case 't':
+            const homePage = document.getElementById('mainPlaceholder')
+            if(homePage || !localTargetDivFocusIN){
+                tutorialLink.focus()
+
+            }
+            if(localTargetDivFocusIN){
+                const tutoralNumLink = document.getElementById('tutoralNumLink')
+                if(tutoralNumLink){
+                    tutoralNumLink.focus()
+                }
+            }
+            break
+        case 'm':
+            mainTargetDiv.focus()
+            break
+        case 'n':
+            nav.focus()
+            break
+    }
+    scrollTo(0, 0)
+}
+addEventListener('keydown', e => {
+    let letter = e.key.toLowerCase()
+    
+    if (letter === 'tab') {
+        return; /* default Tab behavior work naturally Very important, lessons were not working,
+         this makes the tab key work, Not Sure where this is breaking out to.
+        */
+    }
+    if (letter == 'shift') {
+        keys.shift.pressed = true
+    }
+
+    if (!pageStarted && letter == 's') {
+        sections[0].focus()
+        pageStarted = true
+    }
+    if (letter == 'a') {
+        if (currentClickedSelection) {
+            currentClickedSelection.focus()
+        } else {
+            lastFocusedSelection.focus()
+        }
+
+    }
+
+    pageElementsFocus(letter)
+
+});
 function fetchLessonHref(href) {
     fetch(href)
         .then(response => response.text())
