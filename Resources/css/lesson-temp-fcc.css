@@ -1,33 +1,21 @@
-:root{
-    /* --base-size: 1rem; */
-    /* --scale: 1.2% */
-}
 * {
     margin: 0;
     padding: 0;
 }
-.section-page > .step {
-    padding-top: 5%;
-}
+.section-page > .step {padding-top: 5%;}
 .steps-container {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-
 .step {
     display: flex;
     gap: 2.5%;
     justify-content: center;
 }
-
 .step>* {
     border: 1px solid black;
     flex-basis: 45%;
-}
-.step,
-.step-col {
-    /* margin:1.25% 0; */
 }
 .step-col {
     display: flex;
@@ -146,6 +134,9 @@
 }
 @media screen and (max-width: 641px) {
     .steps-container{
-        width: 100vw !important;
+        width: 100%;
     }   
+    .img-container img {
+        width: 100%;
+    }
 }
